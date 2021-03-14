@@ -1,0 +1,10 @@
+*.v3hex
+
+# Quartus generated files
+*.qws
+*.hex
+*.bak
+db/
+incremental_db/
+simulation/
+output_files/
