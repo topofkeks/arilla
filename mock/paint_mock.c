@@ -20,6 +20,7 @@ const short CANVAS_SIZE = 64000;
 
 // A pixel consists of 4 bits, each represnting one of 16 colors from a palette
 // These 16 colors will be mapped in the registers of the GPU
+// The mapping of these colors will be done using GPU instructions
 // A suggestion for the default palette: https://en.wikipedia.org/wiki/ZX_Spectrum_graphic_modes
 
 // 160 words per horizontal line
@@ -34,6 +35,8 @@ register short current_color;
 
 // Currently selected tool, will be used to map to a array of pointers to routines
 register short current_tool;
+
+void (*paint_tools)(void) = { px_1_pen, px_2_pen, px_4_pen, rubber, paint_bucket, fill_canvas };
 
 // GPU refresh instruction
 extern void refresh(void);
@@ -50,6 +53,7 @@ void fill_canvas(void){
 // 1 pixel wide pen
 void px_1_pen(void){
     register short fill = (current_color & 0xF) << (mouse_x & 3 << 2);
+    canvas[400 * mouse_y + mouse_x >> 2] = fill;
     refresh();
 }
 
@@ -94,5 +98,8 @@ void interrupt_trap(void){
 }
 
 void interrupt_left_mouse_button(void){
-    
+    if (mouse_y < 400) 
+        paint_tools[current_tool]();
+    else   
+        // Toolbox area, todo
 }
