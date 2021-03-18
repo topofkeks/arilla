@@ -1,12 +1,8 @@
 # Arilla
 Arilla - Computer Architecture project, spring 2021.
 
-## Ideje
+## Softver
 - Paint
-- Klavir?
-- Super Mario
-- Bullet hell
-- osu!
 
 ## Delovi računara
 - Procesor (AR3B72C)
