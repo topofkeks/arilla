@@ -1,251 +1,248 @@
 #!/usr/bin/env python
-from argparse import ArgumentParser
-from typing import Dict, List, Optional, Tuple, Union
+from argparse import ArgumentParser, Namespace
+from typing import Dict, List, Literal, Tuple, Union
 import re
 
-parser = ArgumentParser(description='Asembler za arhitekturu procesora iz projektnog zadatka 47 sa Osnova računarske tehnike 2 za godinu 2021.')
+Unresolved = Union[str, int]
+Addressing = Literal['immed', 'memdir', 'memind', 'regind', 'regdir']
+Operand = Tuple[Addressing, int]
+OperandUnresolved = Tuple[Addressing, Unresolved]
+Instruction = Tuple[int, int]
+
+parser: ArgumentParser = ArgumentParser(description='Asembler za AR3B72C procesor.')
 parser.add_argument('asm_file', type=str, help='datoteka sa izvornim asemblerskim kodom')
 parser.add_argument('--binary', help='ispis instrukcija u binarnim ciframa', action='store_true')
-parser.add_argument('--iv', help='generisanje sadržaja IV tabele na osnovu labela intrX', action='store_true')
-parser.add_argument('--pretty', help='štampa novi red na kraju instrukcije', action='store_true')
-parser.add_argument('--v3hex', help='štampa u v3.0 hex words addressed formatu, za Logisim', action='store_true')
-args = parser.parse_args()
+# parser.add_argument('--pretty', help='štampa novi red na kraju instrukcije', action='store_true')
+# parser.add_argument('--v3hex', help='štampa u v3.0 hex words addressed formatu, za Logisim', action='store_true')
+args: Namespace = parser.parse_args()
 
-# (     0         1               2               3         4          5         6         7     )
-# (Instruction, Indir1, Flags(R, #, +, -), Base1(0b, 0x), Number, Base2(b, h), Indir2, Post(+, -))
-line_regex = re.compile(r'^\s*(?:([a-zA-z][a-zA-Z0-9]+)\s*:)?\s*(HALT|RTS|RTI|ROT?RC?|PUSH|POP|BLEQ|BGREU|BNNG|BGRT|JLEQ|JMP|JSR|LD|ST|ADD|INC|OR|STRFIND)\s*(?:(?:(\()?([R#+-]|#-)?(0[bx])?([0-9a-f]+)?(h)?(\))?([+-])?)|([a-zA-z][a-zA-Z0-9]+))\s*(?:;|$)', re.IGNORECASE)
-instructions: List[Tuple[Optional[str], Optional[str], Union[str, int, None]]] = []
-opcodes: Dict[str, int] = {
-    # Bezadresne
-    'HALT': 0,
-    'RTS': 1,
-    'RTI': 2,
-    'ROR': 3,
-    'ROTR': 3,
-    'RORC': 4,
-    'ROTRC': 4,
-    'PUSH': 5,
-    'POP': 6,
-    # Uslovni skokovi
-    'BLEQ': 16,
-    'BGREU': 17, 
-    'BNNG': 18,
-    'BGRT': 19,
-    'JLEQ': 20,
-    # Bezuslovni skokovi
-    'JMP': 32,
-    'JSR': 33,
-    # Adresne
-    'LD': 48,
-    'ST': 49,
-    'ADD': 50,
-    'INC': 51,
-    'OR': 52,
-    'STRFIND': 53
+instructions: Dict[int, List[Tuple[str, List[OperandUnresolved], int]]] = {}
+iv_table: List[str] = ['fault', 'mouse', 'trap']
+iv_table_address: int = 0
+data: Dict[int, List[int]] = {
+    iv_table_address: []
 }
-
-
-labels : Dict[str, int] = {}
-
-lengths : Dict[Union[str, None], int] = {
-    None : 0,
-    # Adresiranja
-    'immed' : 4,
-    'memdir' : 4,
-    'memind' : 4,
-    'regind' : 2,
-    'postincr' : 2,
-    'postdec' : 2,
-    'regdir' : 2,
-    # Instrukcije 
-    'HALT' : 1,
-    'RTS' : 1,
-    'RTI' : 1,
-    'ROR' : 1,
-    'RORC' : 1,
-    'PUSH' : 1,
-    'POP' : 1,
-    'BLEQ' : 2,
-    'BGREU' : 2,
-    'BNNG' : 2,
-    'BGRT' : 2,
-    'JLEQ' : 3,
-    'JMP' : 3,
-    'JSR' : 3,
+instruction_defs: Dict[str, Instruction] = {
+    # WIP
+    'HALT': (0, 0),
+    'RTS': (1, 0),
+    'RTI': (2, 0),
+    'TRPE': (2, 0),
+    'TRPD': (2, 0),
+    'BZ': (3, 1),
+    'B': (4, 1),
+    'BSR': (5, 1),
+    'JREG': (6, 1),
+    'PUSH': (8, 1),
+    'POP': (9, 1),
+    'ADD': (10, 2),
+    'SUB': (11, 2),
+    'CMP': (12, 2),
+    'OR': (13, 2),
+    'AND': (14, 2),
+    'LDR': (15, 2),
+    # Zahtevaju dve reči
+    'LD': (32, 2), # Može da se konvertuje u LDR
+    'ST': (33, 2),
+    'JZ': (34, 1),
+    'JMP': (35, 1),
+    'JSR': (35, 1)
 }
+labels: Dict[str, int] = {}
+adrcodes: List[Addressing] = ['immed', 'memdir', 'memind', 'regind', 'regdir']
 
-adrcodes = ['immed', 'memdir', 'memind', 'regind', 'postincr', 'postdec', 'regdir']
+pc: int = 0
+org: int = 0
 
+def is_two_words(instruction: str) -> bool:
+    return (instruction_defs[instruction][0] & 0b100000) != 0
+
+def is_memdir(instruction: str) -> bool:
+    return instruction.startswith('J') or instruction.startswith('B')
+
+def is_load_store(instruction: str):
+    return instruction == 'LD' or instruction == 'ST'
+
+def parse_number(number: str) -> Unresolved:
+    try:
+        value: int = 0
+        if number.endswith('h'):
+            value = int(number[0:-1], 16)
+        elif number.endswith('b'):
+            value = int(number[0:-1], 2)
+        elif number.endswith('o'):
+            value = int(number[0:-1], 8)
+        else:
+            value = int(number, 10)
+        assert -2**15 <= value < 2**15, f'Vrednost adrese/podatka van dozvoljenog opsega: {number}'
+        return value
+    except ValueError:
+        # Labela
+        return number
+
+def resolve_label(label: Unresolved) -> int:
+    global labels
+    if isinstance(label, int):
+        return label
+    assert label in labels, f'Labela mora biti definisana: {label}'
+    return labels[label]
+
+def parse_and_resolve_number(number: str) -> int:
+    return resolve_label(parse_number(number))
+
+def parse_operand(operand: str) -> OperandUnresolved:
+    operand = operand.strip()
+    if operand.startswith('#'):
+        return ('immed', parse_number(operand[1:]))
+    indir: bool = False
+    if operand.startswith('(') and operand.endswith(')'):
+        operand = operand[1:-1]
+        indir = True
+    if operand.startswith('R') or operand.startswith('r'):
+        try:
+            regnum: int = int(operand[1:])
+            assert 0 <= regnum < 32, f'Broj registra van dozvoljenog opsega: {operand}'
+            return (indir and 'regind' or 'regdir', regnum)
+        except ValueError:
+            # Ovo nije bio registar nego labela koja počinje sa R
+            pass
+    return (indir and 'memind' or 'memdir', parse_number(operand))
+
+def handle_macro(operand: str, args: str) -> None:
+    global org, pc, data, labels
+    if operand == 'ORG':
+        pc = parse_and_resolve_number(args)
+        assert 0 <= pc < 2**18, f'PC ne može da bude veći od veličine adrese, data vrednost {args}'
+        org = pc
+    elif operand == 'DATA':
+        size, data_bytes = [parse_and_resolve_number(arg) for arg in args.split(',', 1)]
+        byte_split = data_bytes.to_bytes(size * 2, 'big', signed=True)
+        if org not in data:
+            data[org] = []
+        for i in range(size):
+            data[org].append(byte_split[i * 2] << 8 + byte_split[i * 2 + 1])
+    elif operand == 'LABEL':
+        label, contents = args.split(',', 1)
+        label: str = label.strip()
+        label_contents: int = parse_and_resolve_number(contents.strip())
+        assert label not in labels, f'Opet se definiše labela: {label}'
+        assert 0 <= label_contents < 2**18, f'Sadržaj labele ne može da bude veći od veličine adrese, data vrednost {contents}'
+        labels[label] = label_contents
+    else:
+        print('Ne postoji makro:', operand)
+        exit(1)
+
+def format_binary(num: int, width: int) -> str:
+    fmt: str = '{:0' + str(width) + 'b}'
+    return fmt.format(num)
+
+def format_hex(num: int, width: int) -> str:
+    fmt: str = '{:0' + str(width) + 'x}'
+    return fmt.format(num).upper()
+
+# Faza parsiranja instrukcija i ekspanzije makroa
 with open(args.asm_file, 'r', encoding='utf-8') as asm_file:
     for line in asm_file:
-        if line.strip() == '':
+        line: str = line.split(';', 1)[0].strip()
+        if line == '':
             # Prazna linija
             continue
-        line_match = line_regex.match(line)
-        if line_match is None:
-            print('Sintaksna greška: ', line)
-            exit(1)
-        label, instruction, indir1, flags, base1, number, base2, indir2, post, destination = line_match.groups()
-        instruction = instruction.upper()
-        indir = False
-        reg = flags == 'R' or flags == 'r'
-        immed = type(flags) is str and flags.startswith('#')
-        branch = instruction.startswith('B')
-        jump = instruction.startswith('J')
-        if destination is not None and destination.endswith('\n'): destination = destination[:-1] # Uklanjanje \n
+        line_split: List[str] = line.split(':', 1)
+        if len(line_split) == 2:
+            label = line_split[0].strip()
+            line = line_split[1].strip()
+            assert label not in labels, f'Opet se definiše labela: {label}'
+            labels[label] = pc
+        line_split: List[str] = line.strip().split(' ', 1)
+        instruction = line_split[0].strip().upper()
+        if instruction.startswith('.'):
+            handle_macro(instruction[1:], line_split[1].strip())
+            continue
+        assert instruction in instruction_defs, f'Instrukcija ne postoji: {instruction}'
+        operands_unresolved: List[OperandUnresolved] = []
+        if len(line_split) == 2:
+            for operand in line_split[1].split(','):
+                operands_unresolved.append(parse_operand(operand))
+        operand_count = instruction_defs[instruction][1]
+        # Optimizacija
+        if operand_count == 2 and operands_unresolved[0][0] == 'regdir' and operands_unresolved[1][0] == 'regdir':
+            if instruction == 'LD':
+                instruction = 'LDR'
+            elif instruction == 'ST':
+                instruction = 'LDR'
+                operands_unresolved[0], operands_unresolved[1] = operands_unresolved[1], operands_unresolved[0]
         # Validacija
-        if label is not None and label in labels:
-            print('Opet se definiše labela: ',label)
-            exit(1)
-        if destination is not None and not jump:
-            print('Samo instrukcije apsolutnog skoka mogu imati labelu kao operand.')
-            exit(1)
-        if type(flags) is str and flags.endswith('-') and not (branch or immed):
-            print('Samo instrukcije grananja i neposredno adresiranje mogu da imaju znak operanda:', line)
-            exit(1)
-        if (indir1 is not None) != (indir2 is not None):
-            print('Nedostaje zagrada kod indirektnog adresiranja: ', line)
-        if indir1 is not None and indir2 is not None:
-            indir = True
-        if base1 is not None and base2 is not None:
-            print('Zadate su osnove i kao prefiks i kao sufiks:', line)
-            exit(1)
-        # Nova labela
-        if label is not None:
-            instructions.append((None, label, None))
-        # Određivanje operanda
-        operand = None
-        if destination is not None:
-            operand = destination
-        elif number is not None:
-            if opcodes[instruction] < 8:
-                print(label, instruction, indir1, flags, base1, number, base2, indir2, post, destination)
-                print('Bezadresne instrukcije ne primaju operande:', line)
-                exit(1)
-            base = 10
-            if base1 == '0x' or base1 == '0X' or base2 == 'h' or base2 == 'H':
-                base = 16
-            elif base1 == '0b' or base1 == '0B' or base2 == 'b' or base2 == 'B':
-                base = 2
-            operand = int(number, base)
-            if type(flags) is str and flags.endswith('-'):
-                operand = -operand
-            if (reg and operand > 15) or (branch and (operand < -128 or operand > 127)) or operand > 65535:
-                print('Operand van dozvoljenih granica:', line)
-                exit(1)
-        # Određivanje načina adresiranja
-        adr = None
-        if operand is not None and not branch and not jump:
-            if immed:
-                if indir:
-                    print('Neposredno adresiranje ne može da bude indirektno:', line)
-                    exit(1)
-                adr = 'immed'
-            elif reg:
-                if indir:
-                    if post == '+':
-                        adr = 'postincr'
-                    elif post == '-':
-                        adr = 'postdec'
-                    else:
-                        adr = 'regind'
-                else:
-                    if post is None:
-                        adr = 'regdir'
-                    else:
-                        print('Postinkrement i dekrement su podržani samo kod registarskog indirektnog adresiranja:', line)
-            elif post is not None:
-                print('Postinkrement i dekrement su podržani samo kod registarskog indirektnog adresiranja:', line)
-                exit(1)
-            elif indir:
-                adr = 'memind'
-            else:
-                adr = 'memdir'
-        # Slanje na formatiranje
-        instructions.append((instruction, adr, operand))
+        assert len(operands_unresolved) == operand_count, f'Pogrešan broj operanada instrukcije: {line}'
+        if is_memdir(instruction):
+            assert operands_unresolved[0][0] == 'memdir', f'Instrukcije skoka i grananja moraju da koriste memorijsko direktno adresiranje: {line}'
+        elif operand_count != 0:
+            assert operands_unresolved[0][0] == 'regdir', f'Prvi operand mora biti registar: {line}'
+            if not is_load_store(instruction) and operand_count == 2:
+                assert operands_unresolved[0][0] == 'regdir', f'Drugi operand mora biti registar: {line}'
+        if org not in instructions:
+            instructions[org] = []
+        if is_two_words(instruction):
+            pc += 2
+        else:
+            pc += 1
+        instructions[org].append((instruction, operands_unresolved, pc))
 
-# Faza određivanja labela
-tpos = 0x1000
-for instruction, adr, operand in instructions:
-    if instruction is None and adr is not None:
-        labels[adr] = tpos
+# Faza razrešavanja labela i generisanja podataka
+for adr, instruction_list in instructions.items():
+    if adr not in data:
+        data[adr] = []
+    for (instruction, operands_unresolved, curr_pc) in instruction_list:
+        opcode: int = instruction_defs[instruction][0]
+        # O - operacioni kod (6b)
+        # R - registar (5b)
+        # A - način adresiranja (3b)
+        # M - adresa u memoriji kod instrukcija skoka
+        # J - relativan pomeraj kod instrukcija grananja
+        # X - ne koristi se
+        if is_load_store(instruction):
+            # OOOOOORR|RRRAAAMM MMMMMMMM|MMMMMMMM
+            assert isinstance(operands_unresolved[0][1], int), 'Vrednost pri registarskom direktnom adresiranju je labela (ovo ne bi trebalo da se desi)'
+            reg: int = operands_unresolved[0][1]
+            adrname, op2_unresolved = operands_unresolved[1]
+            adrcode: int = adrcodes.index(adrname)
+            op2: int = resolve_label(op2_unresolved)
+            data[adr].append(((((opcode << 5) + reg) << 3) + adrcode) << 2 + (op2 >> 16))
+            data[adr].append(op2 % 2**16)
+        elif is_two_words(instruction):
+            # 000000XX|XXXXXXMM MMMMMMMM|MMMMMMMM
+            op1: int = resolve_label(operands_unresolved[0][1])
+            data[adr].append((opcode << 8) + (op1 >> 16))
+            data[adr].append(op1 % 2**16)
+        elif is_memdir(instruction):
+            # OOOOOOJJ|JJJJJJJJ
+            op1: int = resolve_label(operands_unresolved[0][1]) - curr_pc
+            assert -2**9 <= op1 < 2**9, f'Operator {op1} instrukcije grananja je preveliki'
+            byte1, byte2 = op1.to_bytes(2, 'big', signed=True)
+            data[adr].append((((byte1 & 0b00000011) + (opcode << 2)) << 8) + byte2)
+        else:
+            # 000000RR|RRRRRRRR, 000000RR|RRRXXXXX ili OOOOOOXX|XXXXXXXX
+            reg1: int = 0
+            reg2: int = 0
+            if len(operands_unresolved) > 0:
+                assert isinstance(operands_unresolved[0][1], int), 'Vrednost pri registarskom direktnom adresiranju je labela (ovo ne bi trebalo da se desi)'
+                reg1 = operands_unresolved[0][1]
+            if len(operands_unresolved) == 2:
+                assert isinstance(operands_unresolved[1][1], int), 'Vrednost pri registarskom direktnom adresiranju je labela (ovo ne bi trebalo da se desi)'
+                reg2 = operands_unresolved[1][1]
+            data[adr].append((((opcode << 5) + reg1) << 5) + reg2)
+
+# Formiranje IV tabele
+for label in iv_table:
+    if label in labels:
+        data[iv_table_address].append(labels[label])
     else:
-        tpos += lengths.get(instruction, 0) + lengths.get(adr, 0)
-
-# Faza postavljanja adresa labela
-for i, (instruction, adr, operand) in enumerate(instructions):
-    #print(instruction, adr, operand, i)
-    if isinstance(operand, str):
-        if operand not in labels:
-            print('Nedefinisana labela: ', operand)
-            exit(1)
-        instructions[i] = (instruction, adr, labels[operand])
+        data[iv_table_address].append(0)
 
 # Štampanje
-if args.v3hex:
-    print('v3.0 hex words addressed')
-elif args.iv:
-    print('IV tabela:')
-
-# Ispis sadržaja IV tabele
-if args.iv:
-    iv_format = []
-    for i in range(4):
-        key = f'intr{i}'
-        if key in labels:
-            formatted_addr = '{:016b}'.format(labels[key])
-            iv_format.append(formatted_addr[0:8])
-            iv_format.append(formatted_addr[8:])
-        else:
-            iv_format.append('00000000')
-            iv_format.append('00000000')
-    if args.v3hex:
-        print('0000: ', end='')
+for adr, contents in data.items():
+    contents_line: str = ''
     if args.binary:
-        print(' '.join(iv_format))
+        contents_line = ' '.join([format_binary(x, 16) for x in contents])
     else:
-        print(' '.join([hex(int(num, 2)).split('x')[1].upper() for num in iv_format]))
-
-if args.v3hex:
-    print('1000: ', end='')
-elif args.iv:
-    print('================================================')
-for instruction, adr, operand in instructions:
-    # print(instruction, adr, operand)
-    if instruction is None:
-        continue
-    opcode = opcodes[instruction]
-    instruction_format = ['{:08b}'.format(opcode)]
-    if instruction.startswith('J'):
-        # Instrukcije skoka
-        formatted_addr = '{:016b}'.format(operand)
-        instruction_format.append(formatted_addr[0:8])
-        instruction_format.append(formatted_addr[8:])
-    elif instruction.startswith('B'):
-        # Instrukcije grananja
-        operand_format = '{:08b}'.format(operand)
-        if type(operand) is int and operand < 0:
-            operand_format = bin(operand & 0xFF)[-8:]
-        instruction_format.append(operand_format)
-    elif opcode >= 48:
-        # Adresne instrukcije
-        adrcode = adrcodes.index(str(adr))
-        reg = 0
-        nonreg = adr == 'immed' or adr == 'memdir' or adr == 'memind'
-        if not nonreg and operand is not None:
-            reg = operand
-        instruction_format.append('{:08b}'.format((adrcode << 4) + int(reg)))
-        if nonreg:
-            operand_format = '{:016b}'.format(operand)
-            if type(operand) is int and operand < 0:
-                operand_format = bin(operand & 0xFFFF)[-16:]
-            instruction_format.append(operand_format[0:8])
-            instruction_format.append(operand_format[8:])
-    if args.binary:
-        print(' '.join(instruction_format), end=' ')
-    else:
-        print(' '.join([hex(int(num, 2)).split('x')[1].upper() for num in instruction_format]), end=' ')
-    if args.pretty:
-        print()
-if not args.pretty:
-    print()
+        contents_line = ' '.join([format_hex(x, 4) for x in contents])
+    print(f'{format_hex(adr, 5)}: {contents_line}')
