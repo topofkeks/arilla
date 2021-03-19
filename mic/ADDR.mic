@@ -1,0 +1,11 @@
+        br (case(start, immed, memdir, memind, regind))
+immed:  ldB, br exec
+memdir: ldMAR, mxMAR0, br read
+memind: ldMAR, mxMAR0
+        rdMEM, ldMDR, br (if notMemReady then this)
+        ldMAR, mxMAR1, br read
+regind: ldMAR, mxMAR0, mxMAR1, br read
+read:   br (if ST then exec)
+        rdMEM, ldMDR, br (if notMemReady then this)
+        ldB, mxB0, br exec
+exec:   clADDR, stEXEC, br start

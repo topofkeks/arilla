@@ -1,0 +1,11 @@
+        br (if notPSWSTARTandFETCH then this)
+        incPC, ldMAR
+        rdMEM, ldMDR, br (if notMemReady then this)
+        ldIRH
+        br (if grinst then fault)
+        br (if notLDorST then exec)
+        incPC, ldMAR
+        rdMEM, ldMDR, br (if notMemReady then this)
+addr:   clFETCH, stADDR, br start
+exec:   clFETCH, stEXEC, br start
+fault:  clFETCH, stINTR, br start
