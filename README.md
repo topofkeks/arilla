@@ -153,7 +153,8 @@ Arilla - Computer Architecture project, spring 2021.
     - 485 MLAB blokova
     - 66 DSP blokova
 
-## Lazareva pitanja
+## Pitanja
+### Lazar
 - Kako se pravi pulldown u Quartus?
 - Watchdog i prepoznavanje HiZ
 - Dobra dokumentacija za SDRAM?
@@ -164,9 +165,10 @@ Arilla - Computer Architecture project, spring 2021.
 - PCIw u opstim crtama i da li je to okej organizacija
 - Saveti za baferovanje u grafičkoj
 
-### Lukina pitanja
+### Luka
 - Da li imaju neke savete oko redosleda rada
 - Da li je neophodno da procesor komanduje grafičkoj da iscrtava tačku, kvadrat, pravougaonik, trougao itd. ili je zbog manjeg zagušenja magistrale efikasnije da procesor direktno menja platno u memoriji
 - Kada ćemo moći da krenemo da radimo sa pločicom, tj. kada će biti dostupne u RC i koje su sale u paviljonu dostupne za to pre nego što bude dostupna u RC
 
-### Ostala pitanja
+### Aleksa
+### Ivan
