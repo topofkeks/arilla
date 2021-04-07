@@ -6,7 +6,7 @@ Unresolved = Union[str, int]
 Addressing = Literal['immed', 'memdir', 'memind', 'regind', 'regdir']
 Operand = Tuple[Addressing, int]
 OperandUnresolved = Tuple[Addressing, Unresolved]
-Instruction = Tuple[int, int]
+Instruction = Tuple[int, int, int]
 
 parser: ArgumentParser = ArgumentParser(description='Asembler za AR3B72C procesor.')
 parser.add_argument('asm_file', type=str, help='datoteka sa izvornim asemblerskim kodom')
@@ -23,38 +23,34 @@ data: Dict[int, List[int]] = {
 }
 instruction_defs: Dict[str, Instruction] = {
     # WIP
-    'HALT': (0, 0),
-    'RTS': (1, 0),
-    'RTI': (2, 0),
-    'TRPE': (2, 0),
-    'TRPD': (2, 0),
-    'BZ': (3, 1),
-    'B': (4, 1),
-    'BSR': (5, 1),
-    'JREG': (6, 1),
-    'PUSH': (8, 1),
-    'POP': (9, 1),
-    'ADD': (10, 2),
-    'SUB': (11, 2),
-    'CMP': (12, 2),
-    'OR': (13, 2),
-    'AND': (14, 2),
-    'LDR': (15, 2),
-    # Zahtevaju dve reči
-    'LD': (32, 2), # Može da se konvertuje u LDR
-    'ST': (33, 2),
-    'JZ': (34, 1),
-    'JMP': (35, 1),
-    'JSR': (35, 1)
+    'HALT': (0, 0, 1),
+    'RTS': (1, 0, 1),
+    'RTI': (2, 0, 1),
+    'TRPE': (2, 0, 1),
+    'TRPD': (2, 0, 1),
+    'BZ': (3, 1, 1),
+    'B': (4, 1, 1),
+    'BSR': (5, 1, 1),
+    'JREG': (6, 1, 1),
+    'PUSH': (8, 1, 1),
+    'POP': (9, 1, 1),
+    'ADD': (10, 2, 1),
+    'SUB': (11, 2, 1),
+    'CMP': (12, 2, 1),
+    'OR': (13, 2, 1),
+    'AND': (14, 2, 1),
+    'LDR': (15, 2, 1),
+    'LD': (0, 2, 2),
+    'ST': (1, 2, 2),
+    'JZ': (3, 1, 2),
+    'JMP': (4, 1, 2),
+    'JSR': (5, 1, 2)
 }
 labels: Dict[str, int] = {}
 adrcodes: List[Addressing] = ['immed', 'memdir', 'memind', 'regind', 'regdir']
 
 pc: int = 0
 org: int = 0
-
-def is_two_words(instruction: str) -> bool:
-    return (instruction_defs[instruction][0] & 0b100000) != 0
 
 def is_memdir(instruction: str) -> bool:
     return instruction.startswith('J') or instruction.startswith('B')
@@ -175,10 +171,7 @@ with open(args.asm_file, 'r', encoding='utf-8') as asm_file:
                 assert operands_unresolved[0][0] == 'regdir', f'Drugi operand mora biti registar: {line}'
         if org not in instructions:
             instructions[org] = []
-        if is_two_words(instruction):
-            pc += 2
-        else:
-            pc += 1
+        pc += instruction_defs[instruction][2]
         instructions[org].append((instruction, operands_unresolved, pc))
 
 # Faza razrešavanja labela i generisanja podataka
@@ -187,12 +180,13 @@ for adr, instruction_list in instructions.items():
         data[adr] = []
     for (instruction, operands_unresolved, curr_pc) in instruction_list:
         opcode: int = instruction_defs[instruction][0]
+        operand_count = len(operands_unresolved)
         # O - operacioni kod (6b)
         # R - registar (5b)
         # A - način adresiranja (3b)
         # M - adresa u memoriji kod instrukcija skoka
         # J - relativan pomeraj kod instrukcija grananja
-        # X - ne koristi se
+        # X - ne koristi se (0)
         if is_load_store(instruction):
             # OOOOOORR|RRRAAAMM MMMMMMMM|MMMMMMMM
             reg: int = resolve_label(operands_unresolved[0][1])
@@ -202,10 +196,10 @@ for adr, instruction_list in instructions.items():
             op2: int = resolve_label(op2_unresolved)
             data[adr].append(((((opcode << 5) + reg) << 3) + adrcode) << 2 + (op2 >> 16))
             data[adr].append(op2 % 2**16)
-        elif is_two_words(instruction):
-            # 000000XX|XXXXXXMM MMMMMMMM|MMMMMMMM
+        elif instruction_defs[instruction][2] == 2:
+            # XXXXXXOO|OOOOOOMM MMMMMMMM|MMMMMMMM
             op1: int = resolve_label(operands_unresolved[0][1])
-            data[adr].append((opcode << 8) + (op1 >> 16))
+            data[adr].append((opcode << 2) + (op1 >> 16))
             data[adr].append(op1 % 2**16)
         elif is_memdir(instruction):
             # OOOOOOJJ|JJJJJJJJ
@@ -213,14 +207,17 @@ for adr, instruction_list in instructions.items():
             assert -2**9 <= op1 < 2**9, f'Operator {op1} instrukcije grananja je preveliki'
             byte1, byte2 = op1.to_bytes(2, 'big', signed=True)
             data[adr].append((((byte1 & 0b00000011) + (opcode << 2)) << 8) + byte2)
+        elif operand_count == 0:
+            # XXXXXXOO|OOOOOOOO
+            data[adr].append(opcode)
         else:
             # 000000RR|RRRRRRRR, 000000RR|RRRXXXXX ili OOOOOOXX|XXXXXXXX
             reg1: int = 0
             reg2: int = 0
-            if len(operands_unresolved) > 0:
+            if operand_count > 0:
                 reg1 = resolve_label(operands_unresolved[0][1])
                 assert 0 <= reg1 < 32, f'Broj registra van dozvoljenog opsega: {reg1}'
-            if len(operands_unresolved) == 2:
+            if operand_count == 2:
                 reg2 = resolve_label(operands_unresolved[1][1])
                 assert 0 <= reg2 < 32, f'Broj registra van dozvoljenog opsega: {reg2}'
             data[adr].append((((opcode << 5) + reg1) << 5) + reg2)
