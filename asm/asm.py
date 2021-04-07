@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 from argparse import ArgumentParser, Namespace
 from typing import Dict, List, Literal, Tuple, Union
-import re
 
 Unresolved = Union[str, int]
 Addressing = Literal['immed', 'memdir', 'memind', 'regind', 'regdir']
@@ -99,13 +98,8 @@ def parse_operand(operand: str) -> OperandUnresolved:
         operand = operand[1:-1]
         indir = True
     if operand.startswith('R') or operand.startswith('r'):
-        try:
-            regnum: int = int(operand[1:])
-            assert 0 <= regnum < 32, f'Broj registra van dozvoljenog opsega: {operand}'
-            return (indir and 'regind' or 'regdir', regnum)
-        except ValueError:
-            # Ovo nije bio registar nego labela koja počinje sa R
-            pass
+        regnum: Unresolved = parse_number(operand[1:])
+        return (indir and 'regind' or 'regdir', regnum)
     return (indir and 'memind' or 'memdir', parse_number(operand))
 
 def handle_macro(operand: str, args: str) -> None:
@@ -201,8 +195,8 @@ for adr, instruction_list in instructions.items():
         # X - ne koristi se
         if is_load_store(instruction):
             # OOOOOORR|RRRAAAMM MMMMMMMM|MMMMMMMM
-            assert isinstance(operands_unresolved[0][1], int), 'Vrednost pri registarskom direktnom adresiranju je labela (ovo ne bi trebalo da se desi)'
-            reg: int = operands_unresolved[0][1]
+            reg: int = resolve_label(operands_unresolved[0][1])
+            assert 0 <= reg < 32, f'Broj registra van dozvoljenog opsega: {reg}'
             adrname, op2_unresolved = operands_unresolved[1]
             adrcode: int = adrcodes.index(adrname)
             op2: int = resolve_label(op2_unresolved)
@@ -224,11 +218,11 @@ for adr, instruction_list in instructions.items():
             reg1: int = 0
             reg2: int = 0
             if len(operands_unresolved) > 0:
-                assert isinstance(operands_unresolved[0][1], int), 'Vrednost pri registarskom direktnom adresiranju je labela (ovo ne bi trebalo da se desi)'
-                reg1 = operands_unresolved[0][1]
+                reg1 = resolve_label(operands_unresolved[0][1])
+                assert 0 <= reg1 < 32, f'Broj registra van dozvoljenog opsega: {reg1}'
             if len(operands_unresolved) == 2:
-                assert isinstance(operands_unresolved[1][1], int), 'Vrednost pri registarskom direktnom adresiranju je labela (ovo ne bi trebalo da se desi)'
-                reg2 = operands_unresolved[1][1]
+                reg2 = resolve_label(operands_unresolved[1][1])
+                assert 0 <= reg2 < 32, f'Broj registra van dozvoljenog opsega: {reg2}'
             data[adr].append((((opcode << 5) + reg1) << 5) + reg2)
 
 # Formiranje IV tabele
