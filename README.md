@@ -164,6 +164,8 @@ Arilla - Computer Architecture project, spring 2021.
 - Koja je njegova ideja za graficku karticu i da se nađemo na pola
 - PCIw u opstim crtama i da li je to okej organizacija
 - Saveti za baferovanje u grafičkoj
+- Kako vrsiti timing analizu i potencijalno povecati clock
+- Sta raditi kada teorija se teorija i praksa ne slazu (tj. plocica se ne ponasa kako je modelsim predvideo) Re:FPGAception
 
 ### Luka
 - Da li imaju neke savete oko redosleda rada
