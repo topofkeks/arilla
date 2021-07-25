@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Transembler.IAL.Arguments;
 
-namespace RISCVParser.Arguments.Instruction
+namespace RISCVSource.Arguments
 {
-    class TrueImmediateArgument : ImmediateArgument
+    class LiteralArgument : ImmediateArgument, IALLiteralArgument
     {
-        public TrueImmediateArgument(string arg)
+        public LiteralArgument(string arg)
         {
             if (arg.StartsWith("0x"))
             {
@@ -20,11 +21,16 @@ namespace RISCVParser.Arguments.Instruction
             }
         }
 
-        long val;
+        readonly long val;
+        public long GetValue()
+        {
+            return val;
+        }
 
         public override string ToString()
         {
             return "TI"+val.ToString();
         }
+
     }
 }

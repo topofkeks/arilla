@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RISCVParser
+namespace RISCVSource
 {
     static class Util
     {
-        public static string removeExtraSpaces(string s)
+        public static string RemoveExtraSpaces(string s)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -31,7 +31,7 @@ namespace RISCVParser
             return sb.ToString();
         }
 
-        public static int charCount(string s, char c)
+        public static int CharCount(string s, char c)
         {
             int cnt = 0;
             foreach (char chr in s)

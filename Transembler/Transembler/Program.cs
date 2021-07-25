@@ -4,22 +4,25 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RISCVParser;
+using ARILLADestination;
+using RISCVSource;
+using Transembler.IAL;
+using Transembler.IAL.Lines;
 
-namespace Transembler
+namespace Transembler.App
 {
     class Program
     {
         static void Main(string[] args)
         {
-            RISCVAssemblyParser p;
+            RISCVIALProducer p;
             if (args.Length > 0)
             {
-                p = new RISCVAssemblyParser(new FileStream(args[0], FileMode.Open));
+                p = new RISCVIALProducer(new FileStream(args[0], FileMode.Open));
             }
             else if (File.Exists("RISCV.asm"))
             {
-                p = new RISCVAssemblyParser(new FileStream("RISCV.asm", FileMode.Open));
+                p = new RISCVIALProducer(new FileStream("RISCV.asm", FileMode.Open));
             }
             else 
             {
@@ -27,7 +30,9 @@ namespace Transembler
                 return;
             }
 
-            p.Test();
+            IALProgram prog = p.GetProgram();
+            ARILLAIALConsumer c = new ARILLAIALConsumer(prog);
+            c.Emit(Console.OpenStandardOutput());
             p.Dispose();
 
         }

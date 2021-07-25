@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Transembler.IAL.Arguments;
 
-namespace RISCVParser.Arguments.Instruction
+namespace RISCVSource.Arguments
 {
-    class MacroArgument : ImmediateArgument
+    class MacroArgument : ImmediateArgument, IALMacroArgument
     {
         public MacroArgument(string arg) 
         {
@@ -19,13 +20,22 @@ namespace RISCVParser.Arguments.Instruction
                 macro = MACRO.HI;
             }
             arg= arg.Substring(0, arg.Length - 1);
-            imm = ImmediateArgument.parseImmediateArgument(arg.Substring(arg.IndexOf("(") + 1));
+            imm = ImmediateArgument.ParseImmediateArgument(arg.Substring(arg.IndexOf("(") + 1));
         }
+        public enum MACRO{ LO,HI };
 
         public MACRO macro;
         public ImmediateArgument imm;
 
-        public enum MACRO{ LO,HI };
+        public string GetMacro()
+        {
+            return macro.ToString();
+        }
+
+        public IALImmediateArgument GetArgument()
+        {
+            return imm;
+        }
 
         public override string ToString()
         {

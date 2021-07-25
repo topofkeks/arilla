@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{99DD8DEA-F287-4064-AB5A-84DE118F2F88}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Transembler</RootNamespace>
-    <AssemblyName>Transembler</AssemblyName>
+    <ProjectGuid>{C9172307-7129-45CF-A3AF-FA6009E8F151}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>RISCVSource</RootNamespace>
+    <AssemblyName>RISCVSource</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\binR\</OutputPath>
@@ -43,16 +40,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Arguments\ImmediateArgument.cs" />
+    <Compile Include="Arguments\IndirectArgument.cs" />
+    <Compile Include="Arguments\Argument.cs" />
+    <Compile Include="Arguments\LabelArgument.cs" />
+    <Compile Include="Arguments\MacroArgument.cs" />
+    <Compile Include="Arguments\RegisterArgument.cs" />
+    <Compile Include="Arguments\LiteralArgument.cs" />
+    <Compile Include="Lines\AssemblyLine.cs" />
+    <Compile Include="Lines\Comment.cs" />
+    <Compile Include="Lines\Directive.cs" />
+    <Compile Include="Lines\Instruction.cs" />
+    <Compile Include="Lines\Label.cs" />
+    <Compile Include="RISCVArchitecture.cs" />
+    <Compile Include="RISCVIALProducer.cs" />
+    <Compile Include="RISCVParser.cs" />
+    <Compile Include="RISCVPostprocessor.cs" />
+    <Compile Include="RISCVPreprocessor.cs" />
+    <Compile Include="RISCVProgram.cs" />
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RISCVParser\RISCVParser.csproj">
-      <Project>{c9172307-7129-45cf-a3af-fa6009e8f151}</Project>
-      <Name>RISCVParser</Name>
+    <ProjectReference Include="..\Transembler.IAL\Transembler.IAL.csproj">
+      <Project>{7a529b1c-f939-48ac-85af-bc09dd1e9673}</Project>
+      <Name>Transembler.IAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

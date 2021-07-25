@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Transembler.IAL.Arguments;
 
-namespace RISCVParser.Arguments.Instruction
+namespace RISCVSource.Arguments
 {
-    class ImmediateArgument :InstructionArgument
+    abstract class ImmediateArgument :Argument, IALImmediateArgument
     {
-        public static ImmediateArgument parseImmediateArgument(string arg) 
+        public static ImmediateArgument ParseImmediateArgument(string arg) 
         {
-            long val;
             if (arg.StartsWith("%"))
             {
                 return new MacroArgument(arg);
             }
             else if (arg.StartsWith("0x"))
             {
-                return new TrueImmediateArgument(arg);
+                return new LiteralArgument(arg);
             }
-            else if (long.TryParse(arg, out val))
+            else if (long.TryParse(arg, out _))
             {
-                return new TrueImmediateArgument(arg);
+                return new LiteralArgument(arg);
             }
             else 
             {

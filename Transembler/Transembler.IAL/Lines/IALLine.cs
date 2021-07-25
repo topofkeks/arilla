@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RISCVParser.Arguments.Directive
+namespace Transembler.IAL.Lines
 {
-    interface DirectiveArgument : Argument
+    public interface IALLine
     {
-
     }
 }

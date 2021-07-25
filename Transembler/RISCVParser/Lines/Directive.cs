@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Transembler.IAL.Lines;
 
-namespace RISCVParser.Lines
+namespace RISCVSource.Lines
 {
-    class Directive : AssemblyLine
+    class Directive : AssemblyLine, IALDirective
     {
         public Directive(string line)
         {
-            parseDirective(line);
+            ParseDirective(line);
         }
 
-        private void parseDirective(string line)
+        public string name;
+        public string arguments;
+
+        private void ParseDirective(string line)
         {
             if (line.Contains(' '))
             {
@@ -27,12 +31,19 @@ namespace RISCVParser.Lines
             }
         }
 
-        public override string ToString()
+        public string GetName()
         {
-            return "DIRECTIVE " + name;
+            return name;
         }
 
-        public string name;
-        public string arguments;
+        public string GetArgument()
+        {
+            return arguments;
+        }
+
+        public override string ToString()
+        {
+            return "DIRECTIVE " + name + " " + arguments;
+        }
     }
 }

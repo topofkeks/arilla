@@ -4,11 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C9172307-7129-45CF-A3AF-FA6009E8F151}</ProjectGuid>
+    <ProjectGuid>{12295D6D-8649-4809-B487-84818B3846A2}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RISCVParser</RootNamespace>
-    <AssemblyName>RISCVParser</AssemblyName>
+    <RootNamespace>ARILLADestination</RootNamespace>
+    <AssemblyName>ARILLADestination</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,24 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Arguments\Argument.cs" />
-    <Compile Include="Arguments\Directive\DirectiveArgument.cs" />
-    <Compile Include="Arguments\Instruction\ImmediateArgument.cs" />
-    <Compile Include="Arguments\Instruction\IndirectArgument.cs" />
-    <Compile Include="Arguments\Instruction\InstructionArgument.cs" />
-    <Compile Include="Arguments\Instruction\LabelArgument.cs" />
-    <Compile Include="Arguments\Instruction\MacroArgument.cs" />
-    <Compile Include="Arguments\Instruction\RegisterArgument.cs" />
-    <Compile Include="Arguments\Instruction\TrueImmediateArgument.cs" />
-    <Compile Include="Lines\AssemblyLine.cs" />
+    <Compile Include="ARILLAEmitter.cs" />
+    <Compile Include="ARILLAIALConsumer.cs" />
+    <Compile Include="ARILLAPostprocessor.cs" />
+    <Compile Include="ARILLAPreprocessor.cs" />
+    <Compile Include="ARILLATranslator.cs" />
     <Compile Include="Lines\Comment.cs" />
     <Compile Include="Lines\Directive.cs" />
     <Compile Include="Lines\Instruction.cs" />
     <Compile Include="Lines\Label.cs" />
-    <Compile Include="RISCVParser.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util.cs" />
+    <Compile Include="Lines\Line.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Transembler.IAL\Transembler.IAL.csproj">
+      <Project>{7a529b1c-f939-48ac-85af-bc09dd1e9673}</Project>
+      <Name>Transembler.IAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,22 +1,26 @@
-﻿using RISCVParser.Arguments;
-using RISCVParser.Arguments.Instruction;
+﻿using RISCVSource.Arguments;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Transembler.IAL.Arguments;
+using Transembler.IAL.Lines;
 
-namespace RISCVParser.Lines
+namespace RISCVSource.Lines
 {
-    class Instruction : AssemblyLine
+    class Instruction : AssemblyLine, IALInstruction
     {
         public Instruction(string line)
         {
-            arguments = new List<InstructionArgument>();
-            parseInstruction(line);
+            arguments = new List<IALArgument>();
+            ParseInstruction(line);
         }
 
-        private void parseInstruction(string line)
+        public string name;
+        public List<IALArgument> arguments;
+
+        private void ParseInstruction(string line)
         {
             if (line.Contains(' '))
             {
@@ -24,7 +28,7 @@ namespace RISCVParser.Lines
                 string[] stringargs = line.Substring(line.IndexOf(' ') + 1).Split(',');
                 foreach (string arg in stringargs)
                 {
-                    arguments.Add(InstructionArgument.parseInstructionArgument(arg));
+                    arguments.Add(Argument.ParseInstructionArgument(arg));
                 }
             }
             else
@@ -33,12 +37,24 @@ namespace RISCVParser.Lines
             }
         }
 
-        public override string ToString()
+        public string GetOpcode()
         {
-            return "INSTRUCTION " + name;
+            return name;
         }
 
-        public string name;
-        public List<InstructionArgument> arguments;
+        public List<IALArgument> GetArguments()
+        {
+            return arguments;
+        }
+
+        public override string ToString()
+        {
+            string ret = "INSTRUCTION " + name + " ";
+            foreach (IALArgument arg in arguments)
+            {
+                ret += arg.ToString() + " ";
+            }
+            return ret;
+        }
     }
 }

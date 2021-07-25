@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Transembler.IAL.Lines;
 
-namespace RISCVParser.Lines
+namespace RISCVSource.Lines
 {
-    class AssemblyLine
+    abstract class AssemblyLine : IALLine
     {
-        public static AssemblyLine parseLine(string line)
+        public static AssemblyLine ParseLine(string line)
         {
             if (line.StartsWith("#"))
             {

@@ -3,32 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Transembler.IAL.Arguments;
 
-namespace RISCVParser.Arguments.Instruction
+namespace RISCVSource.Arguments
 {
-    class RegisterArgument : InstructionArgument
+    class RegisterArgument : Argument, IALRegisterArgument
     {
 
         public RegisterArgument(string arg)
         {
-            if (!isRegister(arg))
+            if (!IsRegister(arg))
             {
                 regNo = -1;
                 return;
             }
             if (char.IsDigit(arg[arg.Length - 1]))
             {
-                regNo = convertRegister(arg[0] + "", Convert.ToInt32(arg.Substring(1)));
+                regNo = ConvertRegister(arg[0] + "", Convert.ToInt32(arg.Substring(1)));
             }
             else
             {
-                regNo = convertRegister(arg, -1);
+                regNo = ConvertRegister(arg, -1);
             }
         }
 
         public int regNo;
 
-        public static bool isRegister(string reg)
+        public static bool IsRegister(string reg)
         {
             if (reg == "zero" || reg == "ra" || reg == "sp" || reg == "gp" || reg == "tp" || reg == "fp") { return true; }
             else
@@ -42,8 +43,7 @@ namespace RISCVParser.Arguments.Instruction
                     case 'a': { max = 8; break; }
                     default: { return false; }
                 }
-                int num;
-                if (int.TryParse(reg.Substring(1), out num))
+                if (int.TryParse(reg.Substring(1), out int num))
                 {
                     return num >= 0 && num < max;
                 }
@@ -54,7 +54,7 @@ namespace RISCVParser.Arguments.Instruction
             }
         }
 
-        public static int convertRegister(string type, int No)
+        public static int ConvertRegister(string type, int No)
         {
             int[] LUTt = new int[] { 5, 6, 7, 28, 29, 30, 31 };
             int[] LUTs = new int[] { 8, 9, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 };
@@ -74,6 +74,10 @@ namespace RISCVParser.Arguments.Instruction
                 case "a": { return LUTa[No]; }
                 default: { return -1; }
             }
+        }
+        public int GetRegister()
+        {
+            return regNo;
         }
 
         public override string ToString()
