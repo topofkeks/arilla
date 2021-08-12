@@ -1,0 +1,50 @@
+Available Components: MF (Megafunctions) (If recomended megafunction does not satisfy the requirements ping @lazar2222)
+MUX 	select_bits,width		| LPM_MUX MF
+DEMUX	select_bits,width		| DEMUX.vhd
+CD		ouptut_bits				| CD.vhd
+DC		input_bits				| LPM_DECODE MF
+7SEG							| SSEG.vhd
+7SEG4D							| SSEG4D.bdf
+ADD		width					| LPM_ADD_SUB MF or PARALLEL_ADD MF
+SUB		width					| LPM_ADD_SUB MF
+EDGED							| EDGED.bdf
+CLKDIV							| CLKDIV.vhd
+CONST	value,width				| LPM_CONSTANT MF or CONST.vhd
+CMP		width					| LPM_COMPARE MF
+LDREG	default,width			| LDREG.vhd
+SREG	default,width			| LPM_SHIFTREG MF or SREG.vhd
+IDREG	default,width			| LPM_COUNTER MF
+LDCREG	default,width			| LDCREG.vhd
+SCREG	default,width			| LPM_SHIFTREG MF or SCREG.vhd
+IDCREG	default,width			| LPM_COUNTER MF
+SIGNEXT	in_width,out_width		| SIGNEXT.vhd
+
+
+Available Megafunctions: (When generating megafunctions, generate them in Components project using VHDL and only generate required files)
+ALTMEMMULT
+ALTMULT_ACCUM (MAC)
+ALTMULT_ADD
+ALTSQRT
+LPM_ADD_SUB
+LPM_COMPARE
+LPM_COUNTER
+LPM_DIVIDE
+LPM_MULT
+PARALLEL_ADD
+LPM_CLSHIFT
+LPM_CONSTANT
+LPM_DECODE
+LPM_MUX
+FIFO
+LPM_SHIFTREG
+RAM initializer
+RAM: 1-PORT
+RAM: 2-PORT
+ROM: 1-PORT
+ROM: 2-PORT
+Shift register (RAM-based)
+
+And many more...
+
+
+Other useful blocks:
