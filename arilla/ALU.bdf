@@ -55,7 +55,7 @@ applicable agreement for further details.
 	(input)
 	(rect 240 104 408 120)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "op[3..0]" (rect 5 0 43 12)(font "Arial" ))
+	(text "op[3..0]" (rect 5 0 42 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -295,7 +295,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 832 208 960 304)
+	(rect 832 144 960 240)
 	(text "lpm_compare0" (rect 11 0 111 16)(font "Arial" (font_size 10)))
 	(text "inst2" (rect 8 80 31 92)(font "Arial" ))
 	(port
