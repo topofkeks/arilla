@@ -18,38 +18,38 @@ programming logic devices manufactured by Altera and sold by
 Altera or its authorized distributors.  Please refer to the 
 applicable agreement for further details.
 */
-(header "symbol" (version "1.1"))
+(header "symbol" (version "1.2"))
 (symbol
-	(rect 16 16 224 128)
-	(text "DEMUX" (rect 5 0 40 12)(font "Arial" ))
-	(text "inst" (rect 8 96 20 108)(font "Arial" ))
+	(rect 64 64 248 160)
+	(text "DEMUX" (rect 5 0 42 12)(font "Arial" ))
+	(text "inst" (rect 8 80 25 92)(font "Arial" ))
 	(port
-		(pt 0 32)
+		(pt 88 96)
 		(input)
-		(text "I[width-1..0]" (rect 0 0 42 12)(font "Arial" ))
-		(text "I[width-1..0]" (rect 21 27 63 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
+		(text "S[N]" (rect 0 0 22 12)(font "Arial" ))
+		(text "S[N]" (rect 80 56 92 78)(font "Arial" )(vertical))
+		(line (pt 88 96)(pt 88 80)(line_width 3))
+	)
+	(port
+		(pt 88 0)
+		(input)
+		(text "EN" (rect 0 0 15 12)(font "Arial" ))
+		(text "EN" (rect 80 16 92 31)(font "Arial" )(vertical))
+		(line (pt 88 16)(pt 88 0))
 	)
 	(port
 		(pt 0 48)
 		(input)
-		(text "S[size-1..0]" (rect 0 0 41 12)(font "Arial" ))
-		(text "S[size-1..0]" (rect 21 43 62 55)(font "Arial" ))
+		(text "I[W]" (rect 0 0 21 12)(font "Arial" ))
+		(text "I[W]" (rect 24 40 45 52)(font "Arial" ))
 		(line (pt 0 48)(pt 16 48)(line_width 3))
 	)
 	(port
-		(pt 0 64)
-		(input)
-		(text "E" (rect 0 0 7 12)(font "Arial" ))
-		(text "E" (rect 21 59 28 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 1))
-	)
-	(port
-		(pt 208 32)
+		(pt 184 48)
 		(output)
-		(text "O[2**size*width-1..0]" (rect 0 0 66 12)(font "Arial" ))
-		(text "O[2**size*width-1..0]" (rect 121 27 187 39)(font "Arial" ))
-		(line (pt 208 32)(pt 192 32)(line_width 3))
+		(text "O[2^N*W]" (rect -24 0 24 12)(font "Arial" ))
+		(text "O[2^N*W]" (rect 120 40 168 52)(font "Arial" ))
+		(line (pt 184 48)(pt 168 48)(line_width 3))
 	)
 	(parameter
 		"size"
@@ -62,7 +62,8 @@ applicable agreement for further details.
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 192 96)(line_width 1))
+		(text "DEMUX" (rect 48 40 123 59)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
+		(rectangle (rect 16 16 168 80))
 	)
-	(annotation_block (parameter)(rect 224 -64 324 16))
+	(annotation_block (parameter)(rect 248 16 432 64))
 )

@@ -18,38 +18,38 @@ programming logic devices manufactured by Altera and sold by
 Altera or its authorized distributors.  Please refer to the 
 applicable agreement for further details.
 */
-(header "symbol" (version "1.1"))
+(header "symbol" (version "1.2"))
 (symbol
-	(rect 16 16 256 96)
-	(text "CD" (rect 5 0 19 12)(font "Arial" ))
-	(text "inst" (rect 8 64 20 76)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "I[2**output_bits-1..0]" (rect 0 0 70 12)(font "Arial" ))
-		(text "I[2**output_bits-1..0]" (rect 21 27 91 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
+	(rect 64 64 232 144)
+	(text "CD" (rect 5 0 21 12)(font "Arial" ))
+	(text "inst" (rect 8 64 25 76)(font "Arial" ))
 	(port
 		(pt 0 48)
 		(input)
-		(text "E" (rect 0 0 7 12)(font "Arial" ))
-		(text "E" (rect 21 43 28 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 1))
+		(text "EN" (rect 0 0 15 12)(font "Arial" ))
+		(text "EN" (rect 21 43 36 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
 	)
 	(port
-		(pt 240 32)
-		(output)
-		(text "O[output_bits-1..0]" (rect 0 0 70 12)(font "Arial" ))
-		(text "O[output_bits-1..0]" (rect 149 27 219 39)(font "Arial" ))
-		(line (pt 240 32)(pt 224 32)(line_width 3))
+		(pt 0 32)
+		(input)
+		(text "X[2^N]" (rect 0 0 30 12)(font "Arial" ))
+		(text "X[2^N]" (rect 21 27 51 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port
-		(pt 240 48)
+		(pt 168 48)
 		(output)
-		(text "W" (rect 0 0 10 12)(font "Arial" ))
-		(text "W" (rect 209 43 219 55)(font "Arial" ))
-		(line (pt 240 48)(pt 224 48)(line_width 1))
+		(text "W" (rect -72 0 -62 12)(font "Arial" ))
+		(text "W" (rect 139 43 149 55)(font "Arial" ))
+		(line (pt 168 48)(pt 152 48))
+	)
+	(port
+		(pt 168 32)
+		(output)
+		(text "Y[N]" (rect -72 0 -49 12)(font "Arial" ))
+		(text "Y[N]" (rect 128 24 151 36)(font "Arial" ))
+		(line (pt 168 32)(pt 152 32)(line_width 3))
 	)
 	(parameter
 		"output_bits"
@@ -57,7 +57,8 @@ applicable agreement for further details.
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 224 64)(line_width 1))
+		(text "KODER" (rect 56 32 131 51)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
+		(rectangle (rect 16 16 152 64))
 	)
-	(annotation_block (parameter)(rect 256 -64 356 16))
+	(annotation_block (parameter)(rect 304 32 496 64))
 )

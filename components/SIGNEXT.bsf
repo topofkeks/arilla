@@ -18,24 +18,24 @@ programming logic devices manufactured by Altera and sold by
 Altera or its authorized distributors.  Please refer to the 
 applicable agreement for further details.
 */
-(header "symbol" (version "1.1"))
+(header "symbol" (version "1.2"))
 (symbol
-	(rect 16 16 240 96)
-	(text "SIGNEXT" (rect 5 0 46 12)(font "Arial" ))
-	(text "inst" (rect 8 64 20 76)(font "Arial" ))
+	(rect 64 64 208 144)
+	(text "SIGNEXT" (rect 5 0 51 12)(font "Arial" ))
+	(text "inst" (rect 8 64 25 76)(font "Arial" ))
 	(port
-		(pt 0 32)
+		(pt 0 48)
 		(input)
-		(text "I[in_width-1..0]" (rect 0 0 54 12)(font "Arial" ))
-		(text "I[in_width-1..0]" (rect 21 27 75 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
+		(text "I[W]" (rect 0 0 21 12)(font "Arial" ))
+		(text "I[W]" (rect 24 40 45 52)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
 	)
 	(port
-		(pt 224 32)
+		(pt 144 48)
 		(output)
-		(text "O[out_width-1..0]" (rect 0 0 64 12)(font "Arial" ))
-		(text "O[out_width-1..0]" (rect 139 27 203 39)(font "Arial" ))
-		(line (pt 224 32)(pt 208 32)(line_width 3))
+		(text "O[W]" (rect -80 0 -55 12)(font "Arial" ))
+		(text "O[W]" (rect 104 40 129 52)(font "Arial" ))
+		(line (pt 144 48)(pt 128 48)(line_width 3))
 	)
 	(parameter
 		"in_width"
@@ -48,7 +48,8 @@ applicable agreement for further details.
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 208 64)(line_width 1))
+		(text "SIGN EXT" (rect 32 16 128 35)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
+		(rectangle (rect 16 16 128 64))
 	)
-	(annotation_block (parameter)(rect 240 -64 340 16))
+	(annotation_block (parameter)(rect 216 16 400 64))
 )

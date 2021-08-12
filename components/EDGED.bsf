@@ -20,9 +20,9 @@ applicable agreement for further details.
 */
 (header "symbol" (version "1.2"))
 (symbol
-	(rect 16 16 112 112)
+	(rect 64 64 160 144)
 	(text "EDGED" (rect 5 0 45 14)(font "Arial" (font_size 8)))
-	(text "inst" (rect 8 80 25 92)(font "Arial" ))
+	(text "inst" (rect 8 64 25 76)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -41,17 +41,17 @@ applicable agreement for further details.
 		(pt 96 32)
 		(output)
 		(text "Rising" (rect 0 0 34 14)(font "Arial" (font_size 8)))
-		(text "Rising" (rect 41 27 75 41)(font "Arial" (font_size 8)))
+		(text "Rising" (rect 49 27 83 41)(font "Arial" (font_size 8)))
 		(line (pt 96 32)(pt 80 32))
 	)
 	(port
 		(pt 96 48)
 		(output)
 		(text "Falling" (rect 0 0 35 14)(font "Arial" (font_size 8)))
-		(text "Falling" (rect 40 43 75 57)(font "Arial" (font_size 8)))
+		(text "Falling" (rect 48 43 83 57)(font "Arial" (font_size 8)))
 		(line (pt 96 48)(pt 80 48))
 	)
 	(drawing
-		(rectangle (rect 16 16 80 80))
+		(rectangle (rect 16 16 80 64))
 	)
 )

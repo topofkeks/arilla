@@ -18,45 +18,45 @@ programming logic devices manufactured by Altera and sold by
 Altera or its authorized distributors.  Please refer to the 
 applicable agreement for further details.
 */
-(header "symbol" (version "1.1"))
+(header "symbol" (version "1.2"))
 (symbol
-	(rect 16 16 248 128)
-	(text "LDCREG" (rect 5 0 47 12)(font "Arial" ))
-	(text "inst" (rect 8 96 20 108)(font "Arial" ))
+	(rect 64 64 232 184)
+	(text "LDCREG" (rect 17 1 63 13)(font "Arial" ))
+	(text "inst" (rect 16 104 33 116)(font "Arial" ))
+	(port
+		(pt 0 88)
+		(input)
+		(text "clk" (rect 0 8 14 20)(font "Arial" ))
+		(text "clk" (rect 24 80 38 92)(font "Arial" ))
+		(line (pt 0 88)(pt 16 88))
+	)
+	(port
+		(pt 88 0)
+		(input)
+		(text "IN[W]" (rect -24 0 5 12)(font "Arial" ))
+		(text "IN[W]" (rect 80 16 92 45)(font "Arial" )(vertical))
+		(line (pt 88 0)(pt 88 16)(line_width 3))
+	)
 	(port
 		(pt 0 32)
 		(input)
-		(text "data_in[size-1..0]" (rect 0 0 63 12)(font "Arial" ))
-		(text "data_in[size-1..0]" (rect 21 27 84 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
+		(text "LD" (rect 0 8 14 20)(font "Arial" ))
+		(text "LD" (rect 24 24 38 36)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
 	)
 	(port
-		(pt 0 48)
+		(pt 168 32)
 		(input)
-		(text "ld" (rect 0 0 5 12)(font "Arial" ))
-		(text "ld" (rect 21 43 26 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 1))
+		(text "CL" (rect -80 8 -66 20)(font "Arial" ))
+		(text "CL" (rect 136 24 150 36)(font "Arial" ))
+		(line (pt 152 32)(pt 168 32))
 	)
 	(port
-		(pt 0 64)
-		(input)
-		(text "cl" (rect 0 0 5 12)(font "Arial" ))
-		(text "cl" (rect 21 59 26 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 1))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "clk" (rect 0 0 10 12)(font "Arial" ))
-		(text "clk" (rect 21 75 31 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80)(line_width 1))
-	)
-	(port
-		(pt 232 32)
+		(pt 88 120)
 		(output)
-		(text "data_out[size-1..0]" (rect 0 0 69 12)(font "Arial" ))
-		(text "data_out[size-1..0]" (rect 142 27 211 39)(font "Arial" ))
-		(line (pt 232 32)(pt 216 32)(line_width 3))
+		(text "OUT[W]" (rect -24 8 16 20)(font "Arial" ))
+		(text "OUT[W]" (rect 80 64 92 104)(font "Arial" )(vertical))
+		(line (pt 88 120)(pt 88 104)(line_width 3))
 	)
 	(parameter
 		"size"
@@ -74,7 +74,8 @@ applicable agreement for further details.
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 216 96)(line_width 1))
+		(text "LDCL REG" (rect 40 48 146 67)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
+		(rectangle (rect 16 16 152 104))
 	)
-	(annotation_block (parameter)(rect 248 -64 348 16))
+	(annotation_block (parameter)(rect 256 0 456 56))
 )

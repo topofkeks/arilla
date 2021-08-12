@@ -18,26 +18,27 @@ programming logic devices manufactured by Altera and sold by
 Altera or its authorized distributors.  Please refer to the 
 applicable agreement for further details.
 */
-(header "symbol" (version "1.1"))
+(header "symbol" (version "1.2"))
 (symbol
-	(rect 16 16 168 96)
-	(text "SSEG" (rect 5 0 30 12)(font "Arial" ))
-	(text "inst" (rect 8 64 20 76)(font "Arial" ))
+	(rect 64 64 208 144)
+	(text "SSEG" (rect 5 0 34 12)(font "Arial" ))
+	(text "inst" (rect 8 64 25 76)(font "Arial" ))
 	(port
-		(pt 0 32)
+		(pt 0 48)
 		(input)
-		(text "I[3..0]" (rect 0 0 22 12)(font "Arial" ))
-		(text "I[3..0]" (rect 21 27 43 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
+		(text "I[3..0]" (rect 0 0 29 12)(font "Arial" ))
+		(text "I[3..0]" (rect 24 40 53 52)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
 	)
 	(port
-		(pt 152 32)
+		(pt 144 48)
 		(output)
-		(text "O[7..0]" (rect 0 0 27 12)(font "Arial" ))
-		(text "O[7..0]" (rect 104 27 131 39)(font "Arial" ))
-		(line (pt 152 32)(pt 136 32)(line_width 3))
+		(text "O[7..0]" (rect -8 0 26 12)(font "Arial" ))
+		(text "O[7..0]" (rect 95 43 123 55)(font "Arial" ))
+		(line (pt 144 48)(pt 128 48)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 136 64)(line_width 1))
+		(text "7SEG 1HEX" (rect 24 16 137 35)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
+		(rectangle (rect 16 16 128 64))
 	)
 )
