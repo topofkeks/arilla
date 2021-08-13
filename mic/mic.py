@@ -9,6 +9,7 @@ parser.add_argument('mic_file', type=str, help='datoteka sa izvornim mikrokodom'
 parser.add_argument('--binary', help='ispis mikoinstrukcija u binarnim ciframa', action='store_true')
 parser.add_argument('--csv', help='štampa u CSV formatu, za Excel', action='store_true')
 parser.add_argument('--v3hex', help='štampa u v3.0 hex words addressed formatu, za Logisim', action='store_true')
+parser.add_argument('--mif', help='štampa u MIF (memory initialization file) formatu, za Quartus', action='store_true')
 args: Namespace = parser.parse_args()
 
 case_regex = re.compile(r'^br\s*\(\s*case\s*\(([^)]+)\)')
@@ -107,6 +108,7 @@ for index, (curr_signals, curr_cc, ba_unresolved) in enumerate(lines_unresolved)
 
 cc_width: int = ceil(log2(len(cc)))
 ba_width: int = ceil(log2(len(lines)))
+final_width = cc_width + ba_width + len(signals)
 
 def format_binary(num: int, width: int) -> str:
     fmt = '{:0' + str(width) + 'b}'
@@ -116,9 +118,19 @@ if args.v3hex:
     print('v3.0 hex words addressed\n0000: ', end='')
 elif args.csv:
     print('ba', 'cc', ','.join(reversed(list(signals.keys()))), sep=',')
+elif args.mif:
+    print(f'DEPTH = {len(lines)};')
+    print(f'WIDTH = {final_width};')
+    print('ADDRESS_RADIX = HEX')
+    if args.binary:
+        print('DATA_RADIX = BIN')
+    else:
+        print('DATA_RADIX = HEX')
+    print('CONTENT')
+    print('BEGIN')
 else:
     print('================== Instrukcija ======================')
-    print('Širina instrukcije:', cc_width + ba_width + len(signals))
+    print('Širina instrukcije:', final_width)
     print(f'Signali [0-{len(signals) - 1}]:')
     for i, signal in enumerate(signals.keys()):
         print(f'{i} - {signal}')
@@ -126,7 +138,7 @@ else:
     for index, code in enumerate(cc):
         if index > 0:
             print(f'- {index}: br{code}')
-    print(f'BA [{cc_width + len(signals)}-{cc_width + ba_width + len(signals) - 1}]')
+    print(f'BA [{cc_width + len(signals)}-{final_width - 1}]')
     if len(case_labels) > 0:
         print('Case:')
         for label in case_labels:
@@ -135,7 +147,7 @@ else:
             else:
                 print(f'- {label}: UNRESOLVED')
     print('=================== Mikrokod ========================')
-for curr_signals, curr_cc, ba in lines:
+for index, (curr_signals, curr_cc, ba) in enumerate(lines):
     line_bin: str = ''
     line_bin += format_binary(ba, ba_width)
     if args.csv:
@@ -148,11 +160,17 @@ for curr_signals, curr_cc, ba in lines:
             line_bin += '1'
         else:
             line_bin += '0'
+    if args.mif:
+        print(hex(index).split('x')[1], end=' : ')
     if args.binary or args.csv:
         print(line_bin, end=' ')
     else:
         print(hex(int(line_bin, 2)).split('x')[1].upper(), end=' ')
-    if not args.v3hex:
+    if args.mif:
+        print(';')
+    elif not args.v3hex:
         print()
 if args.v3hex:
     print()
+elif args.mif:
+    print('END;')
