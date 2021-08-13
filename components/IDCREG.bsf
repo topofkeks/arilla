@@ -1,0 +1,95 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 64 64 288 184)
+	(text "IDCREG" (rect 5 0 48 12)(font "Arial" ))
+	(text "inst" (rect 8 104 25 116)(font "Arial" ))
+	(port
+		(pt 0 88)
+		(input)
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
+		(text "clk" (rect 21 83 35 95)(font "Arial" ))
+		(line (pt 0 88)(pt 16 88))
+	)
+	(port
+		(pt 112 0)
+		(input)
+		(text "data_in[size-1..0]" (rect 0 0 83 12)(font "Arial" ))
+		(text "IN[W]" (rect 104 17 116 46)(font "Arial" )(vertical))
+		(line (pt 112 0)(pt 112 16)(line_width 3))
+	)
+	(port
+		(pt 224 32)
+		(input)
+		(text "cl" (rect 8 0 16 12)(font "Arial" ))
+		(text "CL" (rect 193 24 207 36)(font "Arial" ))
+		(line (pt 208 32)(pt 224 32))
+	)
+	(port
+		(pt 224 48)
+		(input)
+		(text "inc" (rect 8 0 22 12)(font "Arial" ))
+		(text "INC" (rect 187 40 207 52)(font "Arial" ))
+		(line (pt 208 48)(pt 224 48))
+	)
+	(port
+		(pt 224 64)
+		(input)
+		(text "dec" (rect 8 0 25 12)(font "Arial" ))
+		(text "DEC" (rect 184 56 207 68)(font "Arial" ))
+		(line (pt 208 64)(pt 224 64))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "ld" (rect 0 0 8 12)(font "Arial" ))
+		(text "LD" (rect 24 24 38 36)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 112 120)
+		(output)
+		(text "data_out[size-1..0]" (rect 0 -24 90 -12)(font "Arial" ))
+		(text "OUT[W]" (rect 104 64 116 104)(font "Arial" )(vertical))
+		(line (pt 112 120)(pt 112 104)(line_width 3))
+	)
+	(parameter
+		"size"
+		"16"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"default_value"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"clear_value"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(text "LD CL INC DEC REG" (rect 16 47 217 66)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
+		(rectangle (rect 16 16 208 104))
+	)
+	(annotation_block (parameter)(rect 288 8 488 64))
+)
