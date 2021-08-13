@@ -26,14 +26,14 @@ applicable agreement for further details.
 	(port
 		(pt 0 48)
 		(input)
-		(text "I[W]" (rect 0 0 21 12)(font "Arial" ))
+		(text "I[in_width-1..0]" (rect 0 0 71 12)(font "Arial" ))
 		(text "I[W]" (rect 24 40 45 52)(font "Arial" ))
 		(line (pt 0 48)(pt 16 48)(line_width 3))
 	)
 	(port
 		(pt 144 48)
 		(output)
-		(text "O[W]" (rect -80 0 -55 12)(font "Arial" ))
+		(text "O[out_width-1..0]" (rect -80 0 3 12)(font "Arial" ))
 		(text "O[W]" (rect 104 40 129 52)(font "Arial" ))
 		(line (pt 144 48)(pt 128 48)(line_width 3))
 	)
@@ -51,5 +51,5 @@ applicable agreement for further details.
 		(text "SIGN EXT" (rect 32 16 128 35)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
 		(rectangle (rect 16 16 128 64))
 	)
-	(annotation_block (parameter)(rect 216 16 400 64))
+	(annotation_block (parameter)(rect 208 16 392 64))
 )

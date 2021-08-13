@@ -51,10 +51,18 @@ set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+#set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+#set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH testbench -section_id eda_simulation
+#set_global_assignment -name EDA_TEST_BENCH_NAME testbench -section_id eda_simulation
+#set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id testbench
+#set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME testbench -section_id testbench
+#set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "500 ns" -section_id testbench
+#set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/testbench.vhd -section_id testbench
+set_global_assignment -name SEARCH_PATH ../components/
+set_global_assignment -name BDF_FILE Controller.bdf
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 set_location_assignment PIN_F1 -to BTN[2]
 set_location_assignment PIN_G3 -to BTN[1]
 set_location_assignment PIN_H2 -to BTN[0]
@@ -110,28 +118,5 @@ set_location_assignment PIN_G4 -to SW[3]
 set_location_assignment PIN_H6 -to SW[2]
 set_location_assignment PIN_H5 -to SW[1]
 set_location_assignment PIN_J6 -to SW[0]
+
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
-set_global_assignment -name VHDL_FILE ../components/SUBX.vhd
-set_global_assignment -name VHDL_FILE ../components/RisingEdge.vhd
-set_global_assignment -name VHDL_FILE ../components/FallingEdge.vhd
-set_global_assignment -name BDF_FILE ../components/DC16.bdf
-set_global_assignment -name VHDL_FILE ../components/ADDX.vhd
-set_global_assignment -name BDF_FILE ../components/SevenSegmentInterface4.bdf
-set_global_assignment -name BDF_FILE ../components/SevenSegmentInterface1.bdf
-set_global_assignment -name VHDL_FILE ../components/REGX.vhd
-set_global_assignment -name VHDL_FILE ../components/MP32X.vhd
-set_global_assignment -name VHDL_FILE ../components/MP16X.vhd
-set_global_assignment -name VHDL_FILE ../components/MP8X.vhd
-set_global_assignment -name VHDL_FILE ../components/MP4X.vhd
-set_global_assignment -name VHDL_FILE ../components/MP2X.vhd
-set_global_assignment -name BDF_FILE ../components/DC8.bdf
-set_global_assignment -name BDF_FILE ../components/DC4.bdf
-set_global_assignment -name BDF_FILE ../components/DC2.bdf
-set_global_assignment -name VHDL_FILE ../components/CONSTX.vhd
-set_global_assignment -name VHDL_FILE ../components/CMPX.vhd
-set_global_assignment -name VHDL_FILE ../components/CLK_DIVIDER.vhd
-set_global_assignment -name BDF_FILE ../components/CD16.bdf
-set_global_assignment -name BDF_FILE ../components/CD8.bdf
-set_global_assignment -name BDF_FILE ../components/CD4.bdf
-set_global_assignment -name BDF_FILE ../components/CD2.bdf
-set_global_assignment -name BDF_FILE Controller.bdf

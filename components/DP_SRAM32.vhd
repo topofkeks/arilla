@@ -4,7 +4,7 @@
 -- MODULE: altsyncram 
 
 -- ============================================================
--- File Name: SRAM32.tdf
+-- File Name: DP_SRAM32.vhd
 -- Megafunction Name(s):
 -- 			altsyncram
 --
@@ -32,73 +32,87 @@
 --Altera or its authorized distributors.  Please refer to the 
 --applicable agreement for further details.
 
-INCLUDE "altsyncram.inc";
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+LIBRARY altera_mf;
+USE altera_mf.altera_mf_components.all;
+
+ENTITY DP_SRAM32 IS
+	PORT
+	(
+		address_a		: IN STD_LOGIC_VECTOR (12 DOWNTO 0);
+		address_b		: IN STD_LOGIC_VECTOR (12 DOWNTO 0);
+		clock		: IN STD_LOGIC  := '1';
+		data_a		: IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+		data_b		: IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+		rden_a		: IN STD_LOGIC  := '1';
+		rden_b		: IN STD_LOGIC  := '1';
+		wren_a		: IN STD_LOGIC  := '0';
+		wren_b		: IN STD_LOGIC  := '0';
+		q_a		: OUT STD_LOGIC_VECTOR (31 DOWNTO 0);
+		q_b		: OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+	);
+END DP_SRAM32;
 
 
+ARCHITECTURE SYN OF dp_sram32 IS
 
-SUBDESIGN SRAM32
-(
-	address_a[12..0]	 : INPUT;
-	address_b[12..0]	 : INPUT;
-	clock	 : INPUT = VCC;
-	data_a[31..0]	 : INPUT;
-	data_b[31..0]	 : INPUT;
-	rden_a	 : INPUT = VCC;
-	rden_b	 : INPUT = VCC;
-	wren_a	 : INPUT = GND;
-	wren_b	 : INPUT = GND;
-	q_a[31..0]	 : OUTPUT;
-	q_b[31..0]	 : OUTPUT;
-)
-
-VARIABLE
-
-	altsyncram_component : altsyncram WITH (
-			ADDRESS_REG_B = "CLOCK0",
-			CLOCK_ENABLE_INPUT_A = "BYPASS",
-			CLOCK_ENABLE_INPUT_B = "BYPASS",
-			CLOCK_ENABLE_OUTPUT_A = "BYPASS",
-			CLOCK_ENABLE_OUTPUT_B = "BYPASS",
-			INDATA_REG_B = "CLOCK0",
-			INIT_FILE = "",
-			INTENDED_DEVICE_FAMILY = "Cyclone III",
-			LPM_TYPE = "altsyncram",
-			NUMWORDS_A = 8192,
-			NUMWORDS_B = 8192,
-			OPERATION_MODE = "BIDIR_DUAL_PORT",
-			OUTDATA_ACLR_A = "NONE",
-			OUTDATA_ACLR_B = "NONE",
-			OUTDATA_REG_A = "CLOCK0",
-			OUTDATA_REG_B = "CLOCK0",
-			POWER_UP_UNINITIALIZED = "FALSE",
-			READ_DURING_WRITE_MODE_MIXED_PORTS = "OLD_DATA",
-			READ_DURING_WRITE_MODE_PORT_A = "OLD_DATA",
-			READ_DURING_WRITE_MODE_PORT_B = "OLD_DATA",
-			WIDTHAD_A = 13,
-			WIDTHAD_B = 13,
-			WIDTH_A = 32,
-			WIDTH_B = 32,
-			WIDTH_BYTEENA_A = 1,
-			WIDTH_BYTEENA_B = 1,
-			WRCONTROL_WRADDRESS_REG_B = "CLOCK0"
-			);
+	SIGNAL sub_wire0	: STD_LOGIC_VECTOR (31 DOWNTO 0);
+	SIGNAL sub_wire1	: STD_LOGIC_VECTOR (31 DOWNTO 0);
 
 BEGIN
+	q_a    <= sub_wire0(31 DOWNTO 0);
+	q_b    <= sub_wire1(31 DOWNTO 0);
 
-	q_a[31..0] = altsyncram_component.q_a[31..0];
-	q_b[31..0] = altsyncram_component.q_b[31..0];
-	altsyncram_component.clock0 = clock;
-	altsyncram_component.wren_a = wren_a;
-	altsyncram_component.address_b[12..0] = address_b[12..0];
-	altsyncram_component.data_b[31..0] = data_b[31..0];
-	altsyncram_component.rden_a = rden_a;
-	altsyncram_component.wren_b = wren_b;
-	altsyncram_component.address_a[12..0] = address_a[12..0];
-	altsyncram_component.data_a[31..0] = data_a[31..0];
-	altsyncram_component.rden_b = rden_b;
-END;
+	altsyncram_component : altsyncram
+	GENERIC MAP (
+		address_reg_b => "CLOCK0",
+		clock_enable_input_a => "BYPASS",
+		clock_enable_input_b => "BYPASS",
+		clock_enable_output_a => "BYPASS",
+		clock_enable_output_b => "BYPASS",
+		indata_reg_b => "CLOCK0",
+		init_file => "../asm/paint.mif",
+		intended_device_family => "Cyclone III",
+		lpm_type => "altsyncram",
+		numwords_a => 8192,
+		numwords_b => 8192,
+		operation_mode => "BIDIR_DUAL_PORT",
+		outdata_aclr_a => "NONE",
+		outdata_aclr_b => "NONE",
+		outdata_reg_a => "CLOCK0",
+		outdata_reg_b => "CLOCK0",
+		power_up_uninitialized => "FALSE",
+		read_during_write_mode_mixed_ports => "OLD_DATA",
+		read_during_write_mode_port_a => "OLD_DATA",
+		read_during_write_mode_port_b => "OLD_DATA",
+		widthad_a => 13,
+		widthad_b => 13,
+		width_a => 32,
+		width_b => 32,
+		width_byteena_a => 1,
+		width_byteena_b => 1,
+		wrcontrol_wraddress_reg_b => "CLOCK0"
+	)
+	PORT MAP (
+		clock0 => clock,
+		wren_a => wren_a,
+		address_b => address_b,
+		data_b => data_b,
+		rden_a => rden_a,
+		wren_b => wren_b,
+		address_a => address_a,
+		data_a => data_a,
+		rden_b => rden_b,
+		q_a => sub_wire0,
+		q_b => sub_wire1
+	);
 
 
+
+END SYN;
 
 -- ============================================================
 -- CNX file retrieval info
@@ -135,7 +149,7 @@ END;
 -- Retrieval info: PRIVATE: MAXIMUM_DEPTH NUMERIC "0"
 -- Retrieval info: PRIVATE: MEMSIZE NUMERIC "262144"
 -- Retrieval info: PRIVATE: MEM_IN_BITS NUMERIC "0"
--- Retrieval info: PRIVATE: MIFfilename STRING ""
+-- Retrieval info: PRIVATE: MIFfilename STRING "../asm/paint.mif"
 -- Retrieval info: PRIVATE: OPERATION_MODE NUMERIC "3"
 -- Retrieval info: PRIVATE: OUTDATA_ACLR_B NUMERIC "0"
 -- Retrieval info: PRIVATE: OUTDATA_REG_B NUMERIC "1"
@@ -149,7 +163,7 @@ END;
 -- Retrieval info: PRIVATE: REGrren NUMERIC "1"
 -- Retrieval info: PRIVATE: REGwraddress NUMERIC "1"
 -- Retrieval info: PRIVATE: REGwren NUMERIC "1"
--- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "1"
+-- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
 -- Retrieval info: PRIVATE: USE_DIFF_CLKEN NUMERIC "0"
 -- Retrieval info: PRIVATE: UseDPRAM NUMERIC "1"
 -- Retrieval info: PRIVATE: VarWidth NUMERIC "0"
@@ -169,7 +183,7 @@ END;
 -- Retrieval info: CONSTANT: CLOCK_ENABLE_OUTPUT_A STRING "BYPASS"
 -- Retrieval info: CONSTANT: CLOCK_ENABLE_OUTPUT_B STRING "BYPASS"
 -- Retrieval info: CONSTANT: INDATA_REG_B STRING "CLOCK0"
--- Retrieval info: CONSTANT: INIT_FILE STRING ""
+-- Retrieval info: CONSTANT: INIT_FILE STRING "../asm/paint.mif"
 -- Retrieval info: CONSTANT: INTENDED_DEVICE_FAMILY STRING "Cyclone III"
 -- Retrieval info: CONSTANT: LPM_TYPE STRING "altsyncram"
 -- Retrieval info: CONSTANT: NUMWORDS_A NUMERIC "8192"
@@ -212,10 +226,9 @@ END;
 -- Retrieval info: CONNECT: @wren_b 0 0 0 0 wren_b 0 0 0 0
 -- Retrieval info: CONNECT: q_a 0 0 32 0 @q_a 0 0 32 0
 -- Retrieval info: CONNECT: q_b 0 0 32 0 @q_b 0 0 32 0
--- Retrieval info: GEN_FILE: TYPE_NORMAL SRAM32.tdf TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL SRAM32.inc TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL SRAM32.cmp TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL SRAM32.bsf TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL SRAM32_inst.tdf TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL SRAM32_syn.v TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL DP_SRAM32.vhd TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL DP_SRAM32.inc FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL DP_SRAM32.cmp FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL DP_SRAM32.bsf TRUE FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL DP_SRAM32_inst.vhd FALSE
 -- Retrieval info: LIB_FILE: altera_mf

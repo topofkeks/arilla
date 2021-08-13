@@ -20,13 +20,13 @@ applicable agreement for further details.
 */
 (header "symbol" (version "1.2"))
 (symbol
-	(rect 112 64 160 104)
+	(rect 64 64 112 104)
 	(text "CONST" (rect 5 0 42 12)(font "Arial" ))
 	(text "inst" (rect 8 24 25 36)(font "Arial" ))
 	(port
 		(pt 48 16)
 		(output)
-		(text "C" (rect -104 0 -96 12)(font "Arial" ))
+		(text "data[size-1..0]" (rect -104 0 -35 12)(font "Arial" ))
 		(text "C" (rect 24 8 32 20)(font "Arial" ))
 		(line (pt 48 16)(pt 32 16)(line_width 3))
 	)
@@ -43,5 +43,5 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 8 32 24)(fill (color 207 207 207)))
 	)
-	(annotation_block (parameter)(rect 160 16 344 64))
+	(annotation_block (parameter)(rect 112 16 296 64))
 )

@@ -21,12 +21,12 @@ applicable agreement for further details.
 (header "symbol" (version "1.2"))
 (symbol
 	(rect 64 64 288 184)
-	(text "SREG" (rect 8 1 38 13)(font "Arial" ))
+	(text "IDCREG" (rect 5 0 48 12)(font "Arial" ))
 	(text "inst" (rect 8 104 25 116)(font "Arial" ))
 	(port
 		(pt 0 88)
 		(input)
-		(text "clk" (rect 0 -40 14 -28)(font "Arial" ))
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
 		(text "clk" (rect 21 83 35 95)(font "Arial" ))
 		(line (pt 0 88)(pt 16 88))
 	)
@@ -38,46 +38,39 @@ applicable agreement for further details.
 		(line (pt 112 0)(pt 112 16)(line_width 3))
 	)
 	(port
+		(pt 224 32)
+		(input)
+		(text "cl" (rect 8 0 16 12)(font "Arial" ))
+		(text "CL" (rect 193 24 207 36)(font "Arial" ))
+		(line (pt 208 32)(pt 224 32))
+	)
+	(port
 		(pt 224 48)
 		(input)
-		(text "sl" (rect -8 -40 0 -28)(font "Arial" ))
-		(text "SL" (rect 195 40 207 52)(font "Arial" ))
+		(text "inc" (rect 8 0 22 12)(font "Arial" ))
+		(text "INC" (rect 187 40 207 52)(font "Arial" ))
 		(line (pt 208 48)(pt 224 48))
 	)
 	(port
 		(pt 224 64)
 		(input)
-		(text "il" (rect -8 -40 -4 -28)(font "Arial" ))
-		(text "IL" (rect 198 56 207 68)(font "Arial" ))
+		(text "dec" (rect 8 0 25 12)(font "Arial" ))
+		(text "DEC" (rect 184 56 207 68)(font "Arial" ))
 		(line (pt 208 64)(pt 224 64))
 	)
 	(port
 		(pt 0 32)
 		(input)
-		(text "ld" (rect 0 -40 8 -28)(font "Arial" ))
+		(text "ld" (rect 0 0 8 12)(font "Arial" ))
 		(text "LD" (rect 24 24 38 36)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32))
 	)
 	(port
-		(pt 0 48)
-		(input)
-		(text "sr" (rect 0 -40 9 -28)(font "Arial" ))
-		(text "SR" (rect 24 40 39 52)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "ir" (rect 0 -40 5 -28)(font "Arial" ))
-		(text "IR" (rect 24 56 35 68)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
 		(pt 112 120)
 		(output)
-		(text "data_out[size-1..0]" (rect 0 -56 90 -44)(font "Arial" ))
+		(text "data_out[size-1..0]" (rect 0 -24 90 -12)(font "Arial" ))
 		(text "OUT[W]" (rect 104 64 116 104)(font "Arial" )(vertical))
-		(line (pt 112 120)(pt 112 105)(line_width 3))
+		(line (pt 112 120)(pt 112 104)(line_width 3))
 	)
 	(parameter
 		"size"
@@ -89,9 +82,14 @@ applicable agreement for further details.
 		"0"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"clear_value"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(text "LD SL SR REG" (rect 56 48 199 67)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
+		(text "LD CL INC DEC REG" (rect 16 47 217 66)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
 		(rectangle (rect 16 16 208 104))
 	)
-	(annotation_block (parameter)(rect 288 16 488 64))
+	(annotation_block (parameter)(rect 288 8 488 64))
 )

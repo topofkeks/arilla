@@ -58,6 +58,8 @@ set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id testbench
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME testbench -section_id testbench
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "500 ns" -section_id testbench
 set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/testbench.vhd -section_id testbench
+set_global_assignment -name VHDL_FILE IDREG.vhd
+set_global_assignment -name VHDL_FILE IDCREG.vhd
 set_global_assignment -name VHDL_FILE CONST.vhd
 set_global_assignment -name VHDL_FILE CLKDIV.vhd
 set_global_assignment -name VHDL_FILE SSEG.vhd
@@ -72,6 +74,10 @@ set_global_assignment -name VHDL_FILE LDREG.vhd
 set_global_assignment -name VHDL_FILE LDCREG.vhd
 set_global_assignment -name VHDL_FILE SREG.vhd
 set_global_assignment -name VHDL_FILE SCREG.vhd
+set_global_assignment -name QIP_FILE DP_SRAM32.qip
+set_global_assignment -name QIP_FILE MUX16_32.qip
+set_global_assignment -name QIP_FILE MUX32_32.qip
+set_global_assignment -name QIP_FILE DC32.qip
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
