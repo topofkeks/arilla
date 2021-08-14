@@ -57,7 +57,7 @@ applicable agreement for further details.
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(text "KODER" (rect 56 32 131 51)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
+		(text "CODER" (rect 56 32 131 51)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
 		(rectangle (rect 16 16 152 64))
 	)
 	(annotation_block (parameter)(rect 232 32 424 64))
