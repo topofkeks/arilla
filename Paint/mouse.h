@@ -3,17 +3,17 @@
 
 #include "io.h"
 
-const int MOUSE_BASE_ADDRESS = 0x1000 0000;
-const int MOUSE_ENABLE_MASK = 1;
-const int MOUSE_LCLICK_MASK = 2;
-const int MOUSE_RCLICK_MASK = 4;
-const int MOUSE_CHANGE_MASK = 8;
-const int MOUSE_POSITION_MASK = 0x3FF;
+extern const unsigned int MOUSE_BASE_ADDRESS;
+extern const unsigned int MOUSE_ENABLE_MASK;
+extern const unsigned int MOUSE_LCLICK_MASK;
+extern const unsigned int MOUSE_RCLICK_MASK;
+extern const unsigned int MOUSE_CHANGE_MASK;
+extern const unsigned int MOUSE_POSITION_MASK;
 
 typedef struct point
 {
-    int x;
-    int y;
+    unsigned int x;
+    unsigned int y;
 } point;
 
 void mouseStart();
@@ -21,8 +21,8 @@ void mouseStop();
 
 void mouseRead();
 
-int mouseLDown();
-int mouseChanged();
+unsigned int mouseLDown();
+unsigned int mouseChanged();
 
 point mousePos();
 

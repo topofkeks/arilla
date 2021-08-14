@@ -1,5 +1,12 @@
 #include "mouse.h"
 
+const unsigned int MOUSE_BASE_ADDRESS = 0x10000000;
+const unsigned int MOUSE_ENABLE_MASK = 1;
+const unsigned int MOUSE_LCLICK_MASK = 2;
+const unsigned int MOUSE_RCLICK_MASK = 4;
+const unsigned int MOUSE_CHANGE_MASK = 8;
+const unsigned int MOUSE_POSITION_MASK = 0x3FF;
+
 unsigned int g_mouseStatus=0;
 
 void mouseStart()
@@ -14,15 +21,15 @@ void mouseStop()
 
 void mouseRead()
 {
-    g_mouseStatus=in(MOUSE_BASE_ADDRESS+1)
+    g_mouseStatus=in(MOUSE_BASE_ADDRESS+1);
 }
 
-int mouseLDown()
+unsigned int mouseLDown()
 {
     return g_mouseStatus&MOUSE_LCLICK_MASK;
 }
 
-int mouseChanged()
+unsigned int mouseChanged()
 {
     return g_mouseStatus&MOUSE_CHANGE_MASK;
 }

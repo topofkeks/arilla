@@ -1,31 +1,34 @@
+#include "io.h"
 #ifdef TEST
 
 #include <stdio.h>
 
-void out(int address, int value)
+void out(unsigned int address,unsigned int value)
 {
-    printf("%d:%d\n",address,value);
+    printf("%#X:%#X\n",address,value);
+    fflush(stdout);
 }
 
-int in(int address)
+unsigned int in(unsigned int address)
 {
-    int value;
-    printf("%d\n",address);
-    scanf("%d",&value);
-    return value
+    unsigned int value;
+    printf("%#X\n",address);
+    fflush(stdout);
+    scanf("%x",&value);
+    return value;
 }
 
 #else
 
 //TODO This needs to be checked further
 
-__attribute__((naked)) void out(int address, int value)
+__attribute__((naked)) void out(unsigned int address,unsigned int value)
 {
     asm("sw a1,0(a0)");
     asm("ret");
 }
 
-__attribute__((naked)) int in(int address)
+__attribute__((naked)) unsigned int in(unsigned int address)
 {
     asm("lw a0,0(a0)");
     asm("ret");
