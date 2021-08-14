@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-08-13T18:24:12.623Z" agent="5.0 (Windows)" etag="KHzhpibZac9juy6_1hd6" compressed="false" version="14.9.6" type="device">
+<mxfile host="app.diagrams.net" modified="2021-08-13T23:32:23.054Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36" etag="SdEVYHO4dt6f913pM3l6" compressed="false" version="14.9.5" type="device">
   <diagram id="9hQ3QaiPfGBnRzpC69d-" name="PS/2 Mouse">
-    <mxGraphModel dx="483" dy="537" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="675" dy="379" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -77,10 +77,10 @@
         <mxCell id="5s-RpxAYR00qXLWziPqD-65" value="Upisujemo 11 bitova iz CMD (koji ima vrednost&amp;nbsp;&lt;b&gt;10111101000&lt;/b&gt;&amp;nbsp;- to je zapravo:&lt;br&gt;- 1: End bit, uvek 1&lt;br&gt;- 0: Bit parnosti, pošto imamo pet jedinica u našoj poruci on je 0 (neparno)&lt;br&gt;- 11110100: F4 heksadecimalno, označava komandu koja mišu kaže da krene da nam šalje podatke&lt;br&gt;- 0: Start bit, uvek 0&lt;br&gt;Najviši bit je End jer se podaci upisuju tako da je LSB prvi pa umesto da obrćemo podatke smo obrnuli paket.&lt;br&gt;&lt;br&gt;Silazna ivica takta će biti hardverski povezana sa registrima za podatak i brojač bitova, a ovde će se paliti flag koji uz njega omogućava navedene operacije." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="360" y="320" width="440" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="5s-RpxAYR00qXLWziPqD-120" value="Čekamo silaznu ivicu takta kako bismo pročitali novi bit podatka." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="5s-RpxAYR00qXLWziPqD-120" value="Čekamo silaznu ivicu takta, čitamo podatak kad stigne i uvećavamo broj pročitanih bitova." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="360" y="600" width="440" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="5s-RpxAYR00qXLWziPqD-121" value="Čitamo novi bit podatka i proveravamo da li nam je stigao ACK na jedinu komandu dosad ili ne." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="5s-RpxAYR00qXLWziPqD-121" value="Proveravamo da li nam je dosad stigao ACK na jedinu komandu ili ne." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="360" y="760" width="440" height="40" as="geometry" />
         </mxCell>
         <mxCell id="5s-RpxAYR00qXLWziPqD-128" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="5s-RpxAYR00qXLWziPqD-129" edge="1">
@@ -88,7 +88,7 @@
             <mxPoint x="220" y="840" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="5s-RpxAYR00qXLWziPqD-129" value="RData = New|RData" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="5s-RpxAYR00qXLWziPqD-129" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="160" y="760" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="5s-RpxAYR00qXLWziPqD-135" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="5s-RpxAYR00qXLWziPqD-133" target="5s-RpxAYR00qXLWziPqD-134" edge="1">
@@ -175,7 +175,7 @@
         <mxCell id="5s-RpxAYR00qXLWziPqD-156" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="5s-RpxAYR00qXLWziPqD-150" target="5s-RpxAYR00qXLWziPqD-151" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="5s-RpxAYR00qXLWziPqD-150" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="5s-RpxAYR00qXLWziPqD-150" value="&lt;b&gt;if (falling(CLK):&lt;/b&gt;&lt;br&gt;&lt;span&gt;RData &amp;gt;&amp;gt; 1&lt;/span&gt;&lt;br&gt;&lt;span&gt;Bits &amp;lt;= Bits+1&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="160" y="600" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="5s-RpxAYR00qXLWziPqD-157" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="5s-RpxAYR00qXLWziPqD-151" target="5s-RpxAYR00qXLWziPqD-129" edge="1">
@@ -252,7 +252,7 @@
         <mxCell id="5s-RpxAYR00qXLWziPqD-189" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="860" y="1130" width="40" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="9p3pF9iavCIrszQau0Ea-1" value="Resetujemo broja&lt;span&gt;č bitova kako bismo krenuli da &lt;/span&gt;&lt;span&gt;čitamo podatke.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="9p3pF9iavCIrszQau0Ea-1" value="Resetujemo broja&lt;span&gt;č bitova kako bismo krenuli da &lt;/span&gt;&lt;span&gt;čitamo podatke.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="360" y="520" width="440" height="40" as="geometry" />
         </mxCell>
       </root>
