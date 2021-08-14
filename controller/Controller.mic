@@ -1,8 +1,8 @@
-				incTimer, pulldownCLK, br (if timerIsNot5050 then this)
-				sendData, srDataAndIncBitsOnFallingEdge, br (if bitsIsNot11 then this)
+				decTimer, pulldownCLK, br (if timerIsNot0 then this)
+				wrData, srDataAndIncBitsOnFallingEdge, br (if bitsIsNot11 then this)
 				clBits
-readStart:		br (if clkNotFalling then this)
-				srData, br (if acked then readPackets)
+readStart:		srDataAndIncBitsOnFallingEdge, br (if clkNotFalling then this)
+				br (if acked then readPackets)
 				br (if bitsIsNot11 then readStart)
 				clBits, br (if dataIsNotFA then readStart)
 				stAcked, br readStart
