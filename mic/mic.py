@@ -121,11 +121,11 @@ elif args.csv:
 elif args.mif:
     print(f'DEPTH = {len(lines)};')
     print(f'WIDTH = {final_width};')
-    print('ADDRESS_RADIX = HEX')
+    print('ADDRESS_RADIX = HEX;')
     if args.binary:
-        print('DATA_RADIX = BIN')
+        print('DATA_RADIX = BIN;')
     else:
-        print('DATA_RADIX = HEX')
+        print('DATA_RADIX = HEX;')
     print('CONTENT')
     print('BEGIN')
 else:
