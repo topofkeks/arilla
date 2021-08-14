@@ -1,0 +1,106 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 64 64 248 296)
+	(text "OpcodeDecoder" (rect 5 0 98 14)(font "Arial" (font_size 8)))
+	(text "inst" (rect 8 208 25 220)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "opcode[6..0]" (rect 0 0 70 14)(font "Arial" (font_size 8)))
+		(text "opcode[6..0]" (rect 21 27 91 41)(font "Arial" (font_size 8)))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 184 32)
+		(output)
+		(text "OP" (rect -88 0 -72 14)(font "Arial" (font_size 8)))
+		(text "OP" (rect 147 27 163 41)(font "Arial" (font_size 8)))
+		(line (pt 184 32)(pt 168 32))
+	)
+	(port
+		(pt 184 48)
+		(output)
+		(text "OP_IMM" (rect -88 0 -44 14)(font "Arial" (font_size 8)))
+		(text "OP_IMM" (rect 119 43 163 57)(font "Arial" (font_size 8)))
+		(line (pt 184 48)(pt 168 48))
+	)
+	(port
+		(pt 184 64)
+		(output)
+		(text "BRANCH" (rect -88 0 -38 14)(font "Arial" (font_size 8)))
+		(text "BRANCH" (rect 113 59 163 73)(font "Arial" (font_size 8)))
+		(line (pt 184 64)(pt 168 64))
+	)
+	(port
+		(pt 184 80)
+		(output)
+		(text "JAL" (rect -88 0 -66 14)(font "Arial" (font_size 8)))
+		(text "JAL" (rect 141 75 163 89)(font "Arial" (font_size 8)))
+		(line (pt 184 80)(pt 168 80))
+	)
+	(port
+		(pt 184 96)
+		(output)
+		(text "JALR" (rect -88 0 -58 14)(font "Arial" (font_size 8)))
+		(text "JALR" (rect 133 91 163 105)(font "Arial" (font_size 8)))
+		(line (pt 184 96)(pt 168 96))
+	)
+	(port
+		(pt 184 112)
+		(output)
+		(text "LUI" (rect -88 0 -71 14)(font "Arial" (font_size 8)))
+		(text "LUI" (rect 146 107 163 121)(font "Arial" (font_size 8)))
+		(line (pt 184 112)(pt 168 112))
+	)
+	(port
+		(pt 184 128)
+		(output)
+		(text "AUIPC" (rect -88 0 -53 14)(font "Arial" (font_size 8)))
+		(text "AUIPC" (rect 128 123 163 137)(font "Arial" (font_size 8)))
+		(line (pt 184 128)(pt 168 128))
+	)
+	(port
+		(pt 184 144)
+		(output)
+		(text "LOAD" (rect -88 0 -54 14)(font "Arial" (font_size 8)))
+		(text "LOAD" (rect 129 139 163 153)(font "Arial" (font_size 8)))
+		(line (pt 184 144)(pt 168 144))
+	)
+	(port
+		(pt 184 160)
+		(output)
+		(text "STORE" (rect -88 0 -48 14)(font "Arial" (font_size 8)))
+		(text "STORE" (rect 123 155 163 169)(font "Arial" (font_size 8)))
+		(line (pt 184 160)(pt 168 160))
+	)
+	(port
+		(pt 184 176)
+		(output)
+		(text "invalid_opcode_exception" (rect -88 0 59 14)(font "Arial" (font_size 8)))
+		(text "invalid_opcode_exception" (rect 16 171 163 185)(font "Arial" (font_size 8)))
+		(line (pt 184 176)(pt 168 176))
+	)
+	(drawing
+		(rectangle (rect 16 16 160 208))
+	)
+)
