@@ -7,4 +7,4 @@ readStart:		srDataAndIncBitsOnFallingEdge, br (if clkNotFalling then this)
 				clBits, br (if dataIsNotFA then readStart)
 				stAcked, br readStart
 readPackets:	br (if bitsIsNot33 then readStart)
-				ldX, ldY, ldStatus, clBits, br readStart
+				ldXYStatus, clBits, br readStart
