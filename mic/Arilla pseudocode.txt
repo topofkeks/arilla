@@ -1,50 +1,17 @@
 // Multicycle Arilla RISC-V core pseudocode
-end:
-start:
-0000	IR <= MEM[PC]
-	if (instruction_exception) br fault
-	PC <= PC + 4
-0001	A <= REG[IR[s1]]
-	B <= REG[IR[s2]]
-	C <= PC + IR[branch_imm]
-	br case (LUI, AIUPC, JAL, JALR, BRANCH, LOAD, STORE, R, I)
-LUI:
-0002	REG[IR[dest]] <= IR[upper_imm] << 12
-	br end
-AIUPC:
-0003	C <= PC + IR[upper_im]
-	br reg_write
-JAL:
-0004	REG[IR[dest]] <= PC
-	PC <= PC + IR[jal_imm]
-	br end
-JALR:
-0005	REG[IR[dest]] <= PC
-	PC <= (R[IR[s1]] + IR[imm]) & ~1 // LSB is 0
-	br end
-BRANCH:
-0006	if (branch_complete) PC <= C
-	br end
-LOAD:
-0007	C <= REG[IR[s1]] + IR[imm]
-0008	MDR <= MEM[C] 
-
-	if (mem_align_exception) br fault
-0009	REG[IR[dest]] <= MDR
-	br end
-STORE:
-000A	C <= REG[IR[s1]] + IR[store_imm]
-
-000B	MEM[C] <= B
-	if (mem_align_exception) br fault
-	br end
-R: I:
-000C	if (R) C <= A op B
-	else C <= A op IP[imm]
-reg_write
-000D	REG[IR[dest]] <= C
-	br end
-fault:
-000E	// ...
-000F
-	
+idle:	br (if halted then this)
+start:	IR <= MEM[PC], PC <= PC + 4, br (if mem_align_exception then fault)
+		A <= REG[IR[source1]], B <= REG[IR[source2]], C <= PC + IR[branch_imm], br (case (lui, auipc, jal, jalr, branch, load, store, ri, fault)
+lui:	REG[IR[destination]] <= IR[upper_immediate] << 12, br start
+auipc:	C <= PC + IR[upper_im] << 12, br reg_w
+jal:	REG[IR[destination]] <= PC, PC <= PC + sign_extend(IR[jal_imm]), br start
+jalr:	REG[IR[destination]] <= PC, PC <= (R[IR[source1]] + sign_extend(IR[imm])) & (~1), br start
+branch:	if (aluzero) PC <= C, br start
+load:	C <= REG[IR[source1]] + sign_extend(IR[imm]), br (if mem_align_exception then fault)
+		MDR <= MEM[C]
+		REG[IR[destination]] <= MDROutput, br start
+store:	C <= REG[IR[source1]] + sign_extend(IR[imm]), br (if mem_align_exception then fault)
+		MEM[C] <= B, br start
+ri:		C <= A op (OP_IMM)?sign_extend(IR[imm]):B
+reg_w:	REG[IR[destination]] <= C, br start
+fault:	fault_signal, br this 
