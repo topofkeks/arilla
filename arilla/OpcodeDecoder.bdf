@@ -1389,6 +1389,38 @@ applicable agreement for further details.
 		(line (pt 8 8)(pt 24 8))
 	)
 )
+(symbol
+	(rect 968 1328 1000 1360)
+	(text "GND" (rect 8 16 29 26)(font "Arial" (font_size 6)))
+	(text "inst4" (rect 3 21 26 33)(font "Arial" )(invisible))
+	(port
+		(pt 16 0)
+		(output)
+		(text "1" (rect 18 0 23 12)(font "Courier New" (bold))(invisible))
+		(text "1" (rect 18 0 23 12)(font "Courier New" (bold))(invisible))
+		(line (pt 16 8)(pt 16 0))
+	)
+	(drawing
+		(line (pt 8 8)(pt 16 16))
+		(line (pt 16 16)(pt 24 8))
+		(line (pt 8 8)(pt 24 8))
+	)
+)
+(symbol
+	(rect 1008 1304 1040 1320)
+	(text "VCC" (rect 7 0 27 10)(font "Arial" (font_size 6)))
+	(text "inst15" (rect 3 5 32 17)(font "Arial" )(invisible))
+	(port
+		(pt 16 16)
+		(output)
+		(text "1" (rect 19 7 24 19)(font "Courier New" (bold))(invisible))
+		(text "1" (rect 19 7 24 19)(font "Courier New" (bold))(invisible))
+		(line (pt 16 16)(pt 16 8))
+	)
+	(drawing
+		(line (pt 8 8)(pt 24 8))
+	)
+)
 (connector
 	(pt 696 176)
 	(pt 656 176)
@@ -1769,6 +1801,16 @@ applicable agreement for further details.
 	(pt 512 1088)
 	(bus)
 )
+(connector
+	(text "0" (rect 968 1307 980 1312)(font "Arial" )(vertical))
+	(pt 984 1328)
+	(pt 984 1320)
+)
+(connector
+	(text "1" (rect 1008 1331 1020 1336)(font "Arial" )(vertical))
+	(pt 1024 1320)
+	(pt 1024 1352)
+)
 (junction (pt 656 176))
 (junction (pt 656 304))
 (junction (pt 656 432))
@@ -1787,3 +1829,5 @@ applicable agreement for further details.
 (junction (pt 1088 416))
 (junction (pt 1088 288))
 (junction (pt 1088 160))
+(text "Yin and Yang" (rect 944 1368 1021 1382)(font "Arial" (font_size 8)))
+(rectangle (rect 936 1272 1056 1392))
