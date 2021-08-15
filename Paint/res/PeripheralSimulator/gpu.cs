@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace PeripheralSimulator
     public partial class gpu : Form, Peripheral
     {
         uint[] regs = new uint[4];
+        int mss = 0;
+        int lss = 0;
 
         Graphics g;
         Pen p;
@@ -47,7 +50,7 @@ namespace PeripheralSimulator
         {
             bool on = (regs[0] & 1) != 0;
             bool cursor = (regs[0] & 4) != 0;
-            Text = $"VGA 800x600 OUTPUT:{(on ? "ON" : "OFF")} CRUSOR:{(cursor ? "ON" : "OFF")}";
+            Text = $"VGA 800x600 OUTPUT:{(on ? "ON" : "OFF")} CRUSOR:{(cursor ? "ON" : "OFF")} MSS:{mss} LSS:{lss}";
         }
 
         public uint getBaseAddress()
@@ -130,13 +133,13 @@ namespace PeripheralSimulator
                     }
                 case 2:
                     {
-                        g.DrawRectangle(p, Math.Min(xs,xe), Math.Min(ys,ye),Math.Abs(xe - xs), Math.Abs(ye - ys));
+                        g.DrawRectangle(p, Math.Min(xs, xe), Math.Min(ys, ye), Math.Abs(xe - xs), Math.Abs(ye - ys));
                         pbCanvas.Invalidate();
                         break;
                     }
                 case 3:
                     {
-                        g.FillRectangle(sb, Math.Min(xs, xe), Math.Min(ys, ye), Math.Abs(xe - xs)+1, Math.Abs(ye - ys)+1);
+                        g.FillRectangle(sb, Math.Min(xs, xe), Math.Min(ys, ye), Math.Abs(xe - xs) + 1, Math.Abs(ye - ys) + 1);
                         pbCanvas.Invalidate();
                         break;
                     }
@@ -148,7 +151,171 @@ namespace PeripheralSimulator
                         regs[1] |= color;
                         break;
                     }
+                //TMP FloodFill
+                case 5:
+                    {
+                        //Temp testing FloodFill
+                        FloodFill(p, (uint)xs, (uint)ys);
+                        break;
+                    }
             }
+        }
+
+        public struct StackField
+        {
+            public uint x;
+            public uint y;
+
+            public override string ToString()
+            {
+                return $"X:{x} Y:{y}";
+            }
+        }
+
+        private void FloodFill(Pen p, uint xs, uint ys)
+        {
+            Color src = bmp.GetPixel((int)xs, (int)ys);
+            Color dst = p.Color;
+            if (dst == src) { return; }
+            lss = 0;
+
+            int maxStack = 200;
+
+            StreamWriter sw = new StreamWriter("StackLog.txt");
+
+            Stack<StackField> S = new Stack<StackField>();
+            if (S.Count < 200) { S.Push(new StackField { x = xs, y = ys }); }
+            sw.WriteLine("PUSH: " + S.Peek().ToString());
+            if (S.Count > lss) { lss = S.Count; Updatetext(); }
+            while (S.Count != 0)
+            {
+                StackField t = S.Pop();
+                sw.WriteLine("POP:  " + t.ToString());
+                if (bmp.GetPixel((int)t.x, (int)t.y) == src)
+                {
+                    bool setabove = false;
+                    bool setbelow = false;
+                    uint minx = t.x;
+                    uint maxx = t.x + 1;
+                    while (minx < 800 && bmp.GetPixel((int)minx, (int)t.y) == src)
+                    {
+                        if ((t.y - 1) < 600 - 64)
+                        {
+                            if (bmp.GetPixel((int)minx, (int)t.y - 1) == src)
+                            {
+                                if (!setbelow)
+                                {
+                                    if (S.Count < 200)
+                                    {
+                                        S.Push(new StackField { x = minx, y = t.y - 1 });
+                                    }
+                                    sw.WriteLine("PUSH: " + S.Peek().ToString());
+                                    if (S.Count > lss) { lss = S.Count; Updatetext(); }
+                                    setbelow = true;
+                                }
+                            }
+                            else
+                            {
+                                setbelow = false;
+                            }
+                        }
+                        if ((t.y + 1) < 600 - 64)
+                        {
+                            if (bmp.GetPixel((int)minx, (int)t.y + 1) == src)
+                            {
+                                if (!setabove)
+                                {
+                                    if (S.Count < 200)
+                                    {
+                                        S.Push(new StackField { x = minx, y = t.y + 1 });
+                                    }
+                                    sw.WriteLine("PUSH: " + S.Peek().ToString());
+                                    if (S.Count > lss) { lss = S.Count; Updatetext(); }
+                                    setabove = true;
+                                }
+                            }
+                            else
+                            {
+                                setabove = false;
+                            }
+                        }
+                        minx--;
+                    }
+                    minx++;
+                    if ((t.y - 1) < 600 - 64 && bmp.GetPixel((int)t.x, (int)t.y - 1) == src)
+                    {
+                        setbelow = true;
+                    }
+                    else
+                    {
+                        setbelow = false;
+                    }
+                    if ((t.y + 1) < 600 - 64 && bmp.GetPixel((int)t.x, (int)t.y + 1) == src)
+                    {
+                        setabove = true;
+                    }
+                    else
+                    {
+                        setabove = false;
+                    }
+                    while (maxx < 800 && bmp.GetPixel((int)maxx, (int)t.y) == src)
+                    {
+                        if ((t.y - 1) < 600 - 64)
+                        {
+                            if (bmp.GetPixel((int)maxx, (int)t.y - 1) == src)
+                            {
+                                if (!setbelow)
+                                {
+                                    if (S.Count < 200)
+                                    {
+                                        S.Push(new StackField { x = maxx, y = t.y - 1 });
+                                    }
+                                    sw.WriteLine("PUSH: " + S.Peek().ToString());
+                                    if (S.Count > lss) { lss = S.Count; Updatetext(); }
+                                    setbelow = true;
+                                }
+                            }
+                            else
+                            {
+                                setbelow = false;
+                            }
+                        }
+                        if ((t.y + 1) < 600 - 64)
+                        {
+                            if (bmp.GetPixel((int)maxx, (int)t.y + 1) == src)
+                            {
+                                if (!setabove)
+                                {
+                                    if (S.Count < 200)
+                                    {
+                                        S.Push(new StackField { x = maxx, y = t.y + 1 });
+                                    }
+                                    sw.WriteLine("PUSH: " + S.Peek().ToString());
+                                    if (S.Count > lss) { lss = S.Count; Updatetext(); }
+                                    setabove = true;
+                                }
+                            }
+                            else
+                            {
+                                setabove = false;
+                            }
+                        }
+                        maxx++;
+                    }
+                    maxx--;
+                    if (minx == maxx)
+                    {
+                        g.FillRectangle(sb, minx, t.y, 1, 1);
+                    }
+                    else
+                    {
+                        g.DrawLine(p, minx, t.y, maxx, t.y);
+                    }
+                }
+            }
+            if (lss > mss) { mss = lss; Updatetext(); }
+            sw.Close();
+            pbCanvas.Invalidate();
         }
 
         private void gpu_MouseDown(object sender, MouseEventArgs e)
@@ -231,7 +398,8 @@ namespace PeripheralSimulator
             {
                 uint x = (uint)Math.Min(Math.Max(0, e.X), 799);
                 uint y = (uint)Math.Min(Math.Max(0, e.Y), 599);
-                if (x!=lastX ||y!=lastY) {
+                if (x != lastX || y != lastY)
+                {
                     regs[1] |= 8;
                     regs[1] &= 0xFFF;
                     regs[1] |= (x & 0x3FF) << 12;

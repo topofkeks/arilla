@@ -71,7 +71,13 @@ int main()
                     case 3:{ gpuDrawLine(startPoint.x,startPoint.y,p.x,p.y); break;}
                     case 1:{ gpuDrawRect(startPoint.x,startPoint.y,p.x,p.y); break;}
                     case 4:{ gpuFillRect(startPoint.x,startPoint.y,p.x,p.y); break;}
-                    case 2:{ break;}
+                    case 2:{
+                        unsigned int pos=(p.y<<10)|p.x;
+                        gpuWaitForReady();
+                        out(GPU_BASE_ADDRESS+2,pos);
+                        lastControl=(lastControl&~GPU_OPCODE_MASK)|(5<<5);
+                        out(GPU_BASE_ADDRESS,lastControl|GPU_RUN_MASK);
+                        break;}
                     default :{break;}
                 }
             }
