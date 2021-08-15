@@ -12,3 +12,19 @@ void drawIcon(unsigned int x,unsigned int y,unsigned int zCol,unsigned int oCol,
         }
     }
 }
+
+void drawIconOpt(unsigned int x,unsigned int y,unsigned int col,const unsigned int icon[],unsigned int bgVal)
+{
+    for(int i=0;i<32;i++)
+    {
+        unsigned int row=icon[i];
+        for(int j=31;j>=0;j--)
+        {
+            if(row%2!=bgVal)
+            {
+                gpuDrawPoint_c(x+j,y+i,col);
+            }
+            row>>=1;
+        }
+    }
+}

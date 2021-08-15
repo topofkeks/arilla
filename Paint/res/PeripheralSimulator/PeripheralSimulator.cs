@@ -142,10 +142,9 @@ namespace PeripheralSimulator
             peripherals = new List<Peripheral>();
 
             //Add peripherals here
-
-            peripherals.Add(new gpu());
-
-            //
+            gpu.mouse m = new gpu.mouse();
+            peripherals.Add(new gpu(m));
+            peripherals.Add(m);
         }
 
         private void cbLog_CheckedChanged(object sender, EventArgs e)

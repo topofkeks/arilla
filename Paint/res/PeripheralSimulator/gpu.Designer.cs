@@ -41,6 +41,9 @@ namespace PeripheralSimulator
             this.pbCanvas.Size = new System.Drawing.Size(800, 600);
             this.pbCanvas.TabIndex = 0;
             this.pbCanvas.TabStop = false;
+            this.pbCanvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gpu_MouseDown);
+            this.pbCanvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gpu_MouseMove);
+            this.pbCanvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.gpu_MouseUp);
             // 
             // gpu
             // 

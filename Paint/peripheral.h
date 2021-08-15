@@ -7,5 +7,6 @@
 #include "icons.h"
 
 void drawIcon(unsigned int x,unsigned int y,unsigned int zCol,unsigned int oCol,const unsigned int icon[]);
+void drawIconOpt(unsigned int x,unsigned int y,unsigned int col,const unsigned int icon[],unsigned int bgVal);
 
 #endif // _PERIPHERAL_H_
