@@ -1,0 +1,16 @@
+0000    Add
+0001    Shift left logical
+0010    Set less than
+0011    Set less than unsigned
+0100    XOR
+0101    Shift right logical
+0110    OR
+0111    AND
+1000    Sub 
+1001    BEQ
+1010    BNE
+1011    BLT
+1100    BGE
+1101    Shift right arithmetic 
+1110    BLTU
+1111    BGEU
