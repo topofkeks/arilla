@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity SIGNEXT is
+entity ZEROEXT is
 	generic
 	(
 		in_width:  integer := 8;
@@ -15,11 +15,11 @@ entity SIGNEXT is
 	);
 end entity;
 
-architecture rtl of SIGNEXT is
+architecture rtl of ZEROEXT is
 begin
 	process(I)
 	begin
-	O<=(others => I(in_width-1));
+	O<=(others => '0');
 	O(in_width-1 downto 0)<=I(in_width-1 downto 0);
 	
 	end process;
