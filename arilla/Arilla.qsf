@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone III"
 set_global_assignment -name DEVICE EP3C16F484C6
-set_global_assignment -name TOP_LEVEL_ENTITY ArillaCore
+set_global_assignment -name TOP_LEVEL_ENTITY ArillaTopLevel
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "12:55:49  AUGUST 11, 2021"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -67,8 +67,10 @@ set_global_assignment -name BDF_FILE ALU.bdf
 set_global_assignment -name BDF_FILE MDRGenerator.bdf
 set_global_assignment -name BDF_FILE OpcodeDecoder.bdf
 set_global_assignment -name BDF_FILE ALUBranchOperationCode.bdf
+set_global_assignment -name QIP_FILE ArillaControlUnitROM.qip
+set_global_assignment -name BDF_FILE ArillaTopLevel.bdf
+set_global_assignment -name BDF_FILE ControlUnitOpSwitch.bdf
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name QIP_FILE ArillaControlUnitROM.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
