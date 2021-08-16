@@ -152,12 +152,12 @@ namespace PeripheralSimulator
                         break;
                     }
                 //TMP FloodFill
-                case 5:
-                    {
-                        //Temp testing FloodFill
-                        FloodFill(p, (uint)xs, (uint)ys);
-                        break;
-                    }
+                //case 5:
+                //    {
+                //        //Temp testing FloodFill
+                //        FloodFill(p, (uint)xs, (uint)ys);
+                //        break;
+                //    }
             }
         }
 
@@ -195,7 +195,37 @@ namespace PeripheralSimulator
                 {
                     bool setabove = false;
                     bool setbelow = false;
-                    uint minx = t.x;
+                    bool setsecondabove = false;
+                    bool setsecondbelow = false;
+                    if ((t.y - 1) < 600 - 64)
+                    {
+                        if (bmp.GetPixel((int)t.x, (int)t.y - 1) == src)
+                        {
+                            if (S.Count < 200)
+                            {
+                                S.Push(new StackField { x = t.x, y = t.y - 1 });
+                            }
+                            sw.WriteLine("PUSH: " + S.Peek().ToString());
+                            if (S.Count > lss) { lss = S.Count; Updatetext(); }
+                            setbelow = true;
+                            setsecondbelow = true;
+                        }
+                    }
+                    if ((t.y + 1) < 600 - 64)
+                    {
+                        if (bmp.GetPixel((int)t.x, (int)t.y + 1) == src)
+                        {
+                            if (S.Count < 200)
+                            {
+                                S.Push(new StackField { x = t.x, y = t.y + 1 });
+                            }
+                            sw.WriteLine("PUSH: " + S.Peek().ToString());
+                            if (S.Count > lss) { lss = S.Count; Updatetext(); }
+                            setabove = true;
+                            setsecondabove = true;
+                        }
+                    }
+                    uint minx = t.x - 1;
                     uint maxx = t.x + 1;
                     while (minx < 800 && bmp.GetPixel((int)minx, (int)t.y) == src)
                     {
@@ -242,29 +272,13 @@ namespace PeripheralSimulator
                         minx--;
                     }
                     minx++;
-                    if ((t.y - 1) < 600 - 64 && bmp.GetPixel((int)t.x, (int)t.y - 1) == src)
-                    {
-                        setbelow = true;
-                    }
-                    else
-                    {
-                        setbelow = false;
-                    }
-                    if ((t.y + 1) < 600 - 64 && bmp.GetPixel((int)t.x, (int)t.y + 1) == src)
-                    {
-                        setabove = true;
-                    }
-                    else
-                    {
-                        setabove = false;
-                    }
                     while (maxx < 800 && bmp.GetPixel((int)maxx, (int)t.y) == src)
                     {
                         if ((t.y - 1) < 600 - 64)
                         {
                             if (bmp.GetPixel((int)maxx, (int)t.y - 1) == src)
                             {
-                                if (!setbelow)
+                                if (!setsecondbelow)
                                 {
                                     if (S.Count < 200)
                                     {
@@ -272,19 +286,19 @@ namespace PeripheralSimulator
                                     }
                                     sw.WriteLine("PUSH: " + S.Peek().ToString());
                                     if (S.Count > lss) { lss = S.Count; Updatetext(); }
-                                    setbelow = true;
+                                    setsecondbelow = true;
                                 }
                             }
                             else
                             {
-                                setbelow = false;
+                                setsecondbelow = false;
                             }
                         }
                         if ((t.y + 1) < 600 - 64)
                         {
                             if (bmp.GetPixel((int)maxx, (int)t.y + 1) == src)
                             {
-                                if (!setabove)
+                                if (!setsecondabove)
                                 {
                                     if (S.Count < 200)
                                     {
@@ -292,12 +306,12 @@ namespace PeripheralSimulator
                                     }
                                     sw.WriteLine("PUSH: " + S.Peek().ToString());
                                     if (S.Count > lss) { lss = S.Count; Updatetext(); }
-                                    setabove = true;
+                                    setsecondabove = true;
                                 }
                             }
                             else
                             {
-                                setabove = false;
+                                setsecondabove = false;
                             }
                         }
                         maxx++;

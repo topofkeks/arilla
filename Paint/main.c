@@ -1,3 +1,4 @@
+#define EEG
 //TODO Final version should be aggressively inlined and thus merged into single file, lets keep it separated for now
 //TODO Final version should be optimized for memory and variable sizes, lets do that after we get it working
 #include "peripheral.h"
@@ -11,6 +12,9 @@ unsigned int selectedColor=0;
 unsigned int lastMouse=0;
 unsigned int track=0;
 unsigned int ui=0;
+#ifdef EEG
+unsigned int untouched=1;
+#endif
 struct point startPoint;
 
 void setup();
@@ -58,6 +62,12 @@ int main()
             else
             {
                 ui=1;
+                #ifdef EEG
+                if(p.x>800-32)
+                {
+                    ui=2;
+                }
+                #endif
             }
         }
         if(!mouseLDown() && lastMouse)
@@ -72,11 +82,10 @@ int main()
                     case 1:{ gpuDrawRect(startPoint.x,startPoint.y,p.x,p.y); break;}
                     case 4:{ gpuFillRect(startPoint.x,startPoint.y,p.x,p.y); break;}
                     case 2:{
-                        unsigned int pos=(p.y<<10)|p.x;
-                        gpuWaitForReady();
-                        out(GPU_BASE_ADDRESS+2,pos);
-                        lastControl=(lastControl&~GPU_OPCODE_MASK)|(5<<5);
-                        out(GPU_BASE_ADDRESS,lastControl|GPU_RUN_MASK);
+                        #ifdef EEG
+                        untouched=0;
+                        #endif
+                        floodFill(p.x,p.y,COLOR_LUT[selectedColor]);
                         break;}
                     default :{break;}
                 }
@@ -87,6 +96,12 @@ int main()
                 if(ind < 2)
                 {
                     //Current Color
+                    #ifdef EEG
+                    if(ui==2 && untouched)
+                    {
+                        EE();
+                    }
+                    #endif
                 }
                 else if(ind < 10)
                 {
