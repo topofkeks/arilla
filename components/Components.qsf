@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone III"
 set_global_assignment -name DEVICE EP3C16F484C6
-set_global_assignment -name TOP_LEVEL_ENTITY Components
+set_global_assignment -name TOP_LEVEL_ENTITY LDREG
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "19:15:54  AUGUST 12, 2021"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -78,7 +78,22 @@ set_global_assignment -name QIP_FILE DP_SRAM32.qip
 set_global_assignment -name QIP_FILE MUX16_32.qip
 set_global_assignment -name QIP_FILE MUX32_32.qip
 set_global_assignment -name QIP_FILE DC32.qip
+set_global_assignment -name QIP_FILE MUX4_32.qip
+set_global_assignment -name QIP_FILE INC_13.qip
+set_global_assignment -name QIP_FILE ROM_Test.qip
+set_global_assignment -name QIP_FILE MUX4_4.qip
+set_global_assignment -name VHDL_FILE ZEROEXT.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name QIP_FILE CMP_32_ALU.qip
+set_global_assignment -name QIP_FILE CMP_32_ALU_UNSIGNED.qip
+set_global_assignment -name QIP_FILE ADDSUB_32.qip
+set_global_assignment -name QIP_FILE SHIFT_32_L.qip
+set_global_assignment -name QIP_FILE SHIFTR_32_A.qip
+set_global_assignment -name QIP_FILE MUX16_1.qip
+set_global_assignment -name QIP_FILE CMP32_ZERO.qip
+set_global_assignment -name QIP_FILE MUX8_4.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name QIP_FILE MUX2_14.qip
+set_global_assignment -name QIP_FILE MUX2_4.qip

@@ -1,0 +1,83 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 0 0 128 128)
+	(text "CMP_32_ALU" (rect 10 0 106 16)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 112 25 124)(font "Arial" ))
+	(port
+		(pt 0 64)
+		(input)
+		(text "dataa[31..0]" (rect 0 0 67 14)(font "Arial" (font_size 8)))
+		(text "dataa[31..0]" (rect 20 56 87 71)(font "Arial" (font_size 8)))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "datab[31..0]" (rect 0 0 67 14)(font "Arial" (font_size 8)))
+		(text "datab[31..0]" (rect 20 72 87 87)(font "Arial" (font_size 8)))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 128 48)
+		(output)
+		(text "aeb" (rect 0 0 21 14)(font "Arial" (font_size 8)))
+		(text "aeb" (rect 88 40 107 55)(font "Arial" (font_size 8)))
+		(line (pt 128 48)(pt 112 48))
+	)
+	(port
+		(pt 128 64)
+		(output)
+		(text "aneb" (rect 0 0 28 14)(font "Arial" (font_size 8)))
+		(text "aneb" (rect 81 56 107 71)(font "Arial" (font_size 8)))
+		(line (pt 128 64)(pt 112 64))
+	)
+	(port
+		(pt 128 80)
+		(output)
+		(text "ageb" (rect 0 0 28 14)(font "Arial" (font_size 8)))
+		(text "ageb" (rect 81 72 107 87)(font "Arial" (font_size 8)))
+		(line (pt 128 80)(pt 112 80))
+	)
+	(port
+		(pt 128 96)
+		(output)
+		(text "alb" (rect 0 0 16 14)(font "Arial" (font_size 8)))
+		(text "alb" (rect 92 88 107 103)(font "Arial" (font_size 8)))
+		(line (pt 128 96)(pt 112 96))
+	)
+	(drawing
+		(text "signed compare" (rect 22 25 132 64)(font "Arial" ))
+		(line (pt 16 16)(pt 16 112))
+		(line (pt 16 16)(pt 112 16))
+		(line (pt 16 112)(pt 112 112))
+		(line (pt 112 16)(pt 112 112))
+		(line (pt 0 0)(pt 129 0))
+		(line (pt 129 0)(pt 129 130))
+		(line (pt 0 130)(pt 129 130))
+		(line (pt 0 0)(pt 0 130))
+		(line (pt 0 0)(pt 0 0))
+		(line (pt 0 0)(pt 0 0))
+		(line (pt 0 0)(pt 0 0))
+		(line (pt 0 0)(pt 0 0))
+	)
+)

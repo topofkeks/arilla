@@ -6,7 +6,7 @@ entity SIGNEXT is
 	generic
 	(
 		in_width:  integer := 8;
-		out_width: integer := 16
+		out_width: integer := 32
 	);
 	port
 	(

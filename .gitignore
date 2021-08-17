@@ -1,6 +1,10 @@
 ## Transembler
 Transembler/
 
+## CodeBlocks
+*.layout
+*.depend
+
 ## Mic
 *.v3hex
 

@@ -20,54 +20,6 @@ applicable agreement for further details.
 */
 (header "graphic" (version "1.4"))
 (symbol
-	(rect 448 584 632 680)
-	(text "DEMUX" (rect 5 0 42 12)(font "Arial" ))
-	(text "inst2" (rect 8 80 31 92)(font "Arial" ))
-	(port
-		(pt 88 0)
-		(input)
-		(text "E" (rect 0 0 7 12)(font "Arial" ))
-		(text "EN" (rect 80 16 92 31)(font "Arial" )(vertical))
-		(line (pt 88 16)(pt 88 0))
-	)
-	(port
-		(pt 88 96)
-		(input)
-		(text "S[size-1..0]" (rect 0 0 55 12)(font "Arial" ))
-		(text "S[N]" (rect 80 56 92 78)(font "Arial" )(vertical))
-		(line (pt 88 96)(pt 88 80)(line_width 3))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "I[width-1..0]" (rect 0 0 57 12)(font "Arial" ))
-		(text "I[W]" (rect 24 40 45 52)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 3))
-	)
-	(port
-		(pt 184 48)
-		(output)
-		(text "O[2**size*width-1..0]" (rect -24 0 77 12)(font "Arial" ))
-		(text "O[2^N*W]" (rect 120 40 168 52)(font "Arial" ))
-		(line (pt 184 48)(pt 168 48)(line_width 3))
-	)
-	(parameter
-		"size"
-		"2"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"width"
-		"16"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(text "DEMUX" (rect 48 40 123 59)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
-		(rectangle (rect 16 16 168 80))
-	)
-	(annotation_block (parameter)(rect 448 536 632 584))
-)
-(symbol
 	(rect 448 288 616 368)
 	(text "CD" (rect 5 0 21 12)(font "Arial" ))
 	(text "inst" (rect 8 64 25 76)(font "Arial" ))

@@ -1,28 +1,16 @@
-start:  mxA0, mxB0, ALU_PC, wrPC, wrIR
-        br (if grinst then fault)
-        wrA, wrB, mxA0, mxB1, wrC
-        br (case(LUI, AIUPC, JAL, JALR, BRANCH, LOAD, STORE, RI))
-LUI:    mxDest1, wrReg
-        br start
-AIUPC:  wrC, mxB0, mxB1, mxA0
-        br reg_wr
-JAL:    mxDest0, mxDest1, wrReg, ALU_PC, mxB2, mxA0, wrPC
-        br start
-JALR:   mxDest0, mxDest1, wrReg, ALU_PC, mxB2, mxB0, mxA0, wrPC
-        br start
-BRANCH: ALU_PC, wrbrPC, ALUop_branch
-        br start
-LOAD:   wrC, mxB0, mxB1, mxB2
-        br (if mem_align_exception then fault)
-        wrMDR, addrALU
-        mxDest0, wrReg
-        br start
-STORE:  wrC, mxB1, mxB2
-        br (if mem_align_exception then fault)
-        wrMEM
-        br start
-RI:     wrC, ALU_RI
-reg_wr: wrReg
-        br start
-fault:  fault_signal
-        br this // TODO something more clever
+idle:   br (if halted then this)
+start:  wrIR, mxPC, wrPC, mxA, mxB[0], br (if pc_mem_align_exception then fault)
+        wrAB, mxB[1], mxA, wrC, br (case (lui, auipc, jal, jalr, branch, load, store, ri, fault)
+lui:    mxReg[1], wrReg, br start
+auipc:  wrC, mxA, br regw
+jal:    mxReg[0], mxReg[1], wrReg, mxPC, mxA, mxB[2], wrPC, br start
+jalr:   mxReg[0], mxReg[1], wrReg, mxPC, mxB[2], mxB[0], wrPC, br start
+branch: wrbrPC, mxALUOP[1], br start
+load:   wrC, mxB[2], mxB[0], br (if mem_align_exception then fault)
+        wrMDR
+        mxReg[0], wrReg, br start
+store:  wrC, mxB[2], mxB[0], br (if mem_align_exception then fault)
+        mxMEM, wrMEM, br start
+ri:     wrC, mxALUOP[0]
+regw:   wrReg, br start
+fault:  fault_signal, br this
