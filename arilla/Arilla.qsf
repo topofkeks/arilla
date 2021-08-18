@@ -60,6 +60,7 @@ set_global_assignment -name SEARCH_PATH ../components/
 set_global_assignment -name EDA_TIME_SCALE "10 ns" -section_id eda_simulation
 set_global_assignment -name EDA_RUN_TOOL_AUTOMATICALLY ON -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_FILE testbench/ALU_testbench.v -section_id testbench
+set_global_assignment -name QIP_FILE ArillaControlUnitROM.qip
 set_global_assignment -name BDF_FILE MemAlignExceptionCheck.bdf
 set_global_assignment -name BDF_FILE RegFile.bdf
 set_global_assignment -name BDF_FILE ArillaCore.bdf
@@ -67,7 +68,6 @@ set_global_assignment -name BDF_FILE ALU.bdf
 set_global_assignment -name BDF_FILE MDRGenerator.bdf
 set_global_assignment -name BDF_FILE OpcodeDecoder.bdf
 set_global_assignment -name BDF_FILE ALUBranchOperationCode.bdf
-set_global_assignment -name QIP_FILE ArillaControlUnitROM.qip
 set_global_assignment -name BDF_FILE ArillaTopLevel.bdf
 set_global_assignment -name BDF_FILE ControlUnitOpSwitch.bdf
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top

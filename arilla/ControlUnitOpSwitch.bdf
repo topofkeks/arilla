@@ -23,7 +23,7 @@ applicable agreement for further details.
 	(input)
 	(rect 424 184 592 200)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "lui" (rect 5 0 16 12)(font "Arial" ))
+	(text "lui" (rect 5 0 15 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -39,7 +39,7 @@ applicable agreement for further details.
 	(input)
 	(rect 424 264 592 280)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "auipc" (rect 5 0 31 12)(font "Arial" ))
+	(text "auipc" (rect 5 0 30 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -55,7 +55,7 @@ applicable agreement for further details.
 	(input)
 	(rect 424 352 592 368)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "jal" (rect 5 0 16 12)(font "Arial" ))
+	(text "jal" (rect 5 0 15 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -71,7 +71,7 @@ applicable agreement for further details.
 	(input)
 	(rect 424 432 592 448)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "jalr" (rect 5 0 20 12)(font "Arial" ))
+	(text "jalr" (rect 5 0 19 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -87,7 +87,7 @@ applicable agreement for further details.
 	(input)
 	(rect 424 528 592 544)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "branch" (rect 5 0 39 12)(font "Arial" ))
+	(text "branch" (rect 5 0 38 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -103,7 +103,7 @@ applicable agreement for further details.
 	(input)
 	(rect 424 616 592 632)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "load" (rect 5 0 26 12)(font "Arial" ))
+	(text "load" (rect 5 0 25 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -119,7 +119,7 @@ applicable agreement for further details.
 	(input)
 	(rect 424 696 592 712)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "store" (rect 5 0 30 12)(font "Arial" ))
+	(text "store" (rect 5 0 29 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -135,7 +135,7 @@ applicable agreement for further details.
 	(input)
 	(rect 424 776 592 792)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "ri" (rect 5 0 11 12)(font "Arial" ))
+	(text "ri" (rect 5 0 10 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -151,7 +151,7 @@ applicable agreement for further details.
 	(input)
 	(rect 424 856 592 872)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "fault" (rect 5 0 28 12)(font "Arial" ))
+	(text "fault" (rect 5 0 27 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -491,12 +491,12 @@ applicable agreement for further details.
 	)
 )
 (connector
-	(text "0" (rect 472 67 484 72)(font "Arial" )(vertical))
+	(text "zero" (rect 472 67 484 87)(font "Arial" )(vertical))
 	(pt 488 88)
 	(pt 488 80)
 )
 (connector
-	(text "1" (rect 512 91 524 96)(font "Arial" )(vertical))
+	(text "one" (rect 512 91 524 108)(font "Arial" )(vertical))
 	(pt 528 80)
 	(pt 528 112)
 )
@@ -514,13 +514,13 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "0,0,1,1" (rect 531 216 565 228)(font "Arial" ))
+	(text "zero,zero,one,one" (rect 531 216 617 228)(font "Arial" ))
 	(pt 488 232)
 	(pt 568 232)
 	(bus)
 )
 (connector
-	(text "0,1,0,0" (rect 496 296 530 308)(font "Arial" ))
+	(text "zero,one,zero,zero" (rect 496 296 584 308)(font "Arial" ))
 	(pt 488 312)
 	(pt 568 312)
 	(bus)
@@ -608,19 +608,19 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "0,1,0,1" (rect 496 384 530 396)(font "Arial" ))
+	(text "zero,one,zero,one" (rect 496 384 582 396)(font "Arial" ))
 	(pt 488 400)
 	(pt 568 400)
 	(bus)
 )
 (connector
-	(text "0,1,1,0" (rect 496 464 530 476)(font "Arial" ))
+	(text "zero,one,one,zero" (rect 496 464 582 476)(font "Arial" ))
 	(pt 488 480)
 	(pt 568 480)
 	(bus)
 )
 (connector
-	(text "0,1,1,1" (rect 496 560 530 572)(font "Arial" ))
+	(text "zero,one,one,one" (rect 496 560 579 572)(font "Arial" ))
 	(pt 568 576)
 	(pt 488 576)
 	(bus)
@@ -638,19 +638,19 @@ applicable agreement for further details.
 	(pt 592 784)
 )
 (connector
-	(text "1,0,0,0" (rect 496 648 530 660)(font "Arial" ))
+	(text "one,zero,zero,zero" (rect 496 648 584 660)(font "Arial" ))
 	(pt 568 664)
 	(pt 488 664)
 	(bus)
 )
 (connector
-	(text "1,0,1,1" (rect 496 728 530 740)(font "Arial" ))
+	(text "one,zero,one,one" (rect 496 728 579 740)(font "Arial" ))
 	(pt 568 744)
 	(pt 488 744)
 	(bus)
 )
 (connector
-	(text "1,1,0,1" (rect 496 808 530 820)(font "Arial" ))
+	(text "one,one,zero,one" (rect 496 808 579 820)(font "Arial" ))
 	(pt 488 824)
 	(pt 568 824)
 	(bus)
@@ -665,7 +665,7 @@ applicable agreement for further details.
 	(pt 592 864)
 )
 (connector
-	(text "1,1,1,1" (rect 496 888 530 900)(font "Arial" ))
+	(text "one,one,one,one" (rect 496 888 577 900)(font "Arial" ))
 	(pt 488 904)
 	(pt 568 904)
 	(bus)

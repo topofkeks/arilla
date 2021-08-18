@@ -336,12 +336,12 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "0" (rect 264 251 276 256)(font "Arial" )(vertical))
+	(text "zero" (rect 264 251 276 271)(font "Arial" )(vertical))
 	(pt 280 272)
 	(pt 280 264)
 )
 (connector
-	(text "1" (rect 304 275 316 280)(font "Arial" )(vertical))
+	(text "one" (rect 304 275 316 292)(font "Arial" )(vertical))
 	(pt 320 264)
 	(pt 320 296)
 )
@@ -420,7 +420,7 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "1" (rect 924 312 929 324)(font "Arial" ))
+	(text "one" (rect 924 312 941 324)(font "Arial" ))
 	(pt 904 328)
 	(pt 936 328)
 )

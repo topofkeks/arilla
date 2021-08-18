@@ -55,7 +55,7 @@ applicable agreement for further details.
 	(input)
 	(rect 288 176 456 192)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "word[31..0]" (rect 5 0 60 12)(font "Arial" ))
+	(text "word[31..0]" (rect 5 0 59 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -481,16 +481,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "0" (rect 1352 595 1364 600)(font "Arial" )(vertical))
-	(pt 1368 616)
-	(pt 1368 608)
-)
-(connector
-	(text "1" (rect 1392 619 1404 624)(font "Arial" )(vertical))
-	(pt 1408 608)
-	(pt 1408 640)
-)
-(connector
 	(pt 1384 136)
 	(pt 1400 136)
 	(bus)
@@ -594,16 +584,26 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,u16bit[15..0]" (rect 1192 136 1404 148)(font "Arial" ))
-	(pt 1400 152)
-	(pt 1312 152)
-	(bus)
-)
-(connector
-	(text "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,u8bit[7..0]" (rect 1100 152 1376 164)(font "Arial" ))
+	(text "zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, u8bit[7..0]" (rect 1052 152 1752 164)(font "Arial" ))
 	(pt 1400 168)
 	(pt 1304 168)
 	(bus)
+)
+(connector
+	(text "zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, zero, u16bit[15..0]" (rect 1032 136 1527 148)(font "Arial" ))
+	(pt 1400 152)
+	(pt 1152 152)
+	(bus)
+)
+(connector
+	(text "one" (rect 1391 618 1403 635)(font "Arial" )(vertical))
+	(pt 1408 608)
+	(pt 1408 640)
+)
+(connector
+	(text "zero" (rect 1351 594 1363 614)(font "Arial" )(vertical))
+	(pt 1368 616)
+	(pt 1368 608)
 )
 (junction (pt 1384 200))
 (junction (pt 1384 184))
