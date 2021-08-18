@@ -23,7 +23,7 @@ applicable agreement for further details.
 	(input)
 	(rect 192 280 360 296)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "IN[11..0]" (rect 5 0 49 12)(font "Arial" ))
+	(text "IN[11..0]" (rect 5 0 47 11)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -39,7 +39,7 @@ applicable agreement for further details.
 	(input)
 	(rect 192 304 360 320)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "cursor" (rect 5 0 36 12)(font "Arial" ))
+	(text "cursor" (rect 5 0 35 11)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -55,7 +55,7 @@ applicable agreement for further details.
 	(input)
 	(rect 192 328 360 344)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "x[9..0]" (rect 5 0 37 12)(font "Arial" ))
+	(text "x[10..0]" (rect 5 0 42 11)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -71,7 +71,7 @@ applicable agreement for further details.
 	(input)
 	(rect 192 352 360 368)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "y[9..0]" (rect 5 0 39 12)(font "Arial" ))
+	(text "y[10..0]" (rect 5 0 42 11)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -87,7 +87,7 @@ applicable agreement for further details.
 	(input)
 	(rect 192 376 360 392)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "mx[9..0]" (rect 5 0 47 12)(font "Arial" ))
+	(text "mx[10..0]" (rect 5 0 52 11)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -103,7 +103,7 @@ applicable agreement for further details.
 	(input)
 	(rect 192 400 360 416)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "my[9..0]" (rect 5 0 48 12)(font "Arial" ))
+	(text "my[10..0]" (rect 5 0 52 11)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -119,7 +119,7 @@ applicable agreement for further details.
 	(output)
 	(rect 904 280 1080 296)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "OUT[11..0]" (rect 90 0 144 12)(font "Arial" ))
+	(text "OUT[11..0]" (rect 90 0 144 11)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
