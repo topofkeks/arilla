@@ -69,9 +69,9 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 2000 464 2176 480)
+	(rect 1456 248 1632 264)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "zero" (rect 90 0 110 12)(font "Arial" ))
+	(text "C[31..0]" (rect 90 0 130 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -85,9 +85,9 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 1456 248 1632 264)
+	(rect 2000 464 2176 480)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "C[31..0]" (rect 90 0 130 12)(font "Arial" ))
+	(text "aluzero" (rect 90 0 124 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -1105,10 +1105,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 1936 472)
-	(pt 2000 472)
-)
-(connector
 	(pt 1856 576)
 	(pt 1840 576)
 )
@@ -1494,14 +1490,18 @@ applicable agreement for further details.
 	(pt 240 240)
 )
 (connector
-	(text "0" (rect 144 803 156 808)(font "Arial" )(vertical))
+	(text "zero" (rect 144 803 156 823)(font "Arial" )(vertical))
 	(pt 160 824)
 	(pt 160 816)
 )
 (connector
-	(text "1" (rect 184 827 196 832)(font "Arial" )(vertical))
+	(text "one" (rect 184 827 196 844)(font "Arial" )(vertical))
 	(pt 200 816)
 	(pt 200 848)
+)
+(connector
+	(pt 1936 472)
+	(pt 2000 472)
 )
 (junction (pt 1440 256))
 (junction (pt 600 376))

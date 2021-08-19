@@ -80,7 +80,6 @@ set_global_assignment -name QIP_FILE MUX32_32.qip
 set_global_assignment -name QIP_FILE DC32.qip
 set_global_assignment -name QIP_FILE MUX4_32.qip
 set_global_assignment -name QIP_FILE INC_13.qip
-set_global_assignment -name QIP_FILE ROM_Test.qip
 set_global_assignment -name QIP_FILE MUX4_4.qip
 set_global_assignment -name VHDL_FILE ZEROEXT.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top

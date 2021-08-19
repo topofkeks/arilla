@@ -54,8 +54,8 @@ applicable agreement for further details.
 	(port
 		(pt 144 48)
 		(output)
-		(text "zero" (rect 0 0 25 14)(font "Arial" (font_size 8)))
-		(text "zero" (rect 98 43 123 57)(font "Arial" (font_size 8)))
+		(text "aluzero" (rect 0 0 42 14)(font "Arial" (font_size 8)))
+		(text "aluzero" (rect 81 43 123 57)(font "Arial" (font_size 8)))
 		(line (pt 144 48)(pt 128 48))
 	)
 	(drawing

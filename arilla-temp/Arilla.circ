@@ -1458,15 +1458,6 @@ end TCL_Generic;&#13;
     <wire from="(860,430)" to="(880,430)"/>
     <wire from="(860,470)" to="(880,470)"/>
   </circuit>
-  <circuit name="SingleCycleCore">
-    <a name="appearance" val="logisim_evolution"/>
-    <a name="circuit" val="SingleCycleCore"/>
-    <a name="circuitnamedboxfixedsize" val="true"/>
-    <a name="circuitvhdlpath" val=""/>
-    <a name="clabel" val=""/>
-    <a name="clabelfont" val="SansSerif bold 16"/>
-    <a name="clabelup" val="east"/>
-  </circuit>
   <circuit name="MultiCycleCore">
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="MultiCycleCore"/>
