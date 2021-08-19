@@ -514,13 +514,7 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "zero,zero,one,one" (rect 531 216 617 228)(font "Arial" ))
-	(pt 488 232)
-	(pt 568 232)
-	(bus)
-)
-(connector
-	(text "zero,one,zero,zero" (rect 496 296 584 308)(font "Arial" ))
+	(text "zero,one,zero,zero" (rect 472 296 560 308)(font "Arial" ))
 	(pt 488 312)
 	(pt 568 312)
 	(bus)
@@ -620,12 +614,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "zero,one,one,one" (rect 496 560 579 572)(font "Arial" ))
-	(pt 568 576)
-	(pt 488 576)
-	(bus)
-)
-(connector
 	(pt 592 648)
 	(pt 592 624)
 )
@@ -638,24 +626,6 @@ applicable agreement for further details.
 	(pt 592 784)
 )
 (connector
-	(text "one,zero,zero,zero" (rect 496 648 584 660)(font "Arial" ))
-	(pt 568 664)
-	(pt 488 664)
-	(bus)
-)
-(connector
-	(text "one,zero,one,one" (rect 496 728 579 740)(font "Arial" ))
-	(pt 568 744)
-	(pt 488 744)
-	(bus)
-)
-(connector
-	(text "one,one,zero,one" (rect 496 808 579 820)(font "Arial" ))
-	(pt 488 824)
-	(pt 568 824)
-	(bus)
-)
-(connector
 	(pt 616 904)
 	(pt 712 904)
 	(bus)
@@ -665,12 +635,6 @@ applicable agreement for further details.
 	(pt 592 864)
 )
 (connector
-	(text "one,one,one,one" (rect 496 888 577 900)(font "Arial" ))
-	(pt 488 904)
-	(pt 568 904)
-	(bus)
-)
-(connector
 	(pt 712 744)
 	(pt 712 824)
 	(bus)
@@ -678,6 +642,42 @@ applicable agreement for further details.
 (connector
 	(pt 712 824)
 	(pt 712 904)
+	(bus)
+)
+(connector
+	(text "one,one,one,zero" (rect 496 888 579 900)(font "Arial" ))
+	(pt 568 904)
+	(pt 488 904)
+	(bus)
+)
+(connector
+	(text "one,one,zero,one" (rect 496 808 579 820)(font "Arial" ))
+	(pt 568 824)
+	(pt 488 824)
+	(bus)
+)
+(connector
+	(text "one,zero,one,zero" (rect 496 728 582 740)(font "Arial" ))
+	(pt 568 744)
+	(pt 488 744)
+	(bus)
+)
+(connector
+	(text "one,zero,zero,zero" (rect 496 648 584 660)(font "Arial" ))
+	(pt 568 664)
+	(pt 488 664)
+	(bus)
+)
+(connector
+	(text "zero,one,one,one" (rect 480 560 563 572)(font "Arial" ))
+	(pt 568 576)
+	(pt 472 576)
+	(bus)
+)
+(connector
+	(text "zero,zero,one,one" (rect 491 216 577 228)(font "Arial" ))
+	(pt 568 232)
+	(pt 448 232)
 	(bus)
 )
 (junction (pt 712 232))
