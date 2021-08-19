@@ -2,6 +2,7 @@
 from argparse import ArgumentParser, Namespace
 from math import ceil, log2
 from typing import Dict, List, Set, Tuple, Union
+from pathlib import Path
 import re
 
 parser = ArgumentParser(description='Generator mikrokoda za projekat iz Arhitekture računara.')
@@ -10,6 +11,7 @@ parser.add_argument('--binary', help='ispis mikoinstrukcija u binarnim ciframa',
 parser.add_argument('--csv', help='štampa u CSV formatu, za Excel', action='store_true')
 parser.add_argument('--v3hex', help='štampa u v3.0 hex words addressed formatu, za Logisim', action='store_true')
 parser.add_argument('--mif', help='štampa u MIF (memory initialization file) formatu, za Quartus', action='store_true')
+parser.add_argument('--vhd', help='štampa u VHD (VHDL asynchronous ROM) formatu, za Quartus', action='store_true')
 args: Namespace = parser.parse_args()
 
 case_regex = re.compile(r'^br\s*\(\s*case\s*\(([^)]+)\)')
@@ -128,6 +130,25 @@ elif args.mif:
         print('DATA_RADIX = HEX;')
     print('CONTENT')
     print('BEGIN')
+elif args.vhd:
+    entity_name=Path(args.mic_file).stem+'ROM'
+    print('library ieee;')
+    print('use ieee.std_logic_1164.all;')
+    print('use ieee.numeric_std.all;')
+    print('')
+    print(f'entity {entity_name} is')
+    print('    port(')
+    print(f'        ADDR: in std_logic_vector({ba_width-1} downto 0);')
+    print(f'        O: out std_logic_vector({final_width-1} downto 0)')
+    print('    );')
+    print('end entity;')
+    print('')
+    print(f'architecture rtl of {entity_name} is')
+    print(f'    type romType is array ({(2**ba_width)-1} downto 0) of std_logic_vector({final_width-1} downto 0);')
+    print(f"    signal ROM : romType := (others => (others =>'0'));")
+    print('begin')
+    print('')
+    print('    --program starts here')
 else:
     print('================== Instrukcija ======================')
     print('Širina instrukcije:', final_width)
@@ -162,15 +183,29 @@ for index, (curr_signals, curr_cc, ba) in enumerate(lines):
             line_bin += '0'
     if args.mif:
         print(hex(index).split('x')[1], end=' : ')
-    if args.binary or args.csv:
+    if args.vhd:
+        print(f'    ROM({index})<='.ljust(13)+'"',end='')
+    if args.binary or args.csv or args.vhd:
         print(line_bin, end=' ')
     else:
         print(hex(int(line_bin, 2)).split('x')[1].upper(), end=' ')
     if args.mif:
         print(';')
+    elif args.vhd:
+        print('";')
     elif not args.v3hex:
         print()
 if args.v3hex:
     print()
 elif args.mif:
     print('END;')
+elif args.vhd:
+    print('    --program ends here')
+    print('')
+    print('process(ADDR)')
+    print('begin')
+    print('')
+    print('    O<=ROM(to_integer(unsigned(ADDR)));')
+    print('')
+    print('end process;')
+    print('end rtl;')

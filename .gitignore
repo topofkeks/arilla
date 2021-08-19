@@ -19,6 +19,7 @@ simulation/
 output_files/
 # Has tmp in the name so i assume its safe to ignore
 greybox_tmp/
+*.qdf
 
 ## Visual Studio
 # User-specific files
