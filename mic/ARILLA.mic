@@ -3,14 +3,13 @@ start:  wrIR, mxPC, wrPC, mxA, mxB[0], br (if pc_mem_align_exception then fault)
         wrAB, mxB[1], mxA, wrC, br (case (lui, auipc, jal, jalr, branch, load, store, ri, fault)
 lui:    mxReg[1], wrReg, br start
 auipc:  wrC, mxA, br regw
-jal:    mxReg[0], mxReg[1], wrReg, mxPC, mxA, mxB[2], wrPC, br start
-jalr:   mxReg[0], mxReg[1], wrReg, mxPC, mxB[2], mxB[0], wrPC, br start
-branch: wrbrPC, mxALUOP[1], br start
-load:   wrC, mxB[2], mxB[0], br (if mem_align_exception then fault)
-        wrMDR
+jal:    mxReg[0], mxReg[1], wrReg, mxPC, mxA, mxB[2], wrPC, br idle
+jalr:   mxReg[0], mxReg[1], wrReg, mxPC, mxB[2], mxB[0], wrPC, br idle
+branch: wrbrPC, mxALUOP[1], br idle
+load:   mxMEM, wrC, mxB[2], mxB[0], br (if mem_align_exception then fault)
         mxReg[0], wrReg, br start
-store:  wrC, mxB[2], mxB[0], br (if mem_align_exception then fault)
-        mxMEM, wrMEM, br start
+store:  mxMEM, wrMEM, mxB[2], mxB[0], br (if mem_align_exception then fault)
+        br start
 ri:     wrC, mxALUOP[0]
 regw:   wrReg, br start
 fault:  fault_signal, br this
