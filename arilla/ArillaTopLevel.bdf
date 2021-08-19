@@ -34,7 +34,6 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 112 464 168 480))
 )
 (pin
 	(input)
@@ -51,7 +50,6 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 104 488 160 504))
 )
 (pin
 	(input)
@@ -68,7 +66,6 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 104 512 160 528))
 )
 (pin
 	(output)
@@ -85,7 +82,6 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1248 520 1304 536))
 )
 (pin
 	(output)
@@ -102,7 +98,6 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 960 536 1016 552))
 )
 (pin
 	(output)
@@ -119,7 +114,6 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 960 552 1016 568))
 )
 (pin
 	(output)
@@ -136,7 +130,6 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 960 568 1016 584))
 )
 (pin
 	(output)
@@ -153,11 +146,10 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 960 584 1016 600))
 )
 (pin
 	(output)
-	(rect 640 744 844 760)
+	(rect 640 744 816 760)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "SDRAM_ADDR[12..0]" (rect 90 0 198 12)(font "Arial" ))
 	(pt 0 8)
@@ -173,7 +165,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 640 760 820 776)
+	(rect 640 760 816 776)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "SDRAM_BA[1..0]" (rect 90 0 174 12)(font "Arial" ))
 	(pt 0 8)
@@ -189,7 +181,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 640 776 817 792)
+	(rect 640 776 816 792)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "SDRAM_RAS_N" (rect 90 0 171 12)(font "Arial" ))
 	(pt 0 8)
@@ -205,7 +197,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 640 792 817 808)
+	(rect 640 792 816 808)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "SDRAM_CAS_N" (rect 90 0 171 12)(font "Arial" ))
 	(pt 0 8)
@@ -331,7 +323,6 @@ applicable agreement for further details.
 		(line (pt 52 8)(pt 56 12))
 	)
 	(text "VCC" (rect 4 7 24 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 1352 704 1408 720))
 )
 (pin
 	(bidir)
@@ -349,11 +340,10 @@ applicable agreement for further details.
 		(line (pt 52 8)(pt 56 12))
 	)
 	(text "VCC" (rect 4 7 24 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 1352 720 1408 736))
 )
 (pin
 	(bidir)
-	(rect 640 728 829 744)
+	(rect 640 728 816 744)
 	(text "BIDIR" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "SDRAM_DQ[15..0]" (rect 90 0 183 12)(font "Arial" ))
 	(pt 0 8)

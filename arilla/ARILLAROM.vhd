@@ -2,14 +2,14 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity ArillaCoreROM is
+entity ARILLAROM is
     port(
         ADDR: in std_logic_vector(3 downto 0);
         O: out std_logic_vector(24 downto 0)
     );
 end entity;
 
-architecture rtl of ArillaCoreROM is
+architecture rtl of ARILLAROM is
     type romType is array (15 downto 0) of std_logic_vector(24 downto 0);
     signal ROM : romType := (others => (others =>'0'));
 begin
@@ -30,7 +30,6 @@ begin
     ROM(12)<="0000000010000000010000000";
     ROM(13)<="0001001000000001000000000";
     ROM(14)<="1110001100000000000000000";
-
     --program ends here
 
 process(ADDR)
@@ -39,5 +38,4 @@ begin
     O<=ROM(to_integer(unsigned(ADDR)));
 
 end process;
-
 end rtl;

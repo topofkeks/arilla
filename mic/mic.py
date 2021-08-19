@@ -185,8 +185,10 @@ for index, (curr_signals, curr_cc, ba) in enumerate(lines):
         print(hex(index).split('x')[1], end=' : ')
     if args.vhd:
         print(f'    ROM({index})<='.ljust(13)+'"',end='')
-    if args.binary or args.csv or args.vhd:
+    if args.binary or args.csv:
         print(line_bin, end=' ')
+    elif args.vhd:
+        print(line_bin, end='')
     else:
         print(hex(int(line_bin, 2)).split('x')[1].upper(), end=' ')
     if args.mif:

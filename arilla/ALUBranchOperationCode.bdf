@@ -23,7 +23,7 @@ applicable agreement for further details.
 	(input)
 	(rect 568 320 584 496)
 	(text "INPUT" (rect 0 15 10 43)(font "Arial" (font_size 6))(vertical))
-	(text "function3[2..0]" (rect 0 99 12 170)(font "Arial" )(vertical))
+	(text "function3[2..0]" (rect 0 96 12 167)(font "Arial" )(vertical))
 	(pt 8 0)
 	(drawing
 		(line (pt 12 84)(pt 12 59))

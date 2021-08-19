@@ -21,19 +21,19 @@ applicable agreement for further details.
 (header "graphic" (version "1.4"))
 (pin
 	(input)
-	(rect 480 144 648 160)
-	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "opcode[6..0]" (rect 5 0 66 12)(font "Arial" ))
-	(pt 168 8)
+	(rect 480 144 656 160)
+	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
+	(text "opcode[6..0]" (rect 9 0 70 12)(font "Arial" ))
+	(pt 176 8)
 	(drawing
-		(line (pt 84 12)(pt 109 12))
-		(line (pt 84 4)(pt 109 4))
-		(line (pt 113 8)(pt 168 8))
-		(line (pt 84 12)(pt 84 4))
-		(line (pt 109 4)(pt 113 8))
-		(line (pt 109 12)(pt 113 8))
+		(line (pt 92 12)(pt 117 12))
+		(line (pt 92 4)(pt 117 4))
+		(line (pt 121 8)(pt 176 8))
+		(line (pt 92 12)(pt 92 4))
+		(line (pt 117 4)(pt 121 8))
+		(line (pt 117 12)(pt 121 8))
 	)
-	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
 )
 (pin
 	(output)
@@ -181,7 +181,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 1880 1304 2102 1320)
+	(rect 1880 1304 2056 1320)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "invalid_opcode_exception" (rect 90 0 216 12)(font "Arial" ))
 	(pt 0 8)
@@ -238,42 +238,42 @@ applicable agreement for further details.
 		(pt 128 104)
 		(output)
 		(text "aleb" (rect 88 95 111 109)(font "Arial" (font_size 8)))
-		(text "aleb" (rect 88 95 111 109)(font "Arial" (font_size 8)))
+		(text "aleb" (rect 88 95 107 109)(font "Arial" (font_size 8)))
 		(line (pt 112 104)(pt 128 104))
 	)
 	(port
 		(pt 128 40)
 		(output)
 		(text "aeb" (rect 90 31 111 45)(font "Arial" (font_size 8)))
-		(text "aeb" (rect 90 31 111 45)(font "Arial" (font_size 8)))
+		(text "aeb" (rect 90 31 107 45)(font "Arial" (font_size 8)))
 		(line (pt 112 40)(pt 128 40))
 	)
 	(port
 		(pt 128 56)
 		(output)
 		(text "agb" (rect 90 47 111 61)(font "Arial" (font_size 8)))
-		(text "agb" (rect 90 47 111 61)(font "Arial" (font_size 8)))
+		(text "agb" (rect 90 47 107 61)(font "Arial" (font_size 8)))
 		(line (pt 112 56)(pt 128 56))
 	)
 	(port
 		(pt 128 88)
 		(output)
 		(text "aneb" (rect 85 79 113 93)(font "Arial" (font_size 8)))
-		(text "aneb" (rect 84 79 112 93)(font "Arial" (font_size 8)))
+		(text "aneb" (rect 84 79 107 93)(font "Arial" (font_size 8)))
 		(line (pt 112 88)(pt 128 88))
 	)
 	(port
 		(pt 128 72)
 		(output)
 		(text "ageb" (rect 84 63 112 77)(font "Arial" (font_size 8)))
-		(text "ageb" (rect 84 63 112 77)(font "Arial" (font_size 8)))
+		(text "ageb" (rect 84 63 107 77)(font "Arial" (font_size 8)))
 		(line (pt 112 72)(pt 128 72))
 	)
 	(port
 		(pt 128 24)
 		(output)
 		(text "alb" (rect 93 15 109 29)(font "Arial" (font_size 8)))
-		(text "alb" (rect 94 15 110 29)(font "Arial" (font_size 8)))
+		(text "alb" (rect 94 15 107 29)(font "Arial" (font_size 8)))
 		(line (pt 112 24)(pt 128 24))
 	)
 	(parameter
@@ -290,10 +290,10 @@ applicable agreement for further details.
 	)
 	(parameter
 		"LPM_REPRESENTATION"
-		"\"UNSIGNED\""
+		"UNSIGNED"
 		"Numeric representation of inputs"
 		"\"UNSIGNED\"" "\"SIGNED\"" 
-	)
+		(type "PARAMETER_STRING")	)
 	(parameter
 		"LPM_WIDTH"
 		"7"
@@ -302,10 +302,10 @@ applicable agreement for further details.
 	)
 	(parameter
 		"ONE_INPUT_IS_CONSTANT"
-		"\"YES\""
+		"YES"
 		"Hint to help minimize the number of LCELLs"
 		"\"NO\"" "\"YES\"" 
-	)
+		(type "PARAMETER_STRING")	)
 	(drawing
 		(line (pt 16 16)(pt 112 16))
 		(line (pt 16 112)(pt 112 112))
@@ -357,42 +357,42 @@ applicable agreement for further details.
 		(pt 128 104)
 		(output)
 		(text "aleb" (rect 88 95 111 109)(font "Arial" (font_size 8)))
-		(text "aleb" (rect 88 95 111 109)(font "Arial" (font_size 8)))
+		(text "aleb" (rect 88 95 107 109)(font "Arial" (font_size 8)))
 		(line (pt 112 104)(pt 128 104))
 	)
 	(port
 		(pt 128 40)
 		(output)
 		(text "aeb" (rect 90 31 111 45)(font "Arial" (font_size 8)))
-		(text "aeb" (rect 90 31 111 45)(font "Arial" (font_size 8)))
+		(text "aeb" (rect 90 31 107 45)(font "Arial" (font_size 8)))
 		(line (pt 112 40)(pt 128 40))
 	)
 	(port
 		(pt 128 56)
 		(output)
 		(text "agb" (rect 90 47 111 61)(font "Arial" (font_size 8)))
-		(text "agb" (rect 90 47 111 61)(font "Arial" (font_size 8)))
+		(text "agb" (rect 90 47 107 61)(font "Arial" (font_size 8)))
 		(line (pt 112 56)(pt 128 56))
 	)
 	(port
 		(pt 128 88)
 		(output)
 		(text "aneb" (rect 85 79 113 93)(font "Arial" (font_size 8)))
-		(text "aneb" (rect 84 79 112 93)(font "Arial" (font_size 8)))
+		(text "aneb" (rect 84 79 107 93)(font "Arial" (font_size 8)))
 		(line (pt 112 88)(pt 128 88))
 	)
 	(port
 		(pt 128 72)
 		(output)
 		(text "ageb" (rect 84 63 112 77)(font "Arial" (font_size 8)))
-		(text "ageb" (rect 84 63 112 77)(font "Arial" (font_size 8)))
+		(text "ageb" (rect 84 63 107 77)(font "Arial" (font_size 8)))
 		(line (pt 112 72)(pt 128 72))
 	)
 	(port
 		(pt 128 24)
 		(output)
 		(text "alb" (rect 93 15 109 29)(font "Arial" (font_size 8)))
-		(text "alb" (rect 94 15 110 29)(font "Arial" (font_size 8)))
+		(text "alb" (rect 94 15 107 29)(font "Arial" (font_size 8)))
 		(line (pt 112 24)(pt 128 24))
 	)
 	(parameter
@@ -409,10 +409,10 @@ applicable agreement for further details.
 	)
 	(parameter
 		"LPM_REPRESENTATION"
-		"\"UNSIGNED\""
+		"UNSIGNED"
 		"Numeric representation of inputs"
 		"\"UNSIGNED\"" "\"SIGNED\"" 
-	)
+		(type "PARAMETER_STRING")	)
 	(parameter
 		"LPM_WIDTH"
 		"7"
@@ -421,10 +421,10 @@ applicable agreement for further details.
 	)
 	(parameter
 		"ONE_INPUT_IS_CONSTANT"
-		"\"YES\""
+		"YES"
 		"Hint to help minimize the number of LCELLs"
 		"\"NO\"" "\"YES\"" 
-	)
+		(type "PARAMETER_STRING")	)
 	(drawing
 		(line (pt 16 16)(pt 112 16))
 		(line (pt 16 112)(pt 112 112))
@@ -476,42 +476,42 @@ applicable agreement for further details.
 		(pt 128 104)
 		(output)
 		(text "aleb" (rect 88 95 111 109)(font "Arial" (font_size 8)))
-		(text "aleb" (rect 88 95 111 109)(font "Arial" (font_size 8)))
+		(text "aleb" (rect 88 95 107 109)(font "Arial" (font_size 8)))
 		(line (pt 112 104)(pt 128 104))
 	)
 	(port
 		(pt 128 40)
 		(output)
 		(text "aeb" (rect 90 31 111 45)(font "Arial" (font_size 8)))
-		(text "aeb" (rect 90 31 111 45)(font "Arial" (font_size 8)))
+		(text "aeb" (rect 90 31 107 45)(font "Arial" (font_size 8)))
 		(line (pt 112 40)(pt 128 40))
 	)
 	(port
 		(pt 128 56)
 		(output)
 		(text "agb" (rect 90 47 111 61)(font "Arial" (font_size 8)))
-		(text "agb" (rect 90 47 111 61)(font "Arial" (font_size 8)))
+		(text "agb" (rect 90 47 107 61)(font "Arial" (font_size 8)))
 		(line (pt 112 56)(pt 128 56))
 	)
 	(port
 		(pt 128 88)
 		(output)
 		(text "aneb" (rect 85 79 113 93)(font "Arial" (font_size 8)))
-		(text "aneb" (rect 84 79 112 93)(font "Arial" (font_size 8)))
+		(text "aneb" (rect 84 79 107 93)(font "Arial" (font_size 8)))
 		(line (pt 112 88)(pt 128 88))
 	)
 	(port
 		(pt 128 72)
 		(output)
 		(text "ageb" (rect 84 63 112 77)(font "Arial" (font_size 8)))
-		(text "ageb" (rect 84 63 112 77)(font "Arial" (font_size 8)))
+		(text "ageb" (rect 84 63 107 77)(font "Arial" (font_size 8)))
 		(line (pt 112 72)(pt 128 72))
 	)
 	(port
 		(pt 128 24)
 		(output)
 		(text "alb" (rect 93 15 109 29)(font "Arial" (font_size 8)))
-		(text "alb" (rect 94 15 110 29)(font "Arial" (font_size 8)))
+		(text "alb" (rect 94 15 107 29)(font "Arial" (font_size 8)))
 		(line (pt 112 24)(pt 128 24))
 	)
 	(parameter
@@ -528,10 +528,10 @@ applicable agreement for further details.
 	)
 	(parameter
 		"LPM_REPRESENTATION"
-		"\"UNSIGNED\""
+		"UNSIGNED"
 		"Numeric representation of inputs"
 		"\"UNSIGNED\"" "\"SIGNED\"" 
-	)
+		(type "PARAMETER_STRING")	)
 	(parameter
 		"LPM_WIDTH"
 		"7"
@@ -540,10 +540,10 @@ applicable agreement for further details.
 	)
 	(parameter
 		"ONE_INPUT_IS_CONSTANT"
-		"\"YES\""
+		"YES"
 		"Hint to help minimize the number of LCELLs"
 		"\"NO\"" "\"YES\"" 
-	)
+		(type "PARAMETER_STRING")	)
 	(drawing
 		(line (pt 16 16)(pt 112 16))
 		(line (pt 16 112)(pt 112 112))
@@ -595,42 +595,42 @@ applicable agreement for further details.
 		(pt 128 104)
 		(output)
 		(text "aleb" (rect 88 95 111 109)(font "Arial" (font_size 8)))
-		(text "aleb" (rect 88 95 111 109)(font "Arial" (font_size 8)))
+		(text "aleb" (rect 88 95 107 109)(font "Arial" (font_size 8)))
 		(line (pt 112 104)(pt 128 104))
 	)
 	(port
 		(pt 128 40)
 		(output)
 		(text "aeb" (rect 90 31 111 45)(font "Arial" (font_size 8)))
-		(text "aeb" (rect 90 31 111 45)(font "Arial" (font_size 8)))
+		(text "aeb" (rect 90 31 107 45)(font "Arial" (font_size 8)))
 		(line (pt 112 40)(pt 128 40))
 	)
 	(port
 		(pt 128 56)
 		(output)
 		(text "agb" (rect 90 47 111 61)(font "Arial" (font_size 8)))
-		(text "agb" (rect 90 47 111 61)(font "Arial" (font_size 8)))
+		(text "agb" (rect 90 47 107 61)(font "Arial" (font_size 8)))
 		(line (pt 112 56)(pt 128 56))
 	)
 	(port
 		(pt 128 88)
 		(output)
 		(text "aneb" (rect 85 79 113 93)(font "Arial" (font_size 8)))
-		(text "aneb" (rect 84 79 112 93)(font "Arial" (font_size 8)))
+		(text "aneb" (rect 84 79 107 93)(font "Arial" (font_size 8)))
 		(line (pt 112 88)(pt 128 88))
 	)
 	(port
 		(pt 128 72)
 		(output)
 		(text "ageb" (rect 84 63 112 77)(font "Arial" (font_size 8)))
-		(text "ageb" (rect 84 63 112 77)(font "Arial" (font_size 8)))
+		(text "ageb" (rect 84 63 107 77)(font "Arial" (font_size 8)))
 		(line (pt 112 72)(pt 128 72))
 	)
 	(port
 		(pt 128 24)
 		(output)
 		(text "alb" (rect 93 15 109 29)(font "Arial" (font_size 8)))
-		(text "alb" (rect 94 15 110 29)(font "Arial" (font_size 8)))
+		(text "alb" (rect 94 15 107 29)(font "Arial" (font_size 8)))
 		(line (pt 112 24)(pt 128 24))
 	)
 	(parameter
@@ -647,10 +647,10 @@ applicable agreement for further details.
 	)
 	(parameter
 		"LPM_REPRESENTATION"
-		"\"UNSIGNED\""
+		"UNSIGNED"
 		"Numeric representation of inputs"
 		"\"UNSIGNED\"" "\"SIGNED\"" 
-	)
+		(type "PARAMETER_STRING")	)
 	(parameter
 		"LPM_WIDTH"
 		"7"
@@ -659,10 +659,10 @@ applicable agreement for further details.
 	)
 	(parameter
 		"ONE_INPUT_IS_CONSTANT"
-		"\"YES\""
+		"YES"
 		"Hint to help minimize the number of LCELLs"
 		"\"NO\"" "\"YES\"" 
-	)
+		(type "PARAMETER_STRING")	)
 	(drawing
 		(line (pt 16 16)(pt 112 16))
 		(line (pt 16 112)(pt 112 112))
@@ -714,42 +714,42 @@ applicable agreement for further details.
 		(pt 128 104)
 		(output)
 		(text "aleb" (rect 88 95 111 109)(font "Arial" (font_size 8)))
-		(text "aleb" (rect 88 95 111 109)(font "Arial" (font_size 8)))
+		(text "aleb" (rect 88 95 107 109)(font "Arial" (font_size 8)))
 		(line (pt 112 104)(pt 128 104))
 	)
 	(port
 		(pt 128 40)
 		(output)
 		(text "aeb" (rect 90 31 111 45)(font "Arial" (font_size 8)))
-		(text "aeb" (rect 90 31 111 45)(font "Arial" (font_size 8)))
+		(text "aeb" (rect 90 31 107 45)(font "Arial" (font_size 8)))
 		(line (pt 112 40)(pt 128 40))
 	)
 	(port
 		(pt 128 56)
 		(output)
 		(text "agb" (rect 90 47 111 61)(font "Arial" (font_size 8)))
-		(text "agb" (rect 90 47 111 61)(font "Arial" (font_size 8)))
+		(text "agb" (rect 90 47 107 61)(font "Arial" (font_size 8)))
 		(line (pt 112 56)(pt 128 56))
 	)
 	(port
 		(pt 128 88)
 		(output)
 		(text "aneb" (rect 85 79 113 93)(font "Arial" (font_size 8)))
-		(text "aneb" (rect 84 79 112 93)(font "Arial" (font_size 8)))
+		(text "aneb" (rect 84 79 107 93)(font "Arial" (font_size 8)))
 		(line (pt 112 88)(pt 128 88))
 	)
 	(port
 		(pt 128 72)
 		(output)
 		(text "ageb" (rect 84 63 112 77)(font "Arial" (font_size 8)))
-		(text "ageb" (rect 84 63 112 77)(font "Arial" (font_size 8)))
+		(text "ageb" (rect 84 63 107 77)(font "Arial" (font_size 8)))
 		(line (pt 112 72)(pt 128 72))
 	)
 	(port
 		(pt 128 24)
 		(output)
 		(text "alb" (rect 93 15 109 29)(font "Arial" (font_size 8)))
-		(text "alb" (rect 94 15 110 29)(font "Arial" (font_size 8)))
+		(text "alb" (rect 94 15 107 29)(font "Arial" (font_size 8)))
 		(line (pt 112 24)(pt 128 24))
 	)
 	(parameter
@@ -766,10 +766,10 @@ applicable agreement for further details.
 	)
 	(parameter
 		"LPM_REPRESENTATION"
-		"\"UNSIGNED\""
+		"UNSIGNED"
 		"Numeric representation of inputs"
 		"\"UNSIGNED\"" "\"SIGNED\"" 
-	)
+		(type "PARAMETER_STRING")	)
 	(parameter
 		"LPM_WIDTH"
 		"7"
@@ -778,10 +778,10 @@ applicable agreement for further details.
 	)
 	(parameter
 		"ONE_INPUT_IS_CONSTANT"
-		"\"YES\""
+		"YES"
 		"Hint to help minimize the number of LCELLs"
 		"\"NO\"" "\"YES\"" 
-	)
+		(type "PARAMETER_STRING")	)
 	(drawing
 		(line (pt 16 16)(pt 112 16))
 		(line (pt 16 112)(pt 112 112))
@@ -833,42 +833,42 @@ applicable agreement for further details.
 		(pt 128 104)
 		(output)
 		(text "aleb" (rect 88 95 111 109)(font "Arial" (font_size 8)))
-		(text "aleb" (rect 88 95 111 109)(font "Arial" (font_size 8)))
+		(text "aleb" (rect 88 95 107 109)(font "Arial" (font_size 8)))
 		(line (pt 112 104)(pt 128 104))
 	)
 	(port
 		(pt 128 40)
 		(output)
 		(text "aeb" (rect 90 31 111 45)(font "Arial" (font_size 8)))
-		(text "aeb" (rect 90 31 111 45)(font "Arial" (font_size 8)))
+		(text "aeb" (rect 90 31 107 45)(font "Arial" (font_size 8)))
 		(line (pt 112 40)(pt 128 40))
 	)
 	(port
 		(pt 128 56)
 		(output)
 		(text "agb" (rect 90 47 111 61)(font "Arial" (font_size 8)))
-		(text "agb" (rect 90 47 111 61)(font "Arial" (font_size 8)))
+		(text "agb" (rect 90 47 107 61)(font "Arial" (font_size 8)))
 		(line (pt 112 56)(pt 128 56))
 	)
 	(port
 		(pt 128 88)
 		(output)
 		(text "aneb" (rect 85 79 113 93)(font "Arial" (font_size 8)))
-		(text "aneb" (rect 84 79 112 93)(font "Arial" (font_size 8)))
+		(text "aneb" (rect 84 79 107 93)(font "Arial" (font_size 8)))
 		(line (pt 112 88)(pt 128 88))
 	)
 	(port
 		(pt 128 72)
 		(output)
 		(text "ageb" (rect 84 63 112 77)(font "Arial" (font_size 8)))
-		(text "ageb" (rect 84 63 112 77)(font "Arial" (font_size 8)))
+		(text "ageb" (rect 84 63 107 77)(font "Arial" (font_size 8)))
 		(line (pt 112 72)(pt 128 72))
 	)
 	(port
 		(pt 128 24)
 		(output)
 		(text "alb" (rect 93 15 109 29)(font "Arial" (font_size 8)))
-		(text "alb" (rect 94 15 110 29)(font "Arial" (font_size 8)))
+		(text "alb" (rect 94 15 107 29)(font "Arial" (font_size 8)))
 		(line (pt 112 24)(pt 128 24))
 	)
 	(parameter
@@ -885,10 +885,10 @@ applicable agreement for further details.
 	)
 	(parameter
 		"LPM_REPRESENTATION"
-		"\"UNSIGNED\""
+		"UNSIGNED"
 		"Numeric representation of inputs"
 		"\"UNSIGNED\"" "\"SIGNED\"" 
-	)
+		(type "PARAMETER_STRING")	)
 	(parameter
 		"LPM_WIDTH"
 		"7"
@@ -897,10 +897,10 @@ applicable agreement for further details.
 	)
 	(parameter
 		"ONE_INPUT_IS_CONSTANT"
-		"\"YES\""
+		"YES"
 		"Hint to help minimize the number of LCELLs"
 		"\"NO\"" "\"YES\"" 
-	)
+		(type "PARAMETER_STRING")	)
 	(drawing
 		(line (pt 16 16)(pt 112 16))
 		(line (pt 16 112)(pt 112 112))
@@ -952,42 +952,42 @@ applicable agreement for further details.
 		(pt 128 104)
 		(output)
 		(text "aleb" (rect 88 95 111 109)(font "Arial" (font_size 8)))
-		(text "aleb" (rect 88 95 111 109)(font "Arial" (font_size 8)))
+		(text "aleb" (rect 88 95 107 109)(font "Arial" (font_size 8)))
 		(line (pt 112 104)(pt 128 104))
 	)
 	(port
 		(pt 128 40)
 		(output)
 		(text "aeb" (rect 90 31 111 45)(font "Arial" (font_size 8)))
-		(text "aeb" (rect 90 31 111 45)(font "Arial" (font_size 8)))
+		(text "aeb" (rect 90 31 107 45)(font "Arial" (font_size 8)))
 		(line (pt 112 40)(pt 128 40))
 	)
 	(port
 		(pt 128 56)
 		(output)
 		(text "agb" (rect 90 47 111 61)(font "Arial" (font_size 8)))
-		(text "agb" (rect 90 47 111 61)(font "Arial" (font_size 8)))
+		(text "agb" (rect 90 47 107 61)(font "Arial" (font_size 8)))
 		(line (pt 112 56)(pt 128 56))
 	)
 	(port
 		(pt 128 88)
 		(output)
 		(text "aneb" (rect 85 79 113 93)(font "Arial" (font_size 8)))
-		(text "aneb" (rect 84 79 112 93)(font "Arial" (font_size 8)))
+		(text "aneb" (rect 84 79 107 93)(font "Arial" (font_size 8)))
 		(line (pt 112 88)(pt 128 88))
 	)
 	(port
 		(pt 128 72)
 		(output)
 		(text "ageb" (rect 84 63 112 77)(font "Arial" (font_size 8)))
-		(text "ageb" (rect 84 63 112 77)(font "Arial" (font_size 8)))
+		(text "ageb" (rect 84 63 107 77)(font "Arial" (font_size 8)))
 		(line (pt 112 72)(pt 128 72))
 	)
 	(port
 		(pt 128 24)
 		(output)
 		(text "alb" (rect 93 15 109 29)(font "Arial" (font_size 8)))
-		(text "alb" (rect 94 15 110 29)(font "Arial" (font_size 8)))
+		(text "alb" (rect 94 15 107 29)(font "Arial" (font_size 8)))
 		(line (pt 112 24)(pt 128 24))
 	)
 	(parameter
@@ -1004,10 +1004,10 @@ applicable agreement for further details.
 	)
 	(parameter
 		"LPM_REPRESENTATION"
-		"\"UNSIGNED\""
+		"UNSIGNED"
 		"Numeric representation of inputs"
 		"\"UNSIGNED\"" "\"SIGNED\"" 
-	)
+		(type "PARAMETER_STRING")	)
 	(parameter
 		"LPM_WIDTH"
 		"7"
@@ -1016,10 +1016,10 @@ applicable agreement for further details.
 	)
 	(parameter
 		"ONE_INPUT_IS_CONSTANT"
-		"\"YES\""
+		"YES"
 		"Hint to help minimize the number of LCELLs"
 		"\"NO\"" "\"YES\"" 
-	)
+		(type "PARAMETER_STRING")	)
 	(drawing
 		(line (pt 16 16)(pt 112 16))
 		(line (pt 16 112)(pt 112 112))
@@ -1071,42 +1071,42 @@ applicable agreement for further details.
 		(pt 128 104)
 		(output)
 		(text "aleb" (rect 88 95 111 109)(font "Arial" (font_size 8)))
-		(text "aleb" (rect 88 95 111 109)(font "Arial" (font_size 8)))
+		(text "aleb" (rect 88 95 107 109)(font "Arial" (font_size 8)))
 		(line (pt 112 104)(pt 128 104))
 	)
 	(port
 		(pt 128 40)
 		(output)
 		(text "aeb" (rect 90 31 111 45)(font "Arial" (font_size 8)))
-		(text "aeb" (rect 90 31 111 45)(font "Arial" (font_size 8)))
+		(text "aeb" (rect 90 31 107 45)(font "Arial" (font_size 8)))
 		(line (pt 112 40)(pt 128 40))
 	)
 	(port
 		(pt 128 56)
 		(output)
 		(text "agb" (rect 90 47 111 61)(font "Arial" (font_size 8)))
-		(text "agb" (rect 90 47 111 61)(font "Arial" (font_size 8)))
+		(text "agb" (rect 90 47 107 61)(font "Arial" (font_size 8)))
 		(line (pt 112 56)(pt 128 56))
 	)
 	(port
 		(pt 128 88)
 		(output)
 		(text "aneb" (rect 85 79 113 93)(font "Arial" (font_size 8)))
-		(text "aneb" (rect 84 79 112 93)(font "Arial" (font_size 8)))
+		(text "aneb" (rect 84 79 107 93)(font "Arial" (font_size 8)))
 		(line (pt 112 88)(pt 128 88))
 	)
 	(port
 		(pt 128 72)
 		(output)
 		(text "ageb" (rect 84 63 112 77)(font "Arial" (font_size 8)))
-		(text "ageb" (rect 84 63 112 77)(font "Arial" (font_size 8)))
+		(text "ageb" (rect 84 63 107 77)(font "Arial" (font_size 8)))
 		(line (pt 112 72)(pt 128 72))
 	)
 	(port
 		(pt 128 24)
 		(output)
 		(text "alb" (rect 93 15 109 29)(font "Arial" (font_size 8)))
-		(text "alb" (rect 94 15 110 29)(font "Arial" (font_size 8)))
+		(text "alb" (rect 94 15 107 29)(font "Arial" (font_size 8)))
 		(line (pt 112 24)(pt 128 24))
 	)
 	(parameter
@@ -1123,10 +1123,10 @@ applicable agreement for further details.
 	)
 	(parameter
 		"LPM_REPRESENTATION"
-		"\"UNSIGNED\""
+		"UNSIGNED"
 		"Numeric representation of inputs"
 		"\"UNSIGNED\"" "\"SIGNED\"" 
-	)
+		(type "PARAMETER_STRING")	)
 	(parameter
 		"LPM_WIDTH"
 		"7"
@@ -1135,10 +1135,10 @@ applicable agreement for further details.
 	)
 	(parameter
 		"ONE_INPUT_IS_CONSTANT"
-		"\"YES\""
+		"YES"
 		"Hint to help minimize the number of LCELLs"
 		"\"NO\"" "\"YES\"" 
-	)
+		(type "PARAMETER_STRING")	)
 	(drawing
 		(line (pt 16 16)(pt 112 16))
 		(line (pt 16 112)(pt 112 112))
@@ -1190,42 +1190,42 @@ applicable agreement for further details.
 		(pt 128 104)
 		(output)
 		(text "aleb" (rect 88 95 111 109)(font "Arial" (font_size 8)))
-		(text "aleb" (rect 88 95 111 109)(font "Arial" (font_size 8)))
+		(text "aleb" (rect 88 95 107 109)(font "Arial" (font_size 8)))
 		(line (pt 112 104)(pt 128 104))
 	)
 	(port
 		(pt 128 40)
 		(output)
 		(text "aeb" (rect 90 31 111 45)(font "Arial" (font_size 8)))
-		(text "aeb" (rect 90 31 111 45)(font "Arial" (font_size 8)))
+		(text "aeb" (rect 90 31 107 45)(font "Arial" (font_size 8)))
 		(line (pt 112 40)(pt 128 40))
 	)
 	(port
 		(pt 128 56)
 		(output)
 		(text "agb" (rect 90 47 111 61)(font "Arial" (font_size 8)))
-		(text "agb" (rect 90 47 111 61)(font "Arial" (font_size 8)))
+		(text "agb" (rect 90 47 107 61)(font "Arial" (font_size 8)))
 		(line (pt 112 56)(pt 128 56))
 	)
 	(port
 		(pt 128 88)
 		(output)
 		(text "aneb" (rect 85 79 113 93)(font "Arial" (font_size 8)))
-		(text "aneb" (rect 84 79 112 93)(font "Arial" (font_size 8)))
+		(text "aneb" (rect 84 79 107 93)(font "Arial" (font_size 8)))
 		(line (pt 112 88)(pt 128 88))
 	)
 	(port
 		(pt 128 72)
 		(output)
 		(text "ageb" (rect 84 63 112 77)(font "Arial" (font_size 8)))
-		(text "ageb" (rect 84 63 112 77)(font "Arial" (font_size 8)))
+		(text "ageb" (rect 84 63 107 77)(font "Arial" (font_size 8)))
 		(line (pt 112 72)(pt 128 72))
 	)
 	(port
 		(pt 128 24)
 		(output)
 		(text "alb" (rect 93 15 109 29)(font "Arial" (font_size 8)))
-		(text "alb" (rect 94 15 110 29)(font "Arial" (font_size 8)))
+		(text "alb" (rect 94 15 107 29)(font "Arial" (font_size 8)))
 		(line (pt 112 24)(pt 128 24))
 	)
 	(parameter
@@ -1242,10 +1242,10 @@ applicable agreement for further details.
 	)
 	(parameter
 		"LPM_REPRESENTATION"
-		"\"UNSIGNED\""
+		"UNSIGNED"
 		"Numeric representation of inputs"
 		"\"UNSIGNED\"" "\"SIGNED\"" 
-	)
+		(type "PARAMETER_STRING")	)
 	(parameter
 		"LPM_WIDTH"
 		"7"
@@ -1254,10 +1254,10 @@ applicable agreement for further details.
 	)
 	(parameter
 		"ONE_INPUT_IS_CONSTANT"
-		"\"YES\""
+		"YES"
 		"Hint to help minimize the number of LCELLs"
 		"\"NO\"" "\"YES\"" 
-	)
+		(type "PARAMETER_STRING")	)
 	(drawing
 		(line (pt 16 16)(pt 112 16))
 		(line (pt 16 112)(pt 112 112))
@@ -1358,7 +1358,7 @@ applicable agreement for further details.
 		(pt 64 104)
 		(output)
 		(text "OUT" (rect 48 95 65 107)(font "Courier New" (bold))(invisible))
-		(text "OUT" (rect 48 95 65 107)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 48 95 62 107)(font "Courier New" (bold))(invisible))
 		(line (pt 56 104)(pt 64 104))
 	)
 	(drawing
@@ -1801,11 +1801,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 688 152)
-	(pt 648 152)
-	(bus)
-)
-(connector
 	(pt 648 304)
 	(pt 648 152)
 	(bus)
@@ -1836,6 +1831,16 @@ applicable agreement for further details.
 	(pt 528 1216)
 	(bus)
 )
+(connector
+	(pt 688 152)
+	(pt 656 152)
+	(bus)
+)
+(connector
+	(pt 656 152)
+	(pt 648 152)
+	(bus)
+)
 (junction (pt 656 304))
 (junction (pt 656 432))
 (junction (pt 656 560))
@@ -1853,5 +1858,6 @@ applicable agreement for further details.
 (junction (pt 1088 416))
 (junction (pt 1088 288))
 (junction (pt 1088 160))
+(junction (pt 656 152))
 (text "Yin and Yang" (rect 944 1368 1021 1382)(font "Arial" (font_size 8)))
 (rectangle (rect 936 1272 1056 1392))

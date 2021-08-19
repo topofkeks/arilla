@@ -59,16 +59,6 @@ set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME testbench -section_id tes
 set_global_assignment -name EDA_TIME_SCALE "10 ns" -section_id eda_simulation
 set_global_assignment -name EDA_RUN_TOOL_AUTOMATICALLY ON -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_FILE testbench/ALU_testbench.v -section_id testbench
-set_global_assignment -name BDF_FILE MemAlignExceptionCheck.bdf
-set_global_assignment -name BDF_FILE RegFile.bdf
-set_global_assignment -name BDF_FILE ArillaCore.bdf
-set_global_assignment -name BDF_FILE ALU.bdf
-set_global_assignment -name BDF_FILE MDRGenerator.bdf
-set_global_assignment -name BDF_FILE OpcodeDecoder.bdf
-set_global_assignment -name BDF_FILE ALUBranchOperationCode.bdf
-set_global_assignment -name BDF_FILE ArillaTopLevel.bdf
-set_global_assignment -name BDF_FILE ControlUnitOpSwitch.bdf
-set_global_assignment -name BDF_FILE StoreGenerator.bdf
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 set_location_assignment PIN_D13 -to HEX0_D[7]
 set_location_assignment PIN_F13 -to HEX0_D[6]
@@ -134,7 +124,6 @@ set_location_assignment PIN_P21 -to PS2_DATA
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VHDL_FILE ArillaCoreROM.vhd
 set_location_assignment PIN_C8 -to SDRAM_ADDR[12]
 set_location_assignment PIN_A7 -to SDRAM_ADDR[11]
 set_location_assignment PIN_B4 -to SDRAM_ADDR[10]
@@ -174,4 +163,15 @@ set_location_assignment PIN_E7 -to SDRAM_LDQM
 set_location_assignment PIN_F7 -to SDRAM_RAS_N
 set_location_assignment PIN_B8 -to SDRAM_UDQM
 set_location_assignment PIN_D6 -to SDRAM_WE_N
+set_global_assignment -name VHDL_FILE ARILLAROM.vhd
+set_global_assignment -name BDF_FILE MemAlignExceptionCheck.bdf
+set_global_assignment -name BDF_FILE RegFile.bdf
+set_global_assignment -name BDF_FILE ArillaCore.bdf
+set_global_assignment -name BDF_FILE ALU.bdf
+set_global_assignment -name BDF_FILE MDRGenerator.bdf
+set_global_assignment -name BDF_FILE OpcodeDecoder.bdf
+set_global_assignment -name BDF_FILE ALUBranchOperationCode.bdf
+set_global_assignment -name BDF_FILE ArillaTopLevel.bdf
+set_global_assignment -name BDF_FILE ControlUnitOpSwitch.bdf
+set_global_assignment -name BDF_FILE StoreGenerator.bdf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
