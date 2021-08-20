@@ -1,0 +1,6 @@
+ARILLA BEST PRACTICES:
+Single bit const signals should not be named '0' and '1', they should be named zero and one instead
+When generating components: generate them in components folder from components project and make sure they are included in components project
+Generate megafunctions using VHDL and only generate required files (.vhd and .bsf)
+Microcode .mif files should be placed in mic folder while .vhd async ROM files belong in folder of the project in which they are used
+Feel free to resurect asm folder for .asm and machine code .mif files

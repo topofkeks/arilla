@@ -47,19 +47,12 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
-set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
-set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
-set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
-set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH testbench -section_id eda_simulation
-set_global_assignment -name EDA_TEST_BENCH_NAME testbench -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id testbench
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME testbench -section_id testbench
-set_global_assignment -name EDA_TIME_SCALE "10 ns" -section_id eda_simulation
-set_global_assignment -name EDA_RUN_TOOL_AUTOMATICALLY ON -section_id eda_simulation
-set_global_assignment -name EDA_TEST_BENCH_FILE testbench/ALU_testbench.v -section_id testbench
-set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_global_assignment -name SEARCH_PATH ../controller/
+set_global_assignment -name SEARCH_PATH ../gpu/
+set_global_assignment -name SEARCH_PATH ../components/
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_location_assignment PIN_D13 -to HEX0_D[7]
 set_location_assignment PIN_F13 -to HEX0_D[6]
 set_location_assignment PIN_F12 -to HEX0_D[5]
@@ -112,18 +105,12 @@ set_location_assignment PIN_G4 -to SW[3]
 set_location_assignment PIN_H6 -to SW[2]
 set_location_assignment PIN_H5 -to SW[1]
 set_location_assignment PIN_J6 -to SW[0]
-set_global_assignment -name SEARCH_PATH ../controller/
-set_global_assignment -name SEARCH_PATH ../gpu/
-set_global_assignment -name SEARCH_PATH ../components/
 set_location_assignment PIN_F1 -to BUTTON[2]
 set_location_assignment PIN_G3 -to BUTTON[1]
 set_location_assignment PIN_H2 -to BUTTON[0]
 set_location_assignment PIN_G21 -to clk
 set_location_assignment PIN_P22 -to PS2_CLK
 set_location_assignment PIN_P21 -to PS2_DATA
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_location_assignment PIN_C8 -to SDRAM_ADDR[12]
 set_location_assignment PIN_A7 -to SDRAM_ADDR[11]
 set_location_assignment PIN_B4 -to SDRAM_ADDR[10]
