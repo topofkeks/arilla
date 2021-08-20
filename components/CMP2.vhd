@@ -4,7 +4,7 @@
 -- MODULE: LPM_COMPARE 
 
 -- ============================================================
--- File Name: CMP8.tdf
+-- File Name: CMP2.vhd
 -- Megafunction Name(s):
 -- 			LPM_COMPARE
 --
@@ -32,33 +32,65 @@
 --Altera or its authorized distributors.  Please refer to the 
 --applicable agreement for further details.
 
-INCLUDE "lpm_compare.inc";
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+LIBRARY lpm;
+USE lpm.all;
+
+ENTITY CMP2 IS
+	PORT
+	(
+		dataa		: IN STD_LOGIC_VECTOR (1 DOWNTO 0);
+		aeb		: OUT STD_LOGIC 
+	);
+END CMP2;
+
+
+ARCHITECTURE SYN OF cmp2 IS
+
+	SIGNAL sub_wire0	: STD_LOGIC ;
+	SIGNAL sub_wire1_bv	: BIT_VECTOR (1 DOWNTO 0);
+	SIGNAL sub_wire1	: STD_LOGIC_VECTOR (1 DOWNTO 0);
 
 
 
-SUBDESIGN CMP8
-(
-	dataa[7..0]	 : INPUT;
-	aeb	 : OUTPUT;
-)
-
-VARIABLE
-
-	LPM_COMPARE_component : lpm_compare WITH (
-			LPM_HINT = "ONE_INPUT_IS_CONSTANT=YES",
-			LPM_REPRESENTATION = "UNSIGNED",
-			LPM_TYPE = "LPM_COMPARE",
-			LPM_WIDTH = 8
-			);
+	COMPONENT lpm_compare
+	GENERIC (
+		lpm_hint		: STRING;
+		lpm_representation		: STRING;
+		lpm_type		: STRING;
+		lpm_width		: NATURAL
+	);
+	PORT (
+			aeb	: OUT STD_LOGIC ;
+			dataa	: IN STD_LOGIC_VECTOR (1 DOWNTO 0);
+			datab	: IN STD_LOGIC_VECTOR (1 DOWNTO 0)
+	);
+	END COMPONENT;
 
 BEGIN
+	sub_wire1_bv(1 DOWNTO 0) <= "11";
+	sub_wire1    <= To_stdlogicvector(sub_wire1_bv);
+	aeb    <= sub_wire0;
 
-	aeb = LPM_COMPARE_component.aeb;
-	LPM_COMPARE_component.dataa[7..0] = dataa[7..0];
-	LPM_COMPARE_component.datab[7..0] = 250;
-END;
+	LPM_COMPARE_component : LPM_COMPARE
+	GENERIC MAP (
+		lpm_hint => "ONE_INPUT_IS_CONSTANT=YES",
+		lpm_representation => "UNSIGNED",
+		lpm_type => "LPM_COMPARE",
+		lpm_width => 2
+	)
+	PORT MAP (
+		dataa => dataa,
+		datab => sub_wire1,
+		aeb => sub_wire0
+	);
 
 
+
+END SYN;
 
 -- ============================================================
 -- CNX file retrieval info
@@ -72,28 +104,28 @@ END;
 -- Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Cyclone III"
 -- Retrieval info: PRIVATE: LPM_PIPELINE NUMERIC "0"
 -- Retrieval info: PRIVATE: Latency NUMERIC "0"
--- Retrieval info: PRIVATE: PortBValue NUMERIC "250"
--- Retrieval info: PRIVATE: Radix NUMERIC "16"
+-- Retrieval info: PRIVATE: PortBValue NUMERIC "3"
+-- Retrieval info: PRIVATE: Radix NUMERIC "10"
 -- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
 -- Retrieval info: PRIVATE: SignedCompare NUMERIC "0"
 -- Retrieval info: PRIVATE: aclr NUMERIC "0"
 -- Retrieval info: PRIVATE: clken NUMERIC "0"
 -- Retrieval info: PRIVATE: isPortBConstant NUMERIC "1"
--- Retrieval info: PRIVATE: nBit NUMERIC "8"
+-- Retrieval info: PRIVATE: nBit NUMERIC "2"
 -- Retrieval info: PRIVATE: new_diagram STRING "1"
 -- Retrieval info: LIBRARY: lpm lpm.lpm_components.all
 -- Retrieval info: CONSTANT: LPM_HINT STRING "ONE_INPUT_IS_CONSTANT=YES"
 -- Retrieval info: CONSTANT: LPM_REPRESENTATION STRING "UNSIGNED"
 -- Retrieval info: CONSTANT: LPM_TYPE STRING "LPM_COMPARE"
--- Retrieval info: CONSTANT: LPM_WIDTH NUMERIC "8"
+-- Retrieval info: CONSTANT: LPM_WIDTH NUMERIC "2"
 -- Retrieval info: USED_PORT: aeb 0 0 0 0 OUTPUT NODEFVAL "aeb"
--- Retrieval info: USED_PORT: dataa 0 0 8 0 INPUT NODEFVAL "dataa[7..0]"
--- Retrieval info: CONNECT: @dataa 0 0 8 0 dataa 0 0 8 0
--- Retrieval info: CONNECT: @datab 0 0 8 0 250 0 0 8 0
+-- Retrieval info: USED_PORT: dataa 0 0 2 0 INPUT NODEFVAL "dataa[1..0]"
+-- Retrieval info: CONNECT: @dataa 0 0 2 0 dataa 0 0 2 0
+-- Retrieval info: CONNECT: @datab 0 0 2 0 3 0 0 2 0
 -- Retrieval info: CONNECT: aeb 0 0 0 0 @aeb 0 0 0 0
--- Retrieval info: GEN_FILE: TYPE_NORMAL CMP8.tdf TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL CMP8.inc TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL CMP8.cmp FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL CMP8.bsf TRUE FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL CMP8_inst.tdf FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL CMP2.vhd TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL CMP2.inc FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL CMP2.cmp FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL CMP2.bsf TRUE FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL CMP2_inst.vhd FALSE
 -- Retrieval info: LIB_FILE: lpm

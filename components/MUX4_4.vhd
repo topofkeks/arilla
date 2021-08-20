@@ -4,7 +4,7 @@
 -- MODULE: LPM_MUX 
 
 -- ============================================================
--- File Name: MUX4_4.tdf
+-- File Name: MUX4_4.vhd
 -- Megafunction Name(s):
 -- 			LPM_MUX
 --
@@ -32,46 +32,82 @@
 --Altera or its authorized distributors.  Please refer to the 
 --applicable agreement for further details.
 
-INCLUDE "lpm_mux.inc";
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+LIBRARY lpm;
+USE lpm.lpm_components.all;
+
+ENTITY MUX4_4 IS
+	PORT
+	(
+		data0x		: IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+		data1x		: IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+		data2x		: IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+		data3x		: IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+		sel		: IN STD_LOGIC_VECTOR (1 DOWNTO 0);
+		result		: OUT STD_LOGIC_VECTOR (3 DOWNTO 0)
+	);
+END MUX4_4;
 
 
+ARCHITECTURE SYN OF mux4_4 IS
 
-SUBDESIGN MUX4_4
-(
-	data0x[3..0]	 : INPUT;
-	data1x[3..0]	 : INPUT;
-	data2x[3..0]	 : INPUT;
-	data3x[3..0]	 : INPUT;
-	sel[1..0]	 : INPUT;
-	result[3..0]	 : OUTPUT;
-)
+--	type STD_LOGIC_2D is array (NATURAL RANGE <>, NATURAL RANGE <>) of STD_LOGIC;
 
-VARIABLE
-
-	LPM_MUX_component : lpm_mux WITH (
-			LPM_SIZE = 4,
-			LPM_TYPE = "LPM_MUX",
-			LPM_WIDTH = 4,
-			LPM_WIDTHS = 2
-			);
+	SIGNAL sub_wire0	: STD_LOGIC_VECTOR (3 DOWNTO 0);
+	SIGNAL sub_wire1	: STD_LOGIC_VECTOR (3 DOWNTO 0);
+	SIGNAL sub_wire2	: STD_LOGIC_2D (3 DOWNTO 0, 3 DOWNTO 0);
+	SIGNAL sub_wire3	: STD_LOGIC_VECTOR (3 DOWNTO 0);
+	SIGNAL sub_wire4	: STD_LOGIC_VECTOR (3 DOWNTO 0);
+	SIGNAL sub_wire5	: STD_LOGIC_VECTOR (3 DOWNTO 0);
 
 BEGIN
+	sub_wire5    <= data0x(3 DOWNTO 0);
+	sub_wire4    <= data1x(3 DOWNTO 0);
+	sub_wire3    <= data2x(3 DOWNTO 0);
+	result    <= sub_wire0(3 DOWNTO 0);
+	sub_wire1    <= data3x(3 DOWNTO 0);
+	sub_wire2(3, 0)    <= sub_wire1(0);
+	sub_wire2(3, 1)    <= sub_wire1(1);
+	sub_wire2(3, 2)    <= sub_wire1(2);
+	sub_wire2(3, 3)    <= sub_wire1(3);
+	sub_wire2(2, 0)    <= sub_wire3(0);
+	sub_wire2(2, 1)    <= sub_wire3(1);
+	sub_wire2(2, 2)    <= sub_wire3(2);
+	sub_wire2(2, 3)    <= sub_wire3(3);
+	sub_wire2(1, 0)    <= sub_wire4(0);
+	sub_wire2(1, 1)    <= sub_wire4(1);
+	sub_wire2(1, 2)    <= sub_wire4(2);
+	sub_wire2(1, 3)    <= sub_wire4(3);
+	sub_wire2(0, 0)    <= sub_wire5(0);
+	sub_wire2(0, 1)    <= sub_wire5(1);
+	sub_wire2(0, 2)    <= sub_wire5(2);
+	sub_wire2(0, 3)    <= sub_wire5(3);
 
-	result[3..0] = LPM_MUX_component.result[3..0];
-	LPM_MUX_component.data[3..3][3..0] = data3x[3..0];
-	LPM_MUX_component.data[2..2][3..0] = data2x[3..0];
-	LPM_MUX_component.data[1..1][3..0] = data1x[3..0];
-	LPM_MUX_component.data[0..0][3..0] = data0x[3..0];
-	LPM_MUX_component.sel[1..0] = sel[1..0];
-END;
+	LPM_MUX_component : LPM_MUX
+	GENERIC MAP (
+		lpm_size => 4,
+		lpm_type => "LPM_MUX",
+		lpm_width => 4,
+		lpm_widths => 2
+	)
+	PORT MAP (
+		data => sub_wire2,
+		sel => sel,
+		result => sub_wire0
+	);
 
 
+
+END SYN;
 
 -- ============================================================
 -- CNX file retrieval info
 -- ============================================================
 -- Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Cyclone III"
--- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "1"
+-- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
 -- Retrieval info: PRIVATE: new_diagram STRING "1"
 -- Retrieval info: LIBRARY: lpm lpm.lpm_components.all
 -- Retrieval info: CONSTANT: LPM_SIZE NUMERIC "4"
@@ -90,10 +126,9 @@ END;
 -- Retrieval info: CONNECT: @data 1 3 4 0 data3x 0 0 4 0
 -- Retrieval info: CONNECT: @sel 0 0 2 0 sel 0 0 2 0
 -- Retrieval info: CONNECT: result 0 0 4 0 @result 0 0 4 0
--- Retrieval info: GEN_FILE: TYPE_NORMAL MUX4_4.tdf TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL MUX4_4.inc TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL MUX4_4.vhd TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL MUX4_4.inc FALSE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL MUX4_4.cmp FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL MUX4_4.bsf TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL MUX4_4_inst.tdf FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL MUX4_4_syn.v TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL MUX4_4.bsf TRUE FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL MUX4_4_inst.vhd FALSE
 -- Retrieval info: LIB_FILE: lpm

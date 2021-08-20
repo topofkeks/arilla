@@ -1,10 +1,9 @@
 Available Components: MF (Megafunctions) (If recomended megafunction does not satisfy the requirements ping @lazar2222)
 MUX 	select_bits,width		| LPM_MUX MF
-DEMUX	select_bits,width		| DEMUX.vhd
 CD		ouptut_bits				| CD.vhd
 DC		input_bits				| LPM_DECODE MF
-7SEG							| SSEG.vhd
-7SEG4D							| SSEG4D.bdf
+7SEG							| SevenSegmentInterface1.bdf
+7SEG4D							| SevenSegmentInterface4.bdf
 ADD		width					| LPM_ADD_SUB MF or PARALLEL_ADD MF
 SUB		width					| LPM_ADD_SUB MF
 EDGED							| EDGED.bdf
@@ -13,11 +12,14 @@ CONST	value,width				| LPM_CONSTANT MF or CONST.vhd
 CMP		width					| LPM_COMPARE MF
 LDREG	default,width			| LDREG.vhd
 SREG	default,width			| LPM_SHIFTREG MF or SREG.vhd
-IDREG	default,width			| LPM_COUNTER MF
+IDREG	default,width			| LPM_COUNTER MF or IDREG.vhd
 LDCREG	default,width			| LDCREG.vhd
 SCREG	default,width			| LPM_SHIFTREG MF or SCREG.vhd
-IDCREG	default,width			| LPM_COUNTER MF
+IDCREG	default,width			| LPM_COUNTER MF or IDCREG.vhd
+REG1INCCL						| REG1_INC_CL.bdf
 SIGNEXT	in_width,out_width		| SIGNEXT.vhd
+ZEROEXT in_width,out_width		| ZEROEXT.vhd
+Debouncer						| Debouncer.bdf
 
 
 Available Megafunctions: (When generating megafunctions, generate them in Components project using VHDL and only generate required files)

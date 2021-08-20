@@ -4,7 +4,7 @@
 -- MODULE: LPM_ADD_SUB 
 
 -- ============================================================
--- File Name: INC_13.tdf
+-- File Name: INC_13.vhd
 -- Megafunction Name(s):
 -- 			LPM_ADD_SUB
 --
@@ -32,34 +32,67 @@
 --Altera or its authorized distributors.  Please refer to the 
 --applicable agreement for further details.
 
-INCLUDE "lpm_add_sub.inc";
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+LIBRARY lpm;
+USE lpm.all;
+
+ENTITY INC_13 IS
+	PORT
+	(
+		dataa		: IN STD_LOGIC_VECTOR (12 DOWNTO 0);
+		result		: OUT STD_LOGIC_VECTOR (12 DOWNTO 0)
+	);
+END INC_13;
+
+
+ARCHITECTURE SYN OF inc_13 IS
+
+	SIGNAL sub_wire0	: STD_LOGIC_VECTOR (12 DOWNTO 0);
+	SIGNAL sub_wire1_bv	: BIT_VECTOR (12 DOWNTO 0);
+	SIGNAL sub_wire1	: STD_LOGIC_VECTOR (12 DOWNTO 0);
 
 
 
-SUBDESIGN INC_13
-(
-	dataa[12..0]	 : INPUT;
-	result[12..0]	 : OUTPUT;
-)
-
-VARIABLE
-
-	LPM_ADD_SUB_component : lpm_add_sub WITH (
-			LPM_DIRECTION = "ADD",
-			LPM_HINT = "ONE_INPUT_IS_CONSTANT=YES,CIN_USED=NO",
-			LPM_REPRESENTATION = "UNSIGNED",
-			LPM_TYPE = "LPM_ADD_SUB",
-			LPM_WIDTH = 13
-			);
+	COMPONENT lpm_add_sub
+	GENERIC (
+		lpm_direction		: STRING;
+		lpm_hint		: STRING;
+		lpm_representation		: STRING;
+		lpm_type		: STRING;
+		lpm_width		: NATURAL
+	);
+	PORT (
+			dataa	: IN STD_LOGIC_VECTOR (12 DOWNTO 0);
+			datab	: IN STD_LOGIC_VECTOR (12 DOWNTO 0);
+			result	: OUT STD_LOGIC_VECTOR (12 DOWNTO 0)
+	);
+	END COMPONENT;
 
 BEGIN
+	sub_wire1_bv(12 DOWNTO 0) <= "0000000000001";
+	sub_wire1    <= To_stdlogicvector(sub_wire1_bv);
+	result    <= sub_wire0(12 DOWNTO 0);
 
-	result[12..0] = LPM_ADD_SUB_component.result[12..0];
-	LPM_ADD_SUB_component.dataa[12..0] = dataa[12..0];
-	LPM_ADD_SUB_component.datab[12..0] = 1;
-END;
+	LPM_ADD_SUB_component : LPM_ADD_SUB
+	GENERIC MAP (
+		lpm_direction => "ADD",
+		lpm_hint => "ONE_INPUT_IS_CONSTANT=YES,CIN_USED=NO",
+		lpm_representation => "UNSIGNED",
+		lpm_type => "LPM_ADD_SUB",
+		lpm_width => 13
+	)
+	PORT MAP (
+		dataa => dataa,
+		datab => sub_wire1,
+		result => sub_wire0
+	);
 
 
+
+END SYN;
 
 -- ============================================================
 -- CNX file retrieval info
@@ -76,7 +109,7 @@ END;
 -- Retrieval info: PRIVATE: RadixA NUMERIC "10"
 -- Retrieval info: PRIVATE: RadixB NUMERIC "10"
 -- Retrieval info: PRIVATE: Representation NUMERIC "1"
--- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "1"
+-- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
 -- Retrieval info: PRIVATE: ValidCtA NUMERIC "0"
 -- Retrieval info: PRIVATE: ValidCtB NUMERIC "1"
 -- Retrieval info: PRIVATE: WhichConstant NUMERIC "2"
@@ -95,10 +128,9 @@ END;
 -- Retrieval info: CONNECT: @dataa 0 0 13 0 dataa 0 0 13 0
 -- Retrieval info: CONNECT: @datab 0 0 13 0 1 0 0 13 0
 -- Retrieval info: CONNECT: result 0 0 13 0 @result 0 0 13 0
--- Retrieval info: GEN_FILE: TYPE_NORMAL INC_13.tdf TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL INC_13.inc TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL INC_13.vhd TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL INC_13.inc FALSE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL INC_13.cmp FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL INC_13.bsf TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL INC_13_inst.tdf FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL INC_13_syn.v TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL INC_13.bsf TRUE FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL INC_13_inst.vhd FALSE
 -- Retrieval info: LIB_FILE: lpm

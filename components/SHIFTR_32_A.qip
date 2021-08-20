@@ -2,5 +2,3 @@ set_global_assignment -name IP_TOOL_NAME "LPM_CLSHIFT"
 set_global_assignment -name IP_TOOL_VERSION "13.1"
 set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) "SHIFTR_32_A.vhd"]
 set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "SHIFTR_32_A.bsf"]
-set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "SHIFTR_32_A.cmp"]
-set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "SHIFTR_32_A_syn.v"]

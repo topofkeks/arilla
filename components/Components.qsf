@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone III"
 set_global_assignment -name DEVICE EP3C16F484C6
-set_global_assignment -name TOP_LEVEL_ENTITY LDREG
+set_global_assignment -name TOP_LEVEL_ENTITY Components
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "19:15:54  AUGUST 12, 2021"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -58,46 +58,56 @@ set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id testbench
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME testbench -section_id testbench
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "500 ns" -section_id testbench
 set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/testbench.vhd -section_id testbench
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name QIP_FILE SUB11.qip
+set_global_assignment -name QIP_FILE SRAM32_Arilla.qip
+set_global_assignment -name QIP_FILE SHIFTR_32_A.qip
+set_global_assignment -name QIP_FILE SHIFT_32_L.qip
+set_global_assignment -name QIP_FILE MUX32_32.qip
+set_global_assignment -name QIP_FILE MUX16_32.qip
+set_global_assignment -name QIP_FILE MUX16_2.qip
+set_global_assignment -name QIP_FILE MUX16_1.qip
+set_global_assignment -name QIP_FILE MUX8_4.qip
+set_global_assignment -name QIP_FILE MUX8_1.qip
+set_global_assignment -name QIP_FILE MUX4_12.qip
+set_global_assignment -name QIP_FILE MUX2_14.qip
+set_global_assignment -name QIP_FILE MUX2_11.qip
+set_global_assignment -name QIP_FILE MUX2_4.qip
+set_global_assignment -name QIP_FILE DC32.qip
+set_global_assignment -name QIP_FILE DC8.qip
+set_global_assignment -name QIP_FILE DC4e.qip
+set_global_assignment -name QIP_FILE DC4.qip
+set_global_assignment -name QIP_FILE DC3.qip
+set_global_assignment -name QIP_FILE CMPMouseAddr.qip
+set_global_assignment -name QIP_FILE CMP32_ZERO.qip
+set_global_assignment -name QIP_FILE CMP13.qip
+set_global_assignment -name QIP_FILE CMP11.qip
+set_global_assignment -name QIP_FILE CMP6.qip
+set_global_assignment -name QIP_FILE CMP_32_ALU_UNSIGNED.qip
+set_global_assignment -name QIP_FILE CMP_32_ALU.qip
+set_global_assignment -name QIP_FILE CMP_30.qip
+set_global_assignment -name QIP_FILE ADDSUB_32.qip
+set_global_assignment -name QIP_FILE ADD11.qip
+set_global_assignment -name QIP_FILE INC_13.qip
+set_global_assignment -name QIP_FILE CMP2.qip
+set_global_assignment -name QIP_FILE CMP8.qip
+set_global_assignment -name VHDL_FILE ZEROEXT.vhd
+set_global_assignment -name VHDL_FILE SREG.vhd
+set_global_assignment -name VHDL_FILE SIGNEXT.vhd
+set_global_assignment -name VHDL_FILE SCREG.vhd
+set_global_assignment -name VHDL_FILE LDREG.vhd
+set_global_assignment -name VHDL_FILE LDCREG.vhd
 set_global_assignment -name VHDL_FILE IDREG.vhd
 set_global_assignment -name VHDL_FILE IDCREG.vhd
 set_global_assignment -name VHDL_FILE CONST.vhd
 set_global_assignment -name VHDL_FILE CLKDIV.vhd
-set_global_assignment -name VHDL_FILE SSEG.vhd
-set_global_assignment -name VHDL_FILE DEMUX.vhd
-set_global_assignment -name BDF_FILE Components.bdf
 set_global_assignment -name VHDL_FILE CD.vhd
-set_global_assignment -name VHDL_FILE testbenches/testbench.vhd
-set_global_assignment -name BDF_FILE SSEG4D.bdf
+set_global_assignment -name BDF_FILE SevenSegmentInterface4.bdf
+set_global_assignment -name BDF_FILE SevenSegmentInterface1.bdf
+set_global_assignment -name BDF_FILE REG1_INC_CL.bdf
 set_global_assignment -name BDF_FILE EDGED.bdf
-set_global_assignment -name VHDL_FILE SIGNEXT.vhd
-set_global_assignment -name VHDL_FILE LDREG.vhd
-set_global_assignment -name VHDL_FILE LDCREG.vhd
-set_global_assignment -name VHDL_FILE SREG.vhd
-set_global_assignment -name VHDL_FILE SCREG.vhd
-set_global_assignment -name QIP_FILE DP_SRAM32.qip
-set_global_assignment -name QIP_FILE MUX16_32.qip
-set_global_assignment -name QIP_FILE MUX32_32.qip
-set_global_assignment -name QIP_FILE DC32.qip
-set_global_assignment -name QIP_FILE MUX4_32.qip
-set_global_assignment -name QIP_FILE INC_13.qip
-set_global_assignment -name QIP_FILE MUX4_4.qip
-set_global_assignment -name VHDL_FILE ZEROEXT.vhd
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name QIP_FILE CMP_32_ALU.qip
-set_global_assignment -name QIP_FILE CMP_32_ALU_UNSIGNED.qip
-set_global_assignment -name QIP_FILE ADDSUB_32.qip
-set_global_assignment -name QIP_FILE SHIFT_32_L.qip
-set_global_assignment -name QIP_FILE SHIFTR_32_A.qip
-set_global_assignment -name QIP_FILE MUX16_1.qip
-set_global_assignment -name QIP_FILE CMP32_ZERO.qip
-set_global_assignment -name QIP_FILE MUX8_4.qip
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
-set_global_assignment -name QIP_FILE MUX2_14.qip
-set_global_assignment -name QIP_FILE MUX2_4.qip
-set_global_assignment -name QIP_FILE CMP_30.qip
-set_global_assignment -name QIP_FILE DC4e.qip
-set_global_assignment -name QIP_FILE DC8.qip
-set_global_assignment -name QIP_FILE MUX2_10.qip
-set_global_assignment -name QIP_FILE MUX8_1.qip
+set_global_assignment -name BDF_FILE Debouncer.bdf
+set_global_assignment -name BDF_FILE Components.bdf
