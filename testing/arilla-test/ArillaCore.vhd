@@ -14,7 +14,7 @@
 
 -- PROGRAM		"Quartus II 64-Bit"
 -- VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
--- CREATED		"Sat Aug 21 03:59:07 2021"
+-- CREATED		"Sat Aug 21 13:38:57 2021"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -162,7 +162,21 @@ END COMPONENT;
 
 COMPONENT arillarom
 	PORT(ADDR : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-		 O : OUT STD_LOGIC_VECTOR(24 DOWNTO 0)
+		 O : OUT STD_LOGIC_VECTOR(25 DOWNTO 0)
+	);
+END COMPONENT;
+
+COMPONENT mux8_16
+	PORT(data0x : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		 data1x : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		 data2x : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		 data3x : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		 data4x : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		 data5x : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		 data6x : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		 data7x : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		 sel : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+		 result : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 	);
 END COMPONENT;
 
@@ -186,6 +200,14 @@ END COMPONENT;
 COMPONENT alubranchoperationcode
 	PORT(function3 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 		 aluop : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+	);
+END COMPONENT;
+
+COMPONENT addsub_32
+	PORT(add_sub : IN STD_LOGIC;
+		 dataa : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		 datab : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		 result : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
 END COMPONENT;
 
@@ -229,12 +251,9 @@ COMPONENT sevensegmentinterface4
 	);
 END COMPONENT;
 
-COMPONENT zeroext
-GENERIC (in_width : INTEGER;
-			out_width : INTEGER
-			);
-	PORT(I : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-		 O : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+COMPONENT sub32_branch
+	PORT(dataa : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		 result : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
 END COMPONENT;
 
@@ -261,7 +280,12 @@ COMPONENT regfile
 END COMPONENT;
 
 SIGNAL	A :  STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL	ALUA :  STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL	ALUB :  STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL	ALUOP :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL	ALUOut :  STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL	ALUPC :  STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL	ALUTEST :  STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL	ALUzero :  STD_LOGIC;
 SIGNAL	AUIPC :  STD_LOGIC;
 SIGNAL	B :  STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -285,7 +309,7 @@ SIGNAL	function3 :  STD_LOGIC_VECTOR(2 DOWNTO 0);
 SIGNAL	function7 :  STD_LOGIC_VECTOR(6 DOWNTO 0);
 SIGNAL	halted :  STD_LOGIC;
 SIGNAL	immediate :  STD_LOGIC_VECTOR(11 DOWNTO 0);
-SIGNAL	immex :  STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL	immext :  STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL	instruction_step :  STD_LOGIC;
 SIGNAL	invalid_opcode :  STD_LOGIC;
 SIGNAL	IR :  STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -304,7 +328,7 @@ SIGNAL	LUI :  STD_LOGIC;
 SIGNAL	MDROutput :  STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL	MEM :  STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL	mem_align_exception :  STD_LOGIC;
-SIGNAL	mxA :  STD_LOGIC;
+SIGNAL	mxA :  STD_LOGIC_VECTOR(1 DOWNTO 0);
 SIGNAL	mxALUOP :  STD_LOGIC_VECTOR(1 DOWNTO 0);
 SIGNAL	mxB :  STD_LOGIC_VECTOR(2 DOWNTO 0);
 SIGNAL	mxMEM :  STD_LOGIC;
@@ -350,66 +374,71 @@ SIGNAL	SYNTHESIZED_WIRE_11 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_12 :  STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_13 :  STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_14 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_15 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_16 :  STD_LOGIC_VECTOR(31 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_17 :  STD_LOGIC_VECTOR(31 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_18 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_15 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_16 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_17 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_18 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_19 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_20 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_21 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_21 :  STD_LOGIC_VECTOR(15 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_22 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_23 :  STD_LOGIC_VECTOR(15 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_24 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_25 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_26 :  STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_23 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_24 :  STD_LOGIC_VECTOR(31 DOWNTO 0);
 
-SIGNAL	GDFX_TEMP_SIGNAL_8 :  STD_LOGIC_VECTOR(24 DOWNTO 0);
-SIGNAL	GDFX_TEMP_SIGNAL_10 :  STD_LOGIC_VECTOR(20 DOWNTO 0);
-SIGNAL	GDFX_TEMP_SIGNAL_3 :  STD_LOGIC_VECTOR(2 DOWNTO 0);
-SIGNAL	GDFX_TEMP_SIGNAL_6 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL	GDFX_TEMP_SIGNAL_4 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL	GDFX_TEMP_SIGNAL_7 :  STD_LOGIC_VECTOR(31 DOWNTO 0);
-SIGNAL	GDFX_TEMP_SIGNAL_9 :  STD_LOGIC_VECTOR(12 DOWNTO 0);
+SIGNAL	GDFX_TEMP_SIGNAL_7 :  STD_LOGIC_VECTOR(25 DOWNTO 0);
+SIGNAL	GDFX_TEMP_SIGNAL_13 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	GDFX_TEMP_SIGNAL_12 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL	GDFX_TEMP_SIGNAL_5 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	GDFX_TEMP_SIGNAL_9 :  STD_LOGIC_VECTOR(15 DOWNTO 0);
+SIGNAL	GDFX_TEMP_SIGNAL_8 :  STD_LOGIC_VECTOR(15 DOWNTO 0);
+SIGNAL	GDFX_TEMP_SIGNAL_11 :  STD_LOGIC_VECTOR(20 DOWNTO 0);
+SIGNAL	GDFX_TEMP_SIGNAL_10 :  STD_LOGIC_VECTOR(12 DOWNTO 0);
+SIGNAL	GDFX_TEMP_SIGNAL_3 :  STD_LOGIC_VECTOR(2 DOWNTO 0);
+SIGNAL	GDFX_TEMP_SIGNAL_4 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	GDFX_TEMP_SIGNAL_6 :  STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL	GDFX_TEMP_SIGNAL_1 :  STD_LOGIC_VECTOR(19 DOWNTO 0);
 SIGNAL	GDFX_TEMP_SIGNAL_2 :  STD_LOGIC_VECTOR(11 DOWNTO 0);
 SIGNAL	GDFX_TEMP_SIGNAL_0 :  STD_LOGIC_VECTOR(11 DOWNTO 0);
 
 BEGIN 
 
-ba(3) <= GDFX_TEMP_SIGNAL_8(24);
-ba(2) <= GDFX_TEMP_SIGNAL_8(23);
-ba(1) <= GDFX_TEMP_SIGNAL_8(22);
-ba(0) <= GDFX_TEMP_SIGNAL_8(21);
-cc(2) <= GDFX_TEMP_SIGNAL_8(20);
-cc(1) <= GDFX_TEMP_SIGNAL_8(19);
-cc(0) <= GDFX_TEMP_SIGNAL_8(18);
-fault_signal <= GDFX_TEMP_SIGNAL_8(17);
-mxALUOP(0) <= GDFX_TEMP_SIGNAL_8(16);
-wrMEM <= GDFX_TEMP_SIGNAL_8(15);
-mxMEM <= GDFX_TEMP_SIGNAL_8(14);
-mxALUOP(1) <= GDFX_TEMP_SIGNAL_8(13);
-wrbrPC <= GDFX_TEMP_SIGNAL_8(12);
-mxB(2) <= GDFX_TEMP_SIGNAL_8(11);
-mxReg(0) <= GDFX_TEMP_SIGNAL_8(10);
-wrReg <= GDFX_TEMP_SIGNAL_8(9);
-mxReg(1) <= GDFX_TEMP_SIGNAL_8(8);
-wrC <= GDFX_TEMP_SIGNAL_8(7);
-mxB(1) <= GDFX_TEMP_SIGNAL_8(6);
-wrAB <= GDFX_TEMP_SIGNAL_8(5);
-mxB(0) <= GDFX_TEMP_SIGNAL_8(4);
-mxA <= GDFX_TEMP_SIGNAL_8(3);
-wrPC <= GDFX_TEMP_SIGNAL_8(2);
-mxPC <= GDFX_TEMP_SIGNAL_8(1);
-wrIR <= GDFX_TEMP_SIGNAL_8(0);
+ba(3) <= GDFX_TEMP_SIGNAL_7(25);
+ba(2) <= GDFX_TEMP_SIGNAL_7(24);
+ba(1) <= GDFX_TEMP_SIGNAL_7(23);
+ba(0) <= GDFX_TEMP_SIGNAL_7(22);
+cc(2) <= GDFX_TEMP_SIGNAL_7(21);
+cc(1) <= GDFX_TEMP_SIGNAL_7(20);
+cc(0) <= GDFX_TEMP_SIGNAL_7(19);
+fault_signal <= GDFX_TEMP_SIGNAL_7(18);
+mxALUOP(0) <= GDFX_TEMP_SIGNAL_7(17);
+wrMEM <= GDFX_TEMP_SIGNAL_7(16);
+mxMEM <= GDFX_TEMP_SIGNAL_7(15);
+mxALUOP(1) <= GDFX_TEMP_SIGNAL_7(14);
+wrbrPC <= GDFX_TEMP_SIGNAL_7(13);
+mxB(2) <= GDFX_TEMP_SIGNAL_7(12);
+mxReg(0) <= GDFX_TEMP_SIGNAL_7(11);
+wrReg <= GDFX_TEMP_SIGNAL_7(10);
+mxReg(1) <= GDFX_TEMP_SIGNAL_7(9);
+wrC <= GDFX_TEMP_SIGNAL_7(8);
+mxA(1) <= GDFX_TEMP_SIGNAL_7(7);
+mxB(1) <= GDFX_TEMP_SIGNAL_7(6);
+wrAB <= GDFX_TEMP_SIGNAL_7(5);
+mxB(0) <= GDFX_TEMP_SIGNAL_7(4);
+mxA(0) <= GDFX_TEMP_SIGNAL_7(3);
+wrPC <= GDFX_TEMP_SIGNAL_7(2);
+mxPC <= GDFX_TEMP_SIGNAL_7(1);
+wrIR <= GDFX_TEMP_SIGNAL_7(0);
 
-GDFX_TEMP_SIGNAL_10 <= (jal_immediate(19 DOWNTO 0) & zero);
+GDFX_TEMP_SIGNAL_13 <= (zero & function3(2 DOWNTO 0));
+GDFX_TEMP_SIGNAL_12 <= (function7(5) & function3(2 DOWNTO 0));
+GDFX_TEMP_SIGNAL_5 <= (one & zero & zero & zero);
+GDFX_TEMP_SIGNAL_9 <= (zero & zero & zero & zero & ALUOP(3 DOWNTO 0) & zero & zero & mxALUOP(1 DOWNTO 0) & zero & zero & zero & zero);
+GDFX_TEMP_SIGNAL_8 <= (state(3 DOWNTO 0) & ALUPC(11 DOWNTO 0));
+GDFX_TEMP_SIGNAL_11 <= (jal_immediate(19 DOWNTO 0) & zero);
+GDFX_TEMP_SIGNAL_10 <= (branch_immediate(11 DOWNTO 0) & zero);
 GDFX_TEMP_SIGNAL_3 <= (zero & one & zero);
-GDFX_TEMP_SIGNAL_6 <= (one & zero & zero & zero);
 GDFX_TEMP_SIGNAL_4 <= (zero & zero & zero & zero);
-GDFX_TEMP_SIGNAL_7 <= (upper_immediate(19 DOWNTO 0) & zero & zero & zero & zero & zero & zero & zero & zero & zero & zero & zero & zero);
-GDFX_TEMP_SIGNAL_9 <= (branch_immediate(11 DOWNTO 0) & zero);
-GDFX_TEMP_SIGNAL_5 <= (function7(5) & function3(2 DOWNTO 0));
+GDFX_TEMP_SIGNAL_6 <= (upper_immediate(19 DOWNTO 0) & zero & zero & zero & zero & zero & zero & zero & zero & zero & zero & zero & zero);
 GDFX_TEMP_SIGNAL_1 <= (IR(31) & IR(19 DOWNTO 12) & IR(20) & IR(30 DOWNTO 21));
 GDFX_TEMP_SIGNAL_2 <= (IR(31 DOWNTO 25) & IR(11 DOWNTO 7));
 GDFX_TEMP_SIGNAL_0 <= (IR(31) & IR(7) & IR(30 DOWNTO 25) & IR(11 DOWNTO 8));
@@ -518,7 +547,7 @@ clk <= SYNTHESIZED_WIRE_4 OR SYNTHESIZED_WIRE_5;
 b2v_inst23 : edged
 PORT MAP(I => SYNTHESIZED_WIRE_6,
 		 clk => FPGA_CLK,
-		 Rising => SYNTHESIZED_WIRE_25);
+		 Rising => SYNTHESIZED_WIRE_23);
 
 
 b2v_inst24 : memalignexceptioncheck
@@ -576,32 +605,32 @@ PORT MAP(data0x => SYNTHESIZED_WIRE_12,
 		 data2x => brimmext,
 		 data3x => upimmshifted,
 		 data4x => jalimmext,
-		 data5x => immex,
+		 data5x => immext,
 		 data6x => storeimmext,
 		 data7x => B,
 		 sel => mxB,
-		 result => SYNTHESIZED_WIRE_17);
+		 result => ALUB);
 
 
 b2v_inst33 : mux4_4
 PORT MAP(data0x => GDFX_TEMP_SIGNAL_4,
-		 data1x => GDFX_TEMP_SIGNAL_5,
-		 data2x => SYNTHESIZED_WIRE_14,
-		 data3x => GDFX_TEMP_SIGNAL_6,
+		 data1x => SYNTHESIZED_WIRE_14,
+		 data2x => SYNTHESIZED_WIRE_15,
+		 data3x => GDFX_TEMP_SIGNAL_5,
 		 sel => mxALUOP,
-		 result => SYNTHESIZED_WIRE_18);
+		 result => ALUOP);
 
 halted <= SW(9);
 
 
 
 b2v_inst35 : edged
-PORT MAP(I => SYNTHESIZED_WIRE_15,
+PORT MAP(I => SYNTHESIZED_WIRE_16,
 		 clk => FPGA_CLK,
 		 Rising => rst);
 
 
-SYNTHESIZED_WIRE_15 <= NOT(BUTTON(0));
+SYNTHESIZED_WIRE_16 <= NOT(BUTTON(0));
 
 
 
@@ -611,13 +640,13 @@ PORT MAP(data0x => C,
 		 data2x => upimmshifted,
 		 data3x => PC,
 		 sel => mxReg,
-		 result => SYNTHESIZED_WIRE_26);
+		 result => SYNTHESIZED_WIRE_24);
 
 
 b2v_inst38 : alu
-PORT MAP(A => SYNTHESIZED_WIRE_16,
-		 B => SYNTHESIZED_WIRE_17,
-		 op => SYNTHESIZED_WIRE_18,
+PORT MAP(A => ALUA,
+		 B => ALUB,
+		 op => ALUOP,
 		 aluzero => ALUzero,
 		 C => ALUOut);
 
@@ -636,20 +665,26 @@ PORT MAP(sel => mxMEM,
 		 data1x => ALUOut,
 		 result => MemoryAddress);
 
-upimmshifted <= GDFX_TEMP_SIGNAL_7;
+upimmshifted <= GDFX_TEMP_SIGNAL_6;
 
 
 
 b2v_inst42 : arillarom
 PORT MAP(ADDR => state,
-		 O => GDFX_TEMP_SIGNAL_8);
+		 O => GDFX_TEMP_SIGNAL_7);
 
 
-b2v_inst43 : mux2_32
-PORT MAP(sel => mxA,
-		 data0x => A,
-		 data1x => PC,
-		 result => SYNTHESIZED_WIRE_16);
+b2v_inst43 : mux8_16
+PORT MAP(data0x => GDFX_TEMP_SIGNAL_8,
+		 data1x => C(15 DOWNTO 0),
+		 data2x => immext(15 DOWNTO 0),
+		 data3x => immext(31 DOWNTO 16),
+		 data4x => GDFX_TEMP_SIGNAL_9,
+		 data5x => C(31 DOWNTO 16),
+		 data6x => ALUOut(15 DOWNTO 0),
+		 data7x => ALUOut(31 DOWNTO 16),
+		 sel => SW(8 DOWNTO 6),
+		 result => SYNTHESIZED_WIRE_21);
 
 
 
@@ -670,14 +705,20 @@ PORT MAP(sel => brmul,
 
 b2v_inst47 : alubranchoperationcode
 PORT MAP(function3 => function3,
-		 aluop => SYNTHESIZED_WIRE_14);
+		 aluop => SYNTHESIZED_WIRE_15);
+
+
+b2v_inst48 : addsub_32
+PORT MAP(add_sub => one,
+		 dataa => ALUA,
+		 datab => ALUB);
 
 
 b2v_inst49 : signext
 GENERIC MAP(in_width => 13,
 			out_width => 32
 			)
-PORT MAP(I => GDFX_TEMP_SIGNAL_9,
+PORT MAP(I => GDFX_TEMP_SIGNAL_10,
 		 O => brimmext);
 
 
@@ -686,7 +727,7 @@ b2v_inst50 : signext
 GENERIC MAP(in_width => 21,
 			out_width => 32
 			)
-PORT MAP(I => GDFX_TEMP_SIGNAL_10,
+PORT MAP(I => GDFX_TEMP_SIGNAL_11,
 		 O => jalimmext);
 
 
@@ -695,10 +736,10 @@ GENERIC MAP(in_width => 12,
 			out_width => 32
 			)
 PORT MAP(I => immediate,
-		 O => immex);
+		 O => immext);
 
 
-brcnd <= bruncnd OR SYNTHESIZED_WIRE_19 OR brmul OR SYNTHESIZED_WIRE_20 OR SYNTHESIZED_WIRE_21 OR zero;
+brcnd <= bruncnd OR SYNTHESIZED_WIRE_17 OR brmul OR SYNTHESIZED_WIRE_18 OR SYNTHESIZED_WIRE_19 OR zero;
 
 
 b2v_inst53 : signext
@@ -723,7 +764,7 @@ PORT MAP(lui => LUI,
 		 branch => BRANCH,
 		 load => LOAD,
 		 store => STORE,
-		 ri => SYNTHESIZED_WIRE_22,
+		 ri => SYNTHESIZED_WIRE_20,
 		 fault => invalid_opcode,
 		 BranchAddress => caseba);
 
@@ -742,39 +783,36 @@ PORT MAP(I => store_immediate,
 		 O => storeimmext);
 
 
-SYNTHESIZED_WIRE_22 <= OP_IMM OR OP;
+SYNTHESIZED_WIRE_20 <= OP_IMM OR OP;
 
 
-SYNTHESIZED_WIRE_19 <= brhalted AND halted;
+SYNTHESIZED_WIRE_17 <= brhalted AND halted;
 
 
 b2v_inst6 : mux2_32
 PORT MAP(sel => OP_IMM,
 		 data0x => B,
-		 data1x => immex,
+		 data1x => immext,
 		 result => SYNTHESIZED_WIRE_12);
 
 
-SYNTHESIZED_WIRE_20 <= brpc_mem_align_exception AND pc_mem_align_exception;
+SYNTHESIZED_WIRE_18 <= brpc_mem_align_exception AND pc_mem_align_exception;
 
 
-SYNTHESIZED_WIRE_21 <= brmem_align_exception AND mem_align_exception;
+SYNTHESIZED_WIRE_19 <= brmem_align_exception AND mem_align_exception;
 
 
 b2v_inst62 : sevensegmentinterface4
-PORT MAP(input => SYNTHESIZED_WIRE_23,
+PORT MAP(input => SYNTHESIZED_WIRE_21,
 		 HEX0 => HEX0_D,
 		 HEX1 => HEX1_D,
 		 HEX2 => HEX2_D,
 		 HEX3 => HEX3_D);
 
 
-b2v_inst63 : zeroext
-GENERIC MAP(in_width => 4,
-			out_width => 16
-			)
-PORT MAP(I => state,
-		 O => SYNTHESIZED_WIRE_23);
+b2v_inst63 : sub32_branch
+PORT MAP(dataa => PC,
+		 result => ALUPC);
 
 
 b2v_inst64 : dc3
@@ -786,13 +824,29 @@ PORT MAP(data => cc,
 		 eq5 => brmem_align_exception);
 
 
-SYNTHESIZED_WIRE_5 <= FPGA_CLK AND SYNTHESIZED_WIRE_24;
+b2v_inst65 : mux4_32
+PORT MAP(data0x => A,
+		 data1x => PC,
+		 data2x => ALUPC,
+		 data3x => ALUPC,
+		 sel => mxA,
+		 result => ALUA);
 
 
-SYNTHESIZED_WIRE_4 <= SW(0) AND SYNTHESIZED_WIRE_25;
+b2v_inst66 : mux2_4
+PORT MAP(sel => OP_IMM,
+		 data0x => GDFX_TEMP_SIGNAL_12,
+		 data1x => GDFX_TEMP_SIGNAL_13,
+		 result => SYNTHESIZED_WIRE_14);
 
 
-SYNTHESIZED_WIRE_24 <= NOT(SW(0));
+SYNTHESIZED_WIRE_5 <= FPGA_CLK AND SYNTHESIZED_WIRE_22;
+
+
+SYNTHESIZED_WIRE_4 <= SW(0) AND SYNTHESIZED_WIRE_23;
+
+
+SYNTHESIZED_WIRE_22 <= NOT(SW(0));
 
 
 
@@ -812,7 +866,7 @@ b2v_RegisterFile : regfile
 PORT MAP(wr => wrReg,
 		 clk => clk,
 		 D => destination,
-		 data => SYNTHESIZED_WIRE_26,
+		 data => SYNTHESIZED_WIRE_24,
 		 S1 => source2,
 		 S2 => source1,
 		 RS1 => SYNTHESIZED_WIRE_0,
@@ -822,8 +876,6 @@ MemoryWrite <= wrMEM;
 MEM <= MemoryDataOut;
 MemoryRead <= one;
 
-
 one <= '1';
-
 zero <= '0';
 END bdf_type;
