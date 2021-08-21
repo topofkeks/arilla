@@ -442,14 +442,14 @@ applicable agreement for further details.
 	(port
 		(pt 0 48)
 		(input)
-		(text "IN" (rect 0 0 10 14)(font "Arial" (font_size 8)))
+		(text "I" (rect 0 0 2 14)(font "Arial" (font_size 8)))
 		(text "IN" (rect 21 43 31 57)(font "Arial" (font_size 8)))
 		(line (pt 0 48)(pt 16 48))
 	)
 	(port
 		(pt 96 32)
 		(output)
-		(text "OUT" (rect 0 0 24 14)(font "Arial" (font_size 8)))
+		(text "O" (rect 0 0 9 14)(font "Arial" (font_size 8)))
 		(text "OUT" (rect 51 27 75 41)(font "Arial" (font_size 8)))
 		(line (pt 96 32)(pt 80 32))
 	)
@@ -471,14 +471,14 @@ applicable agreement for further details.
 	(port
 		(pt 0 48)
 		(input)
-		(text "IN" (rect 0 0 10 14)(font "Arial" (font_size 8)))
+		(text "I" (rect 0 0 2 14)(font "Arial" (font_size 8)))
 		(text "IN" (rect 21 43 31 57)(font "Arial" (font_size 8)))
 		(line (pt 0 48)(pt 16 48))
 	)
 	(port
 		(pt 96 32)
 		(output)
-		(text "OUT" (rect 0 0 24 14)(font "Arial" (font_size 8)))
+		(text "O" (rect 0 0 9 14)(font "Arial" (font_size 8)))
 		(text "OUT" (rect 51 27 75 41)(font "Arial" (font_size 8)))
 		(line (pt 96 32)(pt 80 32))
 	)
