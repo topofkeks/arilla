@@ -139,10 +139,13 @@ PORT MAP(wren => SYNTHESIZED_WIRE_1,
 		 q => SYNTHESIZED_WIRE_0);
 
 
-b2v_inst8 : controller
-PORT MAP(CLK => clk,
-		 PS2_DATA => PS2_DATA,
-		 PS2_CLK => PS2_CLK);
+--b2v_inst8 : controller
+--PORT MAP(CLK => clk,
+--		 PS2_DATA => PS2_DATA,
+--		 PS2_CLK => PS2_CLK,
+--		 RD => '0',
+--		 WR => '0',
+--		 ADDR => (others => '0'));
 
 
 one <= '1';

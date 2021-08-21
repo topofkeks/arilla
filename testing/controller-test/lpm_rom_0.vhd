@@ -14,18 +14,18 @@
 
 -- PROGRAM		"Quartus II 64-Bit"
 -- VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
--- CREATED		"Sat Aug 21 02:02:45 2021"
+-- CREATED		"Sat Aug 21 02:46:01 2021"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
 -- use the following when compiling in Quartus II
---LIBRARY lpm;
---USE lpm.lpm_components.all; 
+LIBRARY lpm;
+USE lpm.lpm_components.all; 
 
 -- use the following when compiling in third party tools --
 -- add lpm_pack.vhd from the Quartus II library
-LIBRARY work;
-USE work.lpm_components.all;
+--LIBRARY work;
+--USE work.lpm_components.all;
 
 ENTITY lpm_rom_0 IS 
 PORT 
@@ -43,7 +43,7 @@ BEGIN
 
 b2v_inst5 : lpm_rom
 GENERIC MAP(LPM_ADDRESS_CONTROL => "UNREGISTERED",
-			LPM_FILE => "../mic/Controller.mif",
+			LPM_FILE => "D:\Faks\4.Semestar\AR\arilla\mic\Controller.mif",
 			LPM_OUTDATA => "REGISTERED",
 			LPM_WIDTH => 9,
 			LPM_WIDTHAD => 2)

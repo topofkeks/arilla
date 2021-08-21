@@ -340,7 +340,8 @@ GENERIC MAP(default_value => 0,
 			)
 PORT MAP(clk => clk,
 		 ld => ldDATA1x,
-		 data_out => DATA1x);
+		 data_out => DATA1x,
+		 data_in => (others => '0'));
 
 
 b2v_DATA2reg : ldreg

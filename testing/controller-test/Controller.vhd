@@ -14,7 +14,7 @@
 
 -- PROGRAM		"Quartus II 64-Bit"
 -- VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
--- CREATED		"Sat Aug 21 02:02:45 2021"
+-- CREATED		"Sat Aug 21 02:46:01 2021"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -44,6 +44,8 @@ ATTRIBUTE noopt : BOOLEAN;
 COMPONENT lpm_rom_0
 	PORT(outclock : IN STD_LOGIC;
 		 address : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+		 q	:	OUT	 STD_LOGIC_VECTOR(8 DOWNTO 0)
+	 );
 END COMPONENT;
 ATTRIBUTE black_box OF lpm_rom_0: COMPONENT IS true;
 ATTRIBUTE noopt OF lpm_rom_0: COMPONENT IS true;
@@ -54,8 +56,8 @@ GENERIC (default_value : INTEGER;
 			);
 	PORT(clk : IN STD_LOGIC;
 		 ld : IN STD_LOGIC;
-		 data_in : IN STD_LOGIC_VECTOR(0 TO 0);
-		 data_out : OUT STD_LOGIC_VECTOR(0 TO 0)
+		 data_in : IN STD_LOGIC_VECTOR(size-1 DOWNTO 0);
+		 data_out : OUT STD_LOGIC_VECTOR(size-1 DOWNTO 0)
 	);
 END COMPONENT;
 
@@ -69,8 +71,8 @@ GENERIC (clear_value : INTEGER;
 		 inc : IN STD_LOGIC;
 		 dec : IN STD_LOGIC;
 		 ld : IN STD_LOGIC;
-		 data_in : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
-		 data_out : OUT STD_LOGIC_VECTOR(5 DOWNTO 0)
+		 data_in : IN STD_LOGIC_VECTOR(size-1 DOWNTO 0);
+		 data_out : OUT STD_LOGIC_VECTOR(size-1 DOWNTO 0)
 	);
 END COMPONENT;
 
@@ -82,8 +84,8 @@ GENERIC (default_value : INTEGER;
 		 inc : IN STD_LOGIC;
 		 dec : IN STD_LOGIC;
 		 ld : IN STD_LOGIC;
-		 data_in : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-		 data_out : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
+		 data_in : IN STD_LOGIC_VECTOR(size-1 DOWNTO 0);
+		 data_out : OUT STD_LOGIC_VECTOR(size-1 DOWNTO 0)
 	);
 END COMPONENT;
 
@@ -104,7 +106,7 @@ COMPONENT const
 GENERIC (const : INTEGER;
 			size : INTEGER
 			);
-	PORT(		 data : OUT STD_LOGIC_VECTOR(5 DOWNTO 0)
+	PORT(		 data : OUT STD_LOGIC_VECTOR(size-1 DOWNTO 0)
 	);
 END COMPONENT;
 
@@ -285,7 +287,10 @@ GENERIC MAP(clear_value => 0,
 PORT MAP(clk => CLK,
 		 cl => SYNTHESIZED_WIRE_1,
 		 inc => clkFalling,
-		 data_out => SYNTHESIZED_WIRE_7);
+		 data_out => SYNTHESIZED_WIRE_7,
+		 dec => '0',
+		 ld => '0',
+		 data_in => (others => '0'));
 
 
 b2v_ButtonsReg : ldreg
@@ -316,7 +321,8 @@ PORT MAP(clk => CLK,
 		 inc => SYNTHESIZED_WIRE_3,
 		 ld => SYNTHESIZED_WIRE_4,
 		 data_in => ba,
-		 data_out => Counter);
+		 data_out => Counter,
+		 dec => '0');
 
 
 b2v_inst : add11
@@ -834,7 +840,10 @@ GENERIC MAP(clear_value => 0,
 PORT MAP(clk => CLK,
 		 cl => packetsFull,
 		 inc => SYNTHESIZED_WIRE_17,
-		 data_out => SYNTHESIZED_WIRE_10);
+		 data_out => SYNTHESIZED_WIRE_10,
+		 dec => '0',
+		 ld => '0',
+		 data_in => (others => '0'));
 
 
 b2v_RDataReg : sreg
@@ -844,7 +853,11 @@ GENERIC MAP(default_value => 1512,
 PORT MAP(clk => CLK,
 		 sr => clkFalling,
 		 ir => dataValue,
-		 data_out => RData);
+		 data_out => RData,
+		 sl => '0',
+		 il => '0',
+		 ld => '0',
+		 data_in => (others => '0'));
 
 
 b2v_Timer : idreg
@@ -853,7 +866,10 @@ GENERIC MAP(default_value => 5050,
 			)
 PORT MAP(clk => CLK,
 		 dec => decTimer,
-		 data_out => SYNTHESIZED_WIRE_15);
+		 data_out => SYNTHESIZED_WIRE_15,
+		 inc => '0',
+		 ld => '0',
+		 data_in => (others => '0'));
 
 
 b2v_XReg : ldreg

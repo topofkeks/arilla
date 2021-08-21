@@ -19,13 +19,13 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
 -- use the following when compiling in Quartus II
---LIBRARY lpm;
---USE lpm.lpm_components.all; 
+LIBRARY lpm;
+USE lpm.lpm_components.all; 
 
 -- use the following when compiling in third party tools --
 -- add lpm_pack.vhd from the Quartus II library
-LIBRARY work;
-USE work.lpm_components.all;
+--LIBRARY work;
+--USE work.lpm_components.all;
 
 ENTITY lpm_compare_3 IS 
 PORT 
@@ -42,11 +42,11 @@ BEGIN
 -- instantiate LPM macrofunction 
 
 b2v_inst12 : lpm_compare
-GENERIC MAP(CHAIN_SIZE => 1,
+GENERIC MAP(
 			LPM_PIPELINE => 0,
 			LPM_REPRESENTATION => "UNSIGNED",
-			LPM_WIDTH => 7,
-			ONE_INPUT_IS_CONSTANT => "YES")
+			LPM_WIDTH => 7
+			)
 PORT MAP(dataa => dataa,
 		 datab => datab,
 		 aeb => aeb);
