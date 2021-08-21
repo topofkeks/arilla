@@ -1,7 +1,7 @@
 # Mouse controller
 The PS/2 mouse controller used in Arilla. Inputs and outputs of the controller component correspond with standard Arilla peripheral inputs and outputs.
 
-Functional diagram can be found in `Controller.drawio`, microcode in `Controller.mic` and memory initialization file generated using `mic.py` in `Controller.mif`.
+Functional diagram can be found in `Controller.drawio`, microcode in `../mic/Controller.mic` and memory initialization file generated using `mic.py` in `../mic/Controller.mif`.
 
 ## Movement calculation
 - Default mouse resolution is 4 counts per milimiter.
