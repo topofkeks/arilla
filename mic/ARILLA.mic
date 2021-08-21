@@ -8,7 +8,7 @@ jalr:   mxReg[0], mxReg[1], wrReg, mxPC, mxB[2], mxB[0], wrPC, br idle
 branch: wrbrPC, mxALUOP[1], br idle
 load:   mxMEM, wrC, mxB[2], mxB[0], br (if mem_align_exception then fault)
         mxReg[0], wrReg, br idle
-store:  mxMEM, wrMEM, mxB[2], mxB[0], br (if mem_align_exception then fault)
+store:  mxMEM, wrMEM, mxB[2], mxB[1], br (if mem_align_exception then fault)
         br idle
 ri:     wrC, mxALUOP[0]
 regw:   wrReg, br idle

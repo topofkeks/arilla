@@ -393,7 +393,7 @@ applicable agreement for further details.
 		(pt 64 24)
 		(output)
 		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
-		(text "OUT" (rect 48 15 62 27)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
 		(line (pt 54 24)(pt 64 24))
 	)
 	(drawing
@@ -486,12 +486,6 @@ applicable agreement for further details.
 	(text "word[7..0],word[7..0],word[7..0],word[7..0]" (rect 912 392 1116 404)(font "Arial" ))
 	(pt 1016 408)
 	(pt 912 408)
-	(bus)
-)
-(connector
-	(text "word[15..0],word[15..0]" (rect 912 440 1024 452)(font "Arial" ))
-	(pt 1016 456)
-	(pt 912 456)
 	(bus)
 )
 (connector
@@ -612,12 +606,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "word[15..0],word[15..0]" (rect 912 376 1024 388)(font "Arial" ))
-	(pt 1016 392)
-	(pt 912 392)
-	(bus)
-)
-(connector
 	(pt 1016 424)
 	(pt 1000 424)
 	(bus)
@@ -697,6 +685,18 @@ applicable agreement for further details.
 (connector
 	(pt 1008 624)
 	(pt 1008 672)
+	(bus)
+)
+(connector
+	(text "word[15..0],word[15..0]" (rect 912 376 1024 388)(font "Arial" ))
+	(pt 1016 392)
+	(pt 912 392)
+	(bus)
+)
+(connector
+	(text "word[15..0],word[15..0]" (rect 912 440 1024 452)(font "Arial" ))
+	(pt 1016 456)
+	(pt 912 456)
 	(bus)
 )
 (junction (pt 1000 440))

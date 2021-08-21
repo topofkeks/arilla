@@ -14,7 +14,7 @@
 
 -- PROGRAM		"Quartus II 64-Bit"
 -- VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
--- CREATED		"Sat Aug 21 13:39:07 2021"
+-- CREATED		"Sat Aug 21 14:18:42 2021"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -121,7 +121,6 @@ PORT MAP(wren => SYNTHESIZED_WIRE_1,
 		 q => SYNTHESIZED_WIRE_0);
 
 sram_addr <= CPUAddress(14 DOWNTO 2);
-
 
 
 
