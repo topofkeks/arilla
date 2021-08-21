@@ -33,8 +33,8 @@ applicable agreement for further details.
 	(port
 		(pt 184 32)
 		(output)
-		(text "O[24..0]" (rect 0 0 33 12)(font "Arial" ))
-		(text "O[24..0]" (rect 130 27 163 39)(font "Arial" ))
+		(text "O[25..0]" (rect 0 0 31 12)(font "Arial" ))
+		(text "O[25..0]" (rect 132 27 163 39)(font "Arial" ))
 		(line (pt 184 32)(pt 168 32)(line_width 3))
 	)
 	(drawing

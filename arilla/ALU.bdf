@@ -1183,17 +1183,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "C[31..0]" (rect 1392 240 1432 252)(font "Arial" ))
-	(pt 1320 256)
-	(pt 1440 256)
-	(bus)
-)
-(connector
-	(pt 1440 256)
-	(pt 1456 256)
-	(bus)
-)
-(connector
 	(pt 1640 384)
 	(pt 1840 384)
 )
@@ -1476,15 +1465,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 320 336)
-	(pt 344 336)
-)
-(connector
-	(text "op[3]" (rect 223 312 247 324)(font "Arial" ))
-	(pt 272 336)
-	(pt 216 336)
-)
-(connector
 	(text "op[2]" (rect 248 224 272 236)(font "Arial" ))
 	(pt 328 240)
 	(pt 240 240)
@@ -1502,6 +1482,26 @@ applicable agreement for further details.
 (connector
 	(pt 1936 472)
 	(pt 2000 472)
+)
+(connector
+	(pt 344 336)
+	(pt 320 336)
+)
+(connector
+	(text "op[3]" (rect 223 312 247 324)(font "Arial" ))
+	(pt 272 336)
+	(pt 216 336)
+)
+(connector
+	(text "C[31..0]" (rect 1392 240 1432 252)(font "Arial" ))
+	(pt 1320 256)
+	(pt 1440 256)
+	(bus)
+)
+(connector
+	(pt 1440 256)
+	(pt 1456 256)
+	(bus)
 )
 (junction (pt 1440 256))
 (junction (pt 600 376))

@@ -651,12 +651,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "one,one,zero,one" (rect 496 808 579 820)(font "Arial" ))
-	(pt 568 824)
-	(pt 488 824)
-	(bus)
-)
-(connector
 	(text "one,zero,one,zero" (rect 496 728 582 740)(font "Arial" ))
 	(pt 568 744)
 	(pt 488 744)
@@ -678,6 +672,12 @@ applicable agreement for further details.
 	(text "zero,zero,one,one" (rect 491 216 577 228)(font "Arial" ))
 	(pt 568 232)
 	(pt 448 232)
+	(bus)
+)
+(connector
+	(text "one,one,zero,zero" (rect 496 808 582 820)(font "Arial" ))
+	(pt 568 824)
+	(pt 488 824)
 	(bus)
 )
 (junction (pt 712 232))
