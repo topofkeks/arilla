@@ -470,12 +470,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "8bit0" (rect 1728 296 1751 308)(font "Arial" ))
-	(pt 1720 312)
-	(pt 1792 312)
-	(bus)
-)
-(connector
 	(pt 600 600)
 	(pt 592 600)
 	(bus)
@@ -604,6 +598,12 @@ applicable agreement for further details.
 	(text "zero" (rect 1351 594 1363 614)(font "Arial" )(vertical))
 	(pt 1368 616)
 	(pt 1368 608)
+)
+(connector
+	(text "c8bit0" (rect 1728 296 1757 308)(font "Arial" ))
+	(pt 1720 312)
+	(pt 1792 312)
+	(bus)
 )
 (junction (pt 1384 200))
 (junction (pt 1384 184))

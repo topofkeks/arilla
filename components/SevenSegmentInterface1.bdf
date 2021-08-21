@@ -23,7 +23,7 @@ applicable agreement for further details.
 	(input)
 	(rect 64 176 232 192)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "bit0" (rect 5 0 23 12)(font "Arial" ))
+	(text "bit0" (rect 5 0 22 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -39,7 +39,7 @@ applicable agreement for further details.
 	(input)
 	(rect 64 232 232 248)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "bit1" (rect 5 0 23 12)(font "Arial" ))
+	(text "bit1" (rect 5 0 22 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -55,7 +55,7 @@ applicable agreement for further details.
 	(input)
 	(rect 64 288 232 304)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "bit2" (rect 5 0 23 12)(font "Arial" ))
+	(text "bit2" (rect 5 0 22 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -71,7 +71,7 @@ applicable agreement for further details.
 	(input)
 	(rect 64 344 232 360)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "bit3" (rect 5 0 23 12)(font "Arial" ))
+	(text "bit3" (rect 5 0 22 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -2143,22 +2143,22 @@ applicable agreement for further details.
 	)
 )
 (connector
-	(text "_bit0" (rect 302 168 325 180)(font "Arial" ))
+	(text "NOTbit0" (rect 302 168 342 180)(font "Arial" ))
 	(pt 320 184)
 	(pt 280 184)
 )
 (connector
-	(text "_bit1" (rect 307 224 330 236)(font "Arial" ))
+	(text "NOTbit1" (rect 307 224 347 236)(font "Arial" ))
 	(pt 280 240)
 	(pt 320 240)
 )
 (connector
-	(text "_bit2" (rect 306 280 329 292)(font "Arial" ))
+	(text "NOTbit2" (rect 306 280 346 292)(font "Arial" ))
 	(pt 280 296)
 	(pt 320 296)
 )
 (connector
-	(text "_bit3" (rect 299 336 322 348)(font "Arial" ))
+	(text "NOTbit3" (rect 299 336 339 348)(font "Arial" ))
 	(pt 280 352)
 	(pt 320 352)
 )
@@ -2168,17 +2168,17 @@ applicable agreement for further details.
 	(pt 96 432)
 )
 (connector
-	(text "_bit1" (rect 104 424 127 436)(font "Arial" ))
+	(text "NOTbit1" (rect 104 424 144 436)(font "Arial" ))
 	(pt 144 440)
 	(pt 96 440)
 )
 (connector
-	(text "_bit2" (rect 104 432 127 444)(font "Arial" ))
+	(text "NOTbit2" (rect 104 432 144 444)(font "Arial" ))
 	(pt 144 448)
 	(pt 96 448)
 )
 (connector
-	(text "_bit0" (rect 104 472 127 484)(font "Arial" ))
+	(text "NOTbit0" (rect 104 472 144 484)(font "Arial" ))
 	(pt 144 488)
 	(pt 96 488)
 )
@@ -2198,12 +2198,12 @@ applicable agreement for further details.
 	(pt 96 544)
 )
 (connector
-	(text "_bit3" (rect 104 544 127 556)(font "Arial" ))
+	(text "NOTbit3" (rect 104 544 144 556)(font "Arial" ))
 	(pt 144 560)
 	(pt 96 560)
 )
 (connector
-	(text "_bit0" (rect 104 584 127 596)(font "Arial" ))
+	(text "NOTbit0" (rect 104 584 144 596)(font "Arial" ))
 	(pt 144 600)
 	(pt 96 600)
 )
@@ -2223,12 +2223,12 @@ applicable agreement for further details.
 	(pt 96 672)
 )
 (connector
-	(text "_bit1" (rect 104 696 127 708)(font "Arial" ))
+	(text "NOTbit1" (rect 104 696 144 708)(font "Arial" ))
 	(pt 144 712)
 	(pt 96 712)
 )
 (connector
-	(text "_bit3" (rect 104 712 127 724)(font "Arial" ))
+	(text "NOTbit3" (rect 104 712 144 724)(font "Arial" ))
 	(pt 144 728)
 	(pt 96 728)
 )
@@ -2305,32 +2305,22 @@ applicable agreement for further details.
 	(pt 256 720)
 )
 (connector
-	(text "1" (rect 424 203 436 208)(font "Arial" )(vertical))
-	(pt 440 200)
-	(pt 440 224)
-)
-(connector
-	(text "0" (rect 480 187 492 192)(font "Arial" )(vertical))
-	(pt 496 208)
-	(pt 496 184)
-)
-(connector
-	(text "_bit0" (rect 104 768 127 780)(font "Arial" ))
+	(text "NOTbit0" (rect 104 768 144 780)(font "Arial" ))
 	(pt 144 784)
 	(pt 96 784)
 )
 (connector
-	(text "_bit2" (rect 104 776 127 788)(font "Arial" ))
+	(text "NOTbit2" (rect 104 776 144 788)(font "Arial" ))
 	(pt 144 792)
 	(pt 96 792)
 )
 (connector
-	(text "_bit3" (rect 104 784 127 796)(font "Arial" ))
+	(text "NOTbit3" (rect 104 784 144 796)(font "Arial" ))
 	(pt 144 800)
 	(pt 96 800)
 )
 (connector
-	(text "_bit0" (rect 104 824 127 836)(font "Arial" ))
+	(text "NOTbit0" (rect 104 824 144 836)(font "Arial" ))
 	(pt 144 840)
 	(pt 96 840)
 )
@@ -2350,7 +2340,7 @@ applicable agreement for further details.
 	(pt 96 896)
 )
 (connector
-	(text "_bit2" (rect 104 888 127 900)(font "Arial" ))
+	(text "NOTbit2" (rect 104 888 144 900)(font "Arial" ))
 	(pt 144 904)
 	(pt 96 904)
 )
@@ -2360,27 +2350,27 @@ applicable agreement for further details.
 	(pt 96 912)
 )
 (connector
-	(text "_bit1" (rect 104 936 127 948)(font "Arial" ))
+	(text "NOTbit1" (rect 104 936 144 948)(font "Arial" ))
 	(pt 144 952)
 	(pt 96 952)
 )
 (connector
-	(text "_bit2" (rect 104 952 127 964)(font "Arial" ))
+	(text "NOTbit2" (rect 104 952 144 964)(font "Arial" ))
 	(pt 144 968)
 	(pt 96 968)
 )
 (connector
-	(text "_bit1" (rect 104 992 127 1004)(font "Arial" ))
+	(text "NOTbit1" (rect 104 992 144 1004)(font "Arial" ))
 	(pt 144 1008)
 	(pt 96 1008)
 )
 (connector
-	(text "_bit3" (rect 104 1008 127 1020)(font "Arial" ))
+	(text "NOTbit3" (rect 104 1008 144 1020)(font "Arial" ))
 	(pt 144 1024)
 	(pt 96 1024)
 )
 (connector
-	(text "0" (rect 304 936 309 948)(font "Arial" ))
+	(text "zero" (rect 304 936 324 948)(font "Arial" ))
 	(pt 312 952)
 	(pt 296 952)
 )
@@ -2437,17 +2427,17 @@ applicable agreement for further details.
 	(pt 272 1016)
 )
 (connector
-	(text "_bit0" (rect 104 1080 127 1092)(font "Arial" ))
+	(text "NOTbit0" (rect 104 1080 144 1092)(font "Arial" ))
 	(pt 144 1096)
 	(pt 96 1096)
 )
 (connector
-	(text "_bit2" (rect 118 1096 141 1108)(font "Arial" ))
+	(text "NOTbit2" (rect 118 1096 158 1108)(font "Arial" ))
 	(pt 144 1112)
 	(pt 96 1112)
 )
 (connector
-	(text "_bit0" (rect 112 1136 135 1148)(font "Arial" ))
+	(text "NOTbit0" (rect 112 1136 152 1148)(font "Arial" ))
 	(pt 144 1152)
 	(pt 96 1152)
 )
@@ -2457,7 +2447,7 @@ applicable agreement for further details.
 	(pt 96 1168)
 )
 (connector
-	(text "_bit2" (rect 114 1192 137 1204)(font "Arial" ))
+	(text "NOTbit2" (rect 114 1192 154 1204)(font "Arial" ))
 	(pt 144 1208)
 	(pt 96 1208)
 )
@@ -2467,7 +2457,7 @@ applicable agreement for further details.
 	(pt 96 1224)
 )
 (connector
-	(text "_bit0" (rect 114 1248 137 1260)(font "Arial" ))
+	(text "NOTbit0" (rect 114 1248 154 1260)(font "Arial" ))
 	(pt 144 1264)
 	(pt 96 1264)
 )
@@ -2482,7 +2472,7 @@ applicable agreement for further details.
 	(pt 96 1320)
 )
 (connector
-	(text "_bit1" (rect 115 1320 138 1332)(font "Arial" ))
+	(text "NOTbit1" (rect 115 1320 155 1332)(font "Arial" ))
 	(pt 144 1336)
 	(pt 96 1336)
 )
@@ -2539,12 +2529,12 @@ applicable agreement for further details.
 	(pt 256 1248)
 )
 (connector
-	(text "0" (rect 272 1248 277 1260)(font "Arial" ))
+	(text "zero" (rect 272 1248 292 1260)(font "Arial" ))
 	(pt 288 1264)
 	(pt 264 1264)
 )
 (connector
-	(text "0" (rect 280 1544 285 1556)(font "Arial" ))
+	(text "zero" (rect 280 1544 300 1556)(font "Arial" ))
 	(pt 296 1560)
 	(pt 272 1560)
 )
@@ -2601,22 +2591,22 @@ applicable agreement for further details.
 	(pt 296 1480)
 )
 (connector
-	(text "_bit0" (rect 120 1376 143 1388)(font "Arial" ))
+	(text "NOTbit0" (rect 120 1376 160 1388)(font "Arial" ))
 	(pt 144 1392)
 	(pt 96 1392)
 )
 (connector
-	(text "_bit1" (rect 111 1384 134 1396)(font "Arial" ))
+	(text "NOTbit1" (rect 111 1384 151 1396)(font "Arial" ))
 	(pt 96 1400)
 	(pt 144 1400)
 )
 (connector
-	(text "_bit3" (rect 104 1392 127 1404)(font "Arial" ))
+	(text "NOTbit3" (rect 104 1392 144 1404)(font "Arial" ))
 	(pt 144 1408)
 	(pt 96 1408)
 )
 (connector
-	(text "_bit1" (rect 104 1432 127 1444)(font "Arial" ))
+	(text "NOTbit1" (rect 104 1432 144 1444)(font "Arial" ))
 	(pt 144 1448)
 	(pt 96 1448)
 )
@@ -2636,7 +2626,7 @@ applicable agreement for further details.
 	(pt 96 1504)
 )
 (connector
-	(text "_bit2" (rect 104 1496 127 1508)(font "Arial" ))
+	(text "NOTbit2" (rect 104 1496 144 1508)(font "Arial" ))
 	(pt 144 1512)
 	(pt 96 1512)
 )
@@ -2656,7 +2646,7 @@ applicable agreement for further details.
 	(pt 96 1568)
 )
 (connector
-	(text "_bit3" (rect 104 1560 127 1572)(font "Arial" ))
+	(text "NOTbit3" (rect 104 1560 144 1572)(font "Arial" ))
 	(pt 144 1576)
 	(pt 96 1576)
 )
@@ -2666,17 +2656,17 @@ applicable agreement for further details.
 	(pt 96 1616)
 )
 (connector
-	(text "_bit2" (rect 101 1616 124 1628)(font "Arial" ))
+	(text "NOTbit2" (rect 101 1616 141 1628)(font "Arial" ))
 	(pt 96 1632)
 	(pt 144 1632)
 )
 (connector
-	(text "_bit1" (rect 104 1664 127 1676)(font "Arial" ))
+	(text "NOTbit1" (rect 104 1664 144 1676)(font "Arial" ))
 	(pt 144 1680)
 	(pt 96 1680)
 )
 (connector
-	(text "_bit3" (rect 104 1680 127 1692)(font "Arial" ))
+	(text "NOTbit3" (rect 104 1680 144 1692)(font "Arial" ))
 	(pt 144 1696)
 	(pt 96 1696)
 )
@@ -2686,7 +2676,7 @@ applicable agreement for further details.
 	(pt 96 1736)
 )
 (connector
-	(text "_bit3" (rect 104 1736 127 1748)(font "Arial" ))
+	(text "NOTbit3" (rect 104 1736 144 1748)(font "Arial" ))
 	(pt 144 1752)
 	(pt 96 1752)
 )
@@ -2759,7 +2749,7 @@ applicable agreement for further details.
 	(pt 296 1784)
 )
 (connector
-	(text "_bit0" (rect 104 1896 127 1908)(font "Arial" ))
+	(text "NOTbit0" (rect 104 1896 144 1908)(font "Arial" ))
 	(pt 144 1912)
 	(pt 96 1912)
 )
@@ -2769,17 +2759,17 @@ applicable agreement for further details.
 	(pt 96 1920)
 )
 (connector
-	(text "_bit2" (rect 104 1912 127 1924)(font "Arial" ))
+	(text "NOTbit2" (rect 104 1912 144 1924)(font "Arial" ))
 	(pt 144 1928)
 	(pt 96 1928)
 )
 (connector
-	(text "_bit2" (rect 104 1952 127 1964)(font "Arial" ))
+	(text "NOTbit2" (rect 104 1952 144 1964)(font "Arial" ))
 	(pt 144 1968)
 	(pt 96 1968)
 )
 (connector
-	(text "_bit3" (rect 104 1968 127 1980)(font "Arial" ))
+	(text "NOTbit3" (rect 104 1968 144 1980)(font "Arial" ))
 	(pt 144 1984)
 	(pt 96 1984)
 )
@@ -2789,7 +2779,7 @@ applicable agreement for further details.
 	(pt 96 2024)
 )
 (connector
-	(text "_bit3" (rect 104 2024 127 2036)(font "Arial" ))
+	(text "NOTbit3" (rect 104 2024 144 2036)(font "Arial" ))
 	(pt 144 2040)
 	(pt 96 2040)
 )
@@ -2799,7 +2789,7 @@ applicable agreement for further details.
 	(pt 96 2080)
 )
 (connector
-	(text "_bit1" (rect 104 2080 127 2092)(font "Arial" ))
+	(text "NOTbit1" (rect 104 2080 144 2092)(font "Arial" ))
 	(pt 144 2096)
 	(pt 96 2096)
 )
@@ -2814,7 +2804,7 @@ applicable agreement for further details.
 	(pt 96 2152)
 )
 (connector
-	(text "0" (rect 288 2064 293 2076)(font "Arial" ))
+	(text "zero" (rect 288 2064 308 2076)(font "Arial" ))
 	(pt 304 2080)
 	(pt 280 2080)
 )
@@ -2871,7 +2861,7 @@ applicable agreement for further details.
 	(pt 304 2000)
 )
 (connector
-	(text "_bit0" (rect 104 2184 127 2196)(font "Arial" ))
+	(text "NOTbit0" (rect 104 2184 144 2196)(font "Arial" ))
 	(pt 144 2200)
 	(pt 96 2200)
 )
@@ -2881,12 +2871,12 @@ applicable agreement for further details.
 	(pt 96 2208)
 )
 (connector
-	(text "_bit2" (rect 104 2200 127 2212)(font "Arial" ))
+	(text "NOTbit2" (rect 104 2200 144 2212)(font "Arial" ))
 	(pt 144 2216)
 	(pt 96 2216)
 )
 (connector
-	(text "_bit3" (rect 104 2312 127 2324)(font "Arial" ))
+	(text "NOTbit3" (rect 104 2312 144 2324)(font "Arial" ))
 	(pt 144 2328)
 	(pt 96 2328)
 )
@@ -2896,7 +2886,7 @@ applicable agreement for further details.
 	(pt 96 2368)
 )
 (connector
-	(text "_bit1" (rect 104 2368 127 2380)(font "Arial" ))
+	(text "NOTbit1" (rect 104 2368 144 2380)(font "Arial" ))
 	(pt 144 2384)
 	(pt 96 2384)
 )
@@ -2906,7 +2896,7 @@ applicable agreement for further details.
 	(pt 96 2424)
 )
 (connector
-	(text "_bit1" (rect 104 2240 127 2252)(font "Arial" ))
+	(text "NOTbit1" (rect 104 2240 144 2252)(font "Arial" ))
 	(pt 144 2256)
 	(pt 96 2256)
 )
@@ -2926,7 +2916,7 @@ applicable agreement for further details.
 	(pt 96 2440)
 )
 (connector
-	(text "0" (rect 296 2352 301 2364)(font "Arial" ))
+	(text "zero" (rect 296 2352 316 2364)(font "Arial" ))
 	(pt 312 2368)
 	(pt 288 2368)
 )
@@ -2983,11 +2973,21 @@ applicable agreement for further details.
 	(pt 312 2288)
 )
 (connector
-	(text "0" (rect 384 376 389 388)(font "Arial" ))
-	(pt 416 392)
-	(pt 376 392)
-)
-(connector
 	(pt 408 1760)
 	(pt 416 1760)
+)
+(connector
+	(text "one" (rect 423 202 435 219)(font "Arial" )(vertical))
+	(pt 440 200)
+	(pt 440 224)
+)
+(connector
+	(text "zero" (rect 479 186 491 206)(font "Arial" )(vertical))
+	(pt 496 208)
+	(pt 496 184)
+)
+(connector
+	(text "one" (rect 384 376 401 388)(font "Arial" ))
+	(pt 416 392)
+	(pt 376 392)
 )

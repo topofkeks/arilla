@@ -14,7 +14,7 @@
 
 -- PROGRAM		"Quartus II 64-Bit"
 -- VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
--- CREATED		"Sat Aug 21 02:07:54 2021"
+-- CREATED		"Sat Aug 21 02:36:26 2021"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -121,8 +121,6 @@ SIGNAL	cursor7 :  STD_LOGIC;
 SIGNAL	cursor8 :  STD_LOGIC;
 SIGNAL	cursor9 :  STD_LOGIC;
 SIGNAL	enabled :  STD_LOGIC;
-SIGNAL	IN :  STD_LOGIC_VECTOR(11 DOWNTO 0);
-SIGNAL	OUT :  STD_LOGIC_VECTOR(11 DOWNTO 0);
 SIGNAL	pixel :  STD_LOGIC_VECTOR(1 DOWNTO 0);
 SIGNAL	xdiff :  STD_LOGIC_VECTOR(10 DOWNTO 0);
 SIGNAL	ydiff :  STD_LOGIC_VECTOR(10 DOWNTO 0);
@@ -254,11 +252,12 @@ PORT MAP(ADDR => xdiff(2 DOWNTO 0),
 
 
 b2v_inst4 : mux4_12
-PORT MAP(data0x => IN,
+PORT MAP(data0x => I,
 		 data1x => SYNTHESIZED_WIRE_0,
 		 data2x => SYNTHESIZED_WIRE_1,
 		 data3x => SYNTHESIZED_WIRE_2,
-		 sel => SYNTHESIZED_WIRE_3);
+		 sel => SYNTHESIZED_WIRE_3,
+		 result => O);
 
 
 enabled <= SYNTHESIZED_WIRE_4 AND cursor AND SYNTHESIZED_WIRE_5;
