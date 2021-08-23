@@ -109,3 +109,5 @@ set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_
 set_global_assignment -name QIP_FILE MUX8_16.qip
 set_global_assignment -name QIP_FILE MUX4_16.qip
 set_global_assignment -name QIP_FILE CMP16.qip
+set_global_assignment -name QIP_FILE CMP_VGA_Horizontal.qip
+set_global_assignment -name QIP_FILE MUX8_14.qip
