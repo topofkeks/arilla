@@ -1,11 +1,11 @@
 idle:   mxCommand[0], br (if rst then this)
-        mxCommand[2], mxCommand[0], mxADDR[1], mxADDR[0]
+        mxCommand[2], mxCommand[0], mxADDR[1], mxADDR[0]        -- PRE all banks
         mxCommand[0]
-        mxCommand[2], mxCommand[1]
+        mxCommand[2], mxCommand[1]      -- AR
         mxCommand[0]
         mxCommand[0]
         mxCommand[0]
-        mxCommand[2], mxCommand[1]
+        mxCommand[2], mxCommand[1]      -- AR
         mxCommand[0]
         mxCommand[0]
         mxCommand[0]
