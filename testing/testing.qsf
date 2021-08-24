@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone III"
 set_global_assignment -name DEVICE EP3C16F484C6
-set_global_assignment -name TOP_LEVEL_ENTITY ArillaTopLevel
+set_global_assignment -name TOP_LEVEL_ENTITY LineDrawer
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "02:12:18  AUGUST 21, 2021"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -49,18 +49,33 @@ set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH cpuTestbench -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH LineDrawerTestbench -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME cpuTestbench -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id cpuTestbench
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "0 s" -section_id cpuTestbench
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME cpuTestbench -section_id cpuTestbench
-set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/cpuTestbench.vhd -section_id cpuTestbench
+set_global_assignment -name VHDL_FILE testbenches/LineDrawerTestbench.vhd
+set_global_assignment -name VHDL_FILE "components-test/MUX8_14.vhd"
+set_global_assignment -name VHDL_FILE "components-test/MUX4_16.vhd"
+set_global_assignment -name VHDL_FILE "components-test/MUX4_11.vhd"
+set_global_assignment -name VHDL_FILE "components-test/CMP16.vhd"
+set_global_assignment -name VHDL_FILE "components-test/CMP_VGA_Vertical.vhd"
+set_global_assignment -name VHDL_FILE "components-test/CMP_VGA_Horizontal.vhd"
+set_global_assignment -name VHDL_FILE "components-test/ADDSUBs_16.vhd"
+set_global_assignment -name VHDL_FILE "components-test/ADDSUBs_11.vhd"
+set_global_assignment -name VHDL_FILE "components-test/ADD_VGA_Horizontal.vhd"
+set_global_assignment -name QIP_FILE "components-test/MUX8_14.qip"
+set_global_assignment -name QIP_FILE "components-test/MUX4_16.qip"
+set_global_assignment -name QIP_FILE "components-test/MUX4_11.qip"
+set_global_assignment -name QIP_FILE "components-test/CMP16.qip"
+set_global_assignment -name QIP_FILE "components-test/CMP_VGA_Vertical.qip"
+set_global_assignment -name QIP_FILE "components-test/CMP_VGA_Horizontal.qip"
+set_global_assignment -name QIP_FILE "components-test/ADDSUBs_16.qip"
+set_global_assignment -name QIP_FILE "components-test/ADDSUBs_11.qip"
+set_global_assignment -name QIP_FILE "components-test/ADD_VGA_Horizontal.qip"
 set_global_assignment -name QIP_FILE "components-test/SUB32_branch.qip"
 set_global_assignment -name QIP_FILE "components-test/MUX8_16.qip"
 set_global_assignment -name VHDL_FILE "gpu-test/RectDrawer.vhd"
@@ -149,4 +164,13 @@ set_global_assignment -name QIP_FILE "components-test/CMP_30.qip"
 set_global_assignment -name QIP_FILE "components-test/ADDSUB_32.qip"
 set_global_assignment -name QIP_FILE "components-test/ADD11.qip"
 set_global_assignment -name VHDL_FILE testbenches/cpuTestbench.vhd
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/cpuTestbench.vhd -section_id cpuTestbench
+set_global_assignment -name EDA_TEST_BENCH_NAME LineDrawerTestbench -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id LineDrawerTestbench
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "0 s" -section_id LineDrawerTestbench
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME LineDrawerTestbench -section_id LineDrawerTestbench
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/LineDrawerTestbench.vhd -section_id LineDrawerTestbench
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

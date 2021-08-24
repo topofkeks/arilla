@@ -1,5 +1,5 @@
 #include "io.h"
-#ifdef TEST
+#ifdef PAINT_TEST
 
 #include <stdio.h>
 
@@ -34,4 +34,4 @@ __attribute__((naked)) unsigned int in(unsigned int address)
     asm("ret");
 }
 
-#endif // TEST
+#endif // PAINT_TEST

@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 
-package Modules is
+package Modules2 is
 
 component ArillaTopLevel IS 
 	PORT
@@ -21,7 +21,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
-use work.modules.all;
+use work.modules2.all;
 
 entity cpuTestbench is
 end cpuTestbench;

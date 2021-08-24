@@ -204,3 +204,8 @@ MigrationBackup/
 
 # Local History for Visual Studio Code
 .history/
+
+# Compilation leftovers
+*.o
+*.s
+

@@ -190,3 +190,7 @@ void setup()
 
     gpuSetColor(COLOR_LUT[selectedColor]);
 }
+
+void _start() {
+    main();
+}
