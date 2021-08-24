@@ -1,0 +1,5 @@
+        br (if not_ready then this)
+start:  br (if no_write then this)
+        wr_Command[1], wr_ADDR[0], FC_WR
+        wr_Command[2], wr_ADDR[2], wr_ADDR[0], WR_BUS
+        br start

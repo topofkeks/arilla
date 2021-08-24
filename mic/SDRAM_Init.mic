@@ -1,15 +1,15 @@
-idle:   mxCommand[0], br (if rst then this)
-        mxCommand[2], mxCommand[0], mxADDR[1], mxADDR[0]        -- PRE all banks
-        mxCommand[0]
-        mxCommand[2], mxCommand[1]      -- AR
-        mxCommand[0]
-        mxCommand[0]
-        mxCommand[0]
-        mxCommand[2], mxCommand[1]      -- AR
-        mxCommand[0]
-        mxCommand[0]
-        mxCommand[0]
-        mxCommand[2], mxCommand[1], mxCommand[0], mxADDR[2]
-        mxCommand[0]
-        mxCommand[0]
+idle:   init_Command[0]
+        init_Command[2], init_Command[0], init_ADDR[1], init_ADDR[0]
+        init_Command[0]
+        init_Command[2], init_Command[1]
+        init_Command[0]
+        init_Command[0]
+        init_Command[0]
+        init_Command[2], init_Command[1]
+        init_Command[0]
+        init_Command[0]
+        init_Command[0]
+        init_Command[2], init_Command[1], init_Command[0], init_ADDR[2]
+        init_Command[0]
+        init_Command[0]
         ready, br this
