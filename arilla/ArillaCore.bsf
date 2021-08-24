@@ -20,9 +20,9 @@ applicable agreement for further details.
 */
 (header "symbol" (version "1.2"))
 (symbol
-	(rect 16 16 336 240)
+	(rect 16 16 336 176)
 	(text "ArillaCore" (rect 5 0 60 14)(font "Arial" (font_size 8)))
-	(text "inst" (rect 8 208 25 220)(font "Arial" ))
+	(text "inst" (rect 8 144 25 156)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -93,35 +93,7 @@ applicable agreement for further details.
 		(text "LED[9..0]" (rect 249 107 299 121)(font "Arial" (font_size 8)))
 		(line (pt 320 112)(pt 304 112)(line_width 3))
 	)
-	(port
-		(pt 320 128)
-		(output)
-		(text "HEX0_D[7..0]" (rect 0 0 74 14)(font "Arial" (font_size 8)))
-		(text "HEX0_D[7..0]" (rect 225 123 299 137)(font "Arial" (font_size 8)))
-		(line (pt 320 128)(pt 304 128)(line_width 3))
-	)
-	(port
-		(pt 320 144)
-		(output)
-		(text "HEX1_D[7..0]" (rect 0 0 74 14)(font "Arial" (font_size 8)))
-		(text "HEX1_D[7..0]" (rect 225 139 299 153)(font "Arial" (font_size 8)))
-		(line (pt 320 144)(pt 304 144)(line_width 3))
-	)
-	(port
-		(pt 320 160)
-		(output)
-		(text "HEX2_D[7..0]" (rect 0 0 74 14)(font "Arial" (font_size 8)))
-		(text "HEX2_D[7..0]" (rect 225 155 299 169)(font "Arial" (font_size 8)))
-		(line (pt 320 160)(pt 304 160)(line_width 3))
-	)
-	(port
-		(pt 320 176)
-		(output)
-		(text "HEX3_D[7..0]" (rect 0 0 74 14)(font "Arial" (font_size 8)))
-		(text "HEX3_D[7..0]" (rect 225 171 299 185)(font "Arial" (font_size 8)))
-		(line (pt 320 176)(pt 304 176)(line_width 3))
-	)
 	(drawing
-		(rectangle (rect 16 16 304 208))
+		(rectangle (rect 16 16 304 144))
 	)
 )
