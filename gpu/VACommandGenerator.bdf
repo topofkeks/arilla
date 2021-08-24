@@ -487,12 +487,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "0,0,0" (rect 480 256 504 268)(font "Arial" ))
-	(pt 552 272)
-	(pt 472 272)
-	(bus)
-)
-(connector
 	(pt 776 216)
 	(pt 776 256)
 )
@@ -500,12 +494,6 @@ applicable agreement for further details.
 	(text "va_Command[2..0]" (rect 808 256 903 268)(font "Arial" ))
 	(pt 800 272)
 	(pt 864 272)
-	(bus)
-)
-(connector
-	(text "0,0,0" (rect 712 256 736 268)(font "Arial" ))
-	(pt 704 272)
-	(pt 752 272)
 	(bus)
 )
 (connector
@@ -519,12 +507,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "0,0,0" (rect 480 360 504 372)(font "Arial" ))
-	(pt 552 376)
-	(pt 472 376)
-	(bus)
-)
-(connector
 	(pt 776 320)
 	(pt 776 360)
 )
@@ -532,12 +514,6 @@ applicable agreement for further details.
 	(text "va_Command[2..0]" (rect 808 360 903 372)(font "Arial" ))
 	(pt 800 376)
 	(pt 864 376)
-	(bus)
-)
-(connector
-	(text "0,0,0" (rect 712 360 736 372)(font "Arial" ))
-	(pt 704 376)
-	(pt 752 376)
 	(bus)
 )
 (connector
@@ -551,12 +527,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "0,0,0" (rect 480 448 504 460)(font "Arial" ))
-	(pt 552 464)
-	(pt 472 464)
-	(bus)
-)
-(connector
 	(pt 776 408)
 	(pt 776 448)
 )
@@ -564,12 +534,6 @@ applicable agreement for further details.
 	(text "va_Command[2..0]" (rect 808 448 903 460)(font "Arial" ))
 	(pt 800 464)
 	(pt 864 464)
-	(bus)
-)
-(connector
-	(text "0,0,0" (rect 712 448 736 460)(font "Arial" ))
-	(pt 704 464)
-	(pt 752 464)
 	(bus)
 )
 (connector
@@ -641,6 +605,42 @@ applicable agreement for further details.
 	(text "0" (rect 200 323 212 328)(font "Arial" )(vertical))
 	(pt 216 344)
 	(pt 216 312)
+)
+(connector
+	(text "0,0,1" (rect 480 448 504 460)(font "Arial" ))
+	(pt 552 464)
+	(pt 472 464)
+	(bus)
+)
+(connector
+	(text "0,1,0" (rect 712 448 736 460)(font "Arial" ))
+	(pt 704 464)
+	(pt 752 464)
+	(bus)
+)
+(connector
+	(text "0,1,1" (rect 712 360 736 372)(font "Arial" ))
+	(pt 704 376)
+	(pt 752 376)
+	(bus)
+)
+(connector
+	(text "1,0,1" (rect 712 256 736 268)(font "Arial" ))
+	(pt 704 272)
+	(pt 752 272)
+	(bus)
+)
+(connector
+	(text "0,1,0" (rect 480 360 504 372)(font "Arial" ))
+	(pt 552 376)
+	(pt 472 376)
+	(bus)
+)
+(connector
+	(text "1,1,1" (rect 480 256 504 268)(font "Arial" ))
+	(pt 552 272)
+	(pt 472 272)
+	(bus)
 )
 (junction (pt 576 104))
 (junction (pt 576 216))
