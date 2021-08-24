@@ -46,7 +46,7 @@ COMPONENT const
 GENERIC (const : INTEGER;
 			size : INTEGER
 			);
-	PORT(		 data : OUT STD_LOGIC_VECTOR(29 DOWNTO 0)
+	PORT(		 data : OUT STD_LOGIC_VECTOR(size-1 DOWNTO 0)
 	);
 END COMPONENT;
 
