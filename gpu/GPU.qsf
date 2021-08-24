@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone III"
 set_global_assignment -name DEVICE EP3C16F484C6
-set_global_assignment -name TOP_LEVEL_ENTITY MemorySequencer
+set_global_assignment -name TOP_LEVEL_ENTITY RectDrawer
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "23:08:01  AUGUST 17, 2021"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1

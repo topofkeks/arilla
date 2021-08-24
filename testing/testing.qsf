@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone III"
 set_global_assignment -name DEVICE EP3C16F484C6
-set_global_assignment -name TOP_LEVEL_ENTITY LineDrawer
+set_global_assignment -name TOP_LEVEL_ENTITY GPU
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "02:12:18  AUGUST 21, 2021"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -57,6 +57,12 @@ set_global_assignment -name EDA_TEST_BENCH_NAME cpuTestbench -section_id eda_sim
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id cpuTestbench
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "0 s" -section_id cpuTestbench
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME cpuTestbench -section_id cpuTestbench
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/cpuTestbench.vhd -section_id cpuTestbench
+set_global_assignment -name EDA_TEST_BENCH_NAME LineDrawerTestbench -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id LineDrawerTestbench
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "0 s" -section_id LineDrawerTestbench
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME LineDrawerTestbench -section_id LineDrawerTestbench
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/LineDrawerTestbench.vhd -section_id LineDrawerTestbench
 set_global_assignment -name VHDL_FILE testbenches/LineDrawerTestbench.vhd
 set_global_assignment -name VHDL_FILE "components-test/MUX8_14.vhd"
 set_global_assignment -name VHDL_FILE "components-test/MUX4_16.vhd"
@@ -67,6 +73,7 @@ set_global_assignment -name VHDL_FILE "components-test/CMP_VGA_Horizontal.vhd"
 set_global_assignment -name VHDL_FILE "components-test/ADDSUBs_16.vhd"
 set_global_assignment -name VHDL_FILE "components-test/ADDSUBs_11.vhd"
 set_global_assignment -name VHDL_FILE "components-test/ADD_VGA_Horizontal.vhd"
+set_global_assignment -name QIP_FILE "components-test/MUX2_1.qip"
 set_global_assignment -name QIP_FILE "components-test/MUX8_14.qip"
 set_global_assignment -name QIP_FILE "components-test/MUX4_16.qip"
 set_global_assignment -name QIP_FILE "components-test/MUX4_11.qip"
@@ -78,6 +85,8 @@ set_global_assignment -name QIP_FILE "components-test/ADDSUBs_11.qip"
 set_global_assignment -name QIP_FILE "components-test/ADD_VGA_Horizontal.qip"
 set_global_assignment -name QIP_FILE "components-test/SUB32_branch.qip"
 set_global_assignment -name QIP_FILE "components-test/MUX8_16.qip"
+set_global_assignment -name VHDL_FILE "gpu-test/SDRAM_Write_ROM.vhd"
+set_global_assignment -name VHDL_FILE "gpu-test/SDRAM_Init_ROM.vhd"
 set_global_assignment -name VHDL_FILE "gpu-test/RectDrawer.vhd"
 set_global_assignment -name VHDL_FILE "gpu-test/ReadCache.vhd"
 set_global_assignment -name VHDL_FILE "gpu-test/MemorySequencer.vhd"
@@ -164,12 +173,6 @@ set_global_assignment -name QIP_FILE "components-test/CMP_30.qip"
 set_global_assignment -name QIP_FILE "components-test/ADDSUB_32.qip"
 set_global_assignment -name QIP_FILE "components-test/ADD11.qip"
 set_global_assignment -name VHDL_FILE testbenches/cpuTestbench.vhd
-set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/cpuTestbench.vhd -section_id cpuTestbench
-set_global_assignment -name EDA_TEST_BENCH_NAME LineDrawerTestbench -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id LineDrawerTestbench
-set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "0 s" -section_id LineDrawerTestbench
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME LineDrawerTestbench -section_id LineDrawerTestbench
-set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/LineDrawerTestbench.vhd -section_id LineDrawerTestbench
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
