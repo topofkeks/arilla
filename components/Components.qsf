@@ -122,3 +122,4 @@ set_global_assignment -name QIP_FILE CMP_VGA_WriteGuard.qip
 set_global_assignment -name QIP_FILE CMP_VGA_32ReadGuard.qip
 set_global_assignment -name QIP_FILE CMP_VGA_256ReadGuard.qip
 set_global_assignment -name QIP_FILE MUX2_1.qip
+set_global_assignment -name QIP_FILE CMP14.qip

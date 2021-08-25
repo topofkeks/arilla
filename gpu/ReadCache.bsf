@@ -75,9 +75,16 @@ applicable agreement for further details.
 	(port
 		(pt 0 144)
 		(input)
-		(text "clk" (rect 0 0 15 14)(font "Arial" (font_size 8)))
-		(text "clk" (rect 21 139 36 153)(font "Arial" (font_size 8)))
+		(text "invalidate" (rect 0 0 53 14)(font "Arial" (font_size 8)))
+		(text "invalidate" (rect 21 139 74 153)(font "Arial" (font_size 8)))
 		(line (pt 0 144)(pt 16 144))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "clk" (rect 0 0 15 14)(font "Arial" (font_size 8)))
+		(text "clk" (rect 21 155 36 169)(font "Arial" (font_size 8)))
+		(line (pt 0 160)(pt 16 160))
 	)
 	(port
 		(pt 152 32)
