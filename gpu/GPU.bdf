@@ -3899,11 +3899,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "MSWR" (rect 1898 1104 1932 1116)(font "Arial" ))
-	(pt 1928 1120)
-	(pt 2096 1120)
-)
-(connector
 	(pt 1888 528)
 	(pt 1912 528)
 	(bus)
@@ -4141,6 +4136,11 @@ applicable agreement for further details.
 	(pt 2528 1048)
 	(pt 2528 1128)
 	(bus)
+)
+(connector
+	(text "MSWR" (rect 1954 1104 1988 1116)(font "Arial" ))
+	(pt 1928 1120)
+	(pt 1992 1120)
 )
 (junction (pt 480 224))
 (junction (pt 480 680))
