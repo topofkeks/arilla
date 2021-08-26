@@ -1047,6 +1047,16 @@ applicable agreement for further details.
 	(pt 1432 904)
 	(pt 1584 904)
 )
+(connector
+	(text "vcc" (rect 1392 440 1410 452)(font "Arial" ))
+	(pt 1392 456)
+	(pt 1416 456)
+)
+(connector
+	(text "h_end" (rect 688 440 717 452)(font "Arial" ))
+	(pt 672 456)
+	(pt 712 456)
+)
 (junction (pt 560 584))
 (junction (pt 560 688))
 (junction (pt 560 792))
