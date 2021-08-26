@@ -123,3 +123,9 @@ set_global_assignment -name QIP_FILE CMP_VGA_32ReadGuard.qip
 set_global_assignment -name QIP_FILE CMP_VGA_256ReadGuard.qip
 set_global_assignment -name QIP_FILE MUX2_1.qip
 set_global_assignment -name QIP_FILE CMP14.qip
+set_global_assignment -name QIP_FILE CMP_VGA_EndHLine.qip
+set_global_assignment -name QIP_FILE CMP_VGA_EndVLine.qip
+set_global_assignment -name QIP_FILE CMP_VGA_EndFrame.qip
+set_global_assignment -name QIP_FILE CMP_VGA_EndLine.qip
+set_global_assignment -name QIP_FILE CMP_VGA_VSync_Begin.qip
+set_global_assignment -name QIP_FILE CMP_VGA_VSync_End.qip
