@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone III"
 set_global_assignment -name DEVICE EP3C16F484C6
-set_global_assignment -name TOP_LEVEL_ENTITY ReadCacheRAM
+set_global_assignment -name TOP_LEVEL_ENTITY ActualReadCacheRAM
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "02:12:18  AUGUST 21, 2021"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -61,6 +61,33 @@ set_global_assignment -name EDA_TEST_BENCH_NAME LineDrawerTestbench -section_id 
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id LineDrawerTestbench
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "0 s" -section_id LineDrawerTestbench
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME LineDrawerTestbench -section_id LineDrawerTestbench
+set_global_assignment -name EDA_TEST_BENCH_NAME ReadCacheTestbench -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id ReadCacheTestbench
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "0 s" -section_id ReadCacheTestbench
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME ReadCacheTestbench -section_id ReadCacheTestbench
+set_global_assignment -name EDA_TEST_BENCH_NAME SyncGenTestbench -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id SyncGenTestbench
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "0 s" -section_id SyncGenTestbench
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME SyncGenTestbench -section_id SyncGenTestbench
+set_global_assignment -name VHDL_FILE "gpu-test/ActualReadCacheRAM.vhd"
+set_global_assignment -name QIP_FILE "components-test/MUX2_12.qip"
+set_global_assignment -name QIP_FILE "components-test/CMP8a.qip"
+set_global_assignment -name QIP_FILE "components-test/VGA_CMP_HSync_End.qip"
+set_global_assignment -name QIP_FILE "components-test/VGA_CMP_HSync_Begin.qip"
+set_global_assignment -name QIP_FILE "components-test/CMP_VGA_WriteGuard.qip"
+set_global_assignment -name QIP_FILE "components-test/CMP_VGA_VSync_End.qip"
+set_global_assignment -name QIP_FILE "components-test/CMP_VGA_VSync_Begin.qip"
+set_global_assignment -name QIP_FILE "components-test/CMP_VGA_LastVerticalLine.qip"
+set_global_assignment -name QIP_FILE "components-test/CMP_VGA_EndLine.qip"
+set_global_assignment -name QIP_FILE "components-test/CMP_VGA_EndFrame.qip"
+set_global_assignment -name QIP_FILE "components-test/CMP_VGA_799.qip"
+set_global_assignment -name QIP_FILE "components-test/CMP_VGA_767.qip"
+set_global_assignment -name QIP_FILE "components-test/CMP_VGA_511.qip"
+set_global_assignment -name QIP_FILE "components-test/CMP_VGA_256ReadGuard.qip"
+set_global_assignment -name QIP_FILE "components-test/CMP_VGA_255.qip"
+set_global_assignment -name QIP_FILE "components-test/CMP_VGA_32ReadGuard.qip"
+set_global_assignment -name QIP_FILE "components-test/CMP_VGA_0.qip"
+set_global_assignment -name VHDL_FILE testbenches/SyncGenTestbench.vhd
 set_global_assignment -name QIP_FILE "components-test/ReadCacheRAM.qip"
 set_global_assignment -name QIP_FILE "components-test/MUX2_9.qip"
 set_global_assignment -name QIP_FILE "components-test/CMP14.qip"
@@ -181,9 +208,6 @@ set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_RO
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/cpuTestbench.vhd -section_id cpuTestbench
 set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/LineDrawerTestbench.vhd -section_id LineDrawerTestbench
-set_global_assignment -name EDA_TEST_BENCH_NAME ReadCacheTestbench -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id ReadCacheTestbench
-set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "0 s" -section_id ReadCacheTestbench
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME ReadCacheTestbench -section_id ReadCacheTestbench
 set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/ReadCacheTestbench.vhd -section_id ReadCacheTestbench
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/SyncGenTestbench.vhd -section_id SyncGenTestbench
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

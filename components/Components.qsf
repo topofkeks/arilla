@@ -129,3 +129,7 @@ set_global_assignment -name QIP_FILE CMP_VGA_EndFrame.qip
 set_global_assignment -name QIP_FILE CMP_VGA_EndLine.qip
 set_global_assignment -name QIP_FILE CMP_VGA_VSync_Begin.qip
 set_global_assignment -name QIP_FILE CMP_VGA_VSync_End.qip
+set_global_assignment -name QIP_FILE VGA_CMP_HSync_Begin.qip
+set_global_assignment -name QIP_FILE VGA_CMP_HSync_End.qip
+set_global_assignment -name QIP_FILE MUX2_12.qip
+set_global_assignment -name QIP_FILE CMP8a.qip

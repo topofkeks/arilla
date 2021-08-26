@@ -17,6 +17,18 @@ COMPONENT ReadCacheRAM IS
 	);
 END COMPONENT;
 
+COMPONENT ActualReadCacheRAM IS 
+	PORT
+	(
+		wren :  IN  STD_LOGIC;
+		clock :  IN  STD_LOGIC;
+		data :  IN  STD_LOGIC_VECTOR(11 DOWNTO 0);
+		rdaddress :  IN  STD_LOGIC_VECTOR(7 DOWNTO 0);
+		wraddress :  IN  STD_LOGIC_VECTOR(7 DOWNTO 0);
+		q :  OUT  STD_LOGIC_VECTOR(11 DOWNTO 0)
+	);
+END COMPONENT;
+
 end package;
 
 library ieee;
@@ -35,6 +47,7 @@ signal rdaddress: STD_LOGIC_VECTOR (7 DOWNTO 0) := (others => '0');
 signal wraddress: STD_LOGIC_VECTOR (7 DOWNTO 0) := (others => '0');
 signal wren: STD_LOGIC  := '0';
 signal q: STD_LOGIC_VECTOR (11 DOWNTO 0) := (others => '0');
+signal qq: STD_LOGIC_VECTOR (11 DOWNTO 0) := (others => '0');
 signal clk: std_logic;
 
 constant clk_period : time := 10 ns;
@@ -42,6 +55,7 @@ constant clk_period : time := 10 ns;
 begin
 
 RAM:ReadCacheRAM port map(clk,data,rdaddress,wraddress,wren,q);
+ARAM:ActualReadCacheRAM port map(wren,clk,data,rdaddress,wraddress,qq);
 
 process
 begin
