@@ -38,11 +38,18 @@ applicable agreement for further details.
 		(line (pt 0 64)(pt 16 64)(line_width 3))
 	)
 	(port
-		(pt 128 56)
+		(pt 128 48)
+		(output)
+		(text "aeb" (rect 0 0 21 14)(font "Arial" (font_size 8)))
+		(text "aeb" (rect 91 41 107 54)(font "Arial" (font_size 8)))
+		(line (pt 128 48)(pt 112 48))
+	)
+	(port
+		(pt 128 64)
 		(output)
 		(text "alb" (rect 0 0 16 14)(font "Arial" (font_size 8)))
-		(text "alb" (rect 95 49 107 62)(font "Arial" (font_size 8)))
-		(line (pt 128 56)(pt 112 56))
+		(text "alb" (rect 95 57 107 70)(font "Arial" (font_size 8)))
+		(line (pt 128 64)(pt 112 64))
 	)
 	(drawing
 		(text "unsigned compare" (rect 36 26 146 63)(font "Arial" ))

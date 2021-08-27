@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone III"
 set_global_assignment -name DEVICE EP3C16F484C6
-set_global_assignment -name TOP_LEVEL_ENTITY ActualReadCacheRAM
+set_global_assignment -name TOP_LEVEL_ENTITY GPU
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "02:12:18  AUGUST 21, 2021"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -69,6 +69,8 @@ set_global_assignment -name EDA_TEST_BENCH_NAME SyncGenTestbench -section_id eda
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id SyncGenTestbench
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "0 s" -section_id SyncGenTestbench
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME SyncGenTestbench -section_id SyncGenTestbench
+set_global_assignment -name QIP_FILE "components-test/MUX2_8.qip"
+set_global_assignment -name QIP_FILE "components-test/CMP_8_0.qip"
 set_global_assignment -name VHDL_FILE "gpu-test/ActualReadCacheRAM.vhd"
 set_global_assignment -name QIP_FILE "components-test/MUX2_12.qip"
 set_global_assignment -name QIP_FILE "components-test/CMP8a.qip"
