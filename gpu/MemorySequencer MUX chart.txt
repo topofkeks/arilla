@@ -1,0 +1,19 @@
+CommandMux
+0   Command Inhibit
+1   No operation
+2   Activate bank/row
+3   Read
+4   Write
+5   Burst terminate
+6   Precharge bank/row
+7   Load mode register
+
+AddressMux
+0   All 0
+1   Visible area - row/bank activation
+2   Visible area - column/bank burst read 
+3   Write command - write in column w/ auto-precharge / Init - auto refresh all banks
+4   Init - Contents of mode register
+5   Read/write command - row/bank activation
+6   Read command - column/bank burst read
+7   Visible area - precharge previous bank
