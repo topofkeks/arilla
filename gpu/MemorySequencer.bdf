@@ -3655,6 +3655,30 @@ applicable agreement for further details.
 		(arc (pt 25 35)(pt 49 24)(rect -6 -27 57 36))
 	)
 )
+(symbol
+	(rect -376 800 -328 832)
+	(text "WIRE" (rect 1 0 24 10)(font "Arial" (font_size 6)))
+	(text "inst85" (rect 3 21 32 33)(font "Arial" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 14 16))
+	)
+	(port
+		(pt 48 16)
+		(output)
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(line (pt 32 16)(pt 48 16))
+	)
+	(drawing
+		(line (pt 14 7)(pt 32 16))
+		(line (pt 14 25)(pt 14 7))
+		(line (pt 14 25)(pt 32 16))
+	)
+)
 (connector
 	(text "memX[10..0]" (rect 1272 360 1334 372)(font "Arial" ))
 	(pt 1264 376)
@@ -4873,26 +4897,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "clk" (rect -408 880 -394 892)(font "Arial" ))
-	(pt -392 896)
-	(pt -416 896)
-)
-(connector
-	(text "RD" (rect -440 864 -424 876)(font "Arial" ))
-	(pt -392 880)
-	(pt -448 880)
-)
-(connector
-	(text "RDreq" (rect -320 864 -289 876)(font "Arial" ))
-	(pt -328 880)
-	(pt -264 880)
-)
-(connector
-	(text "FC_RD" (rect -446 896 -409 908)(font "Arial" ))
-	(pt -392 912)
-	(pt -448 912)
-)
-(connector
 	(text "clk" (rect -200 880 -186 892)(font "Arial" ))
 	(pt -184 896)
 	(pt -208 896)
@@ -5333,6 +5337,42 @@ applicable agreement for further details.
 	(pt 560 1160)
 	(pt 472 1160)
 )
+(connector
+	(text "RDreq" (rect -320 864 -289 876)(font "Arial" ))
+	(pt -312 880)
+	(pt -264 880)
+)
+(connector
+	(text "RD" (rect -440 864 -424 876)(font "Arial" ))
+	(pt -448 880)
+	(pt -408 880)
+)
+(connector
+	(pt -408 816)
+	(pt -408 880)
+)
+(connector
+	(pt -408 816)
+	(pt -376 816)
+)
+(connector
+	(pt -312 816)
+	(pt -312 880)
+)
+(connector
+	(pt -312 816)
+	(pt -328 816)
+)
+(connector
+	(text "clk" (rect -408 880 -394 892)(font "Arial" ))
+	(pt -392 896)
+	(pt -416 896)
+)
+(connector
+	(text "FC_RD" (rect -446 896 -409 908)(font "Arial" ))
+	(pt -392 912)
+	(pt -448 912)
+)
 (junction (pt 1016 1136))
 (junction (pt 1016 1232))
 (junction (pt 1016 944))
@@ -5361,6 +5401,7 @@ applicable agreement for further details.
 (text "Write control unit" (rect 16 824 111 838)(font "Arial" (font_size 8)))
 (text "Command/Address multiplexers" (rect 1568 824 1747 838)(font "Arial" (font_size 8)))
 (text "Read control unit" (rect -464 824 -369 838)(font "Arial" (font_size 8)))
+(text "certified zola patch" (rect -400 784 -292 798)(font "Arial" (font_size 8)))
 (rectangle (rect 992 256 1552 840))
 (rectangle (rect 504 256 984 544))
 (rectangle (rect 1560 256 2120 840))

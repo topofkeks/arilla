@@ -135,3 +135,4 @@ set_global_assignment -name QIP_FILE MUX2_12.qip
 set_global_assignment -name QIP_FILE CMP8a.qip
 set_global_assignment -name QIP_FILE MUX2_8.qip
 set_global_assignment -name QIP_FILE CMP_8_0.qip
+set_global_assignment -name QIP_FILE CMP9.qip

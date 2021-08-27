@@ -44,6 +44,7 @@ ENTITY CMP9 IS
 	(
 		dataa		: IN STD_LOGIC_VECTOR (8 DOWNTO 0);
 		datab		: IN STD_LOGIC_VECTOR (8 DOWNTO 0);
+		aeb		: OUT STD_LOGIC ;
 		alb		: OUT STD_LOGIC 
 	);
 END CMP9;
@@ -52,6 +53,7 @@ END CMP9;
 ARCHITECTURE SYN OF cmp9 IS
 
 	SIGNAL sub_wire0	: STD_LOGIC ;
+	SIGNAL sub_wire1	: STD_LOGIC ;
 
 
 
@@ -62,6 +64,7 @@ ARCHITECTURE SYN OF cmp9 IS
 		lpm_width		: NATURAL
 	);
 	PORT (
+			aeb	: OUT STD_LOGIC ;
 			alb	: OUT STD_LOGIC ;
 			dataa	: IN STD_LOGIC_VECTOR (8 DOWNTO 0);
 			datab	: IN STD_LOGIC_VECTOR (8 DOWNTO 0)
@@ -69,7 +72,8 @@ ARCHITECTURE SYN OF cmp9 IS
 	END COMPONENT;
 
 BEGIN
-	alb    <= sub_wire0;
+	aeb    <= sub_wire0;
+	alb    <= sub_wire1;
 
 	LPM_COMPARE_component : LPM_COMPARE
 	GENERIC MAP (
@@ -80,7 +84,8 @@ BEGIN
 	PORT MAP (
 		dataa => dataa,
 		datab => datab,
-		alb => sub_wire0
+		aeb => sub_wire0,
+		alb => sub_wire1
 	);
 
 
@@ -90,7 +95,7 @@ END SYN;
 -- ============================================================
 -- CNX file retrieval info
 -- ============================================================
--- Retrieval info: PRIVATE: AeqB NUMERIC "0"
+-- Retrieval info: PRIVATE: AeqB NUMERIC "1"
 -- Retrieval info: PRIVATE: AgeB NUMERIC "0"
 -- Retrieval info: PRIVATE: AgtB NUMERIC "0"
 -- Retrieval info: PRIVATE: AleB NUMERIC "0"
@@ -112,11 +117,13 @@ END SYN;
 -- Retrieval info: CONSTANT: LPM_REPRESENTATION STRING "UNSIGNED"
 -- Retrieval info: CONSTANT: LPM_TYPE STRING "LPM_COMPARE"
 -- Retrieval info: CONSTANT: LPM_WIDTH NUMERIC "9"
+-- Retrieval info: USED_PORT: aeb 0 0 0 0 OUTPUT NODEFVAL "aeb"
 -- Retrieval info: USED_PORT: alb 0 0 0 0 OUTPUT NODEFVAL "alb"
 -- Retrieval info: USED_PORT: dataa 0 0 9 0 INPUT NODEFVAL "dataa[8..0]"
 -- Retrieval info: USED_PORT: datab 0 0 9 0 INPUT NODEFVAL "datab[8..0]"
 -- Retrieval info: CONNECT: @dataa 0 0 9 0 dataa 0 0 9 0
 -- Retrieval info: CONNECT: @datab 0 0 9 0 datab 0 0 9 0
+-- Retrieval info: CONNECT: aeb 0 0 0 0 @aeb 0 0 0 0
 -- Retrieval info: CONNECT: alb 0 0 0 0 @alb 0 0 0 0
 -- Retrieval info: GEN_FILE: TYPE_NORMAL CMP9.vhd TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL CMP9.inc FALSE
