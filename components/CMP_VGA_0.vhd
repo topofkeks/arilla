@@ -71,7 +71,7 @@ ARCHITECTURE SYN OF cmp_vga_0 IS
 	END COMPONENT;
 
 BEGIN
-	sub_wire1_bv(10 DOWNTO 0) <= "00000000000";
+	sub_wire1_bv(10 DOWNTO 0) <= "10000010000";
 	sub_wire1    <= To_stdlogicvector(sub_wire1_bv);
 	aeb    <= sub_wire0;
 
@@ -104,7 +104,7 @@ END SYN;
 -- Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Cyclone III"
 -- Retrieval info: PRIVATE: LPM_PIPELINE NUMERIC "0"
 -- Retrieval info: PRIVATE: Latency NUMERIC "0"
--- Retrieval info: PRIVATE: PortBValue NUMERIC "0"
+-- Retrieval info: PRIVATE: PortBValue NUMERIC "1040"
 -- Retrieval info: PRIVATE: Radix NUMERIC "10"
 -- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
 -- Retrieval info: PRIVATE: SignedCompare NUMERIC "0"
@@ -121,11 +121,11 @@ END SYN;
 -- Retrieval info: USED_PORT: aeb 0 0 0 0 OUTPUT NODEFVAL "aeb"
 -- Retrieval info: USED_PORT: dataa 0 0 11 0 INPUT NODEFVAL "dataa[10..0]"
 -- Retrieval info: CONNECT: @dataa 0 0 11 0 dataa 0 0 11 0
--- Retrieval info: CONNECT: @datab 0 0 11 0 0 0 0 11 0
+-- Retrieval info: CONNECT: @datab 0 0 11 0 1040 0 0 11 0
 -- Retrieval info: CONNECT: aeb 0 0 0 0 @aeb 0 0 0 0
 -- Retrieval info: GEN_FILE: TYPE_NORMAL CMP_VGA_0.vhd TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL CMP_VGA_0.inc FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL CMP_VGA_0.cmp TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL CMP_VGA_0.cmp FALSE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL CMP_VGA_0.bsf TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL CMP_VGA_0_inst.vhd FALSE
 -- Retrieval info: LIB_FILE: lpm

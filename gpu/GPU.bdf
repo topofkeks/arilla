@@ -82,6 +82,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "GND" (rect 136 7 157 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 168 392 224 408))
 )
 (pin
 	(input)
@@ -146,6 +147,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 3152 992 3208 1008))
 )
 (pin
 	(output)
@@ -162,6 +164,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 3152 944 3208 960))
 )
 (pin
 	(output)
@@ -178,6 +181,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 3152 1040 3208 1056))
 )
 (pin
 	(output)
@@ -194,6 +198,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 3152 1088 3208 1104))
 )
 (pin
 	(output)
@@ -210,6 +215,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 3152 1136 3208 1152))
 )
 (pin
 	(output)
@@ -261,6 +267,7 @@ applicable agreement for further details.
 		(line (pt 52 8)(pt 56 12))
 	)
 	(text "GND" (rect 4 7 25 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 2728 808 2784 824))
 )
 (symbol
 	(rect 504 504 552 536)
@@ -415,32 +422,6 @@ applicable agreement for further details.
 		(line (pt 34 7)(pt 16 16))
 	)
 	(flipy)
-)
-(symbol
-	(rect 344 128 392 168)
-	(text "CONST" (rect 5 0 42 12)(font "Arial" ))
-	(text "B_ADDR" (rect 8 24 52 36)(font "Arial" ))
-	(port
-		(pt 48 16)
-		(output)
-		(text "data[size-1..0]" (rect -104 0 -35 12)(font "Arial" ))
-		(text "C" (rect 24 8 32 20)(font "Arial" ))
-		(line (pt 48 16)(pt 32 16)(line_width 3))
-	)
-	(parameter
-		"size"
-		"30"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"const"
-		"536870912"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 8 32 24)(fill (color 207 207 207)))
-	)
-	(annotation_block (parameter)(rect 184 88 389 130))
 )
 (symbol
 	(rect 496 80 624 176)
@@ -2693,6 +2674,57 @@ applicable agreement for further details.
 		(rectangle (rect 16 16 224 176))
 	)
 )
+(symbol
+	(rect 624 832 672 864)
+	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
+	(text "inst5" (rect 3 21 26 33)(font "Arial" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 13 16))
+	)
+	(port
+		(pt 48 16)
+		(output)
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(line (pt 39 16)(pt 48 16))
+	)
+	(drawing
+		(line (pt 13 25)(pt 13 7))
+		(line (pt 13 7)(pt 31 16))
+		(line (pt 13 25)(pt 31 16))
+		(circle (rect 31 12 39 20))
+	)
+)
+(symbol
+	(rect 344 128 392 168)
+	(text "CONST" (rect 5 0 42 12)(font "Arial" ))
+	(text "B_ADDR" (rect 8 24 52 36)(font "Arial" ))
+	(port
+		(pt 48 16)
+		(output)
+		(text "data[size-1..0]" (rect -104 0 -35 12)(font "Arial" ))
+		(text "C" (rect 24 8 32 20)(font "Arial" ))
+		(line (pt 48 16)(pt 32 16)(line_width 3))
+	)
+	(parameter
+		"size"
+		"30"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"const"
+		"134217728"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 8 32 24)(fill (color 207 207 207)))
+	)
+	(annotation_block (parameter)(rect 184 88 389 130))
+)
 (connector
 	(pt 616 656)
 	(pt 616 664)
@@ -3085,11 +3117,6 @@ applicable agreement for further details.
 	(text "opGetPix" (rect 1110 416 1154 428)(font "Arial" ))
 	(pt 1152 432)
 	(pt 1104 432)
-)
-(connector
-	(text "start" (rect 612 872 634 884)(font "Arial" ))
-	(pt 592 888)
-	(pt 656 888)
 )
 (connector
 	(text "opCMPL" (rect 1544 280 1585 292)(font "Arial" ))
@@ -4146,6 +4173,31 @@ applicable agreement for further details.
 	(pt 472 880)
 	(pt 528 880)
 )
+(connector
+	(pt 672 848)
+	(pt 688 848)
+)
+(connector
+	(pt 688 848)
+	(pt 688 864)
+)
+(connector
+	(pt 624 848)
+	(pt 600 848)
+)
+(connector
+	(pt 600 848)
+	(pt 600 888)
+)
+(connector
+	(pt 592 888)
+	(pt 600 888)
+)
+(connector
+	(text "start" (rect 612 872 634 884)(font "Arial" ))
+	(pt 600 888)
+	(pt 656 888)
+)
 (junction (pt 480 664))
 (junction (pt 480 360))
 (junction (pt 480 520))
@@ -4171,6 +4223,7 @@ applicable agreement for further details.
 (junction (pt 480 224))
 (junction (pt 480 528))
 (junction (pt 480 688))
+(junction (pt 600 888))
 (text "power up sekvenva je malo finicky, mozda da ispravimo" (rect 488 952 805 966)(font "Arial" (font_size 8)))
 (text "a mozda da nas boli uvo" (rect 488 968 626 982)(font "Arial" (font_size 8)))
 (text "BASEd ADDRESS cos all my homies hate hex" (rect 184 72 442 86)(font "Arial" (font_size 8)))

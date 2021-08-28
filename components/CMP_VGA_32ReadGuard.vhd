@@ -71,7 +71,7 @@ ARCHITECTURE SYN OF cmp_vga_32readguard IS
 	END COMPONENT;
 
 BEGIN
-	sub_wire1_bv(10 DOWNTO 0) <= "01111101110";
+	sub_wire1_bv(10 DOWNTO 0) <= "01111101100";
 	sub_wire1    <= To_stdlogicvector(sub_wire1_bv);
 	ageb    <= sub_wire0;
 
@@ -104,7 +104,7 @@ END SYN;
 -- Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Cyclone III"
 -- Retrieval info: PRIVATE: LPM_PIPELINE NUMERIC "0"
 -- Retrieval info: PRIVATE: Latency NUMERIC "0"
--- Retrieval info: PRIVATE: PortBValue NUMERIC "1006"
+-- Retrieval info: PRIVATE: PortBValue NUMERIC "1004"
 -- Retrieval info: PRIVATE: Radix NUMERIC "10"
 -- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
 -- Retrieval info: PRIVATE: SignedCompare NUMERIC "0"
@@ -121,11 +121,11 @@ END SYN;
 -- Retrieval info: USED_PORT: ageb 0 0 0 0 OUTPUT NODEFVAL "ageb"
 -- Retrieval info: USED_PORT: dataa 0 0 11 0 INPUT NODEFVAL "dataa[10..0]"
 -- Retrieval info: CONNECT: @dataa 0 0 11 0 dataa 0 0 11 0
--- Retrieval info: CONNECT: @datab 0 0 11 0 1006 0 0 11 0
+-- Retrieval info: CONNECT: @datab 0 0 11 0 1004 0 0 11 0
 -- Retrieval info: CONNECT: ageb 0 0 0 0 @ageb 0 0 0 0
 -- Retrieval info: GEN_FILE: TYPE_NORMAL CMP_VGA_32ReadGuard.vhd TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL CMP_VGA_32ReadGuard.inc FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL CMP_VGA_32ReadGuard.cmp TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL CMP_VGA_32ReadGuard.cmp FALSE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL CMP_VGA_32ReadGuard.bsf TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL CMP_VGA_32ReadGuard_inst.vhd FALSE
 -- Retrieval info: LIB_FILE: lpm
