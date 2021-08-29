@@ -14,7 +14,7 @@
 
 -- PROGRAM		"Quartus II 64-Bit"
 -- VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
--- CREATED		"Sat Aug 28 12:40:02 2021"
+-- CREATED		"Sun Aug 29 05:23:28 2021"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -83,8 +83,8 @@ GENERIC (default_value : INTEGER;
 		 inc : IN STD_LOGIC;
 		 dec : IN STD_LOGIC;
 		 ld : IN STD_LOGIC;
-		 data_in : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
-		 data_out : OUT STD_LOGIC_VECTOR(8 DOWNTO 0)
+		 data_in : IN STD_LOGIC_VECTOR(size-1 DOWNTO 0);
+		 data_out : OUT STD_LOGIC_VECTOR(size-1 DOWNTO 0)
 	);
 END COMPONENT;
 
@@ -96,8 +96,8 @@ GENERIC (clear_value : INTEGER;
 	PORT(clk : IN STD_LOGIC;
 		 cl : IN STD_LOGIC;
 		 ld : IN STD_LOGIC;
-		 data_in : IN STD_LOGIC_VECTOR(13 DOWNTO 0);
-		 data_out : OUT STD_LOGIC_VECTOR(13 DOWNTO 0)
+		 data_in : IN STD_LOGIC_VECTOR(size-1 DOWNTO 0);
+		 data_out : OUT STD_LOGIC_VECTOR(size-1 DOWNTO 0)
 	);
 END COMPONENT;
 
@@ -125,6 +125,7 @@ SIGNAL	isCached :  STD_LOGIC;
 SIGNAL	one :  STD_LOGIC;
 SIGNAL	opCMPL_ALTERA_SYNTHESIZED :  STD_LOGIC;
 SIGNAL	RD_ALTERA_SYNTHESIZED :  STD_LOGIC;
+SIGNAL	RDFC :  STD_LOGIC;
 SIGNAL	resetcnt :  STD_LOGIC;
 SIGNAL	run :  STD_LOGIC;
 SIGNAL	scacheID :  STD_LOGIC_VECTOR(13 DOWNTO 0);
@@ -149,6 +150,7 @@ SIGNAL	SYNTHESIZED_WIRE_16 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_17 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_18 :  STD_LOGIC;
 SIGNAL	DFF_inst28 :  STD_LOGIC;
+SIGNAL	DFF_inst37 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_19 :  STD_LOGIC_VECTOR(8 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_20 :  STD_LOGIC_VECTOR(8 DOWNTO 0);
 
@@ -238,7 +240,7 @@ SYNTHESIZED_WIRE_11 <= NOT(SYNTHESIZED_WIRE_22);
 resetcnt <= start AND SYNTHESIZED_WIRE_11;
 
 
-SYNTHESIZED_WIRE_15 <= SYNTHESIZED_WIRE_12 OR msfc;
+SYNTHESIZED_WIRE_15 <= SYNTHESIZED_WIRE_12 OR RDFC;
 
 
 b2v_inst23 : cmp14
@@ -324,6 +326,26 @@ SYNTHESIZED_WIRE_16 <= NOT(start);
 
 
 opCMPL_ALTERA_SYNTHESIZED <= DFF_inst28 AND run;
+
+
+PROCESS(clk)
+BEGIN
+IF (RISING_EDGE(clk)) THEN
+	DFF_inst37 <= msfc;
+END IF;
+END PROCESS;
+
+
+b2v_inst38 : ldcreg
+GENERIC MAP(clear_value => 0,
+			default_value => 0,
+			size => 1
+			)
+PORT MAP(clk => clk,
+		 cl => cacheFull,
+		 ld => DFF_inst37,
+		 data_in(0) => one,
+		 data_out(0) => RDFC);
 
 
 

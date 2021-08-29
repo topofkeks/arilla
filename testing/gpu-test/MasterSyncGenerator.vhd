@@ -14,7 +14,7 @@
 
 -- PROGRAM		"Quartus II 64-Bit"
 -- VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
--- CREATED		"Sat Aug 28 12:38:58 2021"
+-- CREATED		"Sun Aug 29 03:24:51 2021"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -89,7 +89,8 @@ END COMPONENT;
 
 COMPONENT cmp_vga_vertical
 	PORT(dataa : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
-		 ageb : OUT STD_LOGIC;
+		 aeb : OUT STD_LOGIC;
+		 agb : OUT STD_LOGIC;
 		 alb : OUT STD_LOGIC
 	);
 END COMPONENT;
@@ -115,41 +116,46 @@ SIGNAL	h_visible :  STD_LOGIC;
 SIGNAL	v_end :  STD_LOGIC;
 SIGNAL	v_visible :  STD_LOGIC;
 SIGNAL	vcc :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_16 :  STD_LOGIC_VECTOR(10 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_18 :  STD_LOGIC_VECTOR(10 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_1 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_2 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_17 :  STD_LOGIC_VECTOR(10 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_8 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_9 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_12 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_18 :  STD_LOGIC_VECTOR(10 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_3 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_4 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_19 :  STD_LOGIC_VECTOR(10 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_10 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_11 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_14 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_20 :  STD_LOGIC_VECTOR(10 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_16 :  STD_LOGIC;
 
 
 BEGIN 
-x <= SYNTHESIZED_WIRE_17;
-y <= SYNTHESIZED_WIRE_16;
+x <= SYNTHESIZED_WIRE_19;
+y <= SYNTHESIZED_WIRE_18;
 
 
 
 b2v_inst : cmp_vga_vsync_begin
-PORT MAP(dataa => SYNTHESIZED_WIRE_16,
-		 ageb => SYNTHESIZED_WIRE_8);
+PORT MAP(dataa => SYNTHESIZED_WIRE_18,
+		 ageb => SYNTHESIZED_WIRE_10);
 
 
-SYNTHESIZED_WIRE_12 <= h_end OR rst;
+SYNTHESIZED_WIRE_14 <= h_end OR rst;
 
 
-H_SYNC <= SYNTHESIZED_WIRE_1 AND SYNTHESIZED_WIRE_2;
+v_visible <= SYNTHESIZED_WIRE_1 OR SYNTHESIZED_WIRE_2;
+
+
+H_SYNC <= SYNTHESIZED_WIRE_3 AND SYNTHESIZED_WIRE_4;
 
 
 b2v_inst15 : cmp_vga_horizontal
-PORT MAP(dataa => SYNTHESIZED_WIRE_17,
+PORT MAP(dataa => SYNTHESIZED_WIRE_19,
 		 aleb => h_visible);
 
 
 b2v_inst16 : cmp_vga_endline
-PORT MAP(dataa => SYNTHESIZED_WIRE_17,
+PORT MAP(dataa => SYNTHESIZED_WIRE_19,
 		 aeb => h_end);
 
 
@@ -157,43 +163,44 @@ VIDEO_OUTPUT <= h_visible AND v_visible;
 
 
 b2v_inst18 : vga_cmp_hsync_begin
-PORT MAP(dataa => SYNTHESIZED_WIRE_17,
-		 ageb => SYNTHESIZED_WIRE_1);
+PORT MAP(dataa => SYNTHESIZED_WIRE_19,
+		 ageb => SYNTHESIZED_WIRE_3);
 
 
 b2v_inst19 : vga_cmp_hsync_end
-PORT MAP(dataa => SYNTHESIZED_WIRE_17,
-		 alb => SYNTHESIZED_WIRE_2);
+PORT MAP(dataa => SYNTHESIZED_WIRE_19,
+		 alb => SYNTHESIZED_WIRE_4);
 
 
 b2v_inst2 : const
 GENERIC MAP(const => 600,
 			size => 11
 			)
-PORT MAP(		 data => SYNTHESIZED_WIRE_18);
+PORT MAP(		 data => SYNTHESIZED_WIRE_20);
 
 
 b2v_inst3 : cmp_vga_vsync_end
-PORT MAP(dataa => SYNTHESIZED_WIRE_16,
-		 alb => SYNTHESIZED_WIRE_9);
+PORT MAP(dataa => SYNTHESIZED_WIRE_18,
+		 alb => SYNTHESIZED_WIRE_11);
 
 
-V_SYNC <= SYNTHESIZED_WIRE_8 AND SYNTHESIZED_WIRE_9;
+V_SYNC <= SYNTHESIZED_WIRE_10 AND SYNTHESIZED_WIRE_11;
 
 
 b2v_inst5 : cmp_vga_endframe
-PORT MAP(dataa => SYNTHESIZED_WIRE_16,
+PORT MAP(dataa => SYNTHESIZED_WIRE_18,
 		 aeb => v_end);
 
 
 
 
-SYNTHESIZED_WIRE_14 <= h_end AND v_end;
+SYNTHESIZED_WIRE_16 <= h_end AND v_end;
 
 
 b2v_inst9 : cmp_vga_vertical
-PORT MAP(dataa => SYNTHESIZED_WIRE_16,
-		 alb => v_visible);
+PORT MAP(dataa => SYNTHESIZED_WIRE_18,
+		 aeb => SYNTHESIZED_WIRE_2,
+		 alb => SYNTHESIZED_WIRE_1);
 
 
 b2v_XCoord : idcreg
@@ -202,12 +209,12 @@ GENERIC MAP(clear_value => 0,
 			size => 11
 			)
 PORT MAP(clk => clk,
-		 cl => SYNTHESIZED_WIRE_12,
+		 cl => SYNTHESIZED_WIRE_14,
 		 inc => vcc,
 		 dec => gnd,
 		 ld => gnd,
-		 data_in => SYNTHESIZED_WIRE_18,
-		 data_out => SYNTHESIZED_WIRE_17);
+		 data_in => SYNTHESIZED_WIRE_20,
+		 data_out => SYNTHESIZED_WIRE_19);
 
 
 b2v_YCoord : idcreg
@@ -216,12 +223,12 @@ GENERIC MAP(clear_value => 0,
 			size => 11
 			)
 PORT MAP(clk => clk,
-		 cl => SYNTHESIZED_WIRE_14,
+		 cl => SYNTHESIZED_WIRE_16,
 		 inc => h_end,
 		 dec => gnd,
 		 ld => rst,
-		 data_in => SYNTHESIZED_WIRE_18,
-		 data_out => SYNTHESIZED_WIRE_16);
+		 data_in => SYNTHESIZED_WIRE_20,
+		 data_out => SYNTHESIZED_WIRE_18);
 
 
 gnd <= '0';

@@ -105,7 +105,6 @@ set_global_assignment -name BDF_FILE REG1_INC_CL.bdf
 set_global_assignment -name BDF_FILE EDGED.bdf
 set_global_assignment -name BDF_FILE Debouncer.bdf
 set_global_assignment -name BDF_FILE Components.bdf
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name QIP_FILE MUX8_16.qip
 set_global_assignment -name QIP_FILE MUX4_16.qip
 set_global_assignment -name QIP_FILE CMP16.qip
@@ -136,3 +135,5 @@ set_global_assignment -name QIP_FILE CMP8a.qip
 set_global_assignment -name QIP_FILE MUX2_8.qip
 set_global_assignment -name QIP_FILE CMP_8_0.qip
 set_global_assignment -name QIP_FILE CMP9.qip
+set_global_assignment -name BDF_FILE LaManualMagistrala.bdf
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

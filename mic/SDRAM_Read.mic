@@ -3,6 +3,6 @@ start:  br (if no_read then this)
         rd_Command[1], rd_ADDR[2], rd_ADDR[0]
         rd_Command[1], rd_Command[0], rd_ADDR[2], rd_ADDR[1], ldReadCounter, FC_RD
         RD_BUS, decReadCounter, br (if notReadComplete then this)
-        RD_BUS, rd_Command[2], rd_Command[1], rd_ADDR[2], rd_ADDR[0]
+        RD_BUS, rd_Command[2], rd_Command[0], rd_ADDR[2], rd_ADDR[0]
         RD_BUS
         br start

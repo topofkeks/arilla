@@ -14,7 +14,7 @@
 
 -- PROGRAM		"Quartus II 64-Bit"
 -- VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
--- CREATED		"Sat Aug 28 12:42:46 2021"
+-- CREATED		"Sat Aug 28 23:36:12 2021"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -68,8 +68,8 @@ GENERIC (default_value : INTEGER;
 		 inc : IN STD_LOGIC;
 		 dec : IN STD_LOGIC;
 		 ld : IN STD_LOGIC;
-		 data_in : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
-		 data_out : OUT STD_LOGIC_VECTOR(10 DOWNTO 0)
+		 data_in : IN STD_LOGIC_VECTOR(size-1 DOWNTO 0);
+		 data_out : OUT STD_LOGIC_VECTOR(size-1 DOWNTO 0)
 	);
 END COMPONENT;
 

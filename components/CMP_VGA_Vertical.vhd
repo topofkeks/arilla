@@ -43,7 +43,8 @@ ENTITY CMP_VGA_Vertical IS
 	PORT
 	(
 		dataa		: IN STD_LOGIC_VECTOR (10 DOWNTO 0);
-		ageb		: OUT STD_LOGIC ;
+		aeb		: OUT STD_LOGIC ;
+		agb		: OUT STD_LOGIC ;
 		alb		: OUT STD_LOGIC 
 	);
 END CMP_VGA_Vertical;
@@ -53,8 +54,9 @@ ARCHITECTURE SYN OF cmp_vga_vertical IS
 
 	SIGNAL sub_wire0	: STD_LOGIC ;
 	SIGNAL sub_wire1	: STD_LOGIC ;
-	SIGNAL sub_wire2_bv	: BIT_VECTOR (10 DOWNTO 0);
-	SIGNAL sub_wire2	: STD_LOGIC_VECTOR (10 DOWNTO 0);
+	SIGNAL sub_wire2	: STD_LOGIC ;
+	SIGNAL sub_wire3_bv	: BIT_VECTOR (10 DOWNTO 0);
+	SIGNAL sub_wire3	: STD_LOGIC_VECTOR (10 DOWNTO 0);
 
 
 
@@ -66,18 +68,20 @@ ARCHITECTURE SYN OF cmp_vga_vertical IS
 		lpm_width		: NATURAL
 	);
 	PORT (
-			ageb	: OUT STD_LOGIC ;
+			aeb	: OUT STD_LOGIC ;
+			agb	: OUT STD_LOGIC ;
+			datab	: IN STD_LOGIC_VECTOR (10 DOWNTO 0);
 			alb	: OUT STD_LOGIC ;
-			dataa	: IN STD_LOGIC_VECTOR (10 DOWNTO 0);
-			datab	: IN STD_LOGIC_VECTOR (10 DOWNTO 0)
+			dataa	: IN STD_LOGIC_VECTOR (10 DOWNTO 0)
 	);
 	END COMPONENT;
 
 BEGIN
-	sub_wire2_bv(10 DOWNTO 0) <= "01001011000";
-	sub_wire2    <= To_stdlogicvector(sub_wire2_bv);
-	ageb    <= sub_wire0;
-	alb    <= sub_wire1;
+	sub_wire3_bv(10 DOWNTO 0) <= "01001010111";
+	sub_wire3    <= To_stdlogicvector(sub_wire3_bv);
+	aeb    <= sub_wire0;
+	agb    <= sub_wire1;
+	alb    <= sub_wire2;
 
 	LPM_COMPARE_component : LPM_COMPARE
 	GENERIC MAP (
@@ -87,10 +91,11 @@ BEGIN
 		lpm_width => 11
 	)
 	PORT MAP (
+		datab => sub_wire3,
 		dataa => dataa,
-		datab => sub_wire2,
-		ageb => sub_wire0,
-		alb => sub_wire1
+		aeb => sub_wire0,
+		agb => sub_wire1,
+		alb => sub_wire2
 	);
 
 
@@ -100,16 +105,16 @@ END SYN;
 -- ============================================================
 -- CNX file retrieval info
 -- ============================================================
--- Retrieval info: PRIVATE: AeqB NUMERIC "0"
--- Retrieval info: PRIVATE: AgeB NUMERIC "1"
--- Retrieval info: PRIVATE: AgtB NUMERIC "0"
+-- Retrieval info: PRIVATE: AeqB NUMERIC "1"
+-- Retrieval info: PRIVATE: AgeB NUMERIC "0"
+-- Retrieval info: PRIVATE: AgtB NUMERIC "1"
 -- Retrieval info: PRIVATE: AleB NUMERIC "0"
 -- Retrieval info: PRIVATE: AltB NUMERIC "1"
 -- Retrieval info: PRIVATE: AneB NUMERIC "0"
 -- Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Cyclone III"
 -- Retrieval info: PRIVATE: LPM_PIPELINE NUMERIC "0"
 -- Retrieval info: PRIVATE: Latency NUMERIC "0"
--- Retrieval info: PRIVATE: PortBValue NUMERIC "600"
+-- Retrieval info: PRIVATE: PortBValue NUMERIC "599"
 -- Retrieval info: PRIVATE: Radix NUMERIC "10"
 -- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
 -- Retrieval info: PRIVATE: SignedCompare NUMERIC "0"
@@ -123,16 +128,18 @@ END SYN;
 -- Retrieval info: CONSTANT: LPM_REPRESENTATION STRING "UNSIGNED"
 -- Retrieval info: CONSTANT: LPM_TYPE STRING "LPM_COMPARE"
 -- Retrieval info: CONSTANT: LPM_WIDTH NUMERIC "11"
--- Retrieval info: USED_PORT: ageb 0 0 0 0 OUTPUT NODEFVAL "ageb"
+-- Retrieval info: USED_PORT: aeb 0 0 0 0 OUTPUT NODEFVAL "aeb"
+-- Retrieval info: USED_PORT: agb 0 0 0 0 OUTPUT NODEFVAL "agb"
 -- Retrieval info: USED_PORT: alb 0 0 0 0 OUTPUT NODEFVAL "alb"
 -- Retrieval info: USED_PORT: dataa 0 0 11 0 INPUT NODEFVAL "dataa[10..0]"
 -- Retrieval info: CONNECT: @dataa 0 0 11 0 dataa 0 0 11 0
--- Retrieval info: CONNECT: @datab 0 0 11 0 600 0 0 11 0
--- Retrieval info: CONNECT: ageb 0 0 0 0 @ageb 0 0 0 0
+-- Retrieval info: CONNECT: @datab 0 0 11 0 599 0 0 11 0
+-- Retrieval info: CONNECT: aeb 0 0 0 0 @aeb 0 0 0 0
+-- Retrieval info: CONNECT: agb 0 0 0 0 @agb 0 0 0 0
 -- Retrieval info: CONNECT: alb 0 0 0 0 @alb 0 0 0 0
 -- Retrieval info: GEN_FILE: TYPE_NORMAL CMP_VGA_Vertical.vhd TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL CMP_VGA_Vertical.inc FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL CMP_VGA_Vertical.cmp TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL CMP_VGA_Vertical.cmp FALSE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL CMP_VGA_Vertical.bsf TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL CMP_VGA_Vertical_inst.vhd FALSE
 -- Retrieval info: LIB_FILE: lpm

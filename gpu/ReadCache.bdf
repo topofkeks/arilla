@@ -34,6 +34,7 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "GND" (rect 136 7 157 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 304 344 360 360))
 )
 (pin
 	(input)
@@ -149,7 +150,7 @@ applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 368 320 544 336)
+	(rect 360 320 536 336)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "invalidate" (rect 9 0 56 12)(font "Arial" ))
 	(pt 176 8)
@@ -1508,6 +1509,116 @@ applicable agreement for further details.
 		(arc (pt 31 37)(pt 30 12)(rect 18 12 43 37))
 	)
 )
+(symbol
+	(rect 1488 704 1552 784)
+	(text "DFF" (rect 1 0 19 10)(font "Arial" (font_size 6)))
+	(text "inst37" (rect 3 68 32 80)(font "Arial" ))
+	(port
+		(pt 32 80)
+		(input)
+		(text "CLRN" (rect 21 59 44 71)(font "Courier New" (bold)))
+		(text "CLRN" (rect 21 58 44 70)(font "Courier New" (bold)))
+		(line (pt 32 80)(pt 32 76))
+	)
+	(port
+		(pt 0 40)
+		(input)
+		(text "CLK" (rect 3 29 20 41)(font "Courier New" (bold))(invisible))
+		(text "CLK" (rect 3 29 20 41)(font "Courier New" (bold))(invisible))
+		(line (pt 0 40)(pt 12 40))
+	)
+	(port
+		(pt 0 24)
+		(input)
+		(text "D" (rect 14 20 19 32)(font "Courier New" (bold)))
+		(text "D" (rect 14 20 19 32)(font "Courier New" (bold)))
+		(line (pt 0 24)(pt 12 24))
+	)
+	(port
+		(pt 32 0)
+		(input)
+		(text "PRN" (rect 24 13 41 25)(font "Courier New" (bold)))
+		(text "PRN" (rect 24 11 41 23)(font "Courier New" (bold)))
+		(line (pt 32 4)(pt 32 0))
+	)
+	(port
+		(pt 64 24)
+		(output)
+		(text "Q" (rect 45 20 50 32)(font "Courier New" (bold)))
+		(text "Q" (rect 43 20 48 32)(font "Courier New" (bold)))
+		(line (pt 52 24)(pt 64 24))
+	)
+	(drawing
+		(line (pt 12 12)(pt 52 12))
+		(line (pt 12 68)(pt 52 68))
+		(line (pt 52 68)(pt 52 12))
+		(line (pt 12 68)(pt 12 12))
+		(line (pt 19 40)(pt 12 47))
+		(line (pt 12 32)(pt 20 40))
+		(circle (rect 28 4 36 12))
+		(circle (rect 28 68 36 76))
+	)
+)
+(symbol
+	(rect 1640 696 1808 816)
+	(text "LDCREG" (rect 17 1 63 13)(font "Arial" ))
+	(text "inst38" (rect 16 104 45 116)(font "Arial" ))
+	(port
+		(pt 0 88)
+		(input)
+		(text "clk" (rect 0 8 14 20)(font "Arial" ))
+		(text "clk" (rect 24 80 38 92)(font "Arial" ))
+		(line (pt 0 88)(pt 16 88))
+	)
+	(port
+		(pt 88 0)
+		(input)
+		(text "data_in[size-1..0]" (rect -24 0 59 12)(font "Arial" ))
+		(text "IN[W]" (rect 80 16 92 45)(font "Arial" )(vertical))
+		(line (pt 88 0)(pt 88 16)(line_width 3))
+	)
+	(port
+		(pt 168 32)
+		(input)
+		(text "cl" (rect -80 8 -72 20)(font "Arial" ))
+		(text "CL" (rect 136 24 150 36)(font "Arial" ))
+		(line (pt 152 32)(pt 168 32))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "ld" (rect 0 8 8 20)(font "Arial" ))
+		(text "LD" (rect 24 24 38 36)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 88 120)
+		(output)
+		(text "data_out[size-1..0]" (rect -24 8 66 20)(font "Arial" ))
+		(text "OUT[W]" (rect 80 64 92 104)(font "Arial" )(vertical))
+		(line (pt 88 120)(pt 88 104)(line_width 3))
+	)
+	(parameter
+		"size"
+		"1"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"default_value"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"clear_value"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(text "LDCL REG" (rect 40 48 146 67)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
+		(rectangle (rect 16 16 152 104))
+	)
+	(annotation_block (parameter)(rect 1808 640 2005 696))
+)
 (connector
 	(pt 736 560)
 	(pt 736 568)
@@ -1887,11 +1998,6 @@ applicable agreement for further details.
 	(pt 1560 144)
 )
 (connector
-	(text "msfc" (rect 1455 104 1480 116)(font "Arial" ))
-	(pt 1448 120)
-	(pt 1488 120)
-)
-(connector
 	(text "zero,cacheINDEX[7..0]" (rect 907 296 1019 308)(font "Arial" ))
 	(pt 872 312)
 	(pt 1008 312)
@@ -2022,6 +2128,57 @@ applicable agreement for further details.
 	(pt 1008 88)
 	(pt 1072 88)
 	(bus)
+)
+(connector
+	(text "msfc" (rect 1455 712 1480 724)(font "Arial" ))
+	(pt 1448 728)
+	(pt 1488 728)
+)
+(connector
+	(pt 1552 728)
+	(pt 1640 728)
+)
+(connector
+	(pt 1728 696)
+	(pt 1728 672)
+	(bus)
+)
+(connector
+	(text "one" (rect 1672 656 1689 668)(font "Arial" ))
+	(pt 1728 672)
+	(pt 1640 672)
+	(bus)
+)
+(connector
+	(pt 1728 816)
+	(pt 1728 832)
+	(bus)
+)
+(connector
+	(text "RDFC" (rect 1851 816 1882 828)(font "Arial" ))
+	(pt 1728 832)
+	(pt 1880 832)
+	(bus)
+)
+(connector
+	(text "RDFC" (rect 1445 104 1476 116)(font "Arial" ))
+	(pt 1488 120)
+	(pt 1432 120)
+)
+(connector
+	(text "cacheFull" (rect 1888 712 1935 724)(font "Arial" ))
+	(pt 1808 728)
+	(pt 1920 728)
+)
+(connector
+	(text "clk" (rect 1584 768 1598 780)(font "Arial" ))
+	(pt 1640 784)
+	(pt 1576 784)
+)
+(connector
+	(text "clk" (rect 1456 728 1470 740)(font "Arial" ))
+	(pt 1488 744)
+	(pt 1448 744)
 )
 (junction (pt 776 904))
 (junction (pt 736 424))
