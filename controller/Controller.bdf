@@ -1945,32 +1945,6 @@ applicable agreement for further details.
 	(annotation_block (parameter)(rect 2080 888 2248 927))
 )
 (symbol
-	(rect 2248 928 2296 968)
-	(text "CONST" (rect 5 0 42 12)(font "Arial" ))
-	(text "inst37" (rect 8 24 37 36)(font "Arial" ))
-	(port
-		(pt 48 16)
-		(output)
-		(text "data[size-1..0]" (rect -104 0 -35 12)(font "Arial" ))
-		(text "C" (rect 24 8 32 20)(font "Arial" ))
-		(line (pt 48 16)(pt 32 16)(line_width 3))
-	)
-	(parameter
-		"size"
-		"10"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"const"
-		"0"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 8 32 24)(fill (color 207 207 207)))
-	)
-	(annotation_block (parameter)(rect 2080 928 2248 967))
-)
-(symbol
 	(rect 1592 120 1752 216)
 	(text "ADD10" (rect 60 0 108 16)(font "Arial" (font_size 10)))
 	(text "inst" (rect 8 81 25 93)(font "Arial" ))
@@ -2576,6 +2550,58 @@ applicable agreement for further details.
 		(line (pt 0 0)(pt 0 98))
 	)
 )
+(symbol
+	(rect 2248 808 2296 848)
+	(text "CONST" (rect 5 0 42 12)(font "Arial" ))
+	(text "inst43" (rect 8 24 37 36)(font "Arial" ))
+	(port
+		(pt 48 16)
+		(output)
+		(text "data[size-1..0]" (rect -104 0 -35 12)(font "Arial" ))
+		(text "C" (rect 24 8 32 20)(font "Arial" ))
+		(line (pt 48 16)(pt 32 16)(line_width 3))
+	)
+	(parameter
+		"size"
+		"10"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"const"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 8 32 24)(fill (color 207 207 207)))
+	)
+	(annotation_block (parameter)(rect 2080 808 2262 850))
+)
+(symbol
+	(rect 2248 928 2296 968)
+	(text "CONST" (rect 5 0 42 12)(font "Arial" ))
+	(text "inst37" (rect 8 24 37 36)(font "Arial" ))
+	(port
+		(pt 48 16)
+		(output)
+		(text "data[size-1..0]" (rect -104 0 -35 12)(font "Arial" ))
+		(text "C" (rect 24 8 32 20)(font "Arial" ))
+		(line (pt 48 16)(pt 32 16)(line_width 3))
+	)
+	(parameter
+		"size"
+		"10"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"const"
+		"350"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 8 32 24)(fill (color 207 207 207)))
+	)
+	(annotation_block (parameter)(rect 2080 928 2262 970))
+)
 (connector
 	(text "decTimer" (rect 784 208 828 220)(font "Arial" ))
 	(pt 776 224)
@@ -3170,11 +3196,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "XUnderflow" (rect 2016 288 2071 300)(font "Arial" ))
-	(pt 2008 304)
-	(pt 2056 304)
-)
-(connector
 	(text "CLK" (rect 1688 368 1709 380)(font "Arial" ))
 	(pt 1680 384)
 	(pt 1736 384)
@@ -3245,12 +3266,6 @@ applicable agreement for further details.
 	(text "NewX[9..0]" (rect 1789 160 1842 172)(font "Arial" ))
 	(pt 1752 176)
 	(pt 1880 176)
-	(bus)
-)
-(connector
-	(text "const0[9..0]" (rect 1847 326 1859 385)(font "Arial" )(vertical))
-	(pt 1864 384)
-	(pt 1864 336)
 	(bus)
 )
 (connector
@@ -3394,12 +3409,6 @@ applicable agreement for further details.
 	(pt 2344 376)
 )
 (connector
-	(text "const0[9..0]" (rect 2304 928 2363 940)(font "Arial" ))
-	(pt 2296 944)
-	(pt 2344 944)
-	(bus)
-)
-(connector
 	(text "const599[9..0]" (rect 2297 888 2367 900)(font "Arial" ))
 	(pt 2344 904)
 	(pt 2296 904)
@@ -3477,17 +3486,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "YUnderflow" (rect 2016 632 2073 644)(font "Arial" ))
-	(pt 2008 648)
-	(pt 2056 648)
-)
-(connector
-	(text "const0[9..0]" (rect 1848 671 1860 730)(font "Arial" )(vertical))
-	(pt 1864 728)
-	(pt 1864 680)
-	(bus)
-)
-(connector
 	(text "Y[9..0]" (rect 1848 629 1860 663)(font "Arial" )(vertical))
 	(pt 1864 600)
 	(pt 1864 664)
@@ -3561,6 +3559,40 @@ applicable agreement for further details.
 	(pt 1848 936)
 	(bus)
 )
+(connector
+	(text "const0[9..0]" (rect 2296 808 2355 820)(font "Arial" ))
+	(pt 2296 824)
+	(pt 2344 824)
+	(bus)
+)
+(connector
+	(text "const350[9..0]" (rect 2296 928 2366 940)(font "Arial" ))
+	(pt 2296 944)
+	(pt 2344 944)
+	(bus)
+)
+(connector
+	(text "const350[9..0]" (rect 1846 325 1858 395)(font "Arial" )(vertical))
+	(pt 1864 384)
+	(pt 1864 336)
+	(bus)
+)
+(connector
+	(text "XUnderflow" (rect 2009 336 2064 348)(font "Arial" ))
+	(pt 2008 352)
+	(pt 2064 352)
+)
+(connector
+	(text "const350[9..0]" (rect 1847 670 1859 740)(font "Arial" )(vertical))
+	(pt 1864 728)
+	(pt 1864 680)
+	(bus)
+)
+(connector
+	(text "YUnderflow" (rect 2016 680 2073 692)(font "Arial" ))
+	(pt 2008 696)
+	(pt 2056 696)
+)
 (junction (pt 120 496))
 (junction (pt 120 648))
 (text "Inputs and outputs" (rect 168 400 273 414)(font "Arial" (font_size 8)))
@@ -3585,7 +3617,7 @@ applicable agreement for further details.
 (text "0xFA is the Acknowledge command sent from device to the host," (rect 976 704 1347 718)(font "Arial" (font_size 8)))
 (text "so we check the latest packet for it." (rect 976 720 1180 734)(font "Arial" (font_size 8)))
 (text "Since our ROM is synchronous, we only read the counter from the current state every second tick." (rect 2392 904 2956 918)(font "Arial" (font_size 8)))
-(text "We read mouse button states into the status register." (rect 2096 816 2398 830)(font "Arial" (font_size 8)))
+(text "We read mouse button states into the status register." (rect 2088 776 2390 790)(font "Arial" (font_size 8)))
 (text "because the CPU is too lazy for that." (rect 2136 448 2343 462)(font "Arial" (font_size 8)))
 (text "We track whenever our position changes" (rect 2136 432 2372 446)(font "Arial" (font_size 8)))
 (text "We add the read data onto stored X and Y positions by extending their sign (sign bit is in the status packet) first." (rect 1536 976 2173 990)(font "Arial" (font_size 8)))
@@ -3604,7 +3636,7 @@ applicable agreement for further details.
 (rectangle (rect 24 800 920 1016))
 (rectangle (rect 1528 112 2064 464))
 (rectangle (rect 2072 112 2352 464))
-(rectangle (rect 2072 472 2352 832))
+(rectangle (rect 2072 472 2352 792))
 (rectangle (rect 1528 472 2064 832))
 (rectangle (rect 1528 840 2064 992))
-(rectangle (rect 2072 840 2352 992))
+(rectangle (rect 2072 800 2352 992))
