@@ -51,7 +51,7 @@ void gpuSetColor(unsigned int color)
 
 void gpuWaitForReady()
 {
-    while(((lastStatus = in(GPU_BASE_ADDRESS+1))&GPU_READY_MASK) != 1){}
+    while(((lastStatus = in(GPU_BASE_ADDRESS+4))&GPU_READY_MASK) != 1){}
 }
 
 void gpuDrawPoint_c(unsigned int x,unsigned int y,unsigned int color)
@@ -68,7 +68,7 @@ void gpuDrawPoint(unsigned int x,unsigned int y)
 void gpuDrawPoint_p(unsigned int pos)
 {
     gpuWaitForReady();
-    out(GPU_BASE_ADDRESS+2,pos);
+    out(GPU_BASE_ADDRESS+8,pos);
     lastControl=(lastControl&~GPU_OPCODE_MASK)|(GPU_OPCODE_DRAW_POINT<<5);
     out(GPU_BASE_ADDRESS,lastControl|GPU_RUN_MASK);
 }
@@ -87,8 +87,8 @@ void gpuDrawLine(unsigned int startX,unsigned int startY,unsigned int endX,unsig
 void gpuDrawLine_p(unsigned int startPos,unsigned int endPos)
 {
     gpuWaitForReady();
-    out(GPU_BASE_ADDRESS+2,startPos);
-    out(GPU_BASE_ADDRESS+3,endPos);
+    out(GPU_BASE_ADDRESS+8,startPos);
+    out(GPU_BASE_ADDRESS+12,endPos);
     lastControl=(lastControl&~GPU_OPCODE_MASK)|(GPU_OPCODE_DRAW_LINE<<5);
     out(GPU_BASE_ADDRESS,lastControl|GPU_RUN_MASK);
 }
@@ -107,8 +107,8 @@ void gpuDrawRect(unsigned int startX,unsigned int startY,unsigned int endX,unsig
 void gpuDrawRect_p(unsigned int startPos,unsigned int endPos)
 {
     gpuWaitForReady();
-    out(GPU_BASE_ADDRESS+2,startPos);
-    out(GPU_BASE_ADDRESS+3,endPos);
+    out(GPU_BASE_ADDRESS+8,startPos);
+    out(GPU_BASE_ADDRESS+12,endPos);
     lastControl=(lastControl&~GPU_OPCODE_MASK)|(GPU_OPCODE_DRAW_RECT<<5);
     out(GPU_BASE_ADDRESS,lastControl|GPU_RUN_MASK);
 }
@@ -126,8 +126,8 @@ void gpuFillRect(unsigned int startX,unsigned int startY,unsigned int endX,unsig
 void gpuFillRect_p(unsigned int startPos,unsigned int endPos)
 {
     gpuWaitForReady();
-    out(GPU_BASE_ADDRESS+2,startPos);
-    out(GPU_BASE_ADDRESS+3,endPos);
+    out(GPU_BASE_ADDRESS+8,startPos);
+    out(GPU_BASE_ADDRESS+12,endPos);
     lastControl=(lastControl&(~GPU_OPCODE_MASK));
     lastControl|=(GPU_OPCODE_FILL_RECT<<5);
     out(GPU_BASE_ADDRESS,lastControl|GPU_RUN_MASK);
@@ -141,7 +141,7 @@ unsigned int gpuGetColor(unsigned int x,unsigned int y)
 unsigned int gpuGetColor_p(unsigned int pos)
 {
     gpuWaitForReady();
-    out(GPU_BASE_ADDRESS+2,pos);
+    out(GPU_BASE_ADDRESS+8,pos);
     lastControl=(lastControl&~GPU_OPCODE_MASK)|(GPU_OPCODE_GET_COLOR<<5);
     out(GPU_BASE_ADDRESS,lastControl|GPU_RUN_MASK);
     gpuWaitForReady();

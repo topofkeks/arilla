@@ -21,14 +21,21 @@ applicable agreement for further details.
 (header "symbol" (version "1.2"))
 (symbol
 	(rect 0 0 128 96)
-	(text "CMPMouseAddr" (rect 17 0 129 16)(font "Arial" (font_size 10)))
+	(text "CMP28" (rect 43 0 93 16)(font "Arial" (font_size 10)))
 	(text "inst" (rect 8 80 25 92)(font "Arial" ))
 	(port
 		(pt 0 48)
 		(input)
-		(text "dataa[31..0]" (rect 0 0 67 14)(font "Arial" (font_size 8)))
-		(text "dataa[31..0]" (rect 20 41 75 54)(font "Arial" (font_size 8)))
+		(text "dataa[27..0]" (rect 0 0 67 14)(font "Arial" (font_size 8)))
+		(text "dataa[27..0]" (rect 20 41 75 54)(font "Arial" (font_size 8)))
 		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "datab[27..0]" (rect 0 0 67 14)(font "Arial" (font_size 8)))
+		(text "datab[27..0]" (rect 20 57 75 70)(font "Arial" (font_size 8)))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
 	)
 	(port
 		(pt 128 56)
@@ -38,7 +45,6 @@ applicable agreement for further details.
 		(line (pt 128 56)(pt 112 56))
 	)
 	(drawing
-		(text "datab[]=268435460" (rect 20 57 131 127)(font "Arial" (font_size 8)))
 		(text "compare" (rect 76 26 186 63)(font "Arial" ))
 		(line (pt 16 16)(pt 16 80))
 		(line (pt 16 16)(pt 112 16))

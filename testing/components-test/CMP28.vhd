@@ -4,7 +4,7 @@
 -- MODULE: LPM_COMPARE 
 
 -- ============================================================
--- File Name: CMPMouseAddr.vhd
+-- File Name: CMP28.vhd
 -- Megafunction Name(s):
 -- 			LPM_COMPARE
 --
@@ -39,52 +39,47 @@ USE ieee.std_logic_1164.all;
 LIBRARY lpm;
 USE lpm.all;
 
-ENTITY CMPMouseAddr IS
+ENTITY CMP28 IS
 	PORT
 	(
-		dataa		: IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+		dataa		: IN STD_LOGIC_VECTOR (27 DOWNTO 0);
+		datab		: IN STD_LOGIC_VECTOR (27 DOWNTO 0);
 		aeb		: OUT STD_LOGIC 
 	);
-END CMPMouseAddr;
+END CMP28;
 
 
-ARCHITECTURE SYN OF cmpmouseaddr IS
+ARCHITECTURE SYN OF cmp28 IS
 
 	SIGNAL sub_wire0	: STD_LOGIC ;
-	SIGNAL sub_wire1_bv	: BIT_VECTOR (31 DOWNTO 0);
-	SIGNAL sub_wire1	: STD_LOGIC_VECTOR (31 DOWNTO 0);
 
 
 
 	COMPONENT lpm_compare
 	GENERIC (
-		lpm_hint		: STRING;
 		lpm_representation		: STRING;
 		lpm_type		: STRING;
 		lpm_width		: NATURAL
 	);
 	PORT (
 			aeb	: OUT STD_LOGIC ;
-			dataa	: IN STD_LOGIC_VECTOR (31 DOWNTO 0);
-			datab	: IN STD_LOGIC_VECTOR (31 DOWNTO 0)
+			dataa	: IN STD_LOGIC_VECTOR (27 DOWNTO 0);
+			datab	: IN STD_LOGIC_VECTOR (27 DOWNTO 0)
 	);
 	END COMPONENT;
 
 BEGIN
-	sub_wire1_bv(31 DOWNTO 0) <= "00010000000000000000000000000100";
-	sub_wire1    <= To_stdlogicvector(sub_wire1_bv);
 	aeb    <= sub_wire0;
 
 	LPM_COMPARE_component : LPM_COMPARE
 	GENERIC MAP (
-		lpm_hint => "ONE_INPUT_IS_CONSTANT=YES",
 		lpm_representation => "UNSIGNED",
 		lpm_type => "LPM_COMPARE",
-		lpm_width => 32
+		lpm_width => 28
 	)
 	PORT MAP (
 		dataa => dataa,
-		datab => sub_wire1,
+		datab => datab,
 		aeb => sub_wire0
 	);
 
@@ -104,28 +99,28 @@ END SYN;
 -- Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Cyclone III"
 -- Retrieval info: PRIVATE: LPM_PIPELINE NUMERIC "0"
 -- Retrieval info: PRIVATE: Latency NUMERIC "0"
--- Retrieval info: PRIVATE: PortBValue NUMERIC "268435460"
--- Retrieval info: PRIVATE: Radix NUMERIC "16"
+-- Retrieval info: PRIVATE: PortBValue NUMERIC "0"
+-- Retrieval info: PRIVATE: Radix NUMERIC "10"
 -- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
 -- Retrieval info: PRIVATE: SignedCompare NUMERIC "0"
 -- Retrieval info: PRIVATE: aclr NUMERIC "0"
 -- Retrieval info: PRIVATE: clken NUMERIC "0"
--- Retrieval info: PRIVATE: isPortBConstant NUMERIC "1"
--- Retrieval info: PRIVATE: nBit NUMERIC "32"
+-- Retrieval info: PRIVATE: isPortBConstant NUMERIC "0"
+-- Retrieval info: PRIVATE: nBit NUMERIC "28"
 -- Retrieval info: PRIVATE: new_diagram STRING "1"
 -- Retrieval info: LIBRARY: lpm lpm.lpm_components.all
--- Retrieval info: CONSTANT: LPM_HINT STRING "ONE_INPUT_IS_CONSTANT=YES"
 -- Retrieval info: CONSTANT: LPM_REPRESENTATION STRING "UNSIGNED"
 -- Retrieval info: CONSTANT: LPM_TYPE STRING "LPM_COMPARE"
--- Retrieval info: CONSTANT: LPM_WIDTH NUMERIC "32"
+-- Retrieval info: CONSTANT: LPM_WIDTH NUMERIC "28"
 -- Retrieval info: USED_PORT: aeb 0 0 0 0 OUTPUT NODEFVAL "aeb"
--- Retrieval info: USED_PORT: dataa 0 0 32 0 INPUT NODEFVAL "dataa[31..0]"
--- Retrieval info: CONNECT: @dataa 0 0 32 0 dataa 0 0 32 0
--- Retrieval info: CONNECT: @datab 0 0 32 0 268435460 0 0 32 0
+-- Retrieval info: USED_PORT: dataa 0 0 28 0 INPUT NODEFVAL "dataa[27..0]"
+-- Retrieval info: USED_PORT: datab 0 0 28 0 INPUT NODEFVAL "datab[27..0]"
+-- Retrieval info: CONNECT: @dataa 0 0 28 0 dataa 0 0 28 0
+-- Retrieval info: CONNECT: @datab 0 0 28 0 datab 0 0 28 0
 -- Retrieval info: CONNECT: aeb 0 0 0 0 @aeb 0 0 0 0
--- Retrieval info: GEN_FILE: TYPE_NORMAL CMPMouseAddr.vhd TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL CMPMouseAddr.inc FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL CMPMouseAddr.cmp FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL CMPMouseAddr.bsf TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL CMPMouseAddr_inst.vhd FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL CMP28.vhd TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL CMP28.inc FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL CMP28.cmp FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL CMP28.bsf TRUE FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL CMP28_inst.vhd FALSE
 -- Retrieval info: LIB_FILE: lpm

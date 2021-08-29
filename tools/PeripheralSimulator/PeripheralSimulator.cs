@@ -115,7 +115,7 @@ namespace PeripheralSimulator
             {
                 uint basea = peripheral.getBaseAddress();
                 uint size = peripheral.getSize();
-                if (addr >= basea && addr < basea + size)
+                if (addr >= basea && addr < basea + (size*4))
                 {
                     peripheral.write(addr, value);
                     break;
@@ -129,7 +129,7 @@ namespace PeripheralSimulator
             {
                 uint basea = peripheral.getBaseAddress();
                 uint size = peripheral.getSize();
-                if (addr >= basea && addr < basea + size)
+                if (addr >= basea && addr < basea + (size*4))
                 {
                     return peripheral.read(addr);
                 }

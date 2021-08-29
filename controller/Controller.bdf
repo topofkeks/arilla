@@ -34,10 +34,11 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -16 136 40 152))
 )
 (pin
 	(input)
-	(rect 40 152 216 168)
+	(rect -232 152 -56 168)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "ADDR[31..0]" (rect 9 0 72 12)(font "Arial" ))
 	(pt 176 8)
@@ -131,6 +132,7 @@ applicable agreement for further details.
 		(line (pt 52 8)(pt 56 12))
 	)
 	(text "VCC" (rect 4 7 24 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 216 296 272 312))
 )
 (pin
 	(bidir)
@@ -148,6 +150,7 @@ applicable agreement for further details.
 		(line (pt 52 8)(pt 56 12))
 	)
 	(text "VCC" (rect 4 7 24 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 216 328 272 344))
 )
 (pin
 	(bidir)
@@ -1359,41 +1362,6 @@ applicable agreement for further details.
 	(annotation_block (parameter)(rect 2736 352 2933 394))
 )
 (symbol
-	(rect 224 112 352 208)
-	(text "CMPMouseAddr" (rect 15 0 127 16)(font "Arial" (font_size 10)))
-	(text "inst12" (rect 8 81 37 93)(font "Arial" ))
-	(port
-		(pt 0 48)
-		(input)
-		(text "dataa[31..0]" (rect 0 0 67 14)(font "Arial" (font_size 8)))
-		(text "dataa[31..0]" (rect 20 42 87 56)(font "Arial" (font_size 8)))
-		(line (pt 0 48)(pt 16 48)(line_width 3))
-	)
-	(port
-		(pt 128 56)
-		(output)
-		(text "aeb" (rect 0 0 21 14)(font "Arial" (font_size 8)))
-		(text "aeb" (rect 91 50 112 64)(font "Arial" (font_size 8)))
-		(line (pt 128 56)(pt 112 56))
-	)
-	(drawing
-		(text "datab[]=268435457" (rect 20 58 129 72)(font "Arial" (font_size 8)))
-		(text "compare" (rect 76 27 118 39)(font "Arial" ))
-		(line (pt 16 16)(pt 16 80))
-		(line (pt 16 16)(pt 112 16))
-		(line (pt 16 80)(pt 112 80))
-		(line (pt 112 16)(pt 112 80))
-		(line (pt 0 0)(pt 129 0))
-		(line (pt 129 0)(pt 129 98))
-		(line (pt 0 98)(pt 129 98))
-		(line (pt 0 0)(pt 0 98))
-		(line (pt 0 0)(pt 0 0))
-		(line (pt 0 0)(pt 0 0))
-		(line (pt 0 0)(pt 0 0))
-		(line (pt 0 0)(pt 0 0))
-	)
-)
-(symbol
 	(rect 328 304 376 336)
 	(text "TRI" (rect 1 0 16 10)(font "Arial" (font_size 6)))
 	(text "inst13" (rect 3 21 32 33)(font "Arial" ))
@@ -2602,6 +2570,89 @@ applicable agreement for further details.
 	)
 	(annotation_block (parameter)(rect 2080 928 2262 970))
 )
+(symbol
+	(rect -160 248 -48 368)
+	(text "LDREG" (rect 5 0 42 12)(font "Arial" ))
+	(text "inst3" (rect 8 104 31 116)(font "Arial" ))
+	(port
+		(pt 0 88)
+		(input)
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
+		(text "clk" (rect 21 83 35 95)(font "Arial" ))
+		(line (pt 0 88)(pt 16 88))
+	)
+	(port
+		(pt 56 0)
+		(input)
+		(text "data_in[size-1..0]" (rect 0 0 83 12)(font "Arial" ))
+		(text "IN[W]" (rect 48 16 60 45)(font "Arial" )(vertical))
+		(line (pt 56 0)(pt 56 16)(line_width 3))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "ld" (rect 0 0 8 12)(font "Arial" ))
+		(text "LD" (rect 24 24 38 36)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 56 120)
+		(output)
+		(text "data_out[size-1..0]" (rect 0 8 90 20)(font "Arial" ))
+		(text "OUT[W]" (rect 48 64 60 104)(font "Arial" )(vertical))
+		(line (pt 56 120)(pt 56 104)(line_width 3))
+	)
+	(parameter
+		"size"
+		"32"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"default_value"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(text "LD REG" (rect 24 48 101 67)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
+		(rectangle (rect 16 16 96 104))
+	)
+	(annotation_block (parameter)(rect -312 192 -115 234))
+)
+(symbol
+	(rect 224 112 352 208)
+	(text "CMPMouseAddr" (rect 17 0 129 16)(font "Arial" (font_size 10)))
+	(text "inst12" (rect 8 80 37 92)(font "Arial" ))
+	(port
+		(pt 0 48)
+		(input)
+		(text "dataa[31..0]" (rect 0 0 67 14)(font "Arial" (font_size 8)))
+		(text "dataa[31..0]" (rect 20 41 87 55)(font "Arial" (font_size 8)))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 128 56)
+		(output)
+		(text "aeb" (rect 0 0 21 14)(font "Arial" (font_size 8)))
+		(text "aeb" (rect 91 49 112 63)(font "Arial" (font_size 8)))
+		(line (pt 128 56)(pt 112 56))
+	)
+	(drawing
+		(text "datab[]=268435460" (rect 20 57 129 71)(font "Arial" (font_size 8)))
+		(text "compare" (rect 76 26 118 38)(font "Arial" ))
+		(line (pt 16 16)(pt 16 80))
+		(line (pt 16 16)(pt 112 16))
+		(line (pt 16 80)(pt 112 80))
+		(line (pt 112 16)(pt 112 80))
+		(line (pt 0 0)(pt 129 0))
+		(line (pt 129 0)(pt 129 98))
+		(line (pt 0 98)(pt 129 98))
+		(line (pt 0 0)(pt 0 98))
+		(line (pt 0 0)(pt 0 0))
+		(line (pt 0 0)(pt 0 0))
+		(line (pt 0 0)(pt 0 0))
+		(line (pt 0 0)(pt 0 0))
+	)
+)
 (connector
 	(text "decTimer" (rect 784 208 828 220)(font "Arial" ))
 	(pt 776 224)
@@ -3107,11 +3158,6 @@ applicable agreement for further details.
 	(pt 1216 816)
 )
 (connector
-	(pt 216 160)
-	(pt 224 160)
-	(bus)
-)
-(connector
 	(text "zero" (rect 512 176 532 188)(font "Arial" ))
 	(pt 552 192)
 	(pt 504 192)
@@ -3532,10 +3578,6 @@ applicable agreement for further details.
 	(pt 360 168)
 )
 (connector
-	(pt 360 168)
-	(pt 360 240)
-)
-(connector
 	(text "OutY[9..0]" (rect 2033 768 2084 780)(font "Arial" ))
 	(pt 2024 784)
 	(pt 2056 784)
@@ -3592,6 +3634,57 @@ applicable agreement for further details.
 	(text "YUnderflow" (rect 2016 680 2073 692)(font "Arial" ))
 	(pt 2008 696)
 	(pt 2056 696)
+)
+(connector
+	(text "DELAYADDR[31..0]" (rect 112 144 212 156)(font "Arial" ))
+	(pt 224 160)
+	(pt 104 160)
+	(bus)
+)
+(connector
+	(pt -104 368)
+	(pt -104 400)
+	(bus)
+)
+(connector
+	(text "DELAYADDR[31..0]" (rect -94 384 6 396)(font "Arial" ))
+	(pt -104 400)
+	(pt -32 400)
+	(bus)
+)
+(connector
+	(pt -56 160)
+	(pt -32 160)
+	(bus)
+)
+(connector
+	(pt -32 160)
+	(pt -32 192)
+	(bus)
+)
+(connector
+	(pt -32 192)
+	(pt -104 192)
+	(bus)
+)
+(connector
+	(pt -104 192)
+	(pt -104 248)
+	(bus)
+)
+(connector
+	(text "one" (rect -208 264 -191 276)(font "Arial" ))
+	(pt -160 280)
+	(pt -216 280)
+)
+(connector
+	(text "clk" (rect -190 320 -176 332)(font "Arial" ))
+	(pt -160 336)
+	(pt -216 336)
+)
+(connector
+	(pt 360 232)
+	(pt 360 168)
 )
 (junction (pt 120 496))
 (junction (pt 120 648))
