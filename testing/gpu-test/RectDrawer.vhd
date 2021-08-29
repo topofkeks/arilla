@@ -14,7 +14,7 @@
 
 -- PROGRAM		"Quartus II 64-Bit"
 -- VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
--- CREATED		"Sat Aug 28 23:36:12 2021"
+-- CREATED		"Sun Aug 29 14:07:35 2021"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -91,6 +91,19 @@ COMPONENT mux4_11
 	);
 END COMPONENT;
 
+COMPONENT ldcreg
+GENERIC (clear_value : INTEGER;
+			default_value : INTEGER;
+			size : INTEGER
+			);
+	PORT(clk : IN STD_LOGIC;
+		 cl : IN STD_LOGIC;
+		 ld : IN STD_LOGIC;
+		 data_in : IN STD_LOGIC_VECTOR(0 TO 0);
+		 data_out : OUT STD_LOGIC_VECTOR(0 TO 0)
+	);
+END COMPONENT;
+
 COMPONENT const
 GENERIC (const : INTEGER;
 			size : INTEGER
@@ -117,10 +130,10 @@ SIGNAL	sleY :  STD_LOGIC;
 SIGNAL	zero :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_0 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_1 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_2 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_3 :  STD_LOGIC_VECTOR(10 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_2 :  STD_LOGIC_VECTOR(10 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_12 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_5 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_4 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_6 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_7 :  STD_LOGIC_VECTOR(10 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_8 :  STD_LOGIC_VECTOR(10 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_9 :  STD_LOGIC;
@@ -130,6 +143,7 @@ SIGNAL	DFF_inst40 :  STD_LOGIC;
 
 
 BEGIN 
+SYNTHESIZED_WIRE_6 <= '1';
 
 
 
@@ -152,18 +166,6 @@ PORT MAP(sel => fill,
 		 result => sYout);
 
 
-PROCESS(clk,SYNTHESIZED_WIRE_0)
-VARIABLE synthesized_var_for_run : STD_LOGIC;
-BEGIN
-IF (SYNTHESIZED_WIRE_0 = '0') THEN
-	synthesized_var_for_run := '1';
-ELSIF (RISING_EDGE(clk)) THEN
-	synthesized_var_for_run := (NOT(synthesized_var_for_run) AND start) OR (synthesized_var_for_run AND (NOT(opCMPL_ALTERA_SYNTHESIZED)));
-END IF;
-	run <= synthesized_var_for_run;
-END PROCESS;
-
-
 b2v_inst12 : mux2_11
 PORT MAP(sel => fill,
 		 data0x => drawBX,
@@ -184,10 +186,10 @@ GENERIC MAP(default_value => 0,
 			size => 11
 			)
 PORT MAP(clk => clk,
-		 inc => SYNTHESIZED_WIRE_1,
-		 dec => SYNTHESIZED_WIRE_2,
+		 inc => SYNTHESIZED_WIRE_0,
+		 dec => SYNTHESIZED_WIRE_1,
 		 ld => start,
-		 data_in => SYNTHESIZED_WIRE_3,
+		 data_in => SYNTHESIZED_WIRE_2,
 		 data_out => cY);
 
 
@@ -195,13 +197,13 @@ b2v_inst16 : mux2_11
 PORT MAP(sel => fill,
 		 data0x => Czero(10 DOWNTO 0),
 		 data1x => sY,
-		 result => SYNTHESIZED_WIRE_3);
+		 result => SYNTHESIZED_WIRE_2);
 
 
-SYNTHESIZED_WIRE_1 <= FC AND SYNTHESIZED_WIRE_12;
+SYNTHESIZED_WIRE_0 <= FC AND SYNTHESIZED_WIRE_12;
 
 
-SYNTHESIZED_WIRE_2 <= SYNTHESIZED_WIRE_5 AND FC;
+SYNTHESIZED_WIRE_1 <= SYNTHESIZED_WIRE_4 AND FC;
 
 
 b2v_inst19 : mux2_1
@@ -220,7 +222,7 @@ PORT MAP(data0x => minX,
 		 result => drawAX);
 
 
-SYNTHESIZED_WIRE_5 <= NOT(SYNTHESIZED_WIRE_12);
+SYNTHESIZED_WIRE_4 <= NOT(SYNTHESIZED_WIRE_12);
 
 
 
@@ -249,6 +251,18 @@ PORT MAP(data0x => minY,
 		 data3x => maxY,
 		 sel => cY(1 DOWNTO 0),
 		 result => drawBY);
+
+
+b2v_inst25 : ldcreg
+GENERIC MAP(clear_value => 0,
+			default_value => 0,
+			size => 1
+			)
+PORT MAP(clk => clk,
+		 cl => opCMPL_ALTERA_SYNTHESIZED,
+		 ld => start,
+		 data_in(0) => SYNTHESIZED_WIRE_6,
+		 data_out(0) => run);
 
 
 
@@ -281,6 +295,7 @@ GENERIC MAP(const => 3,
 			size => 11
 			)
 PORT MAP(		 data => SYNTHESIZED_WIRE_8);
+
 
 
 opCMPL_ALTERA_SYNTHESIZED <= FC AND SYNTHESIZED_WIRE_10;
@@ -326,10 +341,6 @@ PORT MAP(sel => sleY,
 		 data0x => sY,
 		 data1x => eY,
 		 result => maxY);
-
-
-SYNTHESIZED_WIRE_0 <= NOT(start);
-
 
 
 b2v_inst9 : mux2_11

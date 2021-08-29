@@ -14,7 +14,7 @@
 
 -- PROGRAM		"Quartus II 64-Bit"
 -- VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
--- CREATED		"Sat Aug 28 23:35:54 2021"
+-- CREATED		"Sun Aug 29 14:07:28 2021"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -78,6 +78,19 @@ GENERIC (default_value : INTEGER;
 		 ld : IN STD_LOGIC;
 		 data_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 		 data_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+	);
+END COMPONENT;
+
+COMPONENT ldcreg
+GENERIC (clear_value : INTEGER;
+			default_value : INTEGER;
+			size : INTEGER
+			);
+	PORT(clk : IN STD_LOGIC;
+		 cl : IN STD_LOGIC;
+		 ld : IN STD_LOGIC;
+		 data_in : IN STD_LOGIC_VECTOR(0 TO 0);
+		 data_out : OUT STD_LOGIC_VECTOR(0 TO 0)
 	);
 END COMPONENT;
 
@@ -167,8 +180,8 @@ SIGNAL	SYNTHESIZED_WIRE_2 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_3 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_4 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_5 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_6 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_7 :  STD_LOGIC_VECTOR(15 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_6 :  STD_LOGIC_VECTOR(15 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_7 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_8 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_9 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_10 :  STD_LOGIC;
@@ -189,6 +202,7 @@ SIGNAL	GDFX_TEMP_SIGNAL_2 :  STD_LOGIC_VECTOR(1 DOWNTO 0);
 SIGNAL	GDFX_TEMP_SIGNAL_0 :  STD_LOGIC_VECTOR(15 DOWNTO 0);
 
 BEGIN 
+SYNTHESIZED_WIRE_7 <= '1';
 
 GDFX_TEMP_SIGNAL_1 <= (start & start);
 GDFX_TEMP_SIGNAL_2 <= (mvX & mvY);
@@ -205,18 +219,6 @@ b2v_inst1 : cmp11
 PORT MAP(dataa => sY,
 		 datab => eY,
 		 alb => sleY);
-
-
-PROCESS(clk,SYNTHESIZED_WIRE_0)
-VARIABLE synthesized_var_for_run : STD_LOGIC;
-BEGIN
-IF (SYNTHESIZED_WIRE_0 = '0') THEN
-	synthesized_var_for_run := '1';
-ELSIF (RISING_EDGE(clk)) THEN
-	synthesized_var_for_run := (NOT(synthesized_var_for_run) AND start) OR (synthesized_var_for_run AND (NOT(opCMPL_ALTERA_SYNTHESIZED)));
-END IF;
-	run <= synthesized_var_for_run;
-END PROCESS;
 
 
 b2v_inst12 : addsubs_11
@@ -239,8 +241,8 @@ GENERIC MAP(default_value => 0,
 			size => 11
 			)
 PORT MAP(clk => clk,
-		 inc => SYNTHESIZED_WIRE_1,
-		 dec => SYNTHESIZED_WIRE_2,
+		 inc => SYNTHESIZED_WIRE_0,
+		 dec => SYNTHESIZED_WIRE_1,
 		 ld => start,
 		 data_in => sX,
 		 data_out => cX);
@@ -251,20 +253,20 @@ GENERIC MAP(default_value => 0,
 			size => 11
 			)
 PORT MAP(clk => clk,
-		 inc => SYNTHESIZED_WIRE_3,
-		 dec => SYNTHESIZED_WIRE_4,
+		 inc => SYNTHESIZED_WIRE_2,
+		 dec => SYNTHESIZED_WIRE_3,
 		 ld => start,
 		 data_in => sY,
 		 data_out => cY);
 
 
-SYNTHESIZED_WIRE_1 <= mvX AND sleX;
+SYNTHESIZED_WIRE_0 <= mvX AND sleX;
 
 
-SYNTHESIZED_WIRE_2 <= SYNTHESIZED_WIRE_5 AND mvX;
+SYNTHESIZED_WIRE_1 <= SYNTHESIZED_WIRE_4 AND mvX;
 
 
-SYNTHESIZED_WIRE_3 <= mvY AND sleY;
+SYNTHESIZED_WIRE_2 <= mvY AND sleY;
 
 
 b2v_inst2 : cmp11
@@ -273,14 +275,14 @@ PORT MAP(dataa => cY,
 		 aneb => SYNTHESIZED_WIRE_9);
 
 
-SYNTHESIZED_WIRE_4 <= SYNTHESIZED_WIRE_6 AND mvY;
+SYNTHESIZED_WIRE_3 <= SYNTHESIZED_WIRE_5 AND mvY;
 
 
-SYNTHESIZED_WIRE_5 <= NOT(sleX);
+SYNTHESIZED_WIRE_4 <= NOT(sleX);
 
 
 
-SYNTHESIZED_WIRE_6 <= NOT(sleY);
+SYNTHESIZED_WIRE_5 <= NOT(sleY);
 
 
 
@@ -290,8 +292,20 @@ GENERIC MAP(default_value => 0,
 			)
 PORT MAP(clk => clk,
 		 ld => ldERR,
-		 data_in => SYNTHESIZED_WIRE_7,
+		 data_in => SYNTHESIZED_WIRE_6,
 		 data_out => ERR);
+
+
+b2v_inst25 : ldcreg
+GENERIC MAP(clear_value => 0,
+			default_value => 0,
+			size => 1
+			)
+PORT MAP(clk => clk,
+		 cl => opCMPL_ALTERA_SYNTHESIZED,
+		 ld => start,
+		 data_in(0) => SYNTHESIZED_WIRE_7,
+		 data_out(0) => run);
 
 
 
@@ -327,6 +341,7 @@ last <= SYNTHESIZED_WIRE_10 AND SYNTHESIZED_WIRE_11;
 
 
 opCMPL_ALTERA_SYNTHESIZED <= FC AND last;
+
 
 
 b2v_inst4 : mux2_11
@@ -377,7 +392,7 @@ b2v_inst46 : addsubs_16
 PORT MAP(add_sub => one,
 		 dataa => SYNTHESIZED_WIRE_15,
 		 datab => SYNTHESIZED_WIRE_16,
-		 result => SYNTHESIZED_WIRE_7);
+		 result => SYNTHESIZED_WIRE_6);
 
 
 b2v_inst47 : mux4_16
@@ -435,10 +450,6 @@ PORT MAP(sel => sleY,
 		 data0x => sY,
 		 data1x => eY,
 		 result => maxY);
-
-
-SYNTHESIZED_WIRE_0 <= NOT(start);
-
 
 opCMPL <= opCMPL_ALTERA_SYNTHESIZED;
 X <= cX;
