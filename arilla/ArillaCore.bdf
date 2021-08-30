@@ -2828,66 +2828,6 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 456 320 624 440)
-	(text "LDCREG" (rect 17 1 63 13)(font "Arial" ))
-	(text "inst26" (rect 16 104 45 116)(font "Arial" ))
-	(port
-		(pt 0 88)
-		(input)
-		(text "clk" (rect 0 8 14 20)(font "Arial" ))
-		(text "clk" (rect 24 80 38 92)(font "Arial" ))
-		(line (pt 0 88)(pt 16 88))
-	)
-	(port
-		(pt 88 0)
-		(input)
-		(text "data_in[size-1..0]" (rect -24 0 59 12)(font "Arial" ))
-		(text "IN[W]" (rect 80 16 92 45)(font "Arial" )(vertical))
-		(line (pt 88 0)(pt 88 16)(line_width 3))
-	)
-	(port
-		(pt 168 32)
-		(input)
-		(text "cl" (rect -80 8 -72 20)(font "Arial" ))
-		(text "CL" (rect 136 24 150 36)(font "Arial" ))
-		(line (pt 152 32)(pt 168 32))
-	)
-	(port
-		(pt 0 32)
-		(input)
-		(text "ld" (rect 0 8 8 20)(font "Arial" ))
-		(text "LD" (rect 24 24 38 36)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 88 120)
-		(output)
-		(text "data_out[size-1..0]" (rect -24 8 66 20)(font "Arial" ))
-		(text "OUT[W]" (rect 80 64 92 104)(font "Arial" )(vertical))
-		(line (pt 88 120)(pt 88 104)(line_width 3))
-	)
-	(parameter
-		"size"
-		"32"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"default_value"
-		"3636"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"clear_value"
-		"3636"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(text "LDCL REG" (rect 40 48 146 67)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
-		(rectangle (rect 16 16 152 104))
-	)
-	(annotation_block (parameter)(rect 456 184 653 240))
-)
-(symbol
 	(rect 256 704 352 784)
 	(text "EDGED" (rect 5 0 45 14)(font "Arial" (font_size 8)))
 	(text "inst25" (rect 8 64 37 76)(font "Arial" ))
@@ -2947,6 +2887,98 @@ applicable agreement for further details.
 		(line (pt 13 25)(pt 31 16))
 		(circle (rect 31 12 39 20))
 	)
+)
+(symbol
+	(rect 432 744 496 792)
+	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
+	(text "inst31" (rect 3 37 32 49)(font "Arial" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN1" (rect 2 7 19 19)(font "Courier New" (bold))(invisible))
+		(text "IN1" (rect 2 7 19 19)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 14 16))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
+		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
+		(line (pt 0 32)(pt 14 32))
+	)
+	(port
+		(pt 64 24)
+		(output)
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
+		(line (pt 42 24)(pt 64 24))
+	)
+	(drawing
+		(line (pt 14 12)(pt 30 12))
+		(line (pt 14 37)(pt 31 37))
+		(line (pt 14 12)(pt 14 37))
+		(arc (pt 31 37)(pt 30 12)(rect 18 12 43 37))
+	)
+)
+(symbol
+	(rect 456 320 624 440)
+	(text "LDCREG" (rect 17 1 63 13)(font "Arial" ))
+	(text "inst26" (rect 16 104 45 116)(font "Arial" ))
+	(port
+		(pt 0 88)
+		(input)
+		(text "clk" (rect 0 8 14 20)(font "Arial" ))
+		(text "clk" (rect 24 80 38 92)(font "Arial" ))
+		(line (pt 0 88)(pt 16 88))
+	)
+	(port
+		(pt 88 0)
+		(input)
+		(text "data_in[size-1..0]" (rect -24 0 59 12)(font "Arial" ))
+		(text "IN[W]" (rect 80 16 92 45)(font "Arial" )(vertical))
+		(line (pt 88 0)(pt 88 16)(line_width 3))
+	)
+	(port
+		(pt 168 32)
+		(input)
+		(text "cl" (rect -80 8 -72 20)(font "Arial" ))
+		(text "CL" (rect 136 24 150 36)(font "Arial" ))
+		(line (pt 152 32)(pt 168 32))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "ld" (rect 0 8 8 20)(font "Arial" ))
+		(text "LD" (rect 24 24 38 36)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 88 120)
+		(output)
+		(text "data_out[size-1..0]" (rect -24 8 66 20)(font "Arial" ))
+		(text "OUT[W]" (rect 80 64 92 104)(font "Arial" )(vertical))
+		(line (pt 88 120)(pt 88 104)(line_width 3))
+	)
+	(parameter
+		"size"
+		"32"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"default_value"
+		"3640"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"clear_value"
+		"3640"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(text "LDCL REG" (rect 40 48 146 67)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
+		(rectangle (rect 16 16 152 104))
+	)
+	(annotation_block (parameter)(rect 456 184 653 240))
 )
 (connector
 	(text "opcode[6..0]" (rect 1761 216 1822 228)(font "Arial" ))
@@ -4512,18 +4544,44 @@ applicable agreement for further details.
 	(pt 360 736)
 )
 (connector
-	(text "halted" (rect 432 720 461 732)(font "Arial" ))
-	(pt 408 736)
-	(pt 512 736)
-)
-(connector
 	(text "BUTTON[1]" (rect 199 720 255 732)(font "Arial" ))
 	(pt 256 736)
 	(pt 176 736)
 )
+(connector
+	(text "SW[9]" (rect 394 760 424 772)(font "Arial" ))
+	(pt 384 776)
+	(pt 432 776)
+)
+(connector
+	(pt 432 736)
+	(pt 408 736)
+)
+(connector
+	(pt 432 736)
+	(pt 432 760)
+)
+(connector
+	(pt 496 768)
+	(pt 552 768)
+)
+(connector
+	(pt 552 768)
+	(pt 552 728)
+)
+(connector
+	(text "halted" (rect 488 712 517 724)(font "Arial" ))
+	(pt 448 728)
+	(pt 552 728)
+)
+(connector
+	(pt 552 728)
+	(pt 568 728)
+)
 (junction (pt 1200 184))
 (junction (pt 992 456))
 (junction (pt 544 448))
+(junction (pt 552 728))
 (text "Program counter" (rect 152 584 246 598)(font "Arial" (font_size 8)))
 (text "Arilla RISC-V Core  " (rect 432 1008 742 1041)(font "DejaVu Sans Mono" (color 0 0 0)(font_size 20)(bold))(border))
 (text "Pins and debug functionality" (rect 152 1032 311 1046)(font "Arial" (font_size 8)))

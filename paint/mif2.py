@@ -24,11 +24,10 @@ with open(args.s_file, 'r', encoding='utf-8') as s_file:
         spl: List[str] = line.strip().split(' ')
         addr: int = int(spl[0], 16)
         for i in range(4):
-            contents: str = ''
             if spl[i + 1] == '':
-                contents = '00000000'
-            else:
-                int(spl[i + 1], 16)
-                contents = spl[i + 1]
+                continue
+            contents: str = ''
+            int(spl[i + 1], 16)
+            contents = spl[i + 1]
             print(f'{format_hex((addr + i * 4 - min_addr) // 4)} : {"".join([contents[i:i+2] for i in range(0, len(contents), 2)][::-1])};')
     print('END;')

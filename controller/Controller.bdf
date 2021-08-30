@@ -3596,12 +3596,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "OutY[10..1],X[10..1],zero,zero,zero,zero,zero,zero,zero,zero,changed,Buttons[1..0],acked" (rect 1560 960 1993 972)(font "Arial" ))
-	(pt 1592 936)
-	(pt 1848 936)
-	(bus)
-)
-(connector
 	(text "const0[9..0]" (rect 2296 808 2355 820)(font "Arial" ))
 	(pt 2296 824)
 	(pt 2344 824)
@@ -3685,6 +3679,12 @@ applicable agreement for further details.
 (connector
 	(pt 360 232)
 	(pt 360 168)
+)
+(connector
+	(text "OutY[9..0],X[9..0],zero,zero,zero,zero,zero,zero,zero,zero,changed,Buttons[1..0],acked" (rect 1560 960 1981 972)(font "Arial" ))
+	(pt 1592 936)
+	(pt 1848 936)
+	(bus)
 )
 (junction (pt 120 496))
 (junction (pt 120 648))

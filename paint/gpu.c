@@ -45,7 +45,8 @@ void gpuSetCursor(unsigned int cursor)
 
 void gpuSetColor(unsigned int color)
 {
-    lastControl = (color<<20) | (lastControl&0xF);
+    gpuWaitForReady();
+    lastControl = (color<<20) | (lastControl&0xFF);
     out(GPU_BASE_ADDRESS,lastControl);
 }
 

@@ -5,9 +5,9 @@ add wave -noupdate -radix unsigned /topleveltestbench/A/ByteEnable
 add wave -noupdate -radix unsigned /topleveltestbench/A/PC
 add wave -noupdate -radix unsigned /topleveltestbench/A/rst
 add wave -noupdate -label DATA -radix binary /topleveltestbench/A/gdfx_temp0
-add wave -noupdate -label ADDR -radix hexadecimal /topleveltestbench/A/SYNTHESIZED_WIRE_21
-add wave -noupdate -label WR -radix unsigned /topleveltestbench/A/SYNTHESIZED_WIRE_19
-add wave -noupdate -label RD -radix unsigned /topleveltestbench/A/SYNTHESIZED_WIRE_20
+add wave -noupdate -label ADDR /topleveltestbench/A/SYNTHESIZED_WIRE_23
+add wave -noupdate -label RD /topleveltestbench/A/SYNTHESIZED_WIRE_22
+add wave -noupdate -label WR /topleveltestbench/A/SYNTHESIZED_WIRE_21
 add wave -noupdate /topleveltestbench/A/b2v_inst/fault_signal
 add wave -noupdate /topleveltestbench/A/b2v_inst/A
 add wave -noupdate /topleveltestbench/A/b2v_inst/ALUA
@@ -256,9 +256,7 @@ add wave -noupdate /topleveltestbench/A/b2v_inst1/SYNTHESIZED_WIRE_13
 add wave -noupdate /topleveltestbench/A/b2v_inst1/SYNTHESIZED_WIRE_14
 add wave -noupdate /topleveltestbench/A/b2v_inst1/SYNTHESIZED_WIRE_17
 add wave -noupdate /topleveltestbench/A/b2v_inst1/SYNTHESIZED_WIRE_18
-add wave -noupdate /topleveltestbench/A/b2v_inst1/SYNTHESIZED_WIRE_22
 add wave -noupdate /topleveltestbench/A/b2v_inst1/SYNTHESIZED_WIRE_50
-add wave -noupdate /topleveltestbench/A/b2v_inst1/SYNTHESIZED_WIRE_26
 add wave -noupdate /topleveltestbench/A/b2v_inst1/SYNTHESIZED_WIRE_27
 add wave -noupdate /topleveltestbench/A/b2v_inst1/SYNTHESIZED_WIRE_28
 add wave -noupdate /topleveltestbench/A/b2v_inst1/SYNTHESIZED_WIRE_29
@@ -287,7 +285,7 @@ add wave -noupdate /topleveltestbench/A/b2v_inst1/GDFX_TEMP_SIGNAL_0
 add wave -noupdate /topleveltestbench/A/b2v_inst1/GDFX_TEMP_SIGNAL_8
 add wave -noupdate /topleveltestbench/A/b2v_inst1/GDFX_TEMP_SIGNAL_1
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {3167291 ps} 0}
+WaveRestoreCursors {{Cursor 1} {47901 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 311
 configure wave -valuecolwidth 268
@@ -303,4 +301,4 @@ configure wave -griddelta 40
 configure wave -timeline 1
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {3028226 ps} {3218501 ps}
+WaveRestoreZoom {0 ps} {1952464 ps}

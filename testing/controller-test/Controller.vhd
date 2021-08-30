@@ -14,7 +14,7 @@
 
 -- PROGRAM		"Quartus II 64-Bit"
 -- VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
--- CREATED		"Mon Aug 30 00:13:28 2021"
+-- CREATED		"Mon Aug 30 20:14:53 2021"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -44,7 +44,7 @@ ATTRIBUTE noopt : BOOLEAN;
 COMPONENT lpm_rom_0
 	PORT(outclock : IN STD_LOGIC;
 		 address : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-		 		 		 q	:	OUT	 STD_LOGIC_VECTOR(8 DOWNTO 0)
+		 		 		 		 q	:	OUT	 STD_LOGIC_VECTOR(8 DOWNTO 0)
 	 );
 END COMPONENT;
 ATTRIBUTE black_box OF lpm_rom_0: COMPONENT IS true;
@@ -228,7 +228,7 @@ SIGNAL	memUpdated :  STD_LOGIC;
 SIGNAL	NewX :  STD_LOGIC_VECTOR(9 DOWNTO 0);
 SIGNAL	NewY :  STD_LOGIC_VECTOR(9 DOWNTO 0);
 SIGNAL	one :  STD_LOGIC;
-SIGNAL	OutY :  STD_LOGIC_VECTOR(10 DOWNTO 0);
+SIGNAL	OutY :  STD_LOGIC_VECTOR(9 DOWNTO 0);
 SIGNAL	packetsFull :  STD_LOGIC;
 SIGNAL	pulldownCLK :  STD_LOGIC;
 SIGNAL	RData :  STD_LOGIC_VECTOR(32 DOWNTO 0);
@@ -236,7 +236,7 @@ SIGNAL	srDataAndIncBitsOnFallingEdge :  STD_LOGIC;
 SIGNAL	Status :  STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL	timerIsNot0 :  STD_LOGIC;
 SIGNAL	wrData :  STD_LOGIC;
-SIGNAL	X :  STD_LOGIC_VECTOR(10 DOWNTO 0);
+SIGNAL	X :  STD_LOGIC_VECTOR(9 DOWNTO 0);
 SIGNAL	XChanged :  STD_LOGIC;
 SIGNAL	XOverflow :  STD_LOGIC;
 SIGNAL	XUnderflow :  STD_LOGIC;
@@ -285,7 +285,7 @@ wrData <= GDFX_TEMP_SIGNAL_6(4);
 pulldownCLK <= GDFX_TEMP_SIGNAL_6(3);
 decTimer <= GDFX_TEMP_SIGNAL_6(2);
 
-GDFX_TEMP_SIGNAL_1 <= (OutY(10 DOWNTO 1) & X(10 DOWNTO 1) & zero & zero & zero & zero & zero & zero & zero & zero & changed & Buttons(1 DOWNTO 0) & acked);
+GDFX_TEMP_SIGNAL_1 <= (OutY(9 DOWNTO 0) & X(9 DOWNTO 0) & zero & zero & zero & zero & zero & zero & zero & zero & changed & Buttons(1 DOWNTO 0) & acked);
 GDFX_TEMP_SIGNAL_4 <= (RData(6) & RData(6) & RData(30 DOWNTO 23));
 GDFX_TEMP_SIGNAL_3 <= (RData(5) & RData(5) & RData(19 DOWNTO 12));
 GDFX_TEMP_SIGNAL_5 <= (YUnderflow & YOverflow);
@@ -353,7 +353,7 @@ PORT MAP(clk => CLK,
 
 
 b2v_inst : add10
-PORT MAP(dataa => X(9 DOWNTO 0),
+PORT MAP(dataa => X,
 		 datab => DeltaX,
 		 result => NewX);
 
@@ -711,15 +711,15 @@ PORT MAP(dataa => NewX,
 		 datab => const799,
 		 agb => XOverflow);
 
-MouseX <= X(9 DOWNTO 0);
+MouseX <= X;
 
 
-MouseY <= OutY(9 DOWNTO 0);
+MouseY <= OutY;
 
 
 
 b2v_inst26 : cmp10
-PORT MAP(dataa => X(9 DOWNTO 0),
+PORT MAP(dataa => X,
 		 datab => const350,
 		 alb => XUnderflow);
 
@@ -804,7 +804,7 @@ PORT MAP(dataa => NewY,
 
 
 b2v_inst39 : cmp10
-PORT MAP(dataa => X(9 DOWNTO 0),
+PORT MAP(dataa => X,
 		 datab => FinalX,
 		 aneb => XChanged);
 
@@ -833,7 +833,7 @@ PORT MAP(		 data => const0);
 
 b2v_inst44 : sub_controllerinverty
 PORT MAP(datab => Y,
-		 result => OutY(9 DOWNTO 0));
+		 result => OutY);
 
 
 b2v_inst46 : cmp8
@@ -951,7 +951,7 @@ GENERIC MAP(default_value => 400,
 PORT MAP(clk => CLK,
 		 ld => packetsFull,
 		 data_in => FinalX,
-		 data_out => X(9 DOWNTO 0));
+		 data_out => X);
 
 
 b2v_YReg : ldreg

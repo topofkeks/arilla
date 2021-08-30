@@ -2337,6 +2337,54 @@ applicable agreement for further details.
 	(annotation_block (parameter)(rect 264 848 461 890))
 )
 (symbol
+	(rect -712 120 -600 240)
+	(text "LDREG" (rect 5 0 42 12)(font "Arial" ))
+	(text "inst11" (rect 8 104 37 116)(font "Arial" ))
+	(port
+		(pt 0 88)
+		(input)
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
+		(text "clk" (rect 21 83 35 95)(font "Arial" ))
+		(line (pt 0 88)(pt 16 88))
+	)
+	(port
+		(pt 56 0)
+		(input)
+		(text "data_in[size-1..0]" (rect 0 0 83 12)(font "Arial" ))
+		(text "IN[W]" (rect 48 16 60 45)(font "Arial" )(vertical))
+		(line (pt 56 0)(pt 56 16)(line_width 3))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "ld" (rect 0 0 8 12)(font "Arial" ))
+		(text "LD" (rect 24 24 38 36)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 56 120)
+		(output)
+		(text "data_out[size-1..0]" (rect 0 8 90 20)(font "Arial" ))
+		(text "OUT[W]" (rect 48 64 60 104)(font "Arial" )(vertical))
+		(line (pt 56 120)(pt 56 104)(line_width 3))
+	)
+	(parameter
+		"size"
+		"32"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"default_value"
+		"12852"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(text "LD REG" (rect 24 48 101 67)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
+		(rectangle (rect 16 16 96 104))
+	)
+	(annotation_block (parameter)(rect -648 80 -451 122))
+)
+(symbol
 	(rect -712 -72 -600 48)
 	(text "LDREG" (rect 5 0 42 12)(font "Arial" ))
 	(text "inst10" (rect 8 104 37 116)(font "Arial" ))
@@ -2383,54 +2431,6 @@ applicable agreement for further details.
 		(rectangle (rect 16 16 96 104))
 	)
 	(annotation_block (parameter)(rect -648 -112 -451 -70))
-)
-(symbol
-	(rect -712 120 -600 240)
-	(text "LDREG" (rect 5 0 42 12)(font "Arial" ))
-	(text "inst11" (rect 8 104 37 116)(font "Arial" ))
-	(port
-		(pt 0 88)
-		(input)
-		(text "clk" (rect 0 0 14 12)(font "Arial" ))
-		(text "clk" (rect 21 83 35 95)(font "Arial" ))
-		(line (pt 0 88)(pt 16 88))
-	)
-	(port
-		(pt 56 0)
-		(input)
-		(text "data_in[size-1..0]" (rect 0 0 83 12)(font "Arial" ))
-		(text "IN[W]" (rect 48 16 60 45)(font "Arial" )(vertical))
-		(line (pt 56 0)(pt 56 16)(line_width 3))
-	)
-	(port
-		(pt 0 32)
-		(input)
-		(text "ld" (rect 0 0 8 12)(font "Arial" ))
-		(text "LD" (rect 24 24 38 36)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 56 120)
-		(output)
-		(text "data_out[size-1..0]" (rect 0 8 90 20)(font "Arial" ))
-		(text "OUT[W]" (rect 48 64 60 104)(font "Arial" )(vertical))
-		(line (pt 56 120)(pt 56 104)(line_width 3))
-	)
-	(parameter
-		"size"
-		"32"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"default_value"
-		"12848"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(text "LD REG" (rect 24 48 101 67)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
-		(rectangle (rect 16 16 96 104))
-	)
-	(annotation_block (parameter)(rect -648 80 -451 122))
 )
 (connector
 	(text "D[4..0]" (rect -1200 328 -1166 340)(font "Arial" ))

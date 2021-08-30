@@ -14,7 +14,7 @@
 
 -- PROGRAM		"Quartus II 64-Bit"
 -- VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
--- CREATED		"Sun Aug 29 18:03:30 2021"
+-- CREATED		"Mon Aug 30 20:13:52 2021"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -335,11 +335,11 @@ SIGNAL	SYNTHESIZED_WIRE_6 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_7 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_8 :  STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_9 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_10 :  STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_10 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_11 :  STD_LOGIC_VECTOR(31 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_12 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_12 :  STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_13 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL	SYNTHESIZED_WIRE_14 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_14 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_15 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_16 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_17 :  STD_LOGIC;
@@ -350,7 +350,8 @@ SIGNAL	SYNTHESIZED_WIRE_21 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_22 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_23 :  STD_LOGIC;
 SIGNAL	SYNTHESIZED_WIRE_24 :  STD_LOGIC;
-SIGNAL	SYNTHESIZED_WIRE_25 :  STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_25 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_26 :  STD_LOGIC_VECTOR(31 DOWNTO 0);
 
 SIGNAL	GDFX_TEMP_SIGNAL_7 :  STD_LOGIC_VECTOR(25 DOWNTO 0);
 SIGNAL	GDFX_TEMP_SIGNAL_10 :  STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -511,7 +512,7 @@ clk <= SYNTHESIZED_WIRE_4 OR SYNTHESIZED_WIRE_5;
 b2v_inst23 : edged
 PORT MAP(I => SYNTHESIZED_WIRE_6,
 		 clk => FPGA_CLK,
-		 Rising => SYNTHESIZED_WIRE_24);
+		 Rising => SYNTHESIZED_WIRE_25);
 
 
 b2v_inst24 : memalignexceptioncheck
@@ -527,8 +528,8 @@ PORT MAP(I => BUTTON(1),
 
 
 b2v_inst26 : ldcreg
-GENERIC MAP(clear_value => 3636,
-			default_value => 3636,
+GENERIC MAP(clear_value => 3640,
+			default_value => 3640,
 			size => 32
 			)
 PORT MAP(clk => clk,
@@ -556,7 +557,7 @@ RD <= NOT(wrMEM);
 
 
 
-halted <= NOT(SYNTHESIZED_WIRE_9);
+SYNTHESIZED_WIRE_10 <= NOT(SYNTHESIZED_WIRE_9);
 
 
 
@@ -565,9 +566,12 @@ SYNTHESIZED_WIRE_6 <= NOT(BUTTON(2));
 
 
 
+halted <= SYNTHESIZED_WIRE_10 AND SW(9);
+
+
 b2v_inst32 : mux8_32
-PORT MAP(data0x => SYNTHESIZED_WIRE_10,
-		 data1x => SYNTHESIZED_WIRE_11,
+PORT MAP(data0x => SYNTHESIZED_WIRE_11,
+		 data1x => SYNTHESIZED_WIRE_12,
 		 data2x => brimmext,
 		 data3x => upimmshifted,
 		 data4x => jalimmext,
@@ -580,20 +584,20 @@ PORT MAP(data0x => SYNTHESIZED_WIRE_10,
 
 b2v_inst33 : mux4_4
 PORT MAP(data0x => GDFX_TEMP_SIGNAL_4,
-		 data1x => SYNTHESIZED_WIRE_12,
-		 data2x => SYNTHESIZED_WIRE_13,
+		 data1x => SYNTHESIZED_WIRE_13,
+		 data2x => SYNTHESIZED_WIRE_14,
 		 data3x => GDFX_TEMP_SIGNAL_5,
 		 sel => mxALUOP,
 		 result => ALUOP);
 
 
 b2v_inst35 : edged
-PORT MAP(I => SYNTHESIZED_WIRE_14,
+PORT MAP(I => SYNTHESIZED_WIRE_15,
 		 clk => FPGA_CLK,
 		 Rising => rst);
 
 
-SYNTHESIZED_WIRE_14 <= NOT(BUTTON(0));
+SYNTHESIZED_WIRE_15 <= NOT(BUTTON(0));
 
 
 
@@ -603,7 +607,7 @@ PORT MAP(data0x => C,
 		 data2x => upimmshifted,
 		 data3x => PC_ALTERA_SYNTHESIZED,
 		 sel => mxReg,
-		 result => SYNTHESIZED_WIRE_25);
+		 result => SYNTHESIZED_WIRE_26);
 
 
 b2v_inst38 : alu
@@ -618,7 +622,7 @@ b2v_inst39 : const
 GENERIC MAP(const => 4,
 			size => 32
 			)
-PORT MAP(		 data => SYNTHESIZED_WIRE_11);
+PORT MAP(		 data => SYNTHESIZED_WIRE_12);
 
 
 
@@ -655,7 +659,7 @@ PORT MAP(sel => brmul,
 
 b2v_inst47 : alubranchoperationcode
 PORT MAP(function3 => function3,
-		 aluop => SYNTHESIZED_WIRE_13);
+		 aluop => SYNTHESIZED_WIRE_14);
 
 
 b2v_inst49 : signext
@@ -683,7 +687,7 @@ PORT MAP(I => immediate,
 		 O => immext);
 
 
-brcnd <= bruncnd OR SYNTHESIZED_WIRE_15 OR brmul OR SYNTHESIZED_WIRE_16 OR SYNTHESIZED_WIRE_17 OR zero;
+brcnd <= bruncnd OR SYNTHESIZED_WIRE_16 OR brmul OR SYNTHESIZED_WIRE_17 OR SYNTHESIZED_WIRE_18 OR zero;
 
 
 b2v_inst53 : signext
@@ -708,7 +712,7 @@ PORT MAP(lui => LUI,
 		 branch => BRANCH,
 		 load => LOAD,
 		 store => STORE,
-		 ri => SYNTHESIZED_WIRE_18,
+		 ri => SYNTHESIZED_WIRE_19,
 		 fault => invalid_opcode,
 		 BranchAddress => caseba);
 
@@ -727,23 +731,23 @@ PORT MAP(I => store_immediate,
 		 O => storeimmext);
 
 
-SYNTHESIZED_WIRE_18 <= OP_IMM OR OP;
+SYNTHESIZED_WIRE_19 <= OP_IMM OR OP;
 
 
-SYNTHESIZED_WIRE_15 <= brhalted AND halted;
+SYNTHESIZED_WIRE_16 <= brhalted AND halted;
 
 
 b2v_inst6 : mux2_32
 PORT MAP(sel => OP_IMM,
 		 data0x => B,
 		 data1x => immext,
-		 result => SYNTHESIZED_WIRE_10);
+		 result => SYNTHESIZED_WIRE_11);
 
 
-SYNTHESIZED_WIRE_16 <= brpc_mem_align_exception AND pc_mem_align_exception;
+SYNTHESIZED_WIRE_17 <= brpc_mem_align_exception AND pc_mem_align_exception;
 
 
-SYNTHESIZED_WIRE_17 <= brmem_align_exception AND mem_align_exception;
+SYNTHESIZED_WIRE_18 <= brmem_align_exception AND mem_align_exception;
 
 
 b2v_inst63 : sub32_branch
@@ -770,33 +774,33 @@ PORT MAP(data0x => A,
 
 
 b2v_inst66 : mux2_4
-PORT MAP(sel => SYNTHESIZED_WIRE_19,
+PORT MAP(sel => SYNTHESIZED_WIRE_20,
 		 data0x => GDFX_TEMP_SIGNAL_10,
 		 data1x => GDFX_TEMP_SIGNAL_11,
-		 result => SYNTHESIZED_WIRE_12);
+		 result => SYNTHESIZED_WIRE_13);
 
 
-SYNTHESIZED_WIRE_5 <= FPGA_CLK AND SYNTHESIZED_WIRE_20;
+SYNTHESIZED_WIRE_5 <= FPGA_CLK AND SYNTHESIZED_WIRE_21;
 
 
-SYNTHESIZED_WIRE_19 <= OP_IMM AND SYNTHESIZED_WIRE_21;
+SYNTHESIZED_WIRE_20 <= OP_IMM AND SYNTHESIZED_WIRE_22;
 
 
-SYNTHESIZED_WIRE_22 <= NOT(function3(1));
-
-
-
-SYNTHESIZED_WIRE_23 <= SYNTHESIZED_WIRE_22 AND function3(0) AND function3(2);
-
-
-SYNTHESIZED_WIRE_21 <= NOT(SYNTHESIZED_WIRE_23);
+SYNTHESIZED_WIRE_23 <= NOT(function3(1));
 
 
 
-SYNTHESIZED_WIRE_4 <= SW(0) AND SYNTHESIZED_WIRE_24;
+SYNTHESIZED_WIRE_24 <= SYNTHESIZED_WIRE_23 AND function3(0) AND function3(2);
 
 
-SYNTHESIZED_WIRE_20 <= NOT(SW(0));
+SYNTHESIZED_WIRE_22 <= NOT(SYNTHESIZED_WIRE_24);
+
+
+
+SYNTHESIZED_WIRE_4 <= SW(0) AND SYNTHESIZED_WIRE_25;
+
+
+SYNTHESIZED_WIRE_21 <= NOT(SW(0));
 
 
 
@@ -1105,7 +1109,7 @@ b2v_RegisterFile : regfile
 PORT MAP(wr => wrReg,
 		 clk => clk,
 		 D => destination,
-		 data => SYNTHESIZED_WIRE_25,
+		 data => SYNTHESIZED_WIRE_26,
 		 S1 => source1,
 		 S2 => source2,
 		 RS1 => SYNTHESIZED_WIRE_0,
@@ -1113,7 +1117,7 @@ PORT MAP(wr => wrReg,
 
 wr_ALTERA_SYNTHESIZED <= wrMEM;
 WR <= wr_ALTERA_SYNTHESIZED;
-MEM<= DATA;
+MEM <= DATA;
 PC <= PC_ALTERA_SYNTHESIZED;
 
 one <= '1';
