@@ -2966,12 +2966,12 @@ applicable agreement for further details.
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"default_value"
-		"3640"
+		"0"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"clear_value"
-		"3640"
+		"0"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing

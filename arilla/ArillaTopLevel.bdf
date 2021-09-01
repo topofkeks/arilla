@@ -340,6 +340,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 368 288 424 304))
 )
 (pin
 	(output)
@@ -356,6 +357,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 368 304 424 320))
 )
 (pin
 	(output)
@@ -372,6 +374,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 368 320 424 336))
 )
 (pin
 	(output)
@@ -388,6 +391,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 368 336 424 352))
 )
 (pin
 	(output)
@@ -404,6 +408,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 384 352 440 368))
 )
 (pin
 	(bidir)
@@ -943,80 +948,6 @@ applicable agreement for further details.
 		(rectangle (rect 16 16 160 112))
 	)
 )
-(symbol
-	(rect 488 592 648 704)
-	(text "ADDSUBs_16" (rect 40 0 136 16)(font "Arial" (font_size 10)))
-	(text "inst9" (rect 8 96 31 108)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "add_sub" (rect 0 0 49 14)(font "Arial" (font_size 8)))
-		(text "add_sub" (rect 4 18 53 32)(font "Arial" (font_size 8)))
-		(line (pt 0 32)(pt 80 32))
-	)
-	(port
-		(pt 0 56)
-		(input)
-		(text "dataa[15..0]" (rect 0 0 67 14)(font "Arial" (font_size 8)))
-		(text "dataa[15..0]" (rect 4 42 71 56)(font "Arial" (font_size 8)))
-		(line (pt 0 56)(pt 64 56)(line_width 3))
-	)
-	(port
-		(pt 0 88)
-		(input)
-		(text "datab[15..0]" (rect 0 0 67 14)(font "Arial" (font_size 8)))
-		(text "datab[15..0]" (rect 4 74 71 88)(font "Arial" (font_size 8)))
-		(line (pt 0 88)(pt 64 88)(line_width 3))
-	)
-	(port
-		(pt 160 72)
-		(output)
-		(text "result[15..0]" (rect 0 0 67 14)(font "Arial" (font_size 8)))
-		(text "result[15..0]" (rect 100 58 167 72)(font "Arial" (font_size 8)))
-		(line (pt 160 72)(pt 96 72)(line_width 3))
-	)
-	(drawing
-		(text "A+B/A-B" (rect 81 39 131 53)(font "Arial" (font_size 8)))
-		(text "A" (rect 64 51 73 65)(font "Arial" (font_size 8)))
-		(text "B" (rect 65 83 73 97)(font "Arial" (font_size 8)))
-		(line (pt 108 40)(pt 124 40))
-		(line (pt 80 32)(pt 80 52))
-		(line (pt 64 48)(pt 64 96))
-		(line (pt 64 48)(pt 96 56))
-		(line (pt 64 96)(pt 96 88))
-		(line (pt 96 56)(pt 96 88))
-		(line (pt 0 0)(pt 162 0))
-		(line (pt 162 0)(pt 162 114))
-		(line (pt 0 114)(pt 162 114))
-		(line (pt 0 0)(pt 0 114))
-	)
-)
-(symbol
-	(rect 328 664 376 704)
-	(text "CONST" (rect 5 0 42 12)(font "Arial" ))
-	(text "inst10" (rect 8 24 37 36)(font "Arial" ))
-	(port
-		(pt 48 16)
-		(output)
-		(text "data[size-1..0]" (rect -104 0 -35 12)(font "Arial" ))
-		(text "C" (rect 24 8 32 20)(font "Arial" ))
-		(line (pt 48 16)(pt 32 16)(line_width 3))
-	)
-	(parameter
-		"size"
-		"16"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"const"
-		"148"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 8 32 24)(fill (color 207 207 207)))
-	)
-	(annotation_block (parameter)(rect 96 648 278 690))
-)
 (connector
 	(text "clk" (rect 192 408 206 420)(font "Arial" ))
 	(pt 184 424)
@@ -1384,34 +1315,19 @@ applicable agreement for further details.
 	(pt 664 424)
 )
 (connector
-	(text "PC[15..0]" (rect 444 632 491 644)(font "Arial" ))
-	(pt 488 648)
-	(pt 416 648)
-	(bus)
-)
-(connector
 	(pt 792 584)
 	(pt 728 584)
 	(bus)
 )
 (connector
-	(pt 648 664)
-	(pt 728 664)
-	(bus)
-)
-(connector
 	(pt 728 584)
 	(pt 728 664)
 	(bus)
 )
 (connector
-	(text "one" (rect 422 608 439 620)(font "Arial" ))
-	(pt 488 624)
-	(pt 392 624)
-)
-(connector
-	(pt 488 680)
-	(pt 376 680)
+	(text "PC[15..0]" (rect 444 648 491 660)(font "Arial" ))
+	(pt 416 664)
+	(pt 728 664)
 	(bus)
 )
 (junction (pt 680 384))
