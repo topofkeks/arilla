@@ -1,3 +1,0 @@
-decTimer, pulldownCLK, br (if timerIsNot0 then this)
-wrData, srDataAndIncBitsOnFallingEdge, br (if bitsIsNot11 then this)
-clBits, br this
