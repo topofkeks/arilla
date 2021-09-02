@@ -229,7 +229,7 @@ void setup()
     #endif
 
     drawIconOpt(768,UI_START_Y+32,COLOR_BLACK,ICON_ETF,0);
-    AL(704,568,1);
+    AL(704,568,0,1);
 
     updateColor(0,0,2);
     updateColor(4,0,2);
@@ -286,7 +286,7 @@ void DrawSplash()
     gpuDrawRect_c(xpos-2,ypos-2,endx+2,endy+2,COLOR_DARK_GRAY);
     gpuDrawRect_c(xpos-1,ypos-1,endx+1,endy+1,COLOR_DARK_GRAY);
     gpuFillRect_c(xpos,ypos,endx,endy,COLOR_GRAY);
-    AL(272,104,4);
+    AL(272,104,2,4);
     drawIconOpt(endx-32,endy-32,COLOR_BLACK,ICON_ETF,0);
 
     #ifdef TEXT

@@ -15,6 +15,6 @@ extern const unsigned int ICON_ARILLA;
 void drawIconOpt(unsigned int x,unsigned int y,unsigned int col,const unsigned int icon,unsigned int bgVal);
 void floodFill(unsigned int x,unsigned int y,unsigned int dst);
 void EE();
-void AL(unsigned int x,unsigned int y,unsigned int scale);
+void AL(unsigned int x,unsigned int y,unsigned int scale,unsigned int scale2);
 
 #endif // _PERIPHERAL_H_

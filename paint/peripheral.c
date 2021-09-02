@@ -386,7 +386,7 @@ void EE()
     }
 }
 
-void AL(unsigned int x,unsigned int y,unsigned int scale)
+void AL(unsigned int x,unsigned int y,unsigned int scale,unsigned int scale2)
 {
     for(int i=0;i<32;i++)
     {
@@ -397,9 +397,9 @@ void AL(unsigned int x,unsigned int y,unsigned int scale)
             {
                 switch(row%4)
                 {
-                    case 1:{gpuFillRect_c(x+(k*16*scale)+j*scale,y+i*scale,x+scale-1+(k*16*scale)+j*scale,y+scale-1+i*scale,0x024);break;}
-                    case 2:{gpuFillRect_c(x+(k*16*scale)+j*scale,y+i*scale,x+scale-1+(k*16*scale)+j*scale,y+scale-1+i*scale,0xFFF);break;}
-                    case 3:{gpuFillRect_c(x+(k*16*scale)+j*scale,y+i*scale,x+scale-1+(k*16*scale)+j*scale,y+scale-1+i*scale,0xF11);break;}
+                    case 1:{gpuFillRect_c((x+((k*16)<<scale))+(j<<scale),y+(i<<scale),x+(scale2-1)+((k*16)<<scale)+(j<<scale),y+(scale2-1)+(i<<scale),0x024);break;}
+                    case 2:{gpuFillRect_c((x+((k*16)<<scale))+(j<<scale),y+(i<<scale),x+(scale2-1)+((k*16)<<scale)+(j<<scale),y+(scale2-1)+(i<<scale),0xFFF);break;}
+                    case 3:{gpuFillRect_c((x+((k*16)<<scale))+(j<<scale),y+(i<<scale),x+(scale2-1)+((k*16)<<scale)+(j<<scale),y+(scale2-1)+(i<<scale),0xF11);break;}
                     default:{break;}
                 }
                 row>>=2;
@@ -442,7 +442,7 @@ void floodFill(unsigned int x,unsigned int y,unsigned int dst)
             p.y--;
             if ((p.y) < 600 - 64)
             {
-                for(int i=minx;i<=maxx;i++)
+                for(unsigned int i=minx;i<=maxx;i++)
                 {
                     if (gpuGetColor(i, p.y) == src)
                     {
@@ -463,7 +463,7 @@ void floodFill(unsigned int x,unsigned int y,unsigned int dst)
             p.y+=2;
             if ((p.y) < 600 - 64)
             {
-                for(int i=minx;i<=maxx;i++)
+                for(unsigned int i=minx;i<=maxx;i++)
                 {
                     if (gpuGetColor(i, p.y) == src)
                     {
