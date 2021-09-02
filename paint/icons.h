@@ -7,6 +7,8 @@ extern const unsigned int ICON_RECT[];
 extern const unsigned int ICON_FILL_RECT[];
 extern const unsigned int ICON_BUCKET[];
 extern const unsigned int ICON_CLEAR[];
+extern const unsigned int ICON_ETF[];
+extern const unsigned int ICON_ARILLA[];
 
 #endif // _ICONS_H_
 

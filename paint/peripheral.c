@@ -134,6 +134,50 @@ void EE()
     }
 }
 
+void AL()
+{
+    for(int i=0;i<32;i++)
+    {
+        for(int k=0;k<4;k++)
+        {
+            unsigned int row=ICON_ARILLA[(i*4)+k];
+            for(int j=15;j>=0;j--)
+            {
+                switch(row%4)
+                {
+                    case 1:{gpuDrawPoint_c(704+(k*16)+j,568+i,0x024);break;}
+                    case 2:{gpuDrawPoint_c(704+(k*16)+j,568+i,COLOR_WHITE);break;}
+                    case 3:{gpuDrawPoint_c(704+(k*16)+j,568+i,0xF11);break;}
+                    default:{break;}
+                }
+                row>>=2;
+            }
+        }
+    }
+}
+
+void ALUS()
+{
+    for(int i=0;i<32;i++)
+    {
+        for(int k=0;k<4;k++)
+        {
+            unsigned int row=ICON_ARILLA[(i*4)+k];
+            for(int j=15;j>=0;j--)
+            {
+                switch(row%4)
+                {
+                    case 1:{gpuFillRect_c(272+(k*64)+j*4,104+i*4,275+(k*64)+j*4,107+i*4,0x024);break;}
+                    case 2:{gpuFillRect_c(272+(k*64)+j*4,104+i*4,275+(k*64)+j*4,107+i*4,COLOR_WHITE);break;}
+                    case 3:{gpuFillRect_c(272+(k*64)+j*4,104+i*4,275+(k*64)+j*4,107+i*4,0xF11);break;}
+                    default:{break;}
+                }
+                row>>=2;
+            }
+        }
+    }
+}
+
 void floodFill(unsigned int x,unsigned int y,unsigned int dst)
 {
     unsigned int src=gpuGetColor(x,y);

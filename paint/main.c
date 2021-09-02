@@ -1,11 +1,15 @@
 #define EEG
+#define TEXT
 //TODO Final version should be aggressively inlined and thus merged into single file, lets keep it separated for now
 //TODO Final version should be optimized for memory and variable sizes, lets do that after we get it working
 #include "peripheral.h"
+#include "font.h"
 
 //Display resolution: 800x600
 
 const unsigned int UI_START_Y=600-64;
+
+const char *toolnames[] =  {"Pen", "Rectangle", "Paint bucket", "Line", "Filled", "rectangle"};
 
 unsigned int selectedTool=0;
 unsigned int selectedColor=0;
@@ -21,6 +25,7 @@ struct point startPoint;
 
 void setup();
 void updateColor(unsigned int channel,unsigned int val,unsigned int type);
+void DrawSplash();
 
 int main()
 {
@@ -148,6 +153,21 @@ int main()
                     else
                     {
                         selectedTool=ind;
+                        #ifdef TEXT
+                        if(selectedTool!=4)
+                        {
+                            gpuFillRect_c(680, UI_START_Y+8, 799, UI_START_Y+23, COLOR_DARK_GRAY);
+                            drawStringAligned(toolnames[selectedTool], 85, UI_START_Y/8 + 1, COLOR_BLACK);
+                            gpuSetColor(selectedColor);
+                        }
+                        else
+                        {
+                            gpuFillRect_c(680, UI_START_Y+8, 799, UI_START_Y+23, COLOR_DARK_GRAY);
+                            drawStringAligned(toolnames[selectedTool], 85, UI_START_Y/8 + 1, COLOR_BLACK);
+                            drawStringAligned(toolnames[selectedTool+1], 85, UI_START_Y/8 + 2, COLOR_BLACK);
+                            gpuSetColor(selectedColor);
+                        }
+                        #endif
                     }
 
                 }
@@ -168,6 +188,13 @@ void setup()
 
     gpuFillRect_c(0,0,799,UI_START_Y-1,COLOR_WHITE);
     gpuFillRect_c(0,UI_START_Y,799,599,COLOR_DARK_GRAY);
+
+    DrawSplash();
+
+    //Wait for splash screen dismisal
+    do { mouseRead(); } while (!mouseLDown());
+
+    gpuFillRect_c(0,0,799,UI_START_Y-1,COLOR_WHITE);
 
     //Draw color palette
     for(int j=0;j<16;j++)
@@ -191,6 +218,13 @@ void setup()
     drawIconOpt(578,UI_START_Y+32,COLOR_BLACK,ICON_LINE,1);
     drawIconOpt(610,UI_START_Y+32,COLOR_BLACK,ICON_FILL_RECT,1);
     drawIconOpt(642,UI_START_Y+32,COLOR_BLACK,ICON_CLEAR,1);
+
+    #ifdef TEXT
+    drawStringAligned(toolnames[selectedTool], 85, UI_START_Y/8 + 1, COLOR_BLACK);
+    #endif
+
+    drawIconOpt(768,UI_START_Y+32,COLOR_BLACK,ICON_ETF,0);
+    AL();
 
     updateColor(0,0,2);
     updateColor(4,0,2);
@@ -233,6 +267,34 @@ void updateColor(unsigned int channel,unsigned int val,unsigned int type)
 
     selectedColor=(selectedColor & (~(0xF<<channel))) | (val<<channel);
     gpuFillRect_c(2,UI_START_Y+2,63-2,599-2,selectedColor);
+}
+
+void DrawSplash()
+{
+    unsigned int xpos=208;
+    unsigned int ypos=104;
+    unsigned int xsize=384;
+    unsigned int ysize=256;
+    unsigned int endx=xpos+xsize-1;
+    unsigned int endy=ypos+ysize-1;
+    gpuDrawRect_c(xpos-3,ypos-3,endx+3,endy+3,COLOR_DARK_GRAY);
+    gpuDrawRect_c(xpos-2,ypos-2,endx+2,endy+2,COLOR_DARK_GRAY);
+    gpuDrawRect_c(xpos-1,ypos-1,endx+1,endy+1,COLOR_DARK_GRAY);
+    gpuFillRect_c(xpos,ypos,endx,endy,COLOR_GRAY);
+    ALUS();
+    drawIconOpt(endx-32,endy-32,COLOR_BLACK,ICON_ETF,0);
+
+    #ifdef TEXT
+    drawStringAligned("arilla", 36, 29, COLOR_BLACK);
+    drawStringAligned("Paint V2", 36, 30, COLOR_BLACK);
+    drawStringAligned("Projekat iz Arhitekture racunara.", 36, 32, COLOR_BLACK);
+    drawStringAligned("Aleksa Markovic  2019/0248", 36,34, COLOR_BLACK);
+    drawStringAligned("Lazar Premovic   2019/0091", 36, 35, COLOR_BLACK);
+    drawStringAligned("Luka Simic       2019/0368", 36, 36, COLOR_BLACK);
+    drawStringAligned("Pritisnite levi taster misa da biste nastavili.", 26, 38, COLOR_BLACK);
+    drawStringAligned("ETF Beograd, Septembar 2021.", 36, 42, COLOR_BLACK);
+    #endif
+
 }
 
 void _start() {

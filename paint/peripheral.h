@@ -10,5 +10,7 @@ void drawIcon(unsigned int x,unsigned int y,unsigned int zCol,unsigned int oCol,
 void drawIconOpt(unsigned int x,unsigned int y,unsigned int col,const unsigned int icon[],unsigned int bgVal);
 void floodFill(unsigned int x,unsigned int y,unsigned int dst);
 void EE();
+void AL();
+void ALUS();
 
 #endif // _PERIPHERAL_H_
