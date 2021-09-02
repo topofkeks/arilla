@@ -21,7 +21,7 @@ applicable agreement for further details.
 (header "graphic" (version "1.4"))
 (pin
 	(input)
-	(rect 512 312 688 328)
+	(rect 104 312 280 328)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "color[11..0]" (rect 9 0 64 12)(font "Arial" ))
 	(pt 176 8)
@@ -37,7 +37,7 @@ applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 512 336 688 352)
+	(rect 104 336 280 352)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "WR" (rect 9 0 27 12)(font "Arial" ))
 	(pt 176 8)
@@ -53,7 +53,7 @@ applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 512 360 688 376)
+	(rect 104 360 280 376)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "RD" (rect 9 0 25 12)(font "Arial" ))
 	(pt 176 8)
@@ -69,7 +69,7 @@ applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 512 432 688 448)
+	(rect 104 432 280 448)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "clk" (rect 9 0 23 12)(font "Arial" ))
 	(pt 176 8)
@@ -82,11 +82,11 @@ applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "GND" (rect 136 7 157 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 456 448 512 464))
+	(annotation_block (location)(rect 48 448 104 464))
 )
 (pin
 	(input)
-	(rect 512 264 688 280)
+	(rect 104 264 280 280)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "opX[10..0]" (rect 9 0 58 12)(font "Arial" ))
 	(pt 176 8)
@@ -102,7 +102,7 @@ applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 512 288 688 304)
+	(rect 104 288 280 304)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "opY[10..0]" (rect 9 0 60 12)(font "Arial" ))
 	(pt 176 8)
@@ -118,7 +118,7 @@ applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 512 384 688 400)
+	(rect 104 384 280 400)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "syncX[10..0]" (rect 9 0 71 12)(font "Arial" ))
 	(pt 176 8)
@@ -134,7 +134,7 @@ applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 512 408 688 424)
+	(rect 104 408 280 424)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "syncY[10..0]" (rect 9 0 73 12)(font "Arial" ))
 	(pt 176 8)
@@ -150,7 +150,7 @@ applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 512 456 688 472)
+	(rect 104 456 280 472)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "rst" (rect 9 0 21 12)(font "Arial" ))
 	(pt 176 8)
@@ -166,7 +166,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 800 368 976 384)
+	(rect 392 368 568 384)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "FC" (rect 90 0 105 12)(font "Arial" ))
 	(pt 0 8)
@@ -182,7 +182,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 800 344 976 360)
+	(rect 392 344 568 360)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "O[11..0]" (rect 90 0 130 12)(font "Arial" ))
 	(pt 0 8)
@@ -198,7 +198,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 592 512 768 528)
+	(rect 184 512 360 528)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "SDRAM_CTRL[22..0]" (rect 90 0 195 12)(font "Arial" ))
 	(pt 0 8)
@@ -214,7 +214,7 @@ applicable agreement for further details.
 )
 (pin
 	(bidir)
-	(rect 784 392 960 408)
+	(rect 376 392 552 408)
 	(text "BIDIR" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "SDRAM_DQ[15..0]" (rect 90 0 183 12)(font "Arial" ))
 	(pt 0 8)
@@ -228,10 +228,10 @@ applicable agreement for further details.
 		(line (pt 52 8)(pt 56 12))
 	)
 	(text "GND" (rect 4 7 25 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 960 408 1016 424))
+	(annotation_block (location)(rect 552 408 608 424))
 )
 (symbol
-	(rect 400 856 464 904)
+	(rect -304 768 -240 816)
 	(text "OR2" (rect 1 0 19 10)(font "Arial" (font_size 6)))
 	(text "inst4" (rect 3 37 26 49)(font "Arial" ))
 	(port
@@ -264,7 +264,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1120 424 1248 536)
+	(rect 712 480 840 592)
 	(text "CMP_VGA_Vertical" (rect 7 0 142 16)(font "Arial" (font_size 10)))
 	(text "inst" (rect 8 96 25 108)(font "Arial" ))
 	(port
@@ -313,7 +313,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1120 272 1168 304)
+	(rect 720 432 768 464)
 	(text "WIRE" (rect 1 0 24 10)(font "Arial" (font_size 6)))
 	(text "inst1" (rect 3 21 26 33)(font "Arial" ))
 	(port
@@ -337,7 +337,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1120 544 1248 640)
+	(rect 712 600 840 696)
 	(text "CMP_VGA_Horizontal" (rect 4 0 156 16)(font "Arial" (font_size 10)))
 	(text "inst3" (rect 8 80 31 92)(font "Arial" ))
 	(port
@@ -379,7 +379,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1192 664 1256 712)
+	(rect 1144 696 1208 744)
 	(text "OR2" (rect 1 0 19 10)(font "Arial" (font_size 6)))
 	(text "inst5" (rect 3 37 26 49)(font "Arial" ))
 	(port
@@ -412,7 +412,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1352 672 1416 720)
+	(rect 1304 704 1368 752)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst6" (rect 3 37 26 49)(font "Arial" ))
 	(port
@@ -533,7 +533,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 888 264 920 280)
+	(rect 480 264 512 280)
 	(text "VCC" (rect 7 0 27 10)(font "Arial" (font_size 6)))
 	(text "inst10" (rect 3 5 32 17)(font "Arial" )(invisible))
 	(port
@@ -548,7 +548,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 944 296 976 328)
+	(rect 536 296 568 328)
 	(text "GND" (rect 8 16 29 26)(font "Arial" (font_size 6)))
 	(text "inst11" (rect 3 21 32 33)(font "Arial" )(invisible))
 	(port
@@ -565,7 +565,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 768 280 816 312)
+	(rect 360 280 408 312)
 	(text "WIRE" (rect 1 0 24 10)(font "Arial" (font_size 6)))
 	(text "inst16" (rect 3 21 32 33)(font "Arial" ))
 	(port
@@ -589,7 +589,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1352 736 1416 784)
+	(rect 1304 768 1368 816)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst8" (rect 3 37 26 49)(font "Arial" ))
 	(port
@@ -621,7 +621,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 632 632 856 752)
+	(rect 224 632 448 752)
 	(text "IDCREG" (rect 5 0 48 12)(font "Arial" ))
 	(text "inst18" (rect 8 104 37 116)(font "Arial" ))
 	(port
@@ -692,10 +692,10 @@ applicable agreement for further details.
 		(text "LD CL INC DEC REG" (rect 16 47 217 66)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
 		(rectangle (rect 16 16 208 104))
 	)
-	(annotation_block (parameter)(rect 832 608 880 624))
+	(annotation_block (parameter)(rect 424 608 472 624))
 )
 (symbol
-	(rect 1104 320 1264 416)
+	(rect 1248 504 1408 600)
 	(text "ADD_VGA_Horizontal" (rect 3 0 152 16)(font "Arial" (font_size 10)))
 	(text "inst14" (rect 8 80 37 92)(font "Arial" ))
 	(port
@@ -729,7 +729,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1040 896 1168 992)
+	(rect 968 896 1096 992)
 	(text "CMP_VGA_0" (rect 25 0 117 16)(font "Arial" (font_size 10)))
 	(text "inst25" (rect 8 80 37 92)(font "Arial" ))
 	(port
@@ -795,7 +795,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1040 1088 1168 1184)
+	(rect 968 1088 1096 1184)
 	(text "CMP_VGA_511" (rect 4 0 112 16)(font "Arial" (font_size 10)))
 	(text "inst33" (rect 8 80 37 92)(font "Arial" ))
 	(port
@@ -830,7 +830,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1040 1184 1168 1280)
+	(rect 968 1184 1096 1280)
 	(text "CMP_VGA_767" (rect 4 0 112 16)(font "Arial" (font_size 10)))
 	(text "inst34" (rect 8 80 37 92)(font "Arial" ))
 	(port
@@ -865,7 +865,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1040 1280 1168 1376)
+	(rect 968 1280 1096 1376)
 	(text "CMP_VGA_799" (rect 4 0 112 16)(font "Arial" (font_size 10)))
 	(text "inst35" (rect 8 80 37 92)(font "Arial" ))
 	(port
@@ -900,7 +900,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1208 1320 1272 1368)
+	(rect 1128 1320 1192 1368)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst29" (rect 3 37 32 49)(font "Arial" ))
 	(port
@@ -932,7 +932,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -376 968 -248 1064)
+	(rect -792 968 -664 1064)
 	(text "CMP_VGA_LastVerticalLine" (rect 0 0 193 16)(font "Arial" (font_size 10)))
 	(text "inst12" (rect 8 80 37 92)(font "Arial" ))
 	(port
@@ -967,7 +967,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -376 1072 -248 1168)
+	(rect -792 1072 -664 1168)
 	(text "CMP_VGA_WriteGuard" (rect 1 0 162 16)(font "Arial" (font_size 10)))
 	(text "inst13" (rect 8 80 37 92)(font "Arial" ))
 	(port
@@ -1002,7 +1002,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -376 1296 -248 1392)
+	(rect -792 1296 -664 1392)
 	(text "CMP_VGA_256ReadGuard" (rect 1 0 186 16)(font "Arial" (font_size 10)))
 	(text "inst22" (rect 8 80 37 92)(font "Arial" ))
 	(port
@@ -1037,7 +1037,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 648 1232 712 1280)
+	(rect 568 1240 632 1288)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst43" (rect 3 37 32 49)(font "Arial" ))
 	(port
@@ -1069,7 +1069,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 648 1296 712 1344)
+	(rect 568 1304 632 1352)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst44" (rect 3 37 32 49)(font "Arial" ))
 	(port
@@ -1101,7 +1101,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 648 1352 712 1400)
+	(rect 568 1360 632 1408)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst45" (rect 3 37 32 49)(font "Arial" ))
 	(port
@@ -1133,7 +1133,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 880 1176 944 1256)
+	(rect 800 1184 864 1264)
 	(text "OR4" (rect 1 0 19 10)(font "Arial" (font_size 6)))
 	(text "inst48" (rect 3 69 32 81)(font "Arial" ))
 	(port
@@ -1182,7 +1182,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 856 1272 888 1320)
+	(rect 776 1280 808 1328)
 	(text "NOT" (rect 0 27 10 47)(font "Arial" (font_size 6))(vertical))
 	(text "inst49" (rect 21 16 33 45)(font "Arial" )(vertical))
 	(port
@@ -1208,7 +1208,7 @@ applicable agreement for further details.
 	(rotate90)
 )
 (symbol
-	(rect 272 1376 320 1408)
+	(rect 216 1360 264 1392)
 	(text "TRI" (rect 1 0 16 10)(font "Arial" (font_size 6)))
 	(text "inst50" (rect 3 21 32 33)(font "Arial" ))
 	(port
@@ -1239,7 +1239,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 760 752 944 832)
+	(rect 352 752 536 832)
 	(text "SDRAM_InitROM" (rect 5 0 89 12)(font "Arial" ))
 	(text "inst19" (rect 8 64 37 76)(font "Arial" ))
 	(port
@@ -1261,7 +1261,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 224 744 408 824)
+	(rect -184 720 0 800)
 	(text "SDRAM_WriteROM" (rect 5 0 100 12)(font "Arial" ))
 	(text "inst23" (rect 8 64 37 76)(font "Arial" ))
 	(port
@@ -1283,7 +1283,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 104 616 328 736)
+	(rect -304 600 -80 720)
 	(text "IDCREG" (rect 5 0 48 12)(font "Arial" ))
 	(text "inst38" (rect 8 104 37 116)(font "Arial" ))
 	(port
@@ -1354,10 +1354,10 @@ applicable agreement for further details.
 		(text "LD CL INC DEC REG" (rect 16 47 217 66)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
 		(rectangle (rect 16 16 208 104))
 	)
-	(annotation_block (parameter)(rect 328 600 376 616))
+	(annotation_block (parameter)(rect -80 584 -32 600))
 )
 (symbol
-	(rect 160 272 288 368)
+	(rect -248 272 -120 368)
 	(text "DC4" (rect 52 0 81 16)(font "Arial" (font_size 10)))
 	(text "inst39" (rect 8 81 37 93)(font "Arial" ))
 	(port
@@ -1404,7 +1404,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 88 488 152 536)
+	(rect -320 488 -256 536)
 	(text "OR3" (rect 45 0 63 10)(font "Arial" (font_size 6)))
 	(text "inst40" (rect 27 37 61 51)(font "Arial" (font_size 8)))
 	(port
@@ -1445,7 +1445,7 @@ applicable agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect 232 488 296 536)
+	(rect -176 488 -112 536)
 	(text "AND2" (rect 39 0 63 10)(font "Arial" (font_size 6)))
 	(text "inst42" (rect 32 37 61 49)(font "Arial" ))
 	(port
@@ -1478,7 +1478,7 @@ applicable agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect 232 424 296 472)
+	(rect -176 424 -112 472)
 	(text "AND2" (rect 39 0 63 10)(font "Arial" (font_size 6)))
 	(text "inst41" (rect 32 37 61 49)(font "Arial" ))
 	(port
@@ -1511,7 +1511,7 @@ applicable agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect 320 456 368 488)
+	(rect -88 456 -40 488)
 	(text "NOT" (rect 27 0 47 10)(font "Arial" (font_size 6)))
 	(text "inst46" (rect 16 21 45 33)(font "Arial" ))
 	(port
@@ -1537,7 +1537,7 @@ applicable agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect 272 1280 320 1312)
+	(rect 216 1264 264 1296)
 	(text "TRI" (rect 1 0 16 10)(font "Arial" (font_size 6)))
 	(text "inst52" (rect 3 21 32 33)(font "Arial" ))
 	(port
@@ -1568,7 +1568,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1040 992 1168 1088)
+	(rect 968 992 1096 1088)
 	(text "CMP_VGA_255" (rect 4 0 112 16)(font "Arial" (font_size 10)))
 	(text "inst24" (rect 8 80 37 92)(font "Arial" ))
 	(port
@@ -1794,7 +1794,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1208 1224 1272 1272)
+	(rect 1128 1224 1192 1272)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst30" (rect 3 37 32 49)(font "Arial" ))
 	(port
@@ -1826,7 +1826,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1208 1128 1272 1176)
+	(rect 1128 1128 1192 1176)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst32" (rect 3 37 32 49)(font "Arial" ))
 	(port
@@ -1858,7 +1858,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1208 1032 1272 1080)
+	(rect 1128 1032 1192 1080)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst55" (rect 3 37 32 49)(font "Arial" ))
 	(port
@@ -1890,7 +1890,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1272 936 1336 984)
+	(rect 1208 936 1272 984)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst56" (rect 3 37 32 49)(font "Arial" ))
 	(port
@@ -2485,7 +2485,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -128 1016 96 1136)
+	(rect -320 1152 -96 1272)
 	(text "IDCREG" (rect 5 0 48 12)(font "Arial" ))
 	(text "inst9" (rect 8 104 31 116)(font "Arial" ))
 	(port
@@ -2556,7 +2556,7 @@ applicable agreement for further details.
 		(text "LD CL INC DEC REG" (rect 16 47 217 66)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
 		(rectangle (rect 16 16 208 104))
 	)
-	(annotation_block (parameter)(rect 96 984 128 1016))
+	(annotation_block (parameter)(rect -96 1120 -64 1152))
 )
 (symbol
 	(rect 1888 728 1952 808)
@@ -2659,7 +2659,7 @@ applicable agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect 0 1152 128 1248)
+	(rect -176 1264 -48 1360)
 	(text "CMP_8_0" (rect 27 0 94 16)(font "Arial" (font_size 10)))
 	(text "inst21" (rect 8 80 37 92)(font "Arial" ))
 	(port
@@ -2694,7 +2694,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 16 872 160 952)
+	(rect -192 920 -48 1000)
 	(text "MUX2_8" (rect 47 0 103 16)(font "Arial" (font_size 10)))
 	(text "inst26" (rect 107 64 136 76)(font "Arial" ))
 	(port
@@ -2742,7 +2742,7 @@ applicable agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect 160 952 224 1000)
+	(rect 16 1000 80 1048)
 	(text "AND2" (rect 39 0 63 10)(font "Arial" (font_size 6)))
 	(text "inst27" (rect 32 37 61 49)(font "Arial" ))
 	(port
@@ -2775,7 +2775,7 @@ applicable agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect 312 1040 352 1088)
+	(rect 168 1088 208 1136)
 	(text "CONST" (rect 0 6 12 43)(font "Arial" )(vertical))
 	(text "inst28" (rect 24 11 36 40)(font "Arial" )(vertical))
 	(port
@@ -2799,10 +2799,10 @@ applicable agreement for further details.
 		(rectangle (rect 8 16 24 32)(fill (color 207 207 207)))
 	)
 	(rotate90)
-	(annotation_block (parameter)(rect 192 1088 374 1130))
+	(annotation_block (parameter)(rect -184 1040 -2 1082))
 )
 (symbol
-	(rect 264 1040 304 1088)
+	(rect 120 1096 160 1144)
 	(text "CONST" (rect 0 6 12 43)(font "Arial" )(vertical))
 	(text "inst53" (rect 24 11 36 40)(font "Arial" )(vertical))
 	(port
@@ -2826,10 +2826,10 @@ applicable agreement for further details.
 		(rectangle (rect 8 16 24 32)(fill (color 207 207 207)))
 	)
 	(rotate90)
-	(annotation_block (parameter)(rect 160 1136 342 1178))
+	(annotation_block (parameter)(rect -184 1088 -2 1130))
 )
 (symbol
-	(rect 872 912 936 1024)
+	(rect 792 920 856 1032)
 	(text "OR6" (rect 1 0 19 10)(font "Arial" (font_size 6)))
 	(text "inst54" (rect 3 101 32 113)(font "Arial" ))
 	(port
@@ -2892,7 +2892,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 824 1048 856 1096)
+	(rect 744 1056 776 1104)
 	(text "NOT" (rect 0 27 10 47)(font "Arial" (font_size 6))(vertical))
 	(text "inst64" (rect 21 16 33 45)(font "Arial" )(vertical))
 	(port
@@ -2918,7 +2918,7 @@ applicable agreement for further details.
 	(rotate90)
 )
 (symbol
-	(rect -144 1224 -80 1272)
+	(rect -512 1224 -448 1272)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst69" (rect 3 37 32 49)(font "Arial" ))
 	(port
@@ -2950,7 +2950,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -144 1336 -80 1384)
+	(rect -512 1336 -448 1384)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst70" (rect 3 37 32 49)(font "Arial" ))
 	(port
@@ -2982,7 +2982,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -200 1352 -152 1384)
+	(rect -568 1352 -520 1384)
 	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
 	(text "inst71" (rect 3 21 32 33)(font "Arial" ))
 	(port
@@ -3007,7 +3007,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -56 1280 8 1328)
+	(rect -424 1280 -360 1328)
 	(text "OR2" (rect 1 0 19 10)(font "Arial" (font_size 6)))
 	(text "inst72" (rect 3 37 32 49)(font "Arial" ))
 	(port
@@ -3040,7 +3040,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 696 976 760 1024)
+	(rect 616 984 680 1032)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst73" (rect 3 37 32 49)(font "Arial" ))
 	(port
@@ -3072,7 +3072,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 696 920 760 968)
+	(rect 616 928 680 976)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst74" (rect 3 37 32 49)(font "Arial" ))
 	(port
@@ -3104,7 +3104,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -400 264 -272 440)
+	(rect -808 264 -680 440)
 	(text "DC8" (rect 53 0 82 16)(font "Arial" (font_size 10)))
 	(text "inst75" (rect 8 160 37 172)(font "Arial" ))
 	(port
@@ -3186,7 +3186,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -240 728 -56 808)
+	(rect -648 728 -464 808)
 	(text "SDRAM_ReadROM" (rect 5 0 100 12)(font "Arial" ))
 	(text "inst77" (rect 8 64 37 76)(font "Arial" ))
 	(port
@@ -3208,7 +3208,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -360 600 -136 720)
+	(rect -768 600 -544 720)
 	(text "IDCREG" (rect 5 0 48 12)(font "Arial" ))
 	(text "inst76" (rect 8 104 37 116)(font "Arial" ))
 	(port
@@ -3279,10 +3279,10 @@ applicable agreement for further details.
 		(text "LD CL INC DEC REG" (rect 16 47 217 66)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
 		(rectangle (rect 16 16 208 104))
 	)
-	(annotation_block (parameter)(rect -136 576 -96 600))
+	(annotation_block (parameter)(rect -544 576 -504 600))
 )
 (symbol
-	(rect -400 480 -336 560)
+	(rect -808 480 -744 560)
 	(text "OR4" (rect 45 0 63 10)(font "Arial" (font_size 6)))
 	(text "inst78" (rect 32 69 61 81)(font "Arial" ))
 	(port
@@ -3332,7 +3332,7 @@ applicable agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect -240 384 -176 432)
+	(rect -648 384 -584 432)
 	(text "AND2" (rect 39 0 63 10)(font "Arial" (font_size 6)))
 	(text "inst79" (rect 32 37 61 49)(font "Arial" ))
 	(port
@@ -3365,7 +3365,7 @@ applicable agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect -152 400 -104 432)
+	(rect -560 400 -512 432)
 	(text "NOT" (rect 27 0 47 10)(font "Arial" (font_size 6)))
 	(text "inst80" (rect 16 21 45 33)(font "Arial" ))
 	(port
@@ -3391,7 +3391,7 @@ applicable agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect -240 432 -176 480)
+	(rect -648 432 -584 480)
 	(text "AND2" (rect 39 0 63 10)(font "Arial" (font_size 6)))
 	(text "inst81" (rect 32 37 61 49)(font "Arial" ))
 	(port
@@ -3424,7 +3424,7 @@ applicable agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect -240 488 -176 536)
+	(rect -648 488 -584 536)
 	(text "AND2" (rect 39 0 63 10)(font "Arial" (font_size 6)))
 	(text "inst82" (rect 32 37 61 49)(font "Arial" ))
 	(port
@@ -3457,7 +3457,7 @@ applicable agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect -152 504 -104 536)
+	(rect -560 504 -512 536)
 	(text "NOT" (rect 27 0 47 10)(font "Arial" (font_size 6)))
 	(text "inst83" (rect 16 21 45 33)(font "Arial" ))
 	(port
@@ -3483,7 +3483,7 @@ applicable agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect 560 1128 624 1176)
+	(rect 584 864 648 912)
 	(text "OR2" (rect 1 0 19 10)(font "Arial" (font_size 6)))
 	(text "inst84" (rect 3 37 32 49)(font "Arial" ))
 	(port
@@ -3516,7 +3516,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -432 856 -384 888)
+	(rect -368 896 -320 928)
 	(text "WIRE" (rect 1 0 24 10)(font "Arial" (font_size 6)))
 	(text "inst85" (rect 3 21 32 33)(font "Arial" ))
 	(port
@@ -3540,7 +3540,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -376 1184 -248 1280)
+	(rect -792 1184 -664 1280)
 	(text "CMP_VGA_32ReadGuard" (rect 1 0 178 16)(font "Arial" (font_size 10)))
 	(text "inst17" (rect 8 80 37 92)(font "Arial" ))
 	(port
@@ -3575,7 +3575,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1320 1296 1368 1328)
+	(rect 1264 1312 1312 1344)
 	(text "TRI" (rect 1 0 16 10)(font "Arial" (font_size 6)))
 	(text "inst86" (rect 3 21 32 33)(font "Arial" ))
 	(port
@@ -3606,7 +3606,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1320 1216 1368 1248)
+	(rect 1264 1216 1312 1248)
 	(text "TRI" (rect 1 0 16 10)(font "Arial" (font_size 6)))
 	(text "inst88" (rect 3 21 32 33)(font "Arial" ))
 	(port
@@ -3637,7 +3637,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1320 1120 1368 1152)
+	(rect 1264 1120 1312 1152)
 	(text "TRI" (rect 1 0 16 10)(font "Arial" (font_size 6)))
 	(text "inst89" (rect 3 21 32 33)(font "Arial" ))
 	(port
@@ -3668,7 +3668,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1312 1024 1360 1056)
+	(rect 1256 1024 1304 1056)
 	(text "TRI" (rect 1 0 16 10)(font "Arial" (font_size 6)))
 	(text "inst90" (rect 3 21 32 33)(font "Arial" ))
 	(port
@@ -3699,7 +3699,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1344 1248 1408 1296)
+	(rect 1320 1264 1384 1312)
 	(text "OR2" (rect 45 0 63 10)(font "Arial" (font_size 6)))
 	(text "inst91" (rect 32 37 61 49)(font "Arial" ))
 	(port
@@ -3733,7 +3733,7 @@ applicable agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect 1344 1168 1408 1216)
+	(rect 1320 1168 1384 1216)
 	(text "OR2" (rect 45 0 63 10)(font "Arial" (font_size 6)))
 	(text "inst92" (rect 32 37 61 49)(font "Arial" ))
 	(port
@@ -3767,7 +3767,7 @@ applicable agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect 1336 976 1400 1024)
+	(rect 1312 976 1376 1024)
 	(text "OR2" (rect 45 0 63 10)(font "Arial" (font_size 6)))
 	(text "inst93" (rect 32 37 61 49)(font "Arial" ))
 	(port
@@ -3801,7 +3801,7 @@ applicable agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect 1344 1072 1408 1120)
+	(rect 1320 1072 1384 1120)
 	(text "OR2" (rect 45 0 63 10)(font "Arial" (font_size 6)))
 	(text "inst94" (rect 32 37 61 49)(font "Arial" ))
 	(port
@@ -3835,7 +3835,7 @@ applicable agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect -728 840 -560 960)
+	(rect -528 936 -360 1056)
 	(text "LDCREG" (rect 17 1 63 13)(font "Arial" ))
 	(text "inst2" (rect 16 104 39 116)(font "Arial" ))
 	(port
@@ -3892,10 +3892,10 @@ applicable agreement for further details.
 		(text "LDCL REG" (rect 40 48 146 67)(font "Arial" (color 0 0 0)(font_size 12)(bold)))
 		(rectangle (rect 16 16 152 104))
 	)
-	(annotation_block (parameter)(rect -728 976 -531 1032))
+	(annotation_block (parameter)(rect -528 1056 -480 1088))
 )
 (symbol
-	(rect 1272 856 1336 904)
+	(rect 1192 856 1256 904)
 	(text "OR2" (rect 45 0 63 10)(font "Arial" (font_size 6)))
 	(text "inst87" (rect 32 37 61 49)(font "Arial" ))
 	(port
@@ -3929,7 +3929,7 @@ applicable agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect 1408 464 1472 512)
+	(rect 1000 520 1064 568)
 	(text "OR2" (rect 1 0 19 10)(font "Arial" (font_size 6)))
 	(text "inst95" (rect 3 37 32 49)(font "Arial" ))
 	(port
@@ -3962,7 +3962,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1096 96 1256 192)
+	(rect 672 304 832 400)
 	(text "ADD11" (rect 60 0 108 16)(font "Arial" (font_size 10)))
 	(text "inst98" (rect 8 81 37 93)(font "Arial" ))
 	(port
@@ -4001,7 +4001,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1416 112 1560 192)
+	(rect 912 320 1056 400)
 	(text "MUX2_11" (rect 44 0 108 16)(font "Arial" (font_size 10)))
 	(text "inst99" (rect 8 65 37 77)(font "Arial" ))
 	(port
@@ -4048,7 +4048,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 904 120 952 160)
+	(rect 608 328 656 368)
 	(text "CONST" (rect 5 0 42 12)(font "Arial" ))
 	(text "inst100" (rect 8 24 43 36)(font "Arial" ))
 	(port
@@ -4071,10 +4071,10 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 8 32 24)(fill (color 207 207 207)))
 	)
-	(annotation_block (parameter)(rect 824 40 1006 82))
+	(annotation_block (parameter)(rect 616 272 800 328))
 )
 (symbol
-	(rect 1192 728 1256 776)
+	(rect 1144 760 1208 808)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst101" (rect 3 37 38 49)(font "Arial" ))
 	(port
@@ -4106,7 +4106,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1696 104 1840 184)
+	(rect 1168 312 1312 392)
 	(text "MUX2_11" (rect 44 0 108 16)(font "Arial" (font_size 10)))
 	(text "inst102" (rect 8 65 43 77)(font "Arial" ))
 	(port
@@ -4153,7 +4153,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1544 72 1592 112)
+	(rect 1072 304 1120 344)
 	(text "CONST" (rect 5 0 42 12)(font "Arial" ))
 	(text "inst103" (rect 8 24 43 36)(font "Arial" ))
 	(port
@@ -4176,94 +4176,7 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 8 32 24)(fill (color 207 207 207)))
 	)
-	(annotation_block (parameter)(rect 1464 -8 1646 34))
-)
-(connector
-	(text "memX[10..0]" (rect 1272 360 1334 372)(font "Arial" ))
-	(pt 1264 376)
-	(pt 1360 376)
-	(bus)
-)
-(connector
-	(text "syncX[10..0]" (rect 1024 344 1086 356)(font "Arial" ))
-	(pt 1104 360)
-	(pt 1016 360)
-	(bus)
-)
-(connector
-	(text "HORIZONTAL_VISIBLE_AREA" (rect 1256 592 1410 604)(font "Arial" ))
-	(pt 1248 608)
-	(pt 1384 608)
-)
-(connector
-	(text "syncY[10..0]" (rect 1024 272 1088 284)(font "Arial" ))
-	(pt 1016 288)
-	(pt 1120 288)
-	(bus)
-)
-(connector
-	(text "memY[10..0]" (rect 1169 272 1233 284)(font "Arial" ))
-	(pt 1168 288)
-	(pt 1264 288)
-	(bus)
-)
-(connector
-	(text "VERTICAL_FREE_RANGE" (rect 1016 680 1149 692)(font "Arial" ))
-	(pt 1192 696)
-	(pt 1008 696)
-)
-(connector
-	(pt 1256 688)
-	(pt 1352 688)
-)
-(connector
-	(text "FREE_RANGE" (rect 1424 680 1498 692)(font "Arial" ))
-	(pt 1416 696)
-	(pt 1528 696)
-)
-(connector
-	(text "ready" (rect 1322 688 1350 700)(font "Arial" ))
-	(pt 1272 704)
-	(pt 1352 704)
-)
-(connector
-	(pt 1256 752)
-	(pt 1352 752)
-)
-(connector
-	(text "ready" (rect 1322 752 1350 764)(font "Arial" ))
-	(pt 1272 768)
-	(pt 1352 768)
-)
-(connector
-	(text "VISIBLE_AREA" (rect 1424 744 1501 756)(font "Arial" ))
-	(pt 1416 760)
-	(pt 1528 760)
-)
-(connector
-	(text "VERTICAL_VISIBLE_AREA" (rect 1016 744 1152 756)(font "Arial" ))
-	(pt 1192 760)
-	(pt 1008 760)
-)
-(connector
-	(text "one" (rect 888 299 900 316)(font "Arial" )(vertical))
-	(pt 904 280)
-	(pt 904 320)
-)
-(connector
-	(text "zero" (rect 944 275 956 295)(font "Arial" )(vertical))
-	(pt 960 296)
-	(pt 960 264)
-)
-(connector
-	(text "CKE" (rect 824 280 846 292)(font "Arial" ))
-	(pt 856 296)
-	(pt 816 296)
-)
-(connector
-	(text "one" (rect 720 280 737 292)(font "Arial" ))
-	(pt 736 296)
-	(pt 768 296)
+	(annotation_block (parameter)(rect 1008 256 1190 298))
 )
 (connector
 	(text "one,zero,zero,zero" (rect 1714 416 1802 428)(font "Arial" ))
@@ -4320,235 +4233,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "rst" (rect 880 648 892 660)(font "Arial" ))
-	(pt 856 664)
-	(pt 912 664)
-)
-(connector
-	(pt 744 784)
-	(pt 744 752)
-	(bus)
-)
-(connector
-	(pt 760 784)
-	(pt 744 784)
-	(bus)
-)
-(connector
-	(text "clk" (rect 608 704 622 716)(font "Arial" ))
-	(pt 600 720)
-	(pt 632 720)
-)
-(connector
-	(text "one" (rect 857 664 874 676)(font "Arial" ))
-	(pt 856 680)
-	(pt 912 680)
-)
-(connector
-	(text "zero" (rect 864 680 884 692)(font "Arial" ))
-	(pt 856 696)
-	(pt 912 696)
-)
-(connector
-	(pt 744 632)
-	(pt 744 616)
-	(bus)
-)
-(connector
-	(text "HORIZONTAL_VISIBLE_AREA" (rect 1016 728 1170 740)(font "Arial" ))
-	(pt 1192 744)
-	(pt 1008 744)
-)
-(connector
-	(text "initrom_ba[3..0]" (rect 723 600 799 612)(font "Arial" ))
-	(pt 744 616)
-	(pt 696 616)
-	(bus)
-)
-(connector
-	(text "memX[10..0]" (rect 1037 576 1099 588)(font "Arial" ))
-	(pt 1120 592)
-	(pt 1024 592)
-	(bus)
-)
-(connector
-	(text "memY[10..0]" (rect 1032 464 1096 476)(font "Arial" ))
-	(pt 1120 480)
-	(pt 1024 480)
-	(bus)
-)
-(connector
-	(pt 216 736)
-	(pt 216 776)
-	(bus)
-)
-(connector
-	(pt 216 776)
-	(pt 224 776)
-	(bus)
-)
-(connector
-	(text "rst" (rect 329 632 341 644)(font "Arial" ))
-	(pt 328 648)
-	(pt 392 648)
-)
-(connector
-	(text "one" (rect 336 648 353 660)(font "Arial" ))
-	(pt 328 664)
-	(pt 392 664)
-)
-(connector
-	(text "clk" (rect 56 688 70 700)(font "Arial" ))
-	(pt 104 704)
-	(pt 48 704)
-)
-(connector
-	(text "initrom_bruncnd" (rect 600 607 612 684)(font "Arial" )(vertical))
-	(pt 616 664)
-	(pt 616 576)
-)
-(connector
-	(pt 632 664)
-	(pt 616 664)
-)
-(connector
-	(pt 216 616)
-	(pt 216 592)
-	(bus)
-)
-(connector
-	(text "writerom_ba[2..0]" (rect 225 568 309 580)(font "Arial" ))
-	(pt 216 592)
-	(pt 312 592)
-	(bus)
-)
-(connector
-	(pt 56 320)
-	(pt 56 328)
-	(bus)
-)
-(connector
-	(text "writerom_cc[1..0]" (rect 64 304 148 316)(font "Arial" ))
-	(pt 160 320)
-	(pt 56 320)
-	(bus)
-)
-(connector
-	(text "writerom_brno_write" (rect 316 320 412 332)(font "Arial" ))
-	(pt 288 336)
-	(pt 464 336)
-)
-(connector
-	(pt 104 648)
-	(pt 56 648)
-)
-(connector
-	(pt 56 648)
-	(pt 56 512)
-)
-(connector
-	(pt 56 512)
-	(pt 88 512)
-)
-(connector
-	(pt 296 440)
-	(pt 440 440)
-)
-(connector
-	(pt 440 440)
-	(pt 440 320)
-)
-(connector
-	(text "writerom_brnot_ready" (rect 333 304 439 316)(font "Arial" ))
-	(pt 288 320)
-	(pt 440 320)
-)
-(connector
-	(pt 296 504)
-	(pt 464 504)
-)
-(connector
-	(pt 464 504)
-	(pt 464 336)
-)
-(connector
-	(pt 288 304)
-	(pt 296 304)
-)
-(connector
-	(pt 152 504)
-	(pt 184 504)
-)
-(connector
-	(pt 184 504)
-	(pt 184 416)
-)
-(connector
-	(pt 296 416)
-	(pt 184 416)
-)
-(connector
-	(pt 232 448)
-	(pt 192 448)
-)
-(connector
-	(pt 192 448)
-	(pt 192 512)
-)
-(connector
-	(pt 152 512)
-	(pt 192 512)
-)
-(connector
-	(pt 232 512)
-	(pt 200 512)
-)
-(connector
-	(pt 152 520)
-	(pt 200 520)
-)
-(connector
-	(pt 200 520)
-	(pt 200 512)
-)
-(connector
-	(text "writerom_bruncnd" (rect 296 327 308 413)(font "Arial" )(vertical))
-	(pt 296 416)
-	(pt 296 304)
-)
-(connector
-	(pt 400 520)
-	(pt 400 528)
-)
-(connector
-	(text "no_write" (rect 297 504 337 516)(font "Arial" ))
-	(pt 296 520)
-	(pt 400 520)
-)
-(connector
-	(pt 312 456)
-	(pt 312 472)
-)
-(connector
-	(pt 296 456)
-	(pt 312 456)
-)
-(connector
-	(pt 312 472)
-	(pt 320 472)
-)
-(connector
-	(text "ready" (rect 413 456 441 468)(font "Arial" ))
-	(pt 368 472)
-	(pt 448 472)
-)
-(connector
-	(text "initrom_ba[3..0], initrom_bruncnd, ready, init_ADDR[2], init_Command[1], init_ADDR[0], init_ADDR[1], init_Command[2], init_Command[0]" (rect 944 768 1629 780)(font "Arial" )(invisible))
-	(pt 944 784)
-	(pt 968 784)
-	(bus)
-)
-(connector
 	(text "O[11..0]" (rect 2052 880 2092 892)(font "Arial" ))
 	(pt 2008 896)
 	(pt 2088 896)
@@ -4568,67 +4252,6 @@ applicable agreement for further details.
 	(pt 1848 896)
 	(pt 1960 896)
 	(bus)
-)
-(connector
-	(pt 1016 1040)
-	(pt 1040 1040)
-	(bus)
-)
-(connector
-	(pt 1016 1136)
-	(pt 1040 1136)
-	(bus)
-)
-(connector
-	(pt 1016 1232)
-	(pt 1040 1232)
-	(bus)
-)
-(connector
-	(pt 1016 1328)
-	(pt 1040 1328)
-	(bus)
-)
-(connector
-	(pt 1016 944)
-	(pt 1040 944)
-	(bus)
-)
-(connector
-	(pt 1168 1336)
-	(pt 1208 1336)
-)
-(connector
-	(text "VISIBLE_AREA" (rect 1192 1347 1204 1424)(font "Arial" )(vertical))
-	(pt 1208 1424)
-	(pt 1208 1352)
-)
-(connector
-	(text "VISIBLE_AREA" (rect 1192 1251 1204 1328)(font "Arial" )(vertical))
-	(pt 1208 1328)
-	(pt 1208 1256)
-)
-(connector
-	(pt 1168 1240)
-	(pt 1208 1240)
-)
-(connector
-	(text "VISIBLE_AREA" (rect 1192 1155 1204 1232)(font "Arial" )(vertical))
-	(pt 1208 1232)
-	(pt 1208 1160)
-)
-(connector
-	(pt 1168 1144)
-	(pt 1208 1144)
-)
-(connector
-	(text "VISIBLE_AREA" (rect 1192 1059 1204 1136)(font "Arial" )(vertical))
-	(pt 1208 1136)
-	(pt 1208 1064)
-)
-(connector
-	(pt 1168 1048)
-	(pt 1208 1048)
 )
 (connector
 	(pt 1880 1192)
@@ -4830,32 +4453,6 @@ applicable agreement for further details.
 	(pt 1760 1288)
 )
 (connector
-	(pt 1016 1232)
-	(pt 1016 1328)
-	(bus)
-)
-(connector
-	(text "memX[10..0]" (rect 1000 889 1012 951)(font "Arial" )(vertical))
-	(pt 1016 904)
-	(pt 1016 944)
-	(bus)
-)
-(connector
-	(pt 1016 944)
-	(pt 1016 1040)
-	(bus)
-)
-(connector
-	(pt 1016 1040)
-	(pt 1016 1136)
-	(bus)
-)
-(connector
-	(pt 1016 1136)
-	(pt 1016 1232)
-	(bus)
-)
-(connector
 	(pt 1672 1144)
 	(pt 1760 1144)
 )
@@ -4878,16 +4475,6 @@ applicable agreement for further details.
 (connector
 	(pt 1760 1272)
 	(pt 1872 1272)
-)
-(connector
-	(text "HORIZONTAL_FREE_RANGE" (rect 1256 576 1407 588)(font "Arial" ))
-	(pt 1248 592)
-	(pt 1384 592)
-)
-(connector
-	(text "zero" (rect 336 664 356 676)(font "Arial" ))
-	(pt 328 680)
-	(pt 392 680)
 )
 (connector
 	(text "BA[1..0], ADDR[11..0]" (rect 1944 624 2054 636)(font "Arial" ))
@@ -4982,178 +4569,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt -248 760)
-	(pt -248 720)
-	(bus)
-)
-(connector
-	(pt -240 760)
-	(pt -248 760)
-	(bus)
-)
-(connector
-	(text "rst" (rect -128 616 -116 628)(font "Arial" ))
-	(pt -136 632)
-	(pt -72 632)
-)
-(connector
-	(text "one" (rect -128 632 -111 644)(font "Arial" ))
-	(pt -136 648)
-	(pt -72 648)
-)
-(connector
-	(text "zero" (rect -104 648 -84 660)(font "Arial" ))
-	(pt -136 664)
-	(pt -72 664)
-)
-(connector
-	(text "clk" (rect -408 672 -394 684)(font "Arial" ))
-	(pt -360 688)
-	(pt -416 688)
-)
-(connector
-	(text "readrom_ba[2..0], readrom_cc[2..0], rd_Command[2], decReadCounter, RD_BUS, FC_RD, ldReadCounter, rd_ADDR[1], rd_Command[0], rd_ADDR[0], rd_ADDR[2], rd_Command[1]" (rect -56 744 845 756)(font "Arial" )(invisible))
-	(pt -56 760)
-	(pt -8 760)
-	(bus)
-)
-(connector
-	(pt -400 520)
-	(pt -416 520)
-)
-(connector
-	(pt -416 520)
-	(pt -416 632)
-)
-(connector
-	(pt -360 632)
-	(pt -416 632)
-)
-(connector
-	(pt -248 600)
-	(pt -248 592)
-	(bus)
-)
-(connector
-	(text "readrom_ba[2..0]" (rect -240 576 -157 588)(font "Arial" ))
-	(pt -248 592)
-	(pt -160 592)
-	(bus)
-)
-(connector
-	(text "readrom_cc[2..0]" (rect -442 336 -359 348)(font "Arial" ))
-	(pt -456 352)
-	(pt -400 352)
-	(bus)
-)
-(connector
-	(pt -336 496)
-	(pt -264 496)
-)
-(connector
-	(pt -336 512)
-	(pt -256 512)
-)
-(connector
-	(pt -336 528)
-	(pt -248 528)
-)
-(connector
-	(pt -272 312)
-	(pt 0 312)
-)
-(connector
-	(pt -336 544)
-	(pt 0 544)
-)
-(connector
-	(pt 0 312)
-	(pt 0 544)
-)
-(connector
-	(pt -272 344)
-	(pt -40 344)
-)
-(connector
-	(pt -256 456)
-	(pt -240 456)
-)
-(connector
-	(pt -256 512)
-	(pt -256 456)
-)
-(connector
-	(pt -40 448)
-	(pt -176 448)
-)
-(connector
-	(pt -40 344)
-	(pt -40 448)
-)
-(connector
-	(pt -160 328)
-	(pt -272 328)
-)
-(connector
-	(pt -272 360)
-	(pt -16 360)
-)
-(connector
-	(text "readComplete" (rect -96 504 -28 516)(font "Arial" ))
-	(pt -104 520)
-	(pt -56 520)
-)
-(connector
-	(text "no_read" (rect -136 448 -98 460)(font "Arial" ))
-	(pt -176 464)
-	(pt -96 464)
-)
-(connector
-	(pt -248 512)
-	(pt -240 512)
-)
-(connector
-	(pt -248 528)
-	(pt -248 512)
-)
-(connector
-	(pt -16 504)
-	(pt -176 504)
-)
-(connector
-	(pt -16 360)
-	(pt -16 504)
-)
-(connector
-	(pt -176 520)
-	(pt -152 520)
-)
-(connector
-	(pt -264 408)
-	(pt -240 408)
-)
-(connector
-	(pt -264 496)
-	(pt -264 408)
-)
-(connector
-	(pt -160 400)
-	(pt -176 400)
-)
-(connector
-	(pt -160 328)
-	(pt -160 400)
-)
-(connector
-	(text "ready" (rect -96 400 -68 412)(font "Arial" ))
-	(pt -104 416)
-	(pt -56 416)
-)
-(connector
-	(pt -176 416)
-	(pt -152 416)
-)
-(connector
 	(text "rd_Command[2..0]" (rect 1981 504 2073 516)(font "Arial" ))
 	(pt 1968 520)
 	(pt 2088 520)
@@ -5163,398 +4578,6 @@ applicable agreement for further details.
 	(text "rd_ADDR[2..0]" (rect 1962 776 2035 788)(font "Arial" ))
 	(pt 1952 792)
 	(pt 2104 792)
-	(bus)
-)
-(connector
-	(text "last_line" (rect -240 1008 -200 1020)(font "Arial" ))
-	(pt -248 1024)
-	(pt -184 1024)
-)
-(connector
-	(text "write_guard" (rect -240 1112 -185 1124)(font "Arial" ))
-	(pt -248 1128)
-	(pt -184 1128)
-)
-(connector
-	(text "memY[10..0]" (rect -440 1000 -376 1012)(font "Arial" ))
-	(pt -376 1016)
-	(pt -448 1016)
-	(bus)
-)
-(connector
-	(text "memX[10..0]" (rect -440 1104 -378 1116)(font "Arial" ))
-	(pt -448 1120)
-	(pt -392 1120)
-	(bus)
-)
-(connector
-	(pt -392 1120)
-	(pt -376 1120)
-	(bus)
-)
-(connector
-	(text "read_guard" (rect 14 1288 68 1300)(font "Arial" ))
-	(pt 8 1304)
-	(pt 72 1304)
-)
-(connector
-	(pt -56 1296)
-	(pt -72 1296)
-)
-(connector
-	(pt -80 1360)
-	(pt -72 1360)
-)
-(connector
-	(pt -80 1248)
-	(pt -72 1248)
-)
-(connector
-	(pt -72 1360)
-	(pt -72 1312)
-)
-(connector
-	(pt -56 1312)
-	(pt -72 1312)
-)
-(connector
-	(pt -72 1248)
-	(pt -72 1296)
-)
-(connector
-	(text "lastBank" (rect -199 1240 -157 1252)(font "Arial" ))
-	(pt -208 1256)
-	(pt -144 1256)
-)
-(connector
-	(text "lastBank" (rect -216 1372 -204 1414)(font "Arial" )(vertical))
-	(pt -200 1368)
-	(pt -200 1424)
-)
-(connector
-	(pt -144 1368)
-	(pt -152 1368)
-)
-(connector
-	(text "zero" (rect 104 1032 124 1044)(font "Arial" ))
-	(pt 96 1048)
-	(pt 160 1048)
-)
-(connector
-	(text "decReadCounter" (rect 96 1064 178 1076)(font "Arial" ))
-	(pt 96 1080)
-	(pt 160 1080)
-)
-(connector
-	(text "zero" (rect 105 1048 125 1060)(font "Arial" ))
-	(pt 96 1064)
-	(pt 160 1064)
-)
-(connector
-	(text "ldReadCounter" (rect -152 1032 -79 1044)(font "Arial" ))
-	(pt -128 1048)
-	(pt -160 1048)
-)
-(connector
-	(text "clk" (rect -144 1088 -130 1100)(font "Arial" ))
-	(pt -128 1104)
-	(pt -152 1104)
-)
-(connector
-	(pt -16 1136)
-	(pt -16 1200)
-	(bus)
-)
-(connector
-	(pt -16 1200)
-	(pt 0 1200)
-	(bus)
-)
-(connector
-	(text "readComplete" (rect 124 1192 192 1204)(font "Arial" ))
-	(pt 128 1208)
-	(pt 224 1208)
-)
-(connector
-	(pt -16 920)
-	(pt 16 920)
-	(bus)
-)
-(connector
-	(pt -16 1016)
-	(pt -16 920)
-	(bus)
-)
-(connector
-	(pt 160 912)
-	(pt 328 912)
-	(bus)
-)
-(connector
-	(pt 328 912)
-	(pt 328 1040)
-	(bus)
-)
-(connector
-	(pt 280 928)
-	(pt 280 1040)
-	(bus)
-)
-(connector
-	(pt 160 928)
-	(pt 280 928)
-	(bus)
-)
-(connector
-	(text "opX[9]" (rect 232 952 262 964)(font "Arial" ))
-	(pt 224 968)
-	(pt 256 968)
-)
-(connector
-	(text "opX[8]" (rect 231 968 261 980)(font "Arial" ))
-	(pt 224 984)
-	(pt 256 984)
-)
-(connector
-	(pt 88 952)
-	(pt 88 976)
-)
-(connector
-	(text "lastBank" (rect 107 960 149 972)(font "Arial" ))
-	(pt 88 976)
-	(pt 160 976)
-)
-(connector
-	(pt 840 1208)
-	(pt 880 1208)
-)
-(connector
-	(pt 848 1224)
-	(pt 880 1224)
-)
-(connector
-	(text "no_write" (rect 936 1270 948 1310)(font "Arial" )(vertical))
-	(pt 952 1320)
-	(pt 952 1216)
-)
-(connector
-	(pt 952 1216)
-	(pt 944 1216)
-)
-(connector
-	(pt 872 1240)
-	(pt 880 1240)
-)
-(connector
-	(pt 872 1272)
-	(pt 872 1240)
-)
-(connector
-	(text "WRreq" (rect 856 1315 868 1349)(font "Arial" )(vertical))
-	(pt 872 1320)
-	(pt 872 1360)
-)
-(connector
-	(text "RDreq" (rect 824 1101 836 1132)(font "Arial" )(vertical))
-	(pt 840 1096)
-	(pt 840 1136)
-)
-(connector
-	(pt 952 968)
-	(pt 936 968)
-)
-(connector
-	(text "no_read" (rect 936 1087 948 1125)(font "Arial" )(vertical))
-	(pt 952 1136)
-	(pt 952 968)
-)
-(connector
-	(text "zero" (rect 832 903 844 923)(font "Arial" )(vertical))
-	(pt 856 920)
-	(pt 856 928)
-)
-(connector
-	(pt 856 928)
-	(pt 872 928)
-)
-(connector
-	(pt 864 1008)
-	(pt 872 1008)
-)
-(connector
-	(pt 864 1192)
-	(pt 864 1008)
-)
-(connector
-	(pt 840 992)
-	(pt 872 992)
-)
-(connector
-	(pt 840 1048)
-	(pt 840 992)
-)
-(connector
-	(pt 832 1192)
-	(pt 864 1192)
-)
-(connector
-	(pt 864 1192)
-	(pt 880 1192)
-)
-(connector
-	(text "VERTICAL_VISIBLE_AREA" (rect 560 920 696 932)(font "Arial" ))
-	(pt 696 936)
-	(pt 552 936)
-)
-(connector
-	(text "read_guard" (rect 569 936 623 948)(font "Arial" ))
-	(pt 696 952)
-	(pt 552 952)
-)
-(connector
-	(pt 760 944)
-	(pt 872 944)
-)
-(connector
-	(pt 760 1000)
-	(pt 776 1000)
-)
-(connector
-	(pt 776 1000)
-	(pt 776 960)
-)
-(connector
-	(pt 872 960)
-	(pt 776 960)
-)
-(connector
-	(text "last_line" (rect 568 992 608 1004)(font "Arial" ))
-	(pt 696 1008)
-	(pt 552 1008)
-)
-(connector
-	(text "read_guard" (rect 573 976 627 988)(font "Arial" ))
-	(pt 696 992)
-	(pt 552 992)
-)
-(connector
-	(pt 872 976)
-	(pt 800 976)
-)
-(connector
-	(text "WRreq" (rect 784 1083 796 1117)(font "Arial" )(vertical))
-	(pt 800 976)
-	(pt 800 1128)
-)
-(connector
-	(text "last_line" (rect 592 1352 632 1364)(font "Arial" ))
-	(pt 648 1368)
-	(pt 584 1368)
-)
-(connector
-	(text "write_guard" (rect 592 1368 647 1380)(font "Arial" ))
-	(pt 648 1384)
-	(pt 584 1384)
-)
-(connector
-	(text "write_guard" (rect 600 1312 655 1324)(font "Arial" ))
-	(pt 584 1328)
-	(pt 648 1328)
-)
-(connector
-	(pt 648 1312)
-	(pt 632 1312)
-)
-(connector
-	(pt 632 1312)
-	(pt 632 1248)
-)
-(connector
-	(text "HORIZONTAL_VISIBLE_AREA" (rect 504 1248 658 1260)(font "Arial" ))
-	(pt 648 1264)
-	(pt 544 1264)
-)
-(connector
-	(pt 848 1224)
-	(pt 848 1376)
-)
-(connector
-	(pt 840 1208)
-	(pt 840 1320)
-)
-(connector
-	(pt 832 1192)
-	(pt 832 1256)
-)
-(connector
-	(text "VERTICAL_VISIBLE_AREA" (rect 496 1232 632 1244)(font "Arial" ))
-	(pt 544 1248)
-	(pt 632 1248)
-)
-(connector
-	(pt 632 1248)
-	(pt 648 1248)
-)
-(connector
-	(pt 712 1256)
-	(pt 832 1256)
-)
-(connector
-	(pt 712 1320)
-	(pt 840 1320)
-)
-(connector
-	(pt 712 1376)
-	(pt 848 1376)
-)
-(connector
-	(text "O[11..0]" (rect 374 1280 414 1292)(font "Arial" ))
-	(pt 432 1296)
-	(pt 320 1296)
-	(bus)
-)
-(connector
-	(text "RD_BUS" (rect 280 1226 292 1270)(font "Arial" )(vertical))
-	(pt 296 1232)
-	(pt 296 1280)
-)
-(connector
-	(text "SDRAM_DQ[11..0]" (rect 184 1280 277 1292)(font "Arial" ))
-	(pt 176 1296)
-	(pt 272 1296)
-	(bus)
-)
-(connector
-	(text "SDRAM_DQ[11..0]" (rect 328 1376 421 1388)(font "Arial" ))
-	(pt 320 1392)
-	(pt 428 1392)
-	(bus)
-)
-(connector
-	(text "WR_BUS" (rect 280 1320 292 1367)(font "Arial" )(vertical))
-	(pt 296 1376)
-	(pt 296 1360)
-)
-(connector
-	(text "color[11..0]" (rect 202 1376 257 1388)(font "Arial" ))
-	(pt 272 1392)
-	(pt 176 1392)
-	(bus)
-)
-(connector
-	(text "FC" (rect 649 1136 664 1148)(font "Arial" ))
-	(pt 624 1152)
-	(pt 704 1152)
-)
-(connector
-	(text "FC_RD" (rect 480 1144 517 1156)(font "Arial" ))
-	(pt 560 1160)
-	(pt 472 1160)
-)
-(connector
-	(text "zero, ADDR[11..0], BA[1..0], RAS_N, CAS_N, zero,zero, CKE, clk, WE_N, CS_N" (rect 520 488 922 500)(font "Arial" ))
-	(pt 520 520)
-	(pt 592 520)
 	(bus)
 )
 (connector
@@ -5592,36 +4615,6 @@ applicable agreement for further details.
 (connector
 	(pt 2008 1008)
 	(pt 2008 1208)
-)
-(connector
-	(pt -392 1232)
-	(pt -376 1232)
-	(bus)
-)
-(connector
-	(text "rd32_guard" (rect -207 1224 -153 1236)(font "Arial" ))
-	(pt -144 1240)
-	(pt -248 1240)
-)
-(connector
-	(pt -392 1344)
-	(pt -376 1344)
-	(bus)
-)
-(connector
-	(text "rd256_guard" (rect -208 1336 -148 1348)(font "Arial" ))
-	(pt -144 1352)
-	(pt -248 1352)
-)
-(connector
-	(pt -392 1120)
-	(pt -392 1232)
-	(bus)
-)
-(connector
-	(pt -392 1232)
-	(pt -392 1344)
-	(bus)
 )
 (connector
 	(text "actbank[1..0], zero,zero,zero,zero,zero,zero,zero,zero,zero,zero,zero,zero" (rect 1609 648 1960 660)(font "Arial" ))
@@ -5682,112 +4675,20 @@ applicable agreement for further details.
 	(pt 1424 928)
 )
 (connector
-	(pt 1424 1248)
-	(pt 1456 1248)
-)
-(connector
 	(pt 1800 920)
 	(pt 1416 920)
-)
-(connector
-	(pt 1416 1152)
-	(pt 1456 1152)
 )
 (connector
 	(pt 1816 912)
 	(pt 1408 912)
 )
 (connector
-	(pt 1408 1056)
-	(pt 1456 1056)
-)
-(connector
 	(pt 1824 904)
 	(pt 1400 904)
 )
 (connector
-	(pt 1272 1344)
-	(pt 1760 1344)
-)
-(connector
-	(pt 1760 1344)
-	(pt 1880 1344)
-)
-(connector
 	(pt 1552 1312)
 	(pt 1424 1312)
-)
-(connector
-	(pt 1272 1248)
-	(pt 1424 1248)
-)
-(connector
-	(text "one,zero" (rect 1294 1216 1335 1228)(font "Arial" ))
-	(pt 1320 1232)
-	(pt 1280 1232)
-	(bus)
-)
-(connector
-	(text "actbank[1..0]" (rect 1341 1216 1405 1228)(font "Arial" ))
-	(pt 1368 1232)
-	(pt 1392 1232)
-	(bus)
-)
-(connector
-	(pt 1272 1152)
-	(pt 1416 1152)
-)
-(connector
-	(pt 1424 1312)
-	(pt 1424 1280)
-)
-(connector
-	(pt 1424 1280)
-	(pt 1408 1280)
-)
-(connector
-	(pt 1424 1264)
-	(pt 1408 1264)
-)
-(connector
-	(pt 1424 928)
-	(pt 1424 1248)
-)
-(connector
-	(pt 1424 1248)
-	(pt 1424 1264)
-)
-(connector
-	(text "actbank[1..0]" (rect 1341 1120 1405 1132)(font "Arial" ))
-	(pt 1368 1136)
-	(pt 1392 1136)
-	(bus)
-)
-(connector
-	(text "zero,one" (rect 1294 1120 1335 1132)(font "Arial" ))
-	(pt 1320 1136)
-	(pt 1280 1136)
-	(bus)
-)
-(connector
-	(pt 1344 1192)
-	(pt 1344 1216)
-)
-(connector
-	(pt 1408 1184)
-	(pt 1416 1184)
-)
-(connector
-	(pt 1416 920)
-	(pt 1416 1152)
-)
-(connector
-	(pt 1416 1152)
-	(pt 1416 1184)
-)
-(connector
-	(pt 1408 1200)
-	(pt 1448 1200)
 )
 (connector
 	(pt 1712 1024)
@@ -5802,10 +4703,6 @@ applicable agreement for further details.
 	(pt 1552 1312)
 )
 (connector
-	(pt 1448 1200)
-	(pt 1448 1216)
-)
-(connector
 	(pt 1544 1016)
 	(pt 1544 1152)
 )
@@ -5816,38 +4713,6 @@ applicable agreement for further details.
 (connector
 	(pt 1448 1216)
 	(pt 1544 1216)
-)
-(connector
-	(text "zero,zero" (rect 1286 1024 1329 1036)(font "Arial" ))
-	(pt 1312 1040)
-	(pt 1272 1040)
-	(bus)
-)
-(connector
-	(text "actbank[1..0]" (rect 1333 1024 1397 1036)(font "Arial" ))
-	(pt 1360 1040)
-	(pt 1384 1040)
-	(bus)
-)
-(connector
-	(pt 1336 1000)
-	(pt 1336 1024)
-)
-(connector
-	(pt 1400 904)
-	(pt 1400 960)
-)
-(connector
-	(pt 1400 960)
-	(pt 1400 992)
-)
-(connector
-	(pt 1400 1008)
-	(pt 1440 1008)
-)
-(connector
-	(pt 1440 1008)
-	(pt 1440 1024)
 )
 (connector
 	(pt 1440 1024)
@@ -5866,30 +4731,6 @@ applicable agreement for further details.
 	(pt 1520 960)
 )
 (connector
-	(pt 1272 1056)
-	(pt 1408 1056)
-)
-(connector
-	(pt 1344 1096)
-	(pt 1344 1120)
-)
-(connector
-	(pt 1408 912)
-	(pt 1408 1056)
-)
-(connector
-	(pt 1408 1056)
-	(pt 1408 1088)
-)
-(connector
-	(pt 1408 1104)
-	(pt 1440 1104)
-)
-(connector
-	(pt 1440 1104)
-	(pt 1440 1120)
-)
-(connector
 	(pt 1440 1120)
 	(pt 1536 1120)
 )
@@ -5902,147 +4743,441 @@ applicable agreement for further details.
 	(pt 1536 1120)
 )
 (connector
-	(text "actbank[1..0]" (rect 1349 1296 1413 1308)(font "Arial" ))
-	(pt 1368 1312)
-	(pt 1392 1312)
-	(bus)
-)
-(connector
-	(text "one,one" (rect 1294 1296 1332 1308)(font "Arial" ))
-	(pt 1320 1312)
-	(pt 1280 1312)
-	(bus)
-)
-(connector
-	(pt 1344 1272)
-	(pt 1344 1296)
-)
-(connector
-	(text "HORIZONTAL_FREE_RANGE" (rect 1008 664 1159 676)(font "Arial" ))
-	(pt 1192 680)
-	(pt 1008 680)
-)
-(connector
-	(text "RD" (rect -448 856 -432 868)(font "Arial" ))
-	(pt -456 872)
-	(pt -432 872)
-)
-(connector
-	(text "RDreq" (rect -384 856 -353 868)(font "Arial" ))
-	(pt -384 872)
-	(pt -344 872)
-)
-(connector
-	(text "WR" (rect -752 856 -734 868)(font "Arial" ))
-	(pt -760 872)
-	(pt -728 872)
-)
-(connector
-	(pt -640 960)
-	(pt -640 968)
-	(bus)
-)
-(connector
-	(text "WRreq" (rect -522 952 -488 964)(font "Arial" ))
-	(pt -640 968)
-	(pt -488 968)
-	(bus)
-)
-(connector
-	(text "clk" (rect -744 912 -730 924)(font "Arial" ))
-	(pt -752 928)
-	(pt -728 928)
-)
-(connector
-	(pt -640 840)
-	(pt -640 832)
-	(bus)
-)
-(connector
-	(text "one" (rect -700 816 -683 828)(font "Arial" ))
-	(pt -640 832)
-	(pt -728 832)
-	(bus)
-)
-(connector
-	(text "writerom_ba[2..0], writerom_cc[1..0], WR_BUS, wr_ADDR[1], wr_Command[2], FC_WR, wr_ADDR[2], wr_Command[1]" (rect 408 760 998 772)(font "Arial" )(invisible))
-	(pt 408 776)
-	(pt 472 776)
-	(bus)
-)
-(connector
 	(text "wr_ADDR[2..0]" (rect 1955 760 2029 772)(font "Arial" ))
 	(pt 1952 776)
 	(pt 2096 776)
 	(bus)
 )
 (connector
-	(text "wr_ADDR[2]" (rect 336 856 397 868)(font "Arial" ))
-	(pt 400 872)
-	(pt 328 872)
+	(pt -656 760)
+	(pt -656 720)
+	(bus)
 )
 (connector
-	(text "wr_ADDR[1]" (rect 340 872 401 884)(font "Arial" ))
-	(pt 400 888)
-	(pt 328 888)
+	(pt -648 760)
+	(pt -656 760)
+	(bus)
 )
 (connector
-	(text "wr_ADDR[0]" (rect 469 864 530 876)(font "Arial" ))
-	(pt 464 880)
-	(pt 536 880)
+	(text "rst" (rect -536 616 -524 628)(font "Arial" ))
+	(pt -544 632)
+	(pt -480 632)
 )
 (connector
-	(text "WR_BUS" (rect 480 1128 527 1140)(font "Arial" ))
-	(pt 560 1144)
-	(pt 472 1144)
+	(text "one" (rect -536 632 -519 644)(font "Arial" ))
+	(pt -544 648)
+	(pt -480 648)
 )
 (connector
-	(text "WR_BUS" (rect -558 856 -511 868)(font "Arial" ))
-	(pt -560 872)
-	(pt -504 872)
+	(text "zero" (rect -512 648 -492 660)(font "Arial" ))
+	(pt -544 664)
+	(pt -480 664)
 )
 (connector
-	(text "VERTICAL_FREE_RANGE" (rect 1256 472 1389 484)(font "Arial" ))
-	(pt 1248 488)
-	(pt 1384 488)
+	(text "clk" (rect -816 672 -802 684)(font "Arial" ))
+	(pt -768 688)
+	(pt -824 688)
 )
 (connector
-	(text "VERTICAL_VISIBLE_AREA" (rect 1416 520 1552 532)(font "Arial" ))
-	(pt 1408 536)
-	(pt 1544 536)
+	(text "readrom_ba[2..0], readrom_cc[2..0], rd_Command[2], decReadCounter, RD_BUS, FC_RD, ldReadCounter, rd_ADDR[1], rd_Command[0], rd_ADDR[0], rd_ADDR[2], rd_Command[1]" (rect -464 744 437 756)(font "Arial" )(invisible))
+	(pt -464 760)
+	(pt -416 760)
+	(bus)
 )
 (connector
-	(pt 1248 472)
-	(pt 1392 472)
+	(pt -808 520)
+	(pt -824 520)
 )
 (connector
-	(text "VERTICAL_VISIBLE_EXCEPT_LAST" (rect 1251 512 1430 524)(font "Arial" ))
-	(pt 1248 504)
-	(pt 1392 504)
+	(pt -824 520)
+	(pt -824 632)
 )
 (connector
-	(pt 1392 472)
-	(pt 1392 480)
+	(pt -768 632)
+	(pt -824 632)
 )
 (connector
-	(pt 1392 504)
-	(pt 1392 496)
+	(pt -656 600)
+	(pt -656 592)
+	(bus)
 )
 (connector
-	(pt 1544 488)
-	(pt 1472 488)
+	(text "readrom_ba[2..0]" (rect -648 576 -565 588)(font "Arial" ))
+	(pt -656 592)
+	(pt -568 592)
+	(bus)
 )
 (connector
-	(pt 1544 536)
-	(pt 1544 488)
+	(text "readrom_cc[2..0]" (rect -850 336 -767 348)(font "Arial" ))
+	(pt -864 352)
+	(pt -808 352)
+	(bus)
 )
 (connector
-	(pt 1392 496)
-	(pt 1408 496)
+	(pt -744 496)
+	(pt -672 496)
 )
 (connector
-	(pt 1392 480)
-	(pt 1408 480)
+	(pt -744 512)
+	(pt -664 512)
+)
+(connector
+	(pt -744 528)
+	(pt -656 528)
+)
+(connector
+	(pt -680 312)
+	(pt -408 312)
+)
+(connector
+	(pt -744 544)
+	(pt -408 544)
+)
+(connector
+	(pt -408 312)
+	(pt -408 544)
+)
+(connector
+	(pt -680 344)
+	(pt -448 344)
+)
+(connector
+	(pt -664 456)
+	(pt -648 456)
+)
+(connector
+	(pt -664 512)
+	(pt -664 456)
+)
+(connector
+	(pt -448 448)
+	(pt -584 448)
+)
+(connector
+	(pt -448 344)
+	(pt -448 448)
+)
+(connector
+	(pt -568 328)
+	(pt -680 328)
+)
+(connector
+	(pt -680 360)
+	(pt -424 360)
+)
+(connector
+	(text "readComplete" (rect -504 504 -436 516)(font "Arial" ))
+	(pt -512 520)
+	(pt -464 520)
+)
+(connector
+	(text "no_read" (rect -544 448 -506 460)(font "Arial" ))
+	(pt -584 464)
+	(pt -504 464)
+)
+(connector
+	(pt -656 512)
+	(pt -648 512)
+)
+(connector
+	(pt -656 528)
+	(pt -656 512)
+)
+(connector
+	(pt -424 504)
+	(pt -584 504)
+)
+(connector
+	(pt -424 360)
+	(pt -424 504)
+)
+(connector
+	(pt -584 520)
+	(pt -560 520)
+)
+(connector
+	(pt -672 408)
+	(pt -648 408)
+)
+(connector
+	(pt -672 496)
+	(pt -672 408)
+)
+(connector
+	(pt -568 400)
+	(pt -584 400)
+)
+(connector
+	(pt -568 328)
+	(pt -568 400)
+)
+(connector
+	(text "ready" (rect -504 400 -476 412)(font "Arial" ))
+	(pt -512 416)
+	(pt -464 416)
+)
+(connector
+	(pt -584 416)
+	(pt -560 416)
+)
+(connector
+	(pt -352 320)
+	(pt -352 328)
+	(bus)
+)
+(connector
+	(text "writerom_cc[1..0]" (rect -344 304 -260 316)(font "Arial" ))
+	(pt -248 320)
+	(pt -352 320)
+	(bus)
+)
+(connector
+	(text "writerom_brno_write" (rect -92 320 4 332)(font "Arial" ))
+	(pt -120 336)
+	(pt 56 336)
+)
+(connector
+	(pt -352 512)
+	(pt -320 512)
+)
+(connector
+	(pt -112 440)
+	(pt 32 440)
+)
+(connector
+	(pt 32 440)
+	(pt 32 320)
+)
+(connector
+	(text "writerom_brnot_ready" (rect -75 304 31 316)(font "Arial" ))
+	(pt -120 320)
+	(pt 32 320)
+)
+(connector
+	(pt -112 504)
+	(pt 56 504)
+)
+(connector
+	(pt 56 504)
+	(pt 56 336)
+)
+(connector
+	(pt -120 304)
+	(pt -112 304)
+)
+(connector
+	(pt -256 504)
+	(pt -224 504)
+)
+(connector
+	(pt -224 504)
+	(pt -224 416)
+)
+(connector
+	(pt -112 416)
+	(pt -224 416)
+)
+(connector
+	(pt -176 448)
+	(pt -216 448)
+)
+(connector
+	(pt -216 448)
+	(pt -216 512)
+)
+(connector
+	(pt -256 512)
+	(pt -216 512)
+)
+(connector
+	(pt -176 512)
+	(pt -208 512)
+)
+(connector
+	(pt -256 520)
+	(pt -208 520)
+)
+(connector
+	(pt -208 520)
+	(pt -208 512)
+)
+(connector
+	(text "writerom_bruncnd" (rect -112 327 -100 413)(font "Arial" )(vertical))
+	(pt -112 416)
+	(pt -112 304)
+)
+(connector
+	(pt -8 520)
+	(pt -8 528)
+)
+(connector
+	(text "no_write" (rect -111 504 -71 516)(font "Arial" ))
+	(pt -112 520)
+	(pt -8 520)
+)
+(connector
+	(pt -96 456)
+	(pt -96 472)
+)
+(connector
+	(pt -112 456)
+	(pt -96 456)
+)
+(connector
+	(pt -96 472)
+	(pt -88 472)
+)
+(connector
+	(text "ready" (rect 5 456 33 468)(font "Arial" ))
+	(pt -40 472)
+	(pt 40 472)
+)
+(connector
+	(text "one" (rect 480 299 492 316)(font "Arial" )(vertical))
+	(pt 496 280)
+	(pt 496 320)
+)
+(connector
+	(text "zero" (rect 536 275 548 295)(font "Arial" )(vertical))
+	(pt 552 296)
+	(pt 552 264)
+)
+(connector
+	(text "CKE" (rect 416 280 438 292)(font "Arial" ))
+	(pt 448 296)
+	(pt 408 296)
+)
+(connector
+	(text "one" (rect 312 280 329 292)(font "Arial" ))
+	(pt 328 296)
+	(pt 360 296)
+)
+(connector
+	(text "rst" (rect 472 648 484 660)(font "Arial" ))
+	(pt 448 664)
+	(pt 504 664)
+)
+(connector
+	(pt 336 784)
+	(pt 336 752)
+	(bus)
+)
+(connector
+	(pt 352 784)
+	(pt 336 784)
+	(bus)
+)
+(connector
+	(text "clk" (rect 200 704 214 716)(font "Arial" ))
+	(pt 192 720)
+	(pt 224 720)
+)
+(connector
+	(text "one" (rect 449 664 466 676)(font "Arial" ))
+	(pt 448 680)
+	(pt 504 680)
+)
+(connector
+	(text "zero" (rect 456 680 476 692)(font "Arial" ))
+	(pt 448 696)
+	(pt 504 696)
+)
+(connector
+	(pt 336 632)
+	(pt 336 616)
+	(bus)
+)
+(connector
+	(text "initrom_ba[3..0]" (rect 315 600 391 612)(font "Arial" ))
+	(pt 336 616)
+	(pt 288 616)
+	(bus)
+)
+(connector
+	(text "initrom_bruncnd" (rect 192 607 204 684)(font "Arial" )(vertical))
+	(pt 208 664)
+	(pt 208 576)
+)
+(connector
+	(pt 224 664)
+	(pt 208 664)
+)
+(connector
+	(text "initrom_ba[3..0], initrom_bruncnd, ready, init_ADDR[2], init_Command[1], init_ADDR[0], init_ADDR[1], init_Command[2], init_Command[0]" (rect 536 768 1221 780)(font "Arial" )(invisible))
+	(pt 536 784)
+	(pt 560 784)
+	(bus)
+)
+(connector
+	(text "zero, ADDR[11..0], BA[1..0], RAS_N, CAS_N, zero,zero, CKE, clk, WE_N, CS_N" (rect 112 488 514 500)(font "Arial" ))
+	(pt 112 520)
+	(pt 184 520)
+	(bus)
+)
+(connector
+	(text "HORIZONTAL_VISIBLE_AREA" (rect 848 648 1002 660)(font "Arial" ))
+	(pt 840 664)
+	(pt 976 664)
+)
+(connector
+	(text "memX[10..0]" (rect 629 632 691 644)(font "Arial" ))
+	(pt 712 648)
+	(pt 616 648)
+	(bus)
+)
+(connector
+	(text "memY[10..0]" (rect 624 520 688 532)(font "Arial" ))
+	(pt 712 536)
+	(pt 616 536)
+	(bus)
+)
+(connector
+	(text "HORIZONTAL_FREE_RANGE" (rect 848 632 999 644)(font "Arial" ))
+	(pt 840 648)
+	(pt 976 648)
+)
+(connector
+	(text "VERTICAL_FREE_RANGE" (rect 848 528 981 540)(font "Arial" ))
+	(pt 840 544)
+	(pt 976 544)
+)
+(connector
+	(pt 840 528)
+	(pt 984 528)
+)
+(connector
+	(pt 984 528)
+	(pt 984 536)
+)
+(connector
+	(pt 1136 544)
+	(pt 1064 544)
+)
+(connector
+	(pt 1136 592)
+	(pt 1136 544)
+)
+(connector
+	(pt 984 552)
+	(pt 1000 552)
+)
+(connector
+	(pt 984 536)
+	(pt 1000 536)
+)
+(connector
+	(text "VERTICAL_VISIBLE_EXCEPT_LAST" (rect 843 568 1022 580)(font "Arial" ))
+	(pt 840 560)
+	(pt 984 560)
+)
+(connector
+	(pt 984 552)
+	(pt 984 560)
+)
+(connector
+	(text "VERTICAL_VISIBLE_AREA" (rect 992 592 1128 604)(font "Arial" ))
+	(pt 1000 592)
+	(pt 1136 592)
 )
 (connector
 	(text "actbank[1..0], zero, adrY[10..0]" (rect 1608 664 1762 676)(font "Arial" ))
@@ -6051,123 +5186,1005 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 1488 192)
-	(pt 1488 232)
-)
-(connector
-	(pt 1416 168)
-	(pt 1264 168)
+	(pt 656 344)
+	(pt 672 344)
 	(bus)
 )
 (connector
-	(pt 1416 152)
-	(pt 1256 152)
+	(pt 648 376)
+	(pt 672 376)
 	(bus)
 )
 (connector
-	(pt 1096 168)
-	(pt 1080 168)
+	(pt 648 408)
+	(pt 648 376)
 	(bus)
 )
 (connector
-	(pt 1080 168)
-	(pt 1080 200)
+	(text "syncY[10..0]" (rect 624 432 688 444)(font "Arial" ))
+	(pt 616 448)
+	(pt 720 448)
 	(bus)
 )
 (connector
-	(pt 1264 200)
-	(pt 1080 200)
+	(text "memY[10..0]" (rect 769 432 833 444)(font "Arial" ))
+	(pt 768 448)
+	(pt 856 448)
 	(bus)
 )
 (connector
-	(pt 1264 168)
-	(pt 1264 200)
+	(pt 648 408)
+	(pt 856 408)
 	(bus)
 )
 (connector
-	(pt 1264 200)
-	(pt 1264 288)
+	(pt 1160 352)
+	(pt 1168 352)
 	(bus)
 )
 (connector
-	(pt 1336 960)
-	(pt 1400 960)
+	(pt 1240 408)
+	(pt 1240 392)
+)
+(connector
+	(text "last_line" (rect 1157 392 1197 404)(font "Arial" ))
+	(pt 1112 408)
+	(pt 1240 408)
+)
+(connector
+	(pt 1160 352)
+	(pt 1160 320)
+	(bus)
+)
+(connector
+	(pt 1160 320)
+	(pt 1120 320)
+	(bus)
+)
+(connector
+	(text "first_read" (rect 968 408 980 455)(font "Arial" )(vertical))
+	(pt 984 400)
+	(pt 984 464)
+)
+(connector
+	(pt 1168 368)
+	(pt 1056 368)
+	(bus)
+)
+(connector
+	(pt 856 376)
+	(pt 856 408)
+	(bus)
+)
+(connector
+	(pt 856 408)
+	(pt 856 448)
+	(bus)
+)
+(connector
+	(pt 832 360)
+	(pt 912 360)
+	(bus)
+)
+(connector
+	(pt 856 376)
+	(pt 912 376)
+	(bus)
+)
+(connector
+	(text "memX[10..0]" (rect 1416 544 1478 556)(font "Arial" ))
+	(pt 1408 560)
+	(pt 1504 560)
+	(bus)
+)
+(connector
+	(text "syncX[10..0]" (rect 1168 528 1230 540)(font "Arial" ))
+	(pt 1248 544)
+	(pt 1160 544)
+	(bus)
+)
+(connector
+	(text "adrY[10..0]" (rect 1417 344 1472 356)(font "Arial" ))
+	(pt 1312 360)
+	(pt 1488 360)
+	(bus)
+)
+(connector
+	(text "FREE_RANGE" (rect 1376 712 1450 724)(font "Arial" ))
+	(pt 1368 728)
+	(pt 1480 728)
+)
+(connector
+	(text "VISIBLE_AREA" (rect 1376 776 1453 788)(font "Arial" ))
+	(pt 1368 792)
+	(pt 1480 792)
+)
+(connector
+	(text "HORIZONTAL_FREE_RANGE" (rect 960 696 1111 708)(font "Arial" ))
+	(pt 960 712)
+	(pt 1144 712)
+)
+(connector
+	(pt 1208 720)
+	(pt 1304 720)
+)
+(connector
+	(pt 1208 784)
+	(pt 1304 784)
+)
+(connector
+	(text "HORIZONTAL_VISIBLE_AREA" (rect 968 760 1122 772)(font "Arial" ))
+	(pt 960 776)
+	(pt 1144 776)
+)
+(connector
+	(text "VERTICAL_FREE_RANGE" (rect 968 712 1101 724)(font "Arial" ))
+	(pt 960 728)
+	(pt 1144 728)
+)
+(connector
+	(text "ready" (rect 1274 720 1302 732)(font "Arial" ))
+	(pt 1224 736)
+	(pt 1304 736)
+)
+(connector
+	(text "ready" (rect 1274 784 1302 796)(font "Arial" ))
+	(pt 1224 800)
+	(pt 1304 800)
+)
+(connector
+	(text "VERTICAL_VISIBLE_AREA" (rect 968 776 1104 788)(font "Arial" ))
+	(pt 960 792)
+	(pt 1144 792)
+)
+(connector
+	(pt 760 1216)
+	(pt 800 1216)
+)
+(connector
+	(pt 768 1232)
+	(pt 800 1232)
+)
+(connector
+	(pt 872 1224)
+	(pt 864 1224)
+)
+(connector
+	(pt 792 1248)
+	(pt 800 1248)
+)
+(connector
+	(pt 792 1280)
+	(pt 792 1248)
+)
+(connector
+	(text "WRreq" (rect 776 1323 788 1357)(font "Arial" )(vertical))
+	(pt 792 1328)
+	(pt 792 1368)
+)
+(connector
+	(text "RDreq" (rect 744 1109 756 1140)(font "Arial" )(vertical))
+	(pt 760 1104)
+	(pt 760 1144)
+)
+(connector
+	(pt 872 976)
+	(pt 856 976)
+)
+(connector
+	(text "zero" (rect 752 911 764 931)(font "Arial" )(vertical))
+	(pt 776 928)
+	(pt 776 936)
+)
+(connector
+	(pt 776 936)
+	(pt 792 936)
+)
+(connector
+	(pt 784 1016)
+	(pt 792 1016)
+)
+(connector
+	(pt 784 1200)
+	(pt 784 1016)
+)
+(connector
+	(pt 760 1000)
+	(pt 792 1000)
+)
+(connector
+	(pt 760 1056)
+	(pt 760 1000)
+)
+(connector
+	(text "VERTICAL_VISIBLE_AREA" (rect 480 928 616 940)(font "Arial" ))
+	(pt 616 944)
+	(pt 472 944)
+)
+(connector
+	(text "read_guard" (rect 489 944 543 956)(font "Arial" ))
+	(pt 616 960)
+	(pt 472 960)
+)
+(connector
+	(pt 680 1008)
+	(pt 696 1008)
+)
+(connector
+	(pt 792 968)
+	(pt 696 968)
+)
+(connector
+	(text "last_line" (rect 488 1000 528 1012)(font "Arial" ))
+	(pt 616 1016)
+	(pt 472 1016)
+)
+(connector
+	(text "read_guard" (rect 493 984 547 996)(font "Arial" ))
+	(pt 616 1000)
+	(pt 472 1000)
+)
+(connector
+	(pt 792 984)
+	(pt 720 984)
+)
+(connector
+	(text "WRreq" (rect 704 1091 716 1125)(font "Arial" )(vertical))
+	(pt 720 984)
+	(pt 720 1136)
+)
+(connector
+	(text "last_line" (rect 512 1360 552 1372)(font "Arial" ))
+	(pt 568 1376)
+	(pt 504 1376)
+)
+(connector
+	(text "write_guard" (rect 512 1376 567 1388)(font "Arial" ))
+	(pt 568 1392)
+	(pt 504 1392)
+)
+(connector
+	(text "write_guard" (rect 520 1320 575 1332)(font "Arial" ))
+	(pt 504 1336)
+	(pt 568 1336)
+)
+(connector
+	(pt 568 1320)
+	(pt 552 1320)
+)
+(connector
+	(pt 552 1320)
+	(pt 552 1256)
+)
+(connector
+	(text "HORIZONTAL_VISIBLE_AREA" (rect 424 1256 578 1268)(font "Arial" ))
+	(pt 568 1272)
+	(pt 464 1272)
+)
+(connector
+	(pt 768 1232)
+	(pt 768 1384)
+)
+(connector
+	(pt 760 1216)
+	(pt 760 1328)
+)
+(connector
+	(pt 752 1200)
+	(pt 752 1264)
+)
+(connector
+	(text "FC_RD" (rect 504 880 541 892)(font "Arial" ))
+	(pt 584 896)
+	(pt 496 896)
+)
+(connector
+	(text "WR_BUS" (rect 504 864 551 876)(font "Arial" ))
+	(pt 584 880)
+	(pt 496 880)
+)
+(connector
+	(pt 752 1200)
+	(pt 784 1200)
+)
+(connector
+	(pt 784 1200)
+	(pt 800 1200)
+)
+(connector
+	(text "VERTICAL_VISIBLE_AREA" (rect 416 1240 552 1252)(font "Arial" ))
+	(pt 464 1256)
+	(pt 552 1256)
+)
+(connector
+	(pt 552 1256)
+	(pt 568 1256)
+)
+(connector
+	(pt 632 1264)
+	(pt 752 1264)
+)
+(connector
+	(pt 632 1328)
+	(pt 760 1328)
+)
+(connector
+	(pt 632 1384)
+	(pt 768 1384)
+)
+(connector
+	(text "no_write" (rect 856 1278 868 1318)(font "Arial" )(vertical))
+	(pt 872 1224)
+	(pt 872 1328)
+)
+(connector
+	(text "no_read" (rect 856 1095 868 1133)(font "Arial" )(vertical))
+	(pt 872 976)
+	(pt 872 1144)
+)
+(connector
+	(pt 696 968)
+	(pt 696 1008)
+)
+(connector
+	(pt 680 952)
+	(pt 792 952)
+)
+(connector
+	(text "FC" (rect 673 872 688 884)(font "Arial" ))
+	(pt 648 888)
+	(pt 728 888)
+)
+(connector
+	(text "last_line" (rect -656 1008 -616 1020)(font "Arial" ))
+	(pt -664 1024)
+	(pt -600 1024)
+)
+(connector
+	(text "write_guard" (rect -656 1112 -601 1124)(font "Arial" ))
+	(pt -664 1128)
+	(pt -600 1128)
+)
+(connector
+	(text "memY[10..0]" (rect -856 1000 -792 1012)(font "Arial" ))
+	(pt -792 1016)
+	(pt -864 1016)
+	(bus)
+)
+(connector
+	(pt -808 1232)
+	(pt -792 1232)
+	(bus)
+)
+(connector
+	(pt -808 1344)
+	(pt -792 1344)
+	(bus)
+)
+(connector
+	(text "memX[10..0]" (rect -856 1104 -794 1116)(font "Arial" ))
+	(pt -864 1120)
+	(pt -808 1120)
+	(bus)
+)
+(connector
+	(pt -808 1120)
+	(pt -792 1120)
+	(bus)
+)
+(connector
+	(pt -808 1120)
+	(pt -808 1232)
+	(bus)
+)
+(connector
+	(pt -808 1232)
+	(pt -808 1344)
+	(bus)
+)
+(connector
+	(pt -448 1360)
+	(pt -440 1360)
+)
+(connector
+	(pt -448 1248)
+	(pt -440 1248)
+)
+(connector
+	(text "lastBank" (rect -567 1240 -525 1252)(font "Arial" ))
+	(pt -576 1256)
+	(pt -512 1256)
+)
+(connector
+	(text "lastBank" (rect -584 1372 -572 1414)(font "Arial" )(vertical))
+	(pt -568 1368)
+	(pt -568 1424)
+)
+(connector
+	(pt -512 1368)
+	(pt -520 1368)
+)
+(connector
+	(pt -440 1296)
+	(pt -424 1296)
+)
+(connector
+	(pt -440 1312)
+	(pt -424 1312)
+)
+(connector
+	(pt -440 1248)
+	(pt -440 1296)
+)
+(connector
+	(pt -440 1360)
+	(pt -440 1312)
+)
+(connector
+	(text "read_guard" (rect -354 1288 -300 1300)(font "Arial" ))
+	(pt -360 1304)
+	(pt -296 1304)
+)
+(connector
+	(text "rd32_guard" (rect -663 1224 -609 1236)(font "Arial" ))
+	(pt -664 1240)
+	(pt -512 1240)
+)
+(connector
+	(text "rd256_guard" (rect -656 1336 -596 1348)(font "Arial" ))
+	(pt -664 1352)
+	(pt -512 1352)
+)
+(connector
+	(text "WR" (rect -552 952 -534 964)(font "Arial" ))
+	(pt -560 968)
+	(pt -528 968)
+)
+(connector
+	(text "clk" (rect -544 1008 -530 1020)(font "Arial" ))
+	(pt -552 1024)
+	(pt -528 1024)
+)
+(connector
+	(pt -440 936)
+	(pt -440 928)
+	(bus)
+)
+(connector
+	(text "one" (rect -500 912 -483 924)(font "Arial" ))
+	(pt -440 928)
+	(pt -528 928)
+	(bus)
+)
+(connector
+	(text "WR_BUS" (rect -358 952 -311 964)(font "Arial" ))
+	(pt -360 968)
+	(pt -304 968)
+)
+(connector
+	(text "RD" (rect -392 896 -376 908)(font "Arial" ))
+	(pt -392 912)
+	(pt -368 912)
+)
+(connector
+	(text "RDreq" (rect -320 896 -289 908)(font "Arial" ))
+	(pt -320 912)
+	(pt -280 912)
+)
+(connector
+	(pt -440 1056)
+	(pt -440 1064)
+	(bus)
+)
+(connector
+	(text "WRreq" (rect -394 1048 -360 1060)(font "Arial" ))
+	(pt -440 1064)
+	(pt -360 1064)
+	(bus)
+)
+(connector
+	(pt 944 1040)
+	(pt 968 1040)
+	(bus)
+)
+(connector
+	(pt 944 1136)
+	(pt 968 1136)
+	(bus)
+)
+(connector
+	(pt 944 1232)
+	(pt 968 1232)
+	(bus)
+)
+(connector
+	(pt 944 1328)
+	(pt 968 1328)
+	(bus)
+)
+(connector
+	(pt 944 944)
+	(pt 968 944)
+	(bus)
+)
+(connector
+	(text "memX[10..0]" (rect 928 889 940 951)(font "Arial" )(vertical))
+	(pt 944 904)
+	(pt 944 944)
+	(bus)
+)
+(connector
+	(pt 944 944)
+	(pt 944 1040)
+	(bus)
+)
+(connector
+	(pt 944 1040)
+	(pt 944 1136)
+	(bus)
+)
+(connector
+	(pt 944 1136)
+	(pt 944 1232)
+	(bus)
+)
+(connector
+	(pt 944 1232)
+	(pt 944 1328)
+	(bus)
+)
+(connector
+	(text "VISIBLE_AREA" (rect 1112 1347 1124 1424)(font "Arial" )(vertical))
+	(pt 1128 1424)
+	(pt 1128 1352)
+)
+(connector
+	(text "VISIBLE_AREA" (rect 1112 1251 1124 1328)(font "Arial" )(vertical))
+	(pt 1128 1328)
+	(pt 1128 1256)
+)
+(connector
+	(text "VISIBLE_AREA" (rect 1112 1155 1124 1232)(font "Arial" )(vertical))
+	(pt 1128 1232)
+	(pt 1128 1160)
+)
+(connector
+	(text "VISIBLE_AREA" (rect 1112 1059 1124 1136)(font "Arial" )(vertical))
+	(pt 1128 1136)
+	(pt 1128 1064)
+)
+(connector
+	(pt 1096 1048)
+	(pt 1128 1048)
+)
+(connector
+	(pt 1096 1144)
+	(pt 1128 1144)
+)
+(connector
+	(pt 1096 1240)
+	(pt 1128 1240)
+)
+(connector
+	(pt 1096 1336)
+	(pt 1128 1336)
+)
+(connector
+	(pt 1408 1056)
+	(pt 1456 1056)
+)
+(connector
+	(pt 1416 1152)
+	(pt 1456 1152)
+)
+(connector
+	(pt 1760 1344)
+	(pt 1880 1344)
+)
+(connector
+	(pt 1192 1344)
+	(pt 1760 1344)
+)
+(connector
+	(pt 1192 1152)
+	(pt 1416 1152)
+)
+(connector
+	(pt 1192 1248)
+	(pt 1424 1248)
+)
+(connector
+	(pt 1424 1248)
+	(pt 1456 1248)
+)
+(connector
+	(text "first_read" (rect 1038 936 1085 948)(font "Arial" ))
+	(pt 1096 952)
+	(pt 1208 952)
+)
+(connector
+	(pt 1192 968)
+	(pt 1208 968)
 )
 (connector
 	(pt 1400 960)
 	(pt 1456 960)
 )
 (connector
-	(text "last_line" (rect 1371 856 1411 868)(font "Arial" ))
-	(pt 1336 872)
-	(pt 1392 872)
+	(text "last_line" (rect 1291 856 1331 868)(font "Arial" ))
+	(pt 1256 872)
+	(pt 1312 872)
 )
 (connector
-	(text "VERTICAL_VISIBLE_EXCEPT_LAST" (rect 1336 872 1515 884)(font "Arial" ))
-	(pt 1336 888)
-	(pt 1456 888)
+	(pt 1192 968)
+	(pt 1192 880)
 )
 (connector
-	(pt 1272 968)
-	(pt 1264 968)
+	(text "VERTICAL_VISIBLE_EXCEPT_LAST" (rect 1256 872 1435 884)(font "Arial" ))
+	(pt 1256 888)
+	(pt 1376 888)
 )
 (connector
-	(pt 1264 968)
-	(pt 1264 880)
-)
-(connector
-	(pt 1272 880)
-	(pt 1264 880)
-)
-(connector
-	(text "first_read" (rect 1206 936 1253 948)(font "Arial" ))
-	(pt 1168 952)
-	(pt 1272 952)
-)
-(connector
-	(text "first_read" (rect 1381 216 1428 228)(font "Arial" ))
-	(pt 1488 232)
-	(pt 1360 232)
-)
-(connector
-	(pt 1560 160)
-	(pt 1696 160)
+	(text "actbank[1..0]" (rect 1277 1024 1341 1036)(font "Arial" ))
+	(pt 1304 1040)
+	(pt 1328 1040)
 	(bus)
 )
 (connector
-	(text "adrY[10..0]" (rect 1929 136 1984 148)(font "Arial" ))
-	(pt 1840 152)
-	(pt 2000 152)
+	(text "zero,zero" (rect 1214 1024 1257 1036)(font "Arial" ))
+	(pt 1200 1040)
+	(pt 1256 1040)
 	(bus)
 )
 (connector
-	(pt 1696 144)
-	(pt 1592 144)
+	(text "zero,one" (rect 1214 1120 1255 1132)(font "Arial" ))
+	(pt 1264 1136)
+	(pt 1200 1136)
 	(bus)
 )
 (connector
-	(pt 1592 144)
-	(pt 1592 88)
+	(text "actbank[1..0]" (rect 1285 1120 1349 1132)(font "Arial" ))
+	(pt 1312 1136)
+	(pt 1336 1136)
 	(bus)
 )
 (connector
-	(pt 1768 184)
-	(pt 1768 208)
-)
-(connector
-	(text "last_line" (rect 1685 192 1725 204)(font "Arial" ))
-	(pt 1768 208)
-	(pt 1640 208)
-)
-(connector
-	(pt 952 136)
-	(pt 1096 136)
+	(text "one,zero" (rect 1214 1216 1255 1228)(font "Arial" ))
+	(pt 1264 1232)
+	(pt 1200 1232)
 	(bus)
 )
-(junction (pt 1016 1136))
-(junction (pt 1016 1232))
-(junction (pt 1016 944))
-(junction (pt 1016 1040))
+(connector
+	(text "actbank[1..0]" (rect 1285 1216 1349 1228)(font "Arial" ))
+	(pt 1312 1232)
+	(pt 1336 1232)
+	(bus)
+)
+(connector
+	(text "one,one" (rect 1214 1312 1252 1324)(font "Arial" ))
+	(pt 1264 1328)
+	(pt 1200 1328)
+	(bus)
+)
+(connector
+	(text "actbank[1..0]" (rect 1293 1312 1357 1324)(font "Arial" ))
+	(pt 1312 1328)
+	(pt 1336 1328)
+	(bus)
+)
+(connector
+	(pt 1408 912)
+	(pt 1408 1056)
+)
+(connector
+	(pt 1440 1120)
+	(pt 1440 1104)
+)
+(connector
+	(pt 1288 1096)
+	(pt 1320 1096)
+)
+(connector
+	(pt 1288 1120)
+	(pt 1288 1096)
+)
+(connector
+	(pt 1384 1056)
+	(pt 1384 1088)
+)
+(connector
+	(pt 1192 1056)
+	(pt 1384 1056)
+)
+(connector
+	(pt 1384 1056)
+	(pt 1408 1056)
+)
+(connector
+	(pt 1384 1104)
+	(pt 1440 1104)
+)
+(connector
+	(pt 1400 904)
+	(pt 1400 960)
+)
+(connector
+	(pt 1440 1024)
+	(pt 1440 1008)
+)
+(connector
+	(pt 1280 1000)
+	(pt 1312 1000)
+)
+(connector
+	(pt 1280 1024)
+	(pt 1280 1000)
+)
+(connector
+	(pt 1376 960)
+	(pt 1376 992)
+)
+(connector
+	(pt 1272 960)
+	(pt 1376 960)
+)
+(connector
+	(pt 1376 960)
+	(pt 1400 960)
+)
+(connector
+	(pt 1376 1008)
+	(pt 1440 1008)
+)
+(connector
+	(pt 1448 1216)
+	(pt 1448 1200)
+)
+(connector
+	(pt 1288 1192)
+	(pt 1320 1192)
+)
+(connector
+	(pt 1288 1216)
+	(pt 1288 1192)
+)
+(connector
+	(pt 1416 920)
+	(pt 1416 1152)
+)
+(connector
+	(pt 1416 1152)
+	(pt 1416 1184)
+)
+(connector
+	(pt 1384 1200)
+	(pt 1448 1200)
+)
+(connector
+	(pt 1384 1184)
+	(pt 1416 1184)
+)
+(connector
+	(pt 1424 1312)
+	(pt 1424 1296)
+)
+(connector
+	(pt 1288 1288)
+	(pt 1320 1288)
+)
+(connector
+	(pt 1288 1312)
+	(pt 1288 1288)
+)
+(connector
+	(pt 1424 928)
+	(pt 1424 1248)
+)
+(connector
+	(pt 1424 1248)
+	(pt 1424 1280)
+)
+(connector
+	(pt 1384 1296)
+	(pt 1424 1296)
+)
+(connector
+	(pt 1384 1280)
+	(pt 1424 1280)
+)
+(connector
+	(text "readComplete" (rect -44 1304 24 1316)(font "Arial" ))
+	(pt -48 1320)
+	(pt 48 1320)
+)
+(connector
+	(text "zero" (rect -88 1168 -68 1180)(font "Arial" ))
+	(pt -96 1184)
+	(pt -32 1184)
+)
+(connector
+	(text "decReadCounter" (rect -96 1200 -14 1212)(font "Arial" ))
+	(pt -96 1216)
+	(pt -32 1216)
+)
+(connector
+	(text "zero" (rect -87 1184 -67 1196)(font "Arial" ))
+	(pt -96 1200)
+	(pt -32 1200)
+)
+(connector
+	(text "ldReadCounter" (rect -344 1168 -271 1180)(font "Arial" ))
+	(pt -320 1184)
+	(pt -352 1184)
+)
+(connector
+	(text "clk" (rect -336 1224 -322 1236)(font "Arial" ))
+	(pt -320 1240)
+	(pt -344 1240)
+)
+(connector
+	(pt -176 1312)
+	(pt -208 1312)
+	(bus)
+)
+(connector
+	(pt -208 968)
+	(pt -192 968)
+	(bus)
+)
+(connector
+	(pt -208 1152)
+	(pt -208 968)
+	(bus)
+)
+(connector
+	(pt -120 1000)
+	(pt -120 1024)
+)
+(connector
+	(text "lastBank" (rect -37 1008 5 1020)(font "Arial" ))
+	(pt -120 1024)
+	(pt 16 1024)
+)
+(connector
+	(text "opX[9]" (rect 88 1000 118 1012)(font "Arial" ))
+	(pt 80 1016)
+	(pt 112 1016)
+)
+(connector
+	(text "opX[8]" (rect 87 1016 117 1028)(font "Arial" ))
+	(pt 80 1032)
+	(pt 112 1032)
+)
+(connector
+	(pt -48 976)
+	(pt 136 976)
+	(bus)
+)
+(connector
+	(pt 136 976)
+	(pt 136 1096)
+	(bus)
+)
+(connector
+	(pt -48 960)
+	(pt 184 960)
+	(bus)
+)
+(connector
+	(pt 184 960)
+	(pt 184 1088)
+	(bus)
+)
+(connector
+	(pt -208 1272)
+	(pt -208 1312)
+	(bus)
+)
+(connector
+	(text "O[11..0]" (rect 318 1264 358 1276)(font "Arial" ))
+	(pt 376 1280)
+	(pt 264 1280)
+	(bus)
+)
+(connector
+	(text "RD_BUS" (rect 224 1210 236 1254)(font "Arial" )(vertical))
+	(pt 240 1216)
+	(pt 240 1264)
+)
+(connector
+	(text "SDRAM_DQ[11..0]" (rect 128 1264 221 1276)(font "Arial" ))
+	(pt 120 1280)
+	(pt 216 1280)
+	(bus)
+)
+(connector
+	(text "SDRAM_DQ[11..0]" (rect 272 1360 365 1372)(font "Arial" ))
+	(pt 264 1376)
+	(pt 372 1376)
+	(bus)
+)
+(connector
+	(text "WR_BUS" (rect 224 1304 236 1351)(font "Arial" )(vertical))
+	(pt 240 1360)
+	(pt 240 1344)
+)
+(connector
+	(text "color[11..0]" (rect 146 1360 201 1372)(font "Arial" ))
+	(pt 216 1376)
+	(pt 120 1376)
+	(bus)
+)
+(connector
+	(text "wr_ADDR[2]" (rect -368 768 -307 780)(font "Arial" ))
+	(pt -304 784)
+	(pt -376 784)
+)
+(connector
+	(text "wr_ADDR[1]" (rect -364 784 -303 796)(font "Arial" ))
+	(pt -304 800)
+	(pt -376 800)
+)
+(connector
+	(text "wr_ADDR[0]" (rect -259 776 -198 788)(font "Arial" ))
+	(pt -240 792)
+	(pt -192 792)
+)
+(connector
+	(text "rst" (rect -79 616 -67 628)(font "Arial" ))
+	(pt -80 632)
+	(pt -16 632)
+)
+(connector
+	(text "one" (rect -72 632 -55 644)(font "Arial" ))
+	(pt -80 648)
+	(pt -16 648)
+)
+(connector
+	(text "clk" (rect -352 672 -338 684)(font "Arial" ))
+	(pt -304 688)
+	(pt -360 688)
+)
+(connector
+	(pt -192 592)
+	(pt -192 600)
+	(bus)
+)
+(connector
+	(text "writerom_ba[2..0]" (rect -183 568 -99 580)(font "Arial" ))
+	(pt -96 592)
+	(pt -192 592)
+	(bus)
+)
+(connector
+	(pt -352 632)
+	(pt -304 632)
+)
+(connector
+	(pt -352 512)
+	(pt -352 632)
+)
+(connector
+	(text "zero" (rect -72 648 -52 660)(font "Arial" ))
+	(pt -80 664)
+	(pt -16 664)
+)
+(connector
+	(text "writerom_ba[2..0], writerom_cc[1..0], WR_BUS, wr_ADDR[1], wr_Command[2], FC_WR, wr_ADDR[2], wr_Command[1]" (rect 0 736 590 748)(font "Arial" )(invisible))
+	(pt 0 752)
+	(pt 64 752)
+	(bus)
+)
+(connector
+	(pt -192 752)
+	(pt -184 752)
+	(bus)
+)
+(connector
+	(pt -192 720)
+	(pt -192 752)
+	(bus)
+)
 (junction (pt 1552 1248))
 (junction (pt 1544 1152))
 (junction (pt 1536 1056))
@@ -6175,33 +6192,36 @@ applicable agreement for further details.
 (junction (pt 1760 1208))
 (junction (pt 1760 1344))
 (junction (pt 1760 1272))
-(junction (pt -392 1232))
-(junction (pt -392 1120))
-(junction (pt 864 1192))
-(junction (pt 632 1248))
 (junction (pt 1424 1248))
 (junction (pt 1416 1152))
 (junction (pt 1408 1056))
 (junction (pt 1400 960))
 (junction (pt 1528 960))
-(junction (pt 1264 200))
+(junction (pt 856 408))
+(junction (pt 784 1200))
+(junction (pt 552 1256))
+(junction (pt -808 1232))
+(junction (pt -808 1120))
+(junction (pt 944 1232))
+(junction (pt 944 944))
+(junction (pt 944 1040))
+(junction (pt 944 1136))
+(junction (pt 1384 1056))
+(junction (pt 1376 960))
 (text "CI, NOP, ACT, READ, WRITE, BT, PRE, AR, LMR" (rect 1584 496 1850 510)(font "Arial" (font_size 8)))
-(text "Pins" (rect 512 528 535 542)(font "Arial" (font_size 8)))
-(text "SDRAM Initialization procedure" (rect 504 824 677 838)(font "Arial" (font_size 8)))
-(text "Command control" (rect -464 1408 -367 1422)(font "Arial" (font_size 8)))
-(text "Screen area" (rect 992 824 1062 838)(font "Arial" (font_size 8)))
-(text "Visible area readout" (rect 1000 1408 1114 1422)(font "Arial" (font_size 8)))
-(text "Write control unit" (rect 16 824 111 838)(font "Arial" (font_size 8)))
+(text "Pins" (rect 104 528 127 542)(font "Arial" (font_size 8)))
+(text "SDRAM Initialization procedure" (rect 96 824 269 838)(font "Arial" (font_size 8)))
+(text "Command control" (rect -880 1416 -783 1430)(font "Arial" (font_size 8)))
+(text "Screen area" (rect 592 824 662 838)(font "Arial" (font_size 8)))
+(text "Visible area readout" (rect 928 1416 1042 1430)(font "Arial" (font_size 8)))
+(text "Write control unit" (rect -392 824 -297 838)(font "Arial" (font_size 8)))
 (text "Command/Address multiplexers" (rect 1568 824 1747 838)(font "Arial" (font_size 8)))
-(text "Read control unit" (rect -464 824 -369 838)(font "Arial" (font_size 8)))
-(text "certified zola patch" (rect -448 888 -340 902)(font "Arial" (font_size 8)))
-(text "another certified zola patch" (rect 360 904 515 918)(font "Arial" (font_size 8)))
-(text "FIXME" (rect 304 1264 338 1278)(font "Arial" (font_size 8)))
-(rectangle (rect 992 256 1552 840))
-(rectangle (rect 504 256 984 544))
+(text "Read control unit" (rect -872 824 -777 838)(font "Arial" (font_size 8)))
+(rectangle (rect 584 256 1552 840))
+(rectangle (rect 96 256 576 544))
 (rectangle (rect 1560 256 2120 840))
-(rectangle (rect 504 552 984 840))
-(rectangle (rect 992 848 2120 1432))
-(rectangle (rect -472 848 984 1432))
-(rectangle (rect 16 256 496 840))
-(rectangle (rect -472 256 8 840))
+(rectangle (rect 96 552 576 840))
+(rectangle (rect 920 848 2120 1432))
+(rectangle (rect -880 848 912 1432))
+(rectangle (rect -392 256 88 840))
+(rectangle (rect -880 256 -400 840))
