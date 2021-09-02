@@ -11,6 +11,8 @@ unsigned int selectedTool=0;
 unsigned int selectedColor=0;
 unsigned int lastMouse=0;
 unsigned int track=0;
+unsigned int colortrack=0;
+unsigned int channel=0;
 unsigned int ui=0;
 #ifdef EEG
 unsigned int untouched=1;
@@ -18,6 +20,7 @@ unsigned int untouched=1;
 struct point startPoint;
 
 void setup();
+void updateColor(unsigned int channel,unsigned int val,unsigned int type);
 
 int main()
 {
@@ -27,21 +30,31 @@ int main()
     {
         mouseRead();
         struct point p=mousePos();
-        if(mouseChanged() && track)
+        if(mouseChanged())
         {
             //Mouse Move
-            if(p.y>=(600-64)){p.y=600-64-1;}
-            unsigned int dx=p.x>startPoint.x?p.x-startPoint.x:startPoint.x-p.x;
-            unsigned int dy=p.y>startPoint.y?p.y-startPoint.y:startPoint.y-p.y;
-            if(dx<2 && dy<2)
-            {
-                gpuDrawPoint(p.x,p.y);
+            if(track){
+                //Mouse moved while using pen
+                if(p.y>=(600-64)){p.y=600-64-1;}
+                unsigned int dx=p.x>startPoint.x?p.x-startPoint.x:startPoint.x-p.x;
+                unsigned int dy=p.y>startPoint.y?p.y-startPoint.y:startPoint.y-p.y;
+                if(dx<2 && dy<2)
+                {
+                    gpuDrawPoint(p.x,p.y);
+                }
+                else
+                {
+                    gpuDrawLine(startPoint.x,startPoint.y,p.x,p.y);
+                }
+                startPoint=p;
             }
-            else
+            if(colortrack)
             {
-                gpuDrawLine(startPoint.x,startPoint.y,p.x,p.y);
+                int colorindex=(p.x>>5)-2;
+                if(colorindex < 0){colorindex =0;}
+                if(colorindex >15){colorindex = 15;}
+                updateColor(channel,colorindex,0);
             }
-            startPoint=p;
         }
         if(mouseLDown() && !lastMouse)
         {
@@ -68,12 +81,27 @@ int main()
                     ui=2;
                 }
                 #endif
+                if(p.x>=64 && p.x<576)
+                {
+                    int colorindex=(p.x>>5)-2;
+                    if(p.y>=UI_START_Y+2 && p.y<UI_START_Y+22)        {colortrack=1;channel=8;updateColor(channel,colorindex,1);}
+                    else if(p.y>=UI_START_Y+22 && p.y<UI_START_Y+42)  {colortrack=1;channel=4;updateColor(channel,colorindex,1);}
+                    else if(p.y>=UI_START_Y+42 && p.y<UI_START_Y+62)  {colortrack=1;channel=0;updateColor(channel,colorindex,1);}
+                }
             }
         }
         if(!mouseLDown() && lastMouse)
         {
             //Mouse Release
             track = 0;
+            if(colortrack)
+            {
+                int colorindex=(p.x>>5)-2;
+                if(colorindex < 0){colorindex =0;}
+                if(colorindex >15){colorindex = 15;}
+                updateColor(channel,colorindex,2);
+            }
+            colortrack=0;
             if(p.y<(600-64) && !ui)
             {
                 switch (selectedTool)
@@ -85,7 +113,7 @@ int main()
                         #ifdef EEG
                         untouched=0;
                         #endif
-                        floodFill(p.x,p.y,COLOR_LUT[selectedColor]);
+                        floodFill(p.x,p.y,selectedColor);
                         break;}
                     default :{break;}
                 }
@@ -103,50 +131,24 @@ int main()
                     }
                     #endif
                 }
-                else if(ind < 10)
+                else if(ind < 18)
                 {
-                    //Color Picker
-                    ind-=2;
-                    ind+=(p.y>=600-32?8:0); //Are we in the second row
-                    selectedColor=ind;
-                    gpuSetColor(COLOR_LUT[selectedColor]);
-                    gpuFillRect(1,UI_START_Y+1,63-1,599-1);
                 }
-                else if(ind <16)
+                else if(ind <21)
                 {
                     //Tool Picker
-                    ind-=10;
+                    ind-=18;
                     ind+=(p.y>=600-32?3:0); //Are we in the second row
-
-                    /*switch(selectedTool)
-                    {
-                        case 0:{ drawIconOpt(320,UI_START_Y,COLOR_BLACK,ICON_PEN,1); break;}
-                        case 1:{ drawIconOpt(352,UI_START_Y,COLOR_BLACK,ICON_RECT,1); break;}
-                        case 2:{ drawIconOpt(384,UI_START_Y,COLOR_BLACK,ICON_BUCKET,1); break;}
-                        case 3:{ drawIconOpt(320,UI_START_Y+32,COLOR_BLACK,ICON_LINE,1); break;}
-                        case 4:{ drawIconOpt(352,UI_START_Y+32,COLOR_BLACK,ICON_FILL_RECT,1); break;}
-                        case 5:{ drawIconOpt(384,UI_START_Y+32,COLOR_BLACK,ICON_CLEAR,1); break;}
-                    }*/
 
                     if(ind==5) //Clear screen cant really be selected
                     {
                         gpuFillRect_c(0,0,799,UI_START_Y-1,COLOR_WHITE);
-                        gpuSetColor(COLOR_LUT[selectedColor]);
+                        gpuSetColor(selectedColor);
                     }
                     else
                     {
                         selectedTool=ind;
                     }
-
-                    /*switch(selectedTool)
-                    {
-                        case 0:{ drawIconOpt(320,UI_START_Y,COLOR_RED,ICON_PEN,1); break;}
-                        case 1:{ drawIconOpt(352,UI_START_Y,COLOR_RED,ICON_RECT,1); break;}
-                        case 2:{ drawIconOpt(384,UI_START_Y,COLOR_RED,ICON_BUCKET,1); break;}
-                        case 3:{ drawIconOpt(320,UI_START_Y+32,COLOR_RED,ICON_LINE,1); break;}
-                        case 4:{ drawIconOpt(352,UI_START_Y+32,COLOR_RED,ICON_FILL_RECT,1); break;}
-                        case 5:{ drawIconOpt(384,UI_START_Y+32,COLOR_RED,ICON_CLEAR,1); break;}
-                    }*/
 
                 }
             }
@@ -165,30 +167,72 @@ void setup()
     //Draw UI
 
     gpuFillRect_c(0,0,799,UI_START_Y-1,COLOR_WHITE);
-    gpuFillRect_c(416,UI_START_Y,799,599,COLOR_DARK_GRAY);
-    gpuFillRect_c(1,UI_START_Y+1,63-1,599-1,COLOR_LUT[selectedColor]);
-    gpuDrawRect_c(0,UI_START_Y,63,599,0xAAA);
+    gpuFillRect_c(0,UI_START_Y,799,599,COLOR_DARK_GRAY);
 
     //Draw color palette
-
-    for(int i=0;i<2;i++)
+    for(int j=0;j<16;j++)
     {
-        for(int j=0;j<8;j++)
+        gpuFillRect_c(64+(32*j),UI_START_Y+2,95+(32*j),UI_START_Y+21,j<<8);
+    }
+    for(int j=0;j<16;j++)
+    {
+        gpuFillRect_c(64+(32*j),UI_START_Y+22,95+(32*j),UI_START_Y+41,j<<4);
+    }
+    for(int j=0;j<16;j++)
+    {
+        gpuFillRect_c(64+(32*j),UI_START_Y+42,95+(32*j),UI_START_Y+61,j);
+    }
+
+    gpuFillRect_c(578,UI_START_Y,673,599,COLOR_GRAY);
+
+    drawIconOpt(578,UI_START_Y,COLOR_BLACK,ICON_PEN,1);
+    drawIconOpt(610,UI_START_Y,COLOR_BLACK,ICON_RECT,1);
+    drawIconOpt(642,UI_START_Y,COLOR_BLACK,ICON_BUCKET,1);
+    drawIconOpt(578,UI_START_Y+32,COLOR_BLACK,ICON_LINE,1);
+    drawIconOpt(610,UI_START_Y+32,COLOR_BLACK,ICON_FILL_RECT,1);
+    drawIconOpt(642,UI_START_Y+32,COLOR_BLACK,ICON_CLEAR,1);
+
+    updateColor(0,0,2);
+    updateColor(4,0,2);
+    updateColor(8,0,2);
+}
+
+void updateColor(unsigned int channel,unsigned int val,unsigned int type)
+{
+    if(type==1)
+    {
+        unsigned int oldval=(selectedColor>>channel)&0xF;
+        if(channel==0)
         {
-            gpuFillRect_c(64+(j*32),UI_START_Y+(i*32),64+31+(j*32),UI_START_Y+31+(i*32),COLOR_LUT[8*i+j]);
+            gpuDrawRect_c(64+(32*oldval),UI_START_Y+42,95+(32*oldval),UI_START_Y+61,oldval<<channel);
+        }
+        else if(channel==4)
+        {
+            gpuDrawRect_c(64+(32*oldval),UI_START_Y+22,95+(32*oldval),UI_START_Y+41,oldval<<channel);
+        }
+        else if(channel==8)
+        {
+            gpuDrawRect_c(64+(32*oldval),UI_START_Y+2,95+(32*oldval),UI_START_Y+21,oldval<<channel);
+        }
+    }
+    else if(type==2)
+    {
+        if(channel==0)
+        {
+            gpuDrawRect_c(64+(32*val),UI_START_Y+42,95+(32*val),UI_START_Y+61,0xAAA);
+        }
+        else if(channel==4)
+        {
+            gpuDrawRect_c(64+(32*val),UI_START_Y+22,95+(32*val),UI_START_Y+41,0xAAA);
+        }
+        else if(channel==8)
+        {
+            gpuDrawRect_c(64+(32*val),UI_START_Y+2,95+(32*val),UI_START_Y+21,0xAAA);
         }
     }
 
-    gpuFillRect_c(320,UI_START_Y,415,599,COLOR_GRAY);
-
-    drawIconOpt(320,UI_START_Y,COLOR_BLACK,ICON_PEN,1);
-    drawIconOpt(352,UI_START_Y,COLOR_BLACK,ICON_RECT,1);
-    drawIconOpt(384,UI_START_Y,COLOR_BLACK,ICON_BUCKET,1);
-    drawIconOpt(320,UI_START_Y+32,COLOR_BLACK,ICON_LINE,1);
-    drawIconOpt(352,UI_START_Y+32,COLOR_BLACK,ICON_FILL_RECT,1);
-    drawIconOpt(384,UI_START_Y+32,COLOR_BLACK,ICON_CLEAR,1);
-
-    gpuSetColor(COLOR_LUT[selectedColor]);
+    selectedColor=(selectedColor & (~(0xF<<channel))) | (val<<channel);
+    gpuFillRect_c(2,UI_START_Y+2,63-2,599-2,selectedColor);
 }
 
 void _start() {
