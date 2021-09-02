@@ -7,6 +7,11 @@
 
 //Display resolution: 800x600
 
+const unsigned int COLOR_WHITE=0xFFF;
+const unsigned int COLOR_GRAY=0xCCC;
+const unsigned int COLOR_DARK_GRAY=0x888;
+const unsigned int COLOR_BLACK=0x000;
+
 const unsigned int UI_START_Y=600-64;
 
 const char *toolnames[] =  {"Pen", "Rectangle", "Paint bucket", "Line", "Filled", "rectangle"};
@@ -224,7 +229,7 @@ void setup()
     #endif
 
     drawIconOpt(768,UI_START_Y+32,COLOR_BLACK,ICON_ETF,0);
-    AL();
+    AL(704,568,1);
 
     updateColor(0,0,2);
     updateColor(4,0,2);
@@ -281,7 +286,7 @@ void DrawSplash()
     gpuDrawRect_c(xpos-2,ypos-2,endx+2,endy+2,COLOR_DARK_GRAY);
     gpuDrawRect_c(xpos-1,ypos-1,endx+1,endy+1,COLOR_DARK_GRAY);
     gpuFillRect_c(xpos,ypos,endx,endy,COLOR_GRAY);
-    ALUS();
+    AL(272,104,4);
     drawIconOpt(endx-32,endy-32,COLOR_BLACK,ICON_ETF,0);
 
     #ifdef TEXT
