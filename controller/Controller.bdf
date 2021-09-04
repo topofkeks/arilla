@@ -2311,6 +2311,56 @@ applicable agreement for further details.
 	)
 	(flipy)
 )
+(symbol
+	(rect 368 144 432 224)
+	(text "DFF" (rect 1 0 19 10)(font "Arial" (font_size 6)))
+	(text "inst6" (rect 3 68 26 80)(font "Arial" ))
+	(port
+		(pt 32 80)
+		(input)
+		(text "CLRN" (rect 21 59 44 71)(font "Courier New" (bold)))
+		(text "CLRN" (rect 21 58 44 70)(font "Courier New" (bold)))
+		(line (pt 32 80)(pt 32 76))
+	)
+	(port
+		(pt 0 40)
+		(input)
+		(text "CLK" (rect 3 29 20 41)(font "Courier New" (bold))(invisible))
+		(text "CLK" (rect 3 29 20 41)(font "Courier New" (bold))(invisible))
+		(line (pt 0 40)(pt 12 40))
+	)
+	(port
+		(pt 0 24)
+		(input)
+		(text "D" (rect 14 20 19 32)(font "Courier New" (bold)))
+		(text "D" (rect 14 20 19 32)(font "Courier New" (bold)))
+		(line (pt 0 24)(pt 12 24))
+	)
+	(port
+		(pt 32 0)
+		(input)
+		(text "PRN" (rect 24 13 41 25)(font "Courier New" (bold)))
+		(text "PRN" (rect 24 11 41 23)(font "Courier New" (bold)))
+		(line (pt 32 4)(pt 32 0))
+	)
+	(port
+		(pt 64 24)
+		(output)
+		(text "Q" (rect 45 20 50 32)(font "Courier New" (bold)))
+		(text "Q" (rect 43 20 48 32)(font "Courier New" (bold)))
+		(line (pt 52 24)(pt 64 24))
+	)
+	(drawing
+		(line (pt 12 12)(pt 52 12))
+		(line (pt 12 68)(pt 52 68))
+		(line (pt 52 68)(pt 52 12))
+		(line (pt 12 68)(pt 12 12))
+		(line (pt 19 40)(pt 12 47))
+		(line (pt 12 32)(pt 20 40))
+		(circle (rect 28 4 36 12))
+		(circle (rect 28 68 36 76))
+	)
+)
 (connector
 	(text "CLK" (rect 984 240 1005 252)(font "Arial" ))
 	(pt 1016 256)
@@ -2862,14 +2912,6 @@ applicable agreement for further details.
 	(pt 344 232)
 )
 (connector
-	(pt 352 168)
-	(pt 360 168)
-)
-(connector
-	(pt 360 168)
-	(pt 360 240)
-)
-(connector
 	(text "OutY[9..0]" (rect 2033 768 2084 780)(font "Arial" ))
 	(pt 2024 784)
 	(pt 2056 784)
@@ -2885,12 +2927,6 @@ applicable agreement for further details.
 	(text "OutY[9..0]" (rect 264 368 315 380)(font "Arial" ))
 	(pt 264 384)
 	(pt 328 384)
-	(bus)
-)
-(connector
-	(text "OutY[10..1],X[10..1],zero,zero,zero,zero,zero,zero,zero,zero,changed,Buttons[1..0],acked" (rect 1560 960 1993 972)(font "Arial" ))
-	(pt 1592 936)
-	(pt 1848 936)
 	(bus)
 )
 (connector
@@ -3176,6 +3212,29 @@ applicable agreement for further details.
 (connector
 	(pt 1240 216)
 	(pt 1288 216)
+)
+(connector
+	(pt 432 232)
+	(pt 432 168)
+)
+(connector
+	(pt 360 232)
+	(pt 432 232)
+)
+(connector
+	(pt 352 168)
+	(pt 368 168)
+)
+(connector
+	(text "clk" (rect 360 168 374 180)(font "Arial" ))
+	(pt 368 184)
+	(pt 352 184)
+)
+(connector
+	(text "OutY[9..0],X[9..0],zero,zero,zero,zero,zero,zero,zero,zero,changed,Buttons[1..0],acked" (rect 1560 960 1981 972)(font "Arial" ))
+	(pt 1592 936)
+	(pt 1848 936)
+	(bus)
 )
 (junction (pt 72 624))
 (junction (pt 48 496))
