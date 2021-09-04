@@ -20,18 +20,14 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="Notes.txt" />
-		<Unit filename="colors.c">
+		<Unit filename="font.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="colors.h" />
+		<Unit filename="font.h" />
 		<Unit filename="gpu.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="gpu.h" />
-		<Unit filename="icons.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="icons.h" />
 		<Unit filename="io.c">
 			<Option compilerVar="CC" />
 		</Unit>

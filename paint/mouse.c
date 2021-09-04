@@ -21,7 +21,7 @@ void mouseStop()
 
 void mouseRead()
 {
-    g_mouseStatus=in(MOUSE_BASE_ADDRESS+1);
+    g_mouseStatus=in(MOUSE_BASE_ADDRESS+4);
 }
 
 unsigned int mouseLDown()

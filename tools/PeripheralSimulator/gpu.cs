@@ -65,7 +65,7 @@ namespace PeripheralSimulator
 
         public uint read(uint address)
         {
-            return regs[address - getBaseAddress()];
+            return regs[(address - getBaseAddress())/4];
         }
 
         public void write(uint address, uint value)
@@ -75,7 +75,7 @@ namespace PeripheralSimulator
                 //Power ON
                 regs[1] |= 1;
             }
-            regs[address - getBaseAddress()] = value;
+            regs[(address - getBaseAddress())/4] = value;
             if (address == getBaseAddress())
             {
                 doWork();
@@ -365,8 +365,8 @@ namespace PeripheralSimulator
 
             public uint read(uint address)
             {
-                uint val = regs[address - getBaseAddress()];
-                if (address == getBaseAddress() + 1)
+                uint val = regs[(address - getBaseAddress())/4];
+                if (address == getBaseAddress() + 4)
                 {
                     regs[1] &= ~(uint)8;
                 }
@@ -375,7 +375,7 @@ namespace PeripheralSimulator
 
             public void write(uint address, uint value)
             {
-                regs[address - getBaseAddress()] = value;
+                regs[(address - getBaseAddress()) / 4] = value;
             }
 
             internal void mouseDown(MouseEventArgs e)

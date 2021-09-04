@@ -46,7 +46,6 @@ set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
-set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -147,6 +146,20 @@ set_location_assignment PIN_E7 -to SDRAM_LDQM
 set_location_assignment PIN_F7 -to SDRAM_RAS_N
 set_location_assignment PIN_B8 -to SDRAM_UDQM
 set_location_assignment PIN_D6 -to SDRAM_WE_N
+set_location_assignment PIN_K18 -to VGA_B[3]
+set_location_assignment PIN_J22 -to VGA_B[2]
+set_location_assignment PIN_K21 -to VGA_B[1]
+set_location_assignment PIN_K22 -to VGA_B[0]
+set_location_assignment PIN_J21 -to VGA_G[3]
+set_location_assignment PIN_K17 -to VGA_G[2]
+set_location_assignment PIN_J17 -to VGA_G[1]
+set_location_assignment PIN_H22 -to VGA_G[0]
+set_location_assignment PIN_L21 -to VGA_HSYNC
+set_location_assignment PIN_H21 -to VGA_R[3]
+set_location_assignment PIN_H20 -to VGA_R[2]
+set_location_assignment PIN_H17 -to VGA_R[1]
+set_location_assignment PIN_H19 -to VGA_R[0]
+set_location_assignment PIN_L22 -to VGA_VSYNC
 set_global_assignment -name VHDL_FILE ARILLAROM.vhd
 set_global_assignment -name BDF_FILE MemAlignExceptionCheck.bdf
 set_global_assignment -name BDF_FILE RegFile.bdf
@@ -158,12 +171,20 @@ set_global_assignment -name BDF_FILE ALUBranchOperationCode.bdf
 set_global_assignment -name BDF_FILE ArillaTopLevel.bdf
 set_global_assignment -name BDF_FILE ControlUnitOpSwitch.bdf
 set_global_assignment -name BDF_FILE StoreGenerator.bdf
-set_global_assignment -name SEARCH_PATH "d:\\studije\\2 godina\\arilla\\components"
-set_global_assignment -name SEARCH_PATH ../controller/
-set_global_assignment -name SEARCH_PATH ../gpu/
-set_global_assignment -name SEARCH_PATH ../components/
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 set_global_assignment -name BDF_FILE SRAMAdapter.bdf
+set_global_assignment -name SEARCH_PATH "d:\\faks\\4.semestar\\ar\\arilla\\components"
+set_global_assignment -name SEARCH_PATH "d:\\studije\\2 godina\\arilla\\components"
+set_global_assignment -name SEARCH_PATH ../controller/
+set_global_assignment -name SEARCH_PATH ../gpu/
+set_global_assignment -name SEARCH_PATH ../components/
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

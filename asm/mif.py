@@ -16,6 +16,7 @@ memory: List[Tuple[int, str]] = []
 prev_addr: int = -1
 start_addr: int = -1
 gp: int = -1
+offsets: List[int] = []
 
 with open(args.s_file, 'r', encoding='utf-8') as s_file:
     for line in s_file.readlines():
@@ -34,6 +35,7 @@ with open(args.s_file, 'r', encoding='utf-8') as s_file:
         if gp_match:
             offset1_str, offset2_str = gp_match.groups()
             new_gp: int = int(offset1_str, 10) + int(offset2_str, 16)
+            offsets.append(int(offset1_str, 10))
             assert gp == -1 or new_gp == gp, 'GP value differs throughout compiler output!'
             gp = new_gp
 
@@ -52,3 +54,5 @@ for (word, instruction) in memory:
     print(f'{format_hex(curr_word)} : {format_hex(word)}; -- {instruction}')
     curr_word += 1
 print('END;')
+print(max(offsets))
+print(min(offsets))

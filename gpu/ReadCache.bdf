@@ -166,7 +166,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 2000 480 2176 496)
+	(rect 2032 480 2208 496)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "RD" (rect 90 0 106 12)(font "Arial" ))
 	(pt 0 8)
@@ -1510,7 +1510,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1488 704 1552 784)
+	(rect 1504 704 1568 784)
 	(text "DFF" (rect 1 0 19 10)(font "Arial" (font_size 6)))
 	(text "inst37" (rect 3 68 32 80)(font "Arial" ))
 	(port
@@ -1618,6 +1618,38 @@ applicable agreement for further details.
 		(rectangle (rect 16 16 152 104))
 	)
 	(annotation_block (parameter)(rect 1808 640 2005 696))
+)
+(symbol
+	(rect 1392 704 1456 752)
+	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
+	(text "inst39" (rect 3 37 32 49)(font "Arial" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN1" (rect 2 7 19 19)(font "Courier New" (bold))(invisible))
+		(text "IN1" (rect 2 7 19 19)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 14 16))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
+		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
+		(line (pt 0 32)(pt 14 32))
+	)
+	(port
+		(pt 64 24)
+		(output)
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
+		(line (pt 42 24)(pt 64 24))
+	)
+	(drawing
+		(line (pt 14 12)(pt 30 12))
+		(line (pt 14 37)(pt 31 37))
+		(line (pt 14 12)(pt 14 37))
+		(arc (pt 31 37)(pt 30 12)(rect 18 12 43 37))
+	)
 )
 (connector
 	(pt 736 560)
@@ -1914,10 +1946,6 @@ applicable agreement for further details.
 	(pt 1928 480)
 )
 (connector
-	(pt 1992 488)
-	(pt 2000 488)
-)
-(connector
 	(pt 1904 512)
 	(pt 1920 512)
 )
@@ -2017,10 +2045,6 @@ applicable agreement for further details.
 	(text "cacheFull" (rect 1227 784 1274 796)(font "Arial" ))
 	(pt 1192 800)
 	(pt 1264 800)
-)
-(connector
-	(pt 1488 136)
-	(pt 1416 136)
 )
 (connector
 	(pt 1352 144)
@@ -2130,15 +2154,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "msfc" (rect 1455 712 1480 724)(font "Arial" ))
-	(pt 1448 728)
-	(pt 1488 728)
-)
-(connector
-	(pt 1552 728)
-	(pt 1640 728)
-)
-(connector
 	(pt 1728 696)
 	(pt 1728 672)
 	(bus)
@@ -2166,19 +2181,51 @@ applicable agreement for further details.
 	(pt 1432 120)
 )
 (connector
-	(text "cacheFull" (rect 1888 712 1935 724)(font "Arial" ))
-	(pt 1808 728)
-	(pt 1920 728)
-)
-(connector
 	(text "clk" (rect 1584 768 1598 780)(font "Arial" ))
 	(pt 1640 784)
 	(pt 1576 784)
 )
 (connector
-	(text "clk" (rect 1456 728 1470 740)(font "Arial" ))
-	(pt 1488 744)
-	(pt 1448 744)
+	(text "cacheFull" (rect 1888 712 1935 724)(font "Arial" ))
+	(pt 1808 728)
+	(pt 1952 728)
+)
+(connector
+	(text "clk" (rect 1472 728 1486 740)(font "Arial" ))
+	(pt 1504 744)
+	(pt 1464 744)
+)
+(connector
+	(pt 1640 728)
+	(pt 1568 728)
+)
+(connector
+	(pt 1504 728)
+	(pt 1456 728)
+)
+(connector
+	(text "msfc" (rect 1359 704 1384 716)(font "Arial" ))
+	(pt 1352 720)
+	(pt 1392 720)
+)
+(connector
+	(text "RD" (rect 1360 720 1376 732)(font "Arial" ))
+	(pt 1392 736)
+	(pt 1352 736)
+)
+(connector
+	(pt 1992 488)
+	(pt 2032 488)
+)
+(connector
+	(text "<<__$DEF_ALIAS3823>>" (rect 1471 120 1594 132)(font "Arial" ))
+	(pt 1416 136)
+	(pt 1424 136)
+)
+(connector
+	(text "zero" (rect 1463 120 1483 132)(font "Arial" ))
+	(pt 1448 136)
+	(pt 1488 136)
 )
 (junction (pt 776 904))
 (junction (pt 736 424))

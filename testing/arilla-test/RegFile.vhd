@@ -14,7 +14,7 @@
 
 -- PROGRAM		"Quartus II 64-Bit"
 -- VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
--- CREATED		"Sat Aug 21 01:57:34 2021"
+-- CREATED		"Mon Aug 30 20:14:25 2021"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -238,7 +238,7 @@ PORT MAP(enable => wr,
 
 
 b2v_inst10 : ldreg
-GENERIC MAP(default_value => 0,
+GENERIC MAP(default_value => 8180,
 			size => 32
 			)
 PORT MAP(clk => clk,
@@ -248,7 +248,7 @@ PORT MAP(clk => clk,
 
 
 b2v_inst11 : ldreg
-GENERIC MAP(default_value => 0,
+GENERIC MAP(default_value => 12852,
 			size => 32
 			)
 PORT MAP(clk => clk,
