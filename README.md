@@ -31,4 +31,4 @@ The following are best practices when developing components for Arilla - they al
 
 ## Documentation
 - [DE0 User Manual](https://rti.etf.bg.ac.rs/rti/oo1pot/labvezbe/DE0_User_manual.pdf)
-- [Cocline III Device Handbook](https://rti.etf.bg.ac.rs/rti/oo1pot/labvezbe/cyclone3_handbook.pdf)
+- [Cyclone III Device Handbook](https://rti.etf.bg.ac.rs/rti/oo1pot/labvezbe/cyclone3_handbook.pdf)
